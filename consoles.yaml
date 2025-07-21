@@ -1,0 +1,219 @@
+consoles:
+  # Nintendo Home Consoles
+  - name: NES
+    tags: [nintendo, console, nes, 8-bit, retro]
+    
+  - name: SNES
+    tags: [nintendo, console, snes, 16-bit, retro]
+    
+  - name: Nintendo 64
+    tags: [nintendo, console, n64, 3d, retro]
+    
+  - name: GameCube
+    tags: [nintendo, console, gc, 6th-gen]
+    
+  - name: Wii
+    tags: [nintendo, console, wii, 7th-gen, motion]
+    
+  - name: Wii U
+    tags: [nintendo, console, wiiu, 8th-gen]
+    
+  - name: Switch
+    tags: [nintendo, console, switch, hybrid, 8th-gen]
+    
+  - name: Switch 2
+    tags: [nintendo, console, switch2, hybrid, 9th-gen]
+
+  # Nintendo Handhelds
+  - name: Game Boy
+    tags: [nintendo, handheld, gb, 8-bit, retro]
+    
+  - name: Game Boy Color
+    tags: [nintendo, handheld, gbc, 8-bit, retro]
+    
+  - name: Game Boy Advance
+    tags: [nintendo, handheld, gba, 16-bit, retro]
+    
+  - name: Game Boy Advance SP
+    tags: [nintendo, handheld, gba-sp, 16-bit, retro]
+    
+  - name: Nintendo DS
+    tags: [nintendo, handheld, nds, ds, dual-screen]
+    
+  - name: Nintendo DS Lite
+    tags: [nintendo, handheld, nds-lite, ds, dual-screen]
+    
+  - name: Nintendo DSi
+    tags: [nintendo, handheld, dsi, dual-screen]
+    
+  - name: Nintendo 3DS
+    tags: [nintendo, handheld, 3ds, 3d, dual-screen]
+    
+  - name: Nintendo 3DS XL
+    tags: [nintendo, handheld, 3ds-xl, 3d, dual-screen]
+    
+  - name: New Nintendo 3DS
+    tags: [nintendo, handheld, new-3ds, 3d, dual-screen]
+    
+  - name: New Nintendo 3DS XL
+    tags: [nintendo, handheld, new-3ds-xl, 3d, dual-screen]
+
+  # Sony Home Consoles
+  - name: PlayStation 1
+    tags: [sony, console, ps1, playstation, 5th-gen]
+    
+  - name: PlayStation 2
+    tags: [sony, console, ps2, 6th-gen]
+    
+  - name: PlayStation 3
+    tags: [sony, console, ps3, 7th-gen]
+    
+  - name: PlayStation 4
+    tags: [sony, console, ps4, 8th-gen]
+    
+  - name: PlayStation 5
+    tags: [sony, console, ps5, 9th-gen]
+
+  # Sony Handhelds
+  - name: PSP
+    tags: [sony, handheld, psp, portable]
+    
+  - name: PS Vita
+    tags: [sony, handheld, psvita, vita, portable]
+
+  # Microsoft Home Consoles
+  - name: Xbox
+    tags: [microsoft, console, xbox, 6th-gen]
+    
+  - name: Xbox 360
+    tags: [microsoft, console, xbox360, 7th-gen]
+    
+  - name: Xbox One
+    tags: [microsoft, console, xboxone, 8th-gen]
+    
+  - name: Xbox Series S
+    tags: [microsoft, console, xbox-series-s, 9th-gen]
+    
+  - name: Xbox Series X
+    tags: [microsoft, console, xbox-series-x, 9th-gen]
+
+  # Sega Home Consoles
+  - name: Sega Master System
+    tags: [sega, console, master-system, 8-bit, retro]
+    
+  - name: Sega Genesis
+    tags: [sega, console, genesis, mega-drive, 16-bit, retro]
+    
+  - name: Sega Saturn
+    tags: [sega, console, saturn, 5th-gen]
+    
+  - name: Sega Dreamcast
+    tags: [sega, console, dreamcast, 6th-gen]
+
+  # Sega Handhelds
+  - name: Sega Game Gear
+    tags: [sega, handheld, game-gear, retro]
+
+  # Atari Home Consoles
+  - name: Atari 2600
+    tags: [atari, console, 2600, vcs, retro]
+    
+  - name: Atari 5200
+    tags: [atari, console, 5200, retro]
+    
+  - name: Atari 7800
+    tags: [atari, console, 7800, retro]
+
+  # Atari Handhelds
+  - name: Atari Lynx
+    tags: [atari, handheld, lynx, retro]
+
+  # SNK Consoles
+  - name: Neo Geo
+    tags: [snk, console, neo-geo, arcade, retro]
+    
+  - name: Neo Geo Pocket
+    tags: [snk, handheld, neo-geo-pocket, retro]
+    
+  - name: Neo Geo Pocket Color
+    tags: [snk, handheld, neo-geo-pocket-color, retro]
+
+  # NEC Consoles
+  - name: TurboGrafx-16
+    tags: [nec, console, turbografx-16, pc-engine, 16-bit, retro]
+    
+  - name: TurboGrafx-16 Express
+    tags: [nec, handheld, turbografx-express, pc-engine-gt, retro]
+
+  # Other Retro Consoles
+  - name: 3DO
+    tags: [3do, console, panasonic, 5th-gen]
+    
+  - name: Jaguar
+    tags: [atari, console, jaguar, 5th-gen]
+    
+  - name: CD-i
+    tags: [philips, console, cdi, 5th-gen]
+
+  # VR Headsets
+  - name: Oculus Quest
+    tags: [meta, vr, quest, standalone]
+    
+  - name: Meta Quest 2
+    tags: [meta, vr, quest2, standalone]
+    
+  - name: Meta Quest 3
+    tags: [meta, vr, quest3, standalone]
+    
+  - name: Meta Quest Pro
+    tags: [meta, vr, quest-pro, standalone]
+    
+  - name: Oculus Rift
+    tags: [meta, vr, rift, pc-vr]
+    
+  - name: Oculus Rift S
+    tags: [meta, vr, rift-s, pc-vr]
+    
+  - name: Valve Index
+    tags: [valve, vr, index, pc-vr]
+    
+  - name: HTC Vive
+    tags: [htc, vr, vive, pc-vr]
+    
+  - name: HTC Vive Pro
+    tags: [htc, vr, vive-pro, pc-vr]
+
+  # PC Gaming Handhelds
+  - name: Steam Deck
+    tags: [valve, handheld, steam-deck, pc-gaming]
+    
+  - name: Steam Deck OLED
+    tags: [valve, handheld, steam-deck-oled, pc-gaming]
+    
+  - name: ROG Ally
+    tags: [asus, handheld, rog-ally, pc-gaming]
+    
+  - name: Lenovo Legion Go
+    tags: [lenovo, handheld, legion-go, pc-gaming]
+
+  # Modern Retro Handhelds
+  - name: Analogue Pocket
+    tags: [analogue, handheld, fpga, retro]
+    
+  - name: Evercade
+    tags: [evercade, handheld, retro]
+    
+  - name: Evercade VS
+    tags: [evercade, console, retro]
+    
+  - name: Playdate
+    tags: [panic, handheld, playdate, indie]
+    
+  - name: Miyoo Mini
+    tags: [miyoo, handheld, retro, emulation]
+    
+  - name: Anbernic RG35XX
+    tags: [anbernic, handheld, retro, emulation]
+    
+  - name: Retroid Pocket
+    tags: [retroid, handheld, retro, emulation] 

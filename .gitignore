@@ -1,0 +1,6 @@
+# build junk
+/dist
+/output
+
+# user data
+*.json
