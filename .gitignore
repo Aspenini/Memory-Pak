@@ -1,4 +1,5 @@
 # build junk
+/build
 /dist
 /output
 *.spec
