@@ -118,9 +118,9 @@ class ConsoleCard(QFrame):
     def _update_button_states(self):
         """Update button text and checked state based on current data."""
         name = self.entry["name"]
-        is_owned = name in user_data["owned"]
-        is_favorite = name in user_data["favorite"]
-        is_wishlist = name in user_data["wishlist"]
+        is_owned = name in user_data["consoles"]["owned"]
+        is_favorite = name in user_data["consoles"]["favorite"]
+        is_wishlist = name in user_data["consoles"]["wishlist"]
         
         self.owned_btn.setText("✓ Owned" if is_owned else "Mark Owned")
         self.owned_btn.setChecked(is_owned)
@@ -137,13 +137,13 @@ class ConsoleCard(QFrame):
     def _toggle_owned(self):
         """Toggle the owned status of this console."""
         name = self.entry["name"]
-        if name in user_data["owned"]:
-            user_data["owned"].remove(name)
+        if name in user_data["consoles"]["owned"]:
+            user_data["consoles"]["owned"].remove(name)
         else:
-            user_data["owned"].append(name)
+            user_data["consoles"]["owned"].append(name)
             # Remove from wishlist if now owned
-            if name in user_data["wishlist"]:
-                user_data["wishlist"].remove(name)
+            if name in user_data["consoles"]["wishlist"]:
+                user_data["consoles"]["wishlist"].remove(name)
         
         save_json("user_data.json", user_data)
         self._update_button_states()
@@ -152,10 +152,10 @@ class ConsoleCard(QFrame):
     def _toggle_wishlist(self):
         """Toggle the wishlist status of this console."""
         name = self.entry["name"]
-        if name in user_data["wishlist"]:
-            user_data["wishlist"].remove(name)
+        if name in user_data["consoles"]["wishlist"]:
+            user_data["consoles"]["wishlist"].remove(name)
         else:
-            user_data["wishlist"].append(name)
+            user_data["consoles"]["wishlist"].append(name)
         
         save_json("user_data.json", user_data)
         self._update_button_states()
@@ -164,10 +164,10 @@ class ConsoleCard(QFrame):
     def _toggle_favorite(self):
         """Toggle the favorite status of this console."""
         name = self.entry["name"]
-        if name in user_data["favorite"]:
-            user_data["favorite"].remove(name)
+        if name in user_data["consoles"]["favorite"]:
+            user_data["consoles"]["favorite"].remove(name)
         else:
-            user_data["favorite"].append(name)
+            user_data["consoles"]["favorite"].append(name)
         
         save_json("user_data.json", user_data)
         self._update_button_states()
@@ -332,11 +332,11 @@ class ConsolesTab(QWidget):
         # Sort entries
         sort_mode = self.sort_box.currentText()
         if sort_mode == "Owned First":
-            entries.sort(key=lambda x: (x["name"] not in user_data["owned"], x["name"]))
+            entries.sort(key=lambda x: (x["name"] not in user_data["consoles"]["owned"], x["name"]))
         elif sort_mode == "Wishlist First":
-            entries.sort(key=lambda x: (x["name"] not in user_data["wishlist"], x["name"]))
+            entries.sort(key=lambda x: (x["name"] not in user_data["consoles"]["wishlist"], x["name"]))
         elif sort_mode == "Favorites First":
-            entries.sort(key=lambda x: (x["name"] not in user_data["favorite"], x["name"]))
+            entries.sort(key=lambda x: (x["name"] not in user_data["consoles"]["favorite"], x["name"]))
         elif sort_mode == "Generation (Oldest First)":
             entries.sort(key=lambda x: (_get_generation_order(x), x["name"]))
         elif sort_mode == "Generation (Newest First)":
@@ -361,9 +361,9 @@ class ConsolesTab(QWidget):
     def refresh_stats(self):
         """Update the statistics display."""
         total = len(consoles)
-        owned = len(user_data["owned"])
-        wishlist = len(user_data["wishlist"])
-        favorited = len(user_data["favorite"])
+        owned = len(user_data["consoles"]["owned"])
+        wishlist = len(user_data["consoles"]["wishlist"])
+        favorited = len(user_data["consoles"]["favorite"])
         
         stats_text = f"🎮 Total: {total} | ✔ Owned: {owned} | 📋 Wishlist: {wishlist} | ❤️ Favorites: {favorited}"
         if total > 0:
@@ -411,7 +411,7 @@ class GameCard(QFrame):
         game_info = QVBoxLayout()
         game_info.setSpacing(5)
         
-        title = QLabel(self.game["name"])
+        title = QLabel(str(self.game["name"]))
         title.setObjectName("gameName")
         title.setFont(QFont("Segoe UI", 12, QFont.Weight.Bold))
         
@@ -457,10 +457,10 @@ class GameCard(QFrame):
 
     def _update_button_states(self):
         """Update button text and checked state based on current data."""
-        game_key = f"{self.console}:{self.game['name']}"
-        is_owned = game_key in user_games_data.get("owned", [])
-        is_favorite = game_key in user_games_data.get("favorite", [])
-        is_wishlist = game_key in user_games_data.get("wishlist", [])
+        game_key = f"{self.console}:{str(self.game['name'])}"
+        is_owned = game_key in user_data["games"]["owned"]
+        is_favorite = game_key in user_data["games"]["favorite"]
+        is_wishlist = game_key in user_data["games"]["wishlist"]
         
         self.owned_btn.setText("✓ Owned" if is_owned else "Mark Owned")
         self.owned_btn.setChecked(is_owned)
@@ -476,52 +476,43 @@ class GameCard(QFrame):
 
     def _toggle_owned(self):
         """Toggle the owned status of this game."""
-        game_key = f"{self.console}:{self.game['name']}"
+        game_key = f"{self.console}:{str(self.game['name'])}"
         
-        if "owned" not in user_games_data:
-            user_games_data["owned"] = []
-        
-        if game_key in user_games_data["owned"]:
-            user_games_data["owned"].remove(game_key)
+        if game_key in user_data["games"]["owned"]:
+            user_data["games"]["owned"].remove(game_key)
         else:
-            user_games_data["owned"].append(game_key)
+            user_data["games"]["owned"].append(game_key)
             # Remove from wishlist if now owned
-            if "wishlist" in user_games_data and game_key in user_games_data["wishlist"]:
-                user_games_data["wishlist"].remove(game_key)
+            if game_key in user_data["games"]["wishlist"]:
+                user_data["games"]["wishlist"].remove(game_key)
         
-        save_json("user_games.json", user_games_data)
+        save_json("user_data.json", user_data)
         self._update_button_states()
         self.refresh_stats()
 
     def _toggle_wishlist(self):
         """Toggle the wishlist status of this game."""
-        game_key = f"{self.console}:{self.game['name']}"
+        game_key = f"{self.console}:{str(self.game['name'])}"
         
-        if "wishlist" not in user_games_data:
-            user_games_data["wishlist"] = []
-        
-        if game_key in user_games_data["wishlist"]:
-            user_games_data["wishlist"].remove(game_key)
+        if game_key in user_data["games"]["wishlist"]:
+            user_data["games"]["wishlist"].remove(game_key)
         else:
-            user_games_data["wishlist"].append(game_key)
+            user_data["games"]["wishlist"].append(game_key)
         
-        save_json("user_games.json", user_games_data)
+        save_json("user_data.json", user_data)
         self._update_button_states()
         self.refresh_stats()
 
     def _toggle_favorite(self):
         """Toggle the favorite status of this game."""
-        game_key = f"{self.console}:{self.game['name']}"
+        game_key = f"{self.console}:{str(self.game['name'])}"
         
-        if "favorite" not in user_games_data:
-            user_games_data["favorite"] = []
-        
-        if game_key in user_games_data["favorite"]:
-            user_games_data["favorite"].remove(game_key)
+        if game_key in user_data["games"]["favorite"]:
+            user_data["games"]["favorite"].remove(game_key)
         else:
-            user_games_data["favorite"].append(game_key)
+            user_data["games"]["favorite"].append(game_key)
         
-        save_json("user_games.json", user_games_data)
+        save_json("user_data.json", user_data)
         self._update_button_states()
         self.refresh_stats()
 
@@ -669,7 +660,7 @@ class GamesTab(QWidget):
         if query:
             games = [
                 g for g in games
-                if query in g["name"].lower() or 
+                if query in str(g["name"]).lower() or 
                    (g.get("developer") and query in g["developer"].lower()) or
                    (g.get("publisher") and query in g["publisher"].lower())
             ]
@@ -677,20 +668,20 @@ class GamesTab(QWidget):
         # Apply filter
         filter_mode = self.filter_box.currentText()
         if filter_mode == "Owned Games":
-            games = [g for g in games if f"{selected_console}:{g['name']}" in user_games_data.get("owned", [])]
+            games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["owned"]]
         elif filter_mode == "Wishlist Games":
-            games = [g for g in games if f"{selected_console}:{g['name']}" in user_games_data.get("wishlist", [])]
+            games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["wishlist"]]
         elif filter_mode == "Favorite Games":
-            games = [g for g in games if f"{selected_console}:{g['name']}" in user_games_data.get("favorite", [])]
+            games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["favorite"]]
 
         # Sort games
         sort_mode = self.sort_box.currentText()
         if sort_mode == "Developer A-Z":
-            games.sort(key=lambda x: (x.get("developer", ""), x["name"]))
+            games.sort(key=lambda x: (x.get("developer", ""), str(x["name"])))
         elif sort_mode == "Publisher A-Z":
-            games.sort(key=lambda x: (x.get("publisher", ""), x["name"]))
+            games.sort(key=lambda x: (x.get("publisher", ""), str(x["name"])))
         else:  # A-Z
-            games.sort(key=lambda x: x["name"])
+            games.sort(key=lambda x: str(x["name"]))
 
         # Create and add game cards
         for game in games:
@@ -710,11 +701,11 @@ class GamesTab(QWidget):
 
         total_games = len(games_data[selected_console])
         owned_games = len([g for g in games_data[selected_console] 
-                          if f"{selected_console}:{g['name']}" in user_games_data.get("owned", [])])
+                          if f"{selected_console}:{str(g['name'])}" in user_data["games"]["owned"]])
         wishlist_games = len([g for g in games_data[selected_console] 
-                             if f"{selected_console}:{g['name']}" in user_games_data.get("wishlist", [])])
+                             if f"{selected_console}:{str(g['name'])}" in user_data["games"]["wishlist"]])
         favorite_games = len([g for g in games_data[selected_console] 
-                             if f"{selected_console}:{g['name']}" in user_games_data.get("favorite", [])])
+                             if f"{selected_console}:{str(g['name'])}" in user_data["games"]["favorite"]])
 
         stats_text = f"🎮 {selected_console}: {total_games} Total | ✔ Owned: {owned_games} | 📋 Wishlist: {wishlist_games} | ❤️ Favorites: {favorite_games}"
         if total_games > 0:
@@ -869,10 +860,12 @@ def load_games_data():
 def main():
     """Main application entry point."""
     # Load data
-    global consoles, user_data, settings, games_data, user_games_data
+    global consoles, user_data, settings, games_data
     consoles = load_data_file("consoles.yaml", [])
-    user_data = load_data_file("user_data.json", {"owned": [], "wishlist": [], "favorite": []})
-    user_games_data = load_data_file("user_games.json", {"owned": [], "wishlist": [], "favorite": []})
+    user_data = load_data_file("user_data.json", {
+        "consoles": {"owned": [], "wishlist": [], "favorite": []},
+        "games": {"owned": [], "wishlist": [], "favorite": []}
+    })
     settings = load_data_file("settings.json", {"theme": "dark"})
     games_data = load_games_data()
     

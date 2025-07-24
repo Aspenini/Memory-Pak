@@ -4,3 +4,6 @@
 
 # user data
 *.json
+
+# virtual environment
+/venv
