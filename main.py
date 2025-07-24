@@ -98,6 +98,13 @@ class ConsoleCard(QFrame):
         self.owned_btn.clicked.connect(self._toggle_owned)
         layout.addWidget(self.owned_btn)
 
+        # Wishlist button
+        self.wishlist_btn = QPushButton()
+        self.wishlist_btn.setCheckable(True)
+        self.wishlist_btn.setObjectName("wishlistButton")
+        self.wishlist_btn.clicked.connect(self._toggle_wishlist)
+        layout.addWidget(self.wishlist_btn)
+
         # Favorite button
         self.favorite_btn = QPushButton()
         self.favorite_btn.setCheckable(True)
@@ -112,9 +119,16 @@ class ConsoleCard(QFrame):
         name = self.entry["name"]
         is_owned = name in user_data["owned"]
         is_favorite = name in user_data["favorite"]
+        is_wishlist = name in user_data["wishlist"]
         
         self.owned_btn.setText("✓ Owned" if is_owned else "Mark Owned")
         self.owned_btn.setChecked(is_owned)
+        
+        # Hide wishlist button if owned, show if not owned
+        self.wishlist_btn.setVisible(not is_owned)
+        if not is_owned:
+            self.wishlist_btn.setText("📋 Wishlist" if is_wishlist else "Add to Wishlist")
+            self.wishlist_btn.setChecked(is_wishlist)
         
         self.favorite_btn.setText("♥" if is_favorite else "♡")
         self.favorite_btn.setChecked(is_favorite)
@@ -126,6 +140,21 @@ class ConsoleCard(QFrame):
             user_data["owned"].remove(name)
         else:
             user_data["owned"].append(name)
+            # Remove from wishlist if now owned
+            if name in user_data["wishlist"]:
+                user_data["wishlist"].remove(name)
+        
+        save_json("user_data.json", user_data)
+        self._update_button_states()
+        self.refresh_stats()
+
+    def _toggle_wishlist(self):
+        """Toggle the wishlist status of this console."""
+        name = self.entry["name"]
+        if name in user_data["wishlist"]:
+            user_data["wishlist"].remove(name)
+        else:
+            user_data["wishlist"].append(name)
         
         save_json("user_data.json", user_data)
         self._update_button_states()
@@ -201,7 +230,8 @@ class MemoryPak(QMainWindow):
             "VR Headsets",
             "PC Gaming Handhelds",
             "Retro Consoles",
-            "Modern Consoles (8th-9th Gen)"
+            "Modern Consoles (8th-9th Gen)",
+            "Wishlist"
         ])
         self.filter_box.setObjectName("filterBox")
         self.filter_box.currentIndexChanged.connect(self._on_filter_changed)
@@ -212,6 +242,7 @@ class MemoryPak(QMainWindow):
         self.sort_box.addItems([
             "A-Z", 
             "Owned First", 
+            "Wishlist First",
             "Favorites First",
             "Generation (Oldest First)",
             "Generation (Newest First)",
@@ -291,6 +322,8 @@ class MemoryPak(QMainWindow):
             entries = [c for c in entries if "retro" in [str(tag) for tag in c.get("tags", [])]]
         elif filter_mode == "Modern Consoles (8th-9th Gen)":
             entries = [c for c in entries if any(str(tag) in ["8th-gen", "9th-gen"] for tag in c.get("tags", []) if tag is not None)]
+        elif filter_mode == "Wishlist":
+            entries = [c for c in entries if c["name"] in user_data["wishlist"]]
 
         # Apply search filter
         if query:
@@ -304,6 +337,8 @@ class MemoryPak(QMainWindow):
         sort_mode = self.sort_box.currentText()
         if sort_mode == "Owned First":
             entries.sort(key=lambda x: (x["name"] not in user_data["owned"], x["name"]))
+        elif sort_mode == "Wishlist First":
+            entries.sort(key=lambda x: (x["name"] not in user_data["wishlist"], x["name"]))
         elif sort_mode == "Favorites First":
             entries.sort(key=lambda x: (x["name"] not in user_data["favorite"], x["name"]))
         elif sort_mode == "Generation (Oldest First)":
@@ -331,9 +366,10 @@ class MemoryPak(QMainWindow):
         """Update the statistics display."""
         total = len(consoles)
         owned = len(user_data["owned"])
+        wishlist = len(user_data["wishlist"])
         favorited = len(user_data["favorite"])
         
-        stats_text = f"🎮 Total: {total} | ✔ Owned: {owned} | ❤️ Favorites: {favorited}"
+        stats_text = f"🎮 Total: {total} | ✔ Owned: {owned} | 📋 Wishlist: {wishlist} | ❤️ Favorites: {favorited}"
         if total > 0:
             owned_percent = (owned / total) * 100
             stats_text += f" | 📊 {owned_percent:.1f}% Complete"
@@ -424,7 +460,7 @@ def main():
     # Load data
     global consoles, user_data, settings
     consoles = load_data_file("consoles.yaml", [])
-    user_data = load_data_file("user_data.json", {"owned": [], "favorite": []})
+    user_data = load_data_file("user_data.json", {"owned": [], "wishlist": [], "favorite": []})
     settings = load_data_file("settings.json", {"theme": "dark"})
     
     # Create application
