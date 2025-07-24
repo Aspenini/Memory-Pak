@@ -221,13 +221,15 @@ class ConsolesTab(QWidget):
         self.filter_box = QComboBox()
         self.filter_box.addItems([
             "All Consoles",
+            "Owned Consoles",
+            "Wishlist Consoles",
+            "Favorite Consoles",
             "Home Consoles",
             "Handhelds",
             "VR Headsets",
             "PC Gaming Handhelds",
             "Retro Consoles",
-            "Modern Consoles (8th-9th Gen)",
-            "Wishlist"
+            "Modern Consoles (8th-9th Gen)"
         ])
         self.filter_box.setObjectName("filterBox")
         self.filter_box.currentIndexChanged.connect(self._on_filter_changed)
@@ -306,7 +308,13 @@ class ConsolesTab(QWidget):
 
         # Apply filter
         filter_mode = self.filter_box.currentText()
-        if filter_mode == "Home Consoles":
+        if filter_mode == "Owned Consoles":
+            entries = [c for c in entries if c["name"] in user_data["consoles"]["owned"]]
+        elif filter_mode == "Wishlist Consoles":
+            entries = [c for c in entries if c["name"] in user_data["consoles"]["wishlist"]]
+        elif filter_mode == "Favorite Consoles":
+            entries = [c for c in entries if c["name"] in user_data["consoles"]["favorite"]]
+        elif filter_mode == "Home Consoles":
             entries = [c for c in entries if "console" in [str(tag) for tag in c.get("tags", [])] and "handheld" not in [str(tag) for tag in c.get("tags", [])]]
         elif filter_mode == "Handhelds":
             entries = [c for c in entries if "handheld" in [str(tag) for tag in c.get("tags", [])]]
@@ -318,8 +326,6 @@ class ConsolesTab(QWidget):
             entries = [c for c in entries if "retro" in [str(tag) for tag in c.get("tags", [])]]
         elif filter_mode == "Modern Consoles (8th-9th Gen)":
             entries = [c for c in entries if any(str(tag) in ["8th-gen", "9th-gen"] for tag in c.get("tags", []) if tag is not None)]
-        elif filter_mode == "Wishlist":
-            entries = [c for c in entries if c["name"] in user_data["wishlist"]]
 
         # Apply search filter
         if query:
@@ -410,6 +416,14 @@ class GameCard(QFrame):
         # Game info
         game_info = QVBoxLayout()
         game_info.setSpacing(5)
+        
+        # Show console name if available (for "All Consoles" view)
+        if self.game.get("console"):
+            console_label = QLabel(f"[{self.game['console']}]")
+            console_label.setObjectName("gameConsole")
+            console_label.setFont(QFont("Segoe UI", 9, QFont.Weight.Bold))
+            console_label.setStyleSheet("color: #888;")
+            game_info.addWidget(console_label)
         
         title = QLabel(str(self.game["name"]))
         title.setObjectName("gameName")
@@ -550,6 +564,7 @@ class GamesTab(QWidget):
         # Console selection dropdown
         self.console_box = QComboBox()
         self.console_box.addItem("Select Console...")
+        self.console_box.addItem("All Consoles")
         
         # Add available consoles from games data
         if games_data:
@@ -648,12 +663,24 @@ class GamesTab(QWidget):
 
         # Get selected console
         selected_console = self.console_box.currentText()
-        if selected_console == "Select Console..." or selected_console not in games_data:
+        if selected_console == "Select Console...":
             self.stats_label.setText("Select a console to view games")
             return
 
-        # Get games for selected console
-        games = games_data[selected_console]
+        # Get games for selected console or all consoles
+        if selected_console == "All Consoles":
+            games = []
+            for console in games_data.keys():
+                for game in games_data[console]:
+                    # Add console info to each game for display
+                    game_with_console = game.copy()
+                    game_with_console["console"] = console
+                    games.append(game_with_console)
+        else:
+            if selected_console not in games_data:
+                self.stats_label.setText("Select a console to view games")
+                return
+            games = games_data[selected_console]
         query = self.search_box.text().lower().strip()
 
         # Apply search filter
@@ -668,11 +695,20 @@ class GamesTab(QWidget):
         # Apply filter
         filter_mode = self.filter_box.currentText()
         if filter_mode == "Owned Games":
-            games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["owned"]]
+            if selected_console == "All Consoles":
+                games = [g for g in games if f"{g['console']}:{str(g['name'])}" in user_data["games"]["owned"]]
+            else:
+                games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["owned"]]
         elif filter_mode == "Wishlist Games":
-            games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["wishlist"]]
+            if selected_console == "All Consoles":
+                games = [g for g in games if f"{g['console']}:{str(g['name'])}" in user_data["games"]["wishlist"]]
+            else:
+                games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["wishlist"]]
         elif filter_mode == "Favorite Games":
-            games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["favorite"]]
+            if selected_console == "All Consoles":
+                games = [g for g in games if f"{g['console']}:{str(g['name'])}" in user_data["games"]["favorite"]]
+            else:
+                games = [g for g in games if f"{selected_console}:{str(g['name'])}" in user_data["games"]["favorite"]]
 
         # Sort games
         sort_mode = self.sort_box.currentText()
@@ -685,7 +721,10 @@ class GamesTab(QWidget):
 
         # Create and add game cards
         for game in games:
-            card = GameCard(game, selected_console, self.toggle_theme, self.refresh_stats)
+            if selected_console == "All Consoles":
+                card = GameCard(game, game["console"], self.toggle_theme, self.refresh_stats)
+            else:
+                card = GameCard(game, selected_console, self.toggle_theme, self.refresh_stats)
             self.games_layout.addWidget(card)
 
         # Add stretch to push cards to top
@@ -696,21 +735,36 @@ class GamesTab(QWidget):
     def refresh_stats(self):
         """Update the statistics display."""
         selected_console = self.console_box.currentText()
-        if selected_console == "Select Console..." or selected_console not in games_data:
+        if selected_console == "Select Console...":
             return
 
-        total_games = len(games_data[selected_console])
-        owned_games = len([g for g in games_data[selected_console] 
-                          if f"{selected_console}:{str(g['name'])}" in user_data["games"]["owned"]])
-        wishlist_games = len([g for g in games_data[selected_console] 
-                             if f"{selected_console}:{str(g['name'])}" in user_data["games"]["wishlist"]])
-        favorite_games = len([g for g in games_data[selected_console] 
-                             if f"{selected_console}:{str(g['name'])}" in user_data["games"]["favorite"]])
+        if selected_console == "All Consoles":
+            # Calculate stats across all consoles
+            total_games = sum(len(games_data[console]) for console in games_data.keys())
+            owned_games = len(user_data["games"]["owned"])
+            wishlist_games = len(user_data["games"]["wishlist"])
+            favorite_games = len(user_data["games"]["favorite"])
+            
+            stats_text = f"🎮 All Consoles: {total_games} Total | ✔ Owned: {owned_games} | 📋 Wishlist: {wishlist_games} | ❤️ Favorites: {favorite_games}"
+            if total_games > 0:
+                owned_percent = (owned_games / total_games) * 100
+                stats_text += f" | 📊 {owned_percent:.1f}% Complete"
+        else:
+            if selected_console not in games_data:
+                return
+                
+            total_games = len(games_data[selected_console])
+            owned_games = len([g for g in games_data[selected_console] 
+                              if f"{selected_console}:{str(g['name'])}" in user_data["games"]["owned"]])
+            wishlist_games = len([g for g in games_data[selected_console] 
+                                 if f"{selected_console}:{str(g['name'])}" in user_data["games"]["wishlist"]])
+            favorite_games = len([g for g in games_data[selected_console] 
+                                 if f"{selected_console}:{str(g['name'])}" in user_data["games"]["favorite"]])
 
-        stats_text = f"🎮 {selected_console}: {total_games} Total | ✔ Owned: {owned_games} | 📋 Wishlist: {wishlist_games} | ❤️ Favorites: {favorite_games}"
-        if total_games > 0:
-            owned_percent = (owned_games / total_games) * 100
-            stats_text += f" | 📊 {owned_percent:.1f}% Complete"
+            stats_text = f"🎮 {selected_console}: {total_games} Total | ✔ Owned: {owned_games} | 📋 Wishlist: {wishlist_games} | ❤️ Favorites: {favorite_games}"
+            if total_games > 0:
+                owned_percent = (owned_games / total_games) * 100
+                stats_text += f" | 📊 {owned_percent:.1f}% Complete"
         
         self.stats_label.setText(stats_text)
 
