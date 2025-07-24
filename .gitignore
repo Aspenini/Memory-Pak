@@ -1,6 +1,7 @@
 # build junk
 /dist
 /output
+*.spec
 
 # user data
 *.json

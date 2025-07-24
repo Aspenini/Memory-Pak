@@ -50,7 +50,7 @@ if not exist "dist" mkdir "dist"
 
 REM Build the application
 echo Building Memory-Pak...
-pyinstaller --onefile --windowed --name "Memory-Pak" --icon "icons/switch.png" main.py
+pyinstaller --onefile --windowed --name "Memory-Pak" --icon "icons/icon.ico" main.py
 
 REM Check if build was successful
 if errorlevel 1 (
