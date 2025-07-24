@@ -6,7 +6,8 @@ from typing import List, Dict, Any
 
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QLabel, QScrollArea, QPushButton,
-    QHBoxLayout, QLineEdit, QFrame, QSizePolicy, QComboBox, QMainWindow
+    QHBoxLayout, QLineEdit, QFrame, QSizePolicy, QComboBox, QMainWindow,
+    QTabWidget
 )
 from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QColor, QPalette, QFont, QIcon
@@ -173,24 +174,19 @@ class ConsoleCard(QFrame):
         self.refresh_stats()
 
 
-class MemoryPak(QMainWindow):
-    """Main application window for Memory Pak."""
+class ConsolesTab(QWidget):
+    """Tab widget for console management."""
     
-    def __init__(self):
+    def __init__(self, toggle_theme_callback):
         super().__init__()
-        self.setWindowTitle("Memory Pak - Console Collection Manager")
-        self.setGeometry(100, 100, 1000, 800)
-        self.setMinimumSize(800, 600)
+        self.toggle_theme = toggle_theme_callback
         
         self._setup_ui()
         self.refresh_cards()
 
     def _setup_ui(self):
-        """Setup the main UI layout."""
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
-        
-        layout = QVBoxLayout(central_widget)
+        """Setup the console tab UI layout."""
+        layout = QVBoxLayout(self)
         layout.setSpacing(15)
         layout.setContentsMargins(20, 20, 20, 20)
 
@@ -388,6 +384,393 @@ class MemoryPak(QMainWindow):
         apply_theme(QApplication.instance(), new_theme)
 
 
+class GameCard(QFrame):
+    """A card widget representing a game with owned/favorite controls."""
+    
+    def __init__(self, game: Dict[str, Any], console: str, toggle_theme_callback, refresh_stats_callback):
+        super().__init__()
+        self.game = game
+        self.console = console
+        self.toggle_theme = toggle_theme_callback
+        self.refresh_stats = refresh_stats_callback
+        
+        self.setObjectName("gameCard")
+        self.setFrameStyle(QFrame.Shape.StyledPanel)
+        self.setLineWidth(1)
+        
+        self._setup_ui()
+        self._update_button_states()
+
+    def _setup_ui(self):
+        """Setup the card UI layout."""
+        layout = QHBoxLayout()
+        layout.setContentsMargins(15, 10, 15, 10)
+        layout.setSpacing(10)
+
+        # Game info
+        game_info = QVBoxLayout()
+        game_info.setSpacing(5)
+        
+        title = QLabel(self.game["name"])
+        title.setObjectName("gameName")
+        title.setFont(QFont("Segoe UI", 12, QFont.Weight.Bold))
+        
+        # Developer and publisher info
+        dev_pub = []
+        if self.game.get("developer"):
+            dev_pub.append(f"Dev: {self.game['developer']}")
+        if self.game.get("publisher"):
+            dev_pub.append(f"Pub: {self.game['publisher']}")
+        
+        details = QLabel(" | ".join(dev_pub))
+        details.setObjectName("gameDetails")
+        details.setFont(QFont("Segoe UI", 9))
+        
+        game_info.addWidget(title)
+        game_info.addWidget(details)
+        layout.addLayout(game_info)
+
+        layout.addStretch()
+
+        # Owned button
+        self.owned_btn = QPushButton()
+        self.owned_btn.setCheckable(True)
+        self.owned_btn.setObjectName("ownedButton")
+        self.owned_btn.clicked.connect(self._toggle_owned)
+        layout.addWidget(self.owned_btn)
+
+        # Wishlist button
+        self.wishlist_btn = QPushButton()
+        self.wishlist_btn.setCheckable(True)
+        self.wishlist_btn.setObjectName("wishlistButton")
+        self.wishlist_btn.clicked.connect(self._toggle_wishlist)
+        layout.addWidget(self.wishlist_btn)
+
+        # Favorite button
+        self.favorite_btn = QPushButton()
+        self.favorite_btn.setCheckable(True)
+        self.favorite_btn.setObjectName("favoriteButton")
+        self.favorite_btn.clicked.connect(self._toggle_favorite)
+        layout.addWidget(self.favorite_btn)
+
+        self.setLayout(layout)
+
+    def _update_button_states(self):
+        """Update button text and checked state based on current data."""
+        game_key = f"{self.console}:{self.game['name']}"
+        is_owned = game_key in user_games_data.get("owned", [])
+        is_favorite = game_key in user_games_data.get("favorite", [])
+        is_wishlist = game_key in user_games_data.get("wishlist", [])
+        
+        self.owned_btn.setText("✓ Owned" if is_owned else "Mark Owned")
+        self.owned_btn.setChecked(is_owned)
+        
+        # Hide wishlist button if owned, show if not owned
+        self.wishlist_btn.setVisible(not is_owned)
+        if not is_owned:
+            self.wishlist_btn.setText("📋 Wishlist" if is_wishlist else "Add to Wishlist")
+            self.wishlist_btn.setChecked(is_wishlist)
+        
+        self.favorite_btn.setText("♥" if is_favorite else "♡")
+        self.favorite_btn.setChecked(is_favorite)
+
+    def _toggle_owned(self):
+        """Toggle the owned status of this game."""
+        game_key = f"{self.console}:{self.game['name']}"
+        
+        if "owned" not in user_games_data:
+            user_games_data["owned"] = []
+        
+        if game_key in user_games_data["owned"]:
+            user_games_data["owned"].remove(game_key)
+        else:
+            user_games_data["owned"].append(game_key)
+            # Remove from wishlist if now owned
+            if "wishlist" in user_games_data and game_key in user_games_data["wishlist"]:
+                user_games_data["wishlist"].remove(game_key)
+        
+        save_json("user_games.json", user_games_data)
+        self._update_button_states()
+        self.refresh_stats()
+
+    def _toggle_wishlist(self):
+        """Toggle the wishlist status of this game."""
+        game_key = f"{self.console}:{self.game['name']}"
+        
+        if "wishlist" not in user_games_data:
+            user_games_data["wishlist"] = []
+        
+        if game_key in user_games_data["wishlist"]:
+            user_games_data["wishlist"].remove(game_key)
+        else:
+            user_games_data["wishlist"].append(game_key)
+        
+        save_json("user_games.json", user_games_data)
+        self._update_button_states()
+        self.refresh_stats()
+
+    def _toggle_favorite(self):
+        """Toggle the favorite status of this game."""
+        game_key = f"{self.console}:{self.game['name']}"
+        
+        if "favorite" not in user_games_data:
+            user_games_data["favorite"] = []
+        
+        if game_key in user_games_data["favorite"]:
+            user_games_data["favorite"].remove(game_key)
+        else:
+            user_games_data["favorite"].append(game_key)
+        
+        save_json("user_games.json", user_games_data)
+        self._update_button_states()
+        self.refresh_stats()
+
+
+class GamesTab(QWidget):
+    """Tab widget for game management."""
+    
+    def __init__(self, toggle_theme_callback):
+        super().__init__()
+        self.toggle_theme = toggle_theme_callback
+        
+        self._setup_ui()
+        self.refresh_games()
+
+    def _setup_ui(self):
+        """Setup the games tab UI layout."""
+        layout = QVBoxLayout(self)
+        layout.setSpacing(15)
+        layout.setContentsMargins(20, 20, 20, 20)
+
+        # Top bar with console selection and controls
+        self._setup_top_bar(layout)
+        
+        # Stats display
+        self._setup_stats(layout)
+        
+        # Games list area
+        self._setup_games_area(layout)
+
+    def _setup_top_bar(self, parent_layout):
+        """Setup the top bar with console selection, search, and controls."""
+        top_bar = QHBoxLayout()
+        top_bar.setSpacing(10)
+
+        # Console selection dropdown
+        self.console_box = QComboBox()
+        self.console_box.addItem("Select Console...")
+        
+        # Add available consoles from games data
+        if games_data:
+            for console in sorted(games_data.keys()):
+                self.console_box.addItem(console)
+        
+        self.console_box.setObjectName("consoleBox")
+        self.console_box.currentIndexChanged.connect(self._on_console_changed)
+        top_bar.addWidget(self.console_box)
+
+        # Search box
+        self.search_box = QLineEdit()
+        self.search_box.setPlaceholderText("Search games...")
+        self.search_box.setObjectName("searchBox")
+        self.search_box.textChanged.connect(self._on_search_changed)
+        top_bar.addWidget(self.search_box)
+
+        # Filter dropdown
+        self.filter_box = QComboBox()
+        self.filter_box.addItems([
+            "All Games",
+            "Owned Games",
+            "Wishlist Games",
+            "Favorite Games"
+        ])
+        self.filter_box.setObjectName("filterBox")
+        self.filter_box.currentIndexChanged.connect(self._on_filter_changed)
+        top_bar.addWidget(self.filter_box)
+
+        # Sort dropdown
+        self.sort_box = QComboBox()
+        self.sort_box.addItems([
+            "A-Z",
+            "Developer A-Z",
+            "Publisher A-Z"
+        ])
+        self.sort_box.setObjectName("sortBox")
+        self.sort_box.currentIndexChanged.connect(self._on_sort_changed)
+        top_bar.addWidget(self.sort_box)
+
+        parent_layout.addLayout(top_bar)
+
+    def _setup_stats(self, parent_layout):
+        """Setup the statistics display."""
+        self.stats_label = QLabel()
+        self.stats_label.setObjectName("statsLabel")
+        self.stats_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.stats_label.setFont(QFont("Segoe UI", 10))
+        parent_layout.addWidget(self.stats_label)
+
+    def _setup_games_area(self, parent_layout):
+        """Setup the scrollable games area."""
+        self.scroll_area = QScrollArea()
+        self.scroll_area.setWidgetResizable(True)
+        self.scroll_area.setObjectName("scrollArea")
+        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        
+        self.games_container = QWidget()
+        self.games_layout = QVBoxLayout(self.games_container)
+        self.games_layout.setSpacing(8)
+        self.games_layout.setContentsMargins(0, 0, 0, 0)
+        
+        self.scroll_area.setWidget(self.games_container)
+        parent_layout.addWidget(self.scroll_area)
+
+    def _on_console_changed(self):
+        """Handle console selection changes."""
+        self.refresh_games()
+
+    def _on_search_changed(self):
+        """Handle search text changes with debouncing."""
+        if hasattr(self, '_search_timer'):
+            self._search_timer.stop()
+        else:
+            self._search_timer = QTimer()
+            self._search_timer.setSingleShot(True)
+            self._search_timer.timeout.connect(self.refresh_games)
+        
+        self._search_timer.start(300)  # 300ms delay
+
+    def _on_sort_changed(self):
+        """Handle sort selection changes."""
+        self.refresh_games()
+
+    def _on_filter_changed(self):
+        """Handle filter selection changes."""
+        self.refresh_games()
+
+    def refresh_games(self):
+        """Refresh the games display."""
+        # Clear existing games
+        for i in reversed(range(self.games_layout.count())):
+            widget = self.games_layout.itemAt(i).widget()
+            if widget:
+                widget.setParent(None)
+
+        # Get selected console
+        selected_console = self.console_box.currentText()
+        if selected_console == "Select Console..." or selected_console not in games_data:
+            self.stats_label.setText("Select a console to view games")
+            return
+
+        # Get games for selected console
+        games = games_data[selected_console]
+        query = self.search_box.text().lower().strip()
+
+        # Apply search filter
+        if query:
+            games = [
+                g for g in games
+                if query in g["name"].lower() or 
+                   (g.get("developer") and query in g["developer"].lower()) or
+                   (g.get("publisher") and query in g["publisher"].lower())
+            ]
+
+        # Apply filter
+        filter_mode = self.filter_box.currentText()
+        if filter_mode == "Owned Games":
+            games = [g for g in games if f"{selected_console}:{g['name']}" in user_games_data.get("owned", [])]
+        elif filter_mode == "Wishlist Games":
+            games = [g for g in games if f"{selected_console}:{g['name']}" in user_games_data.get("wishlist", [])]
+        elif filter_mode == "Favorite Games":
+            games = [g for g in games if f"{selected_console}:{g['name']}" in user_games_data.get("favorite", [])]
+
+        # Sort games
+        sort_mode = self.sort_box.currentText()
+        if sort_mode == "Developer A-Z":
+            games.sort(key=lambda x: (x.get("developer", ""), x["name"]))
+        elif sort_mode == "Publisher A-Z":
+            games.sort(key=lambda x: (x.get("publisher", ""), x["name"]))
+        else:  # A-Z
+            games.sort(key=lambda x: x["name"])
+
+        # Create and add game cards
+        for game in games:
+            card = GameCard(game, selected_console, self.toggle_theme, self.refresh_stats)
+            self.games_layout.addWidget(card)
+
+        # Add stretch to push cards to top
+        self.games_layout.addStretch()
+        
+        self.refresh_stats()
+
+    def refresh_stats(self):
+        """Update the statistics display."""
+        selected_console = self.console_box.currentText()
+        if selected_console == "Select Console..." or selected_console not in games_data:
+            return
+
+        total_games = len(games_data[selected_console])
+        owned_games = len([g for g in games_data[selected_console] 
+                          if f"{selected_console}:{g['name']}" in user_games_data.get("owned", [])])
+        wishlist_games = len([g for g in games_data[selected_console] 
+                             if f"{selected_console}:{g['name']}" in user_games_data.get("wishlist", [])])
+        favorite_games = len([g for g in games_data[selected_console] 
+                             if f"{selected_console}:{g['name']}" in user_games_data.get("favorite", [])])
+
+        stats_text = f"🎮 {selected_console}: {total_games} Total | ✔ Owned: {owned_games} | 📋 Wishlist: {wishlist_games} | ❤️ Favorites: {favorite_games}"
+        if total_games > 0:
+            owned_percent = (owned_games / total_games) * 100
+            stats_text += f" | 📊 {owned_percent:.1f}% Complete"
+        
+        self.stats_label.setText(stats_text)
+
+
+class MemoryPak(QMainWindow):
+    """Main application window for Memory Pak."""
+    
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Memory Pak - Console Collection Manager")
+        self.setGeometry(100, 100, 1000, 800)
+        self.setMinimumSize(800, 600)
+        
+        self._setup_ui()
+
+    def _setup_ui(self):
+        """Setup the main UI layout with tabs."""
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+        
+        layout = QVBoxLayout(central_widget)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(0)
+
+        # Create tab widget
+        self.tab_widget = QTabWidget()
+        self.tab_widget.setObjectName("tabWidget")
+        
+        # Create tabs
+        self.consoles_tab = ConsolesTab(self._toggle_theme)
+        self.games_tab = GamesTab(self._toggle_theme)
+        
+        # Add tabs to widget
+        self.tab_widget.addTab(self.consoles_tab, "🎮 Consoles")
+        self.tab_widget.addTab(self.games_tab, "🎯 Games")
+        
+        layout.addWidget(self.tab_widget)
+
+    def _toggle_theme(self):
+        """Toggle between light and dark themes."""
+        current_theme = settings.get("theme", "dark")
+        new_theme = "light" if current_theme == "dark" else "dark"
+        
+        settings["theme"] = new_theme
+        save_json("settings.json", settings)
+        
+        # Update theme button in consoles tab
+        self.consoles_tab.theme_btn.setText("🌙 Dark Mode" if new_theme == "dark" else "☀️ Light Mode")
+        apply_theme(QApplication.instance(), new_theme)
+
+
 def _get_generation_order(entry: Dict[str, Any]) -> int:
     """Get generation order for sorting (lower = older)."""
     tags = [str(tag) for tag in entry.get("tags", []) if tag is not None]
@@ -455,13 +838,43 @@ def apply_theme(app: QApplication, theme: str):
     app.setPalette(palette)
 
 
+def load_games_data():
+    """Load all games data from the games folder."""
+    games_data = {}
+    games_folder = "games"
+    
+    if os.path.exists(games_folder):
+        for filename in os.listdir(games_folder):
+            if filename.endswith('.yaml') or filename.endswith('.yml'):
+                console_name = filename.replace('.yaml', '').replace('.yml', '').upper()
+                filepath = os.path.join(games_folder, filename)
+                
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        data = yaml.safe_load(f)
+                        if data:
+                            # Handle both structures: direct list or wrapped in 'games' key
+                            if isinstance(data, list):
+                                games_data[console_name] = data
+                            elif isinstance(data, dict) and "games" in data:
+                                games_data[console_name] = data["games"]
+                            else:
+                                print(f"Warning: Unexpected structure in {filepath}")
+                except (yaml.YAMLError, IOError) as e:
+                    print(f"Error loading {filepath}: {e}")
+    
+    return games_data
+
+
 def main():
     """Main application entry point."""
     # Load data
-    global consoles, user_data, settings
+    global consoles, user_data, settings, games_data, user_games_data
     consoles = load_data_file("consoles.yaml", [])
     user_data = load_data_file("user_data.json", {"owned": [], "wishlist": [], "favorite": []})
+    user_games_data = load_data_file("user_games.json", {"owned": [], "wishlist": [], "favorite": []})
     settings = load_data_file("settings.json", {"theme": "dark"})
+    games_data = load_games_data()
     
     # Create application
     app = QApplication(sys.argv)

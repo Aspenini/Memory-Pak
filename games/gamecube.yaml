@@ -1,0 +1,2211 @@
+games:
+  - name: "007: Agent Under Fire"
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "007: Everything or Nothing"
+    developer: EA Redwood Shores
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "007: From Russia with Love"
+    developer: EA Redwood Shores
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "007: Nightfire"
+    developer: Eurocom
+    publisher: Electronic Arts
+    region: North America
+
+  - name: 1080° Avalanche
+    developer: Nintendo Software Technology
+    publisher: Nintendo
+    region: North America
+
+  - name: "18 Wheeler: American Pro Trucker"
+    developer: Acclaim Studios Cheltenham
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: 2002 FIFA World Cup
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: 4x4 EVO 2
+    developer: Terminal Reality
+    publisher: Universal Interactive
+    region: North America
+
+  - name: Aggressive Inline
+    developer: Full Fat
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Animal Crossing
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "Aquaman: Battle for Atlantis"
+    developer: Lucky Chicken Games
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: "Army Men: Air Combat - The Elite Missions"
+    developer: 3DO Company
+    publisher: 3DO Company
+    region: North America
+
+  - name: "Army Men: RTS"
+    developer: Pandemic Studios
+    publisher: 3DO Company
+    region: North America
+
+  - name: "Army Men: Sarge's War"
+    developer: Global Star Software
+    publisher: Global Star Software
+    region: North America
+
+  - name: ATV Quad Power Racing 2
+    developer: Climax Brighton
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Auto Modellista
+    developer: Capcom Production Studio 2
+    publisher: Capcom
+    region: North America
+
+  - name: Backyard Baseball
+    developer: Humongous Entertainment
+    publisher: Atari
+    region: North America
+
+  - name: Backyard Baseball 2007
+    developer: Gamecock Media Group
+    publisher: Atari
+    region: North America
+
+  - name: Backyard Football
+    developer: Humongous Entertainment
+    publisher: Atari
+    region: North America
+
+  - name: "Bad Boys: Miami Takedown"
+    developer: Blitz Games
+    publisher: Crave Entertainment
+    region: North America
+
+  - name: "Baldur's Gate: Dark Alliance"
+    developer: Snowblind Studios
+    publisher: Interplay Entertainment
+    region: North America
+
+  - name: "Baten Kaitos: Eternal Wings and the Lost Ocean"
+    developer: Monolith Soft
+    publisher: Namco
+    region: North America
+
+  - name: Baten Kaitos Origins
+    developer: Monolith Soft
+    publisher: Nintendo
+    region: North America
+
+  - name: "Batman: Dark Tomorrow"
+    developer: HotGen
+    publisher: Kemco
+    region: North America
+
+  - name: "Batman: Rise of Sin Tzu"
+    developer: Ubisoft Quebec
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Batman: Vengeance"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: Battalion Wars
+    developer: Kuju Entertainment
+    publisher: Nintendo
+    region: North America
+
+  - name: Beach Spikers
+    developer: Sega AM2
+    publisher: Sega
+    region: North America
+
+  - name: "Beyblade VForce: Super Tournament Battle"
+    developer: Hudson Soft
+    publisher: Atari
+    region: North America
+
+  - name: Big Air Freestyle
+    developer: Paradigm Entertainment
+    publisher: Infogrames
+    region: North America
+
+  - name: Big Mutha Truckers
+    developer: Eutechnyx
+    publisher: THQ
+    region: North America
+
+  - name: Billy Hatcher and the Giant Egg
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Bionicle
+    developer: Argonaut Games
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Bionicle Heroes
+    developer: Traveller's Tales
+    publisher: Eidos Interactive
+    region: North America
+
+  - name: Black & Bruised
+    developer: Digital Fiction
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: Blood Omen 2
+    developer: Crystal Dynamics
+    publisher: Eidos Interactive
+    region: North America
+
+  - name: BloodRayne
+    developer: Terminal Reality
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: BloodRayne 2
+    developer: Terminal Reality
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: "Bloody Roar: Primal Fury"
+    developer: Eighting
+    publisher: Activision
+    region: North America
+
+  - name: BMX XXX
+    developer: Z-Axis
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Bomberman Generation
+    developer: Game Arts
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: Bomberman Jetters
+    developer: Hudson Soft
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: "Bratz: Forever Diamondz"
+    developer: Blitz Games
+    publisher: THQ
+    region: North America
+
+  - name: "Bratz: Rock Angelz"
+    developer: Blitz Games
+    publisher: THQ
+    region: North America
+
+  - name: "Buffy the Vampire Slayer: Chaos Bleeds"
+    developer: Eurocom
+    publisher: Vivendi Universal Games
+    region: North America
+
+  - name: Burnout
+    developer: Criterion Games
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: "Burnout 2: Point of Impact"
+    developer: Criterion Games
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Bust-A-Move 3000
+    developer: Taito
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Cabela's Big Game Hunter 2005 Adventures"
+    developer: Sand Grain Studios
+    publisher: Activision
+    region: North America
+
+  - name: "Cabela's Dangerous Hunts 2004"
+    developer: Sand Grain Studios
+    publisher: Activision
+    region: North America
+
+  - name: "Cabela's Outdoor Adventures"
+    developer: Sand Grain Studios
+    publisher: Activision
+    region: North America
+
+  - name: "Call of Duty: Finest Hour"
+    developer: Spark Unlimited
+    publisher: Activision
+    region: North America
+
+  - name: "Call of Duty 2: Big Red One"
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: Capcom vs. SNK 2 EO
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Carmen Sandiego: The Secret of the Stolen Drums"
+    developer: Artificial Mind and Movement
+    publisher: BAM! Entertainment
+    region: North America
+
+  - name: Cars
+    developer: Rainbow Studios
+    publisher: THQ
+    region: North America
+
+  - name: "Casper: Spirit Dimensions"
+    developer: Lucky Chicken Games
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: Catwoman
+    developer: EA UK
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Charlie and the Chocolate Factory
+    developer: High Voltage Software
+    publisher: Global Star Software
+    region: North America
+
+  - name: Chibi-Robo!
+    developer: Skip Ltd.
+    publisher: Nintendo
+    region: North America
+
+  - name: City Racer
+    developer: Davilex Games
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Codename: Kids Next Door – Operation: V.I.D.E.O.G.A.M.E."
+    developer: High Voltage Software
+    publisher: Global Star Software
+    region: North America
+
+  - name: "Conflict: Desert Storm"
+    developer: Pivotal Games
+    publisher: Gotham Games
+    region: North America
+
+  - name: "Conflict: Desert Storm II"
+    developer: Pivotal Games
+    publisher: Gotham Games
+    region: North America
+
+  - name: "Crash Bandicoot: The Wrath of Cortex"
+    developer: Traveller's Tales
+    publisher: Universal Interactive
+    region: North America
+
+  - name: Crash Nitro Kart
+    developer: Vicarious Visions
+    publisher: Universal Interactive
+    region: North America
+
+  - name: Crash Tag Team Racing
+    developer: Radical Entertainment
+    publisher: Sierra Entertainment
+    region: North America
+
+  - name: Crazy Taxi
+    developer: Hitmaker
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: "Cubivore: Survival of the Fittest"
+    developer: Saru Brunei
+    publisher: Atlus
+    region: North America
+
+  - name: Curious George
+    developer: Monkey Bar Games
+    publisher: Namco
+    region: North America
+
+  - name: Custom Robo
+    developer: Noise
+    publisher: Nintendo
+    region: North America
+
+  - name: "Dakar 2: The World's Ultimate Rally"
+    developer: Acclaim Studios Cheltenham
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: "Dance Dance Revolution: Mario Mix"
+    developer: Konami
+    publisher: Nintendo
+    region: North America
+
+  - name: Dark Summit
+    developer: Radical Entertainment
+    publisher: THQ
+    region: North America
+
+  - name: Dave Mirra Freestyle BMX 2
+    developer: Z-Axis
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Dead to Rights
+    developer: Namco
+    publisher: Namco
+    region: North America
+
+  - name: Defender
+    developer: 7 Studios
+    publisher: Midway Games
+    region: North America
+
+  - name: Digimon Rumble Arena 2
+    developer: Black Ship Games
+    publisher: Bandai
+    region: North America
+
+  - name: Digimon World 4
+    developer: Bandai
+    publisher: Bandai
+    region: North America
+
+  - name: "Disney's Extreme Skate Adventure"
+    developer: Toys for Bob
+    publisher: Activision
+    region: North America
+
+  - name: "Disney's Hide and Sneak"
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Disney's Magical Mirror Starring Mickey Mouse"
+    developer: Capcom
+    publisher: Nintendo
+    region: North America
+
+  - name: "Disney's Party"
+    developer: Jupiter Corporation
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Disney's PK: Out of the Shadows"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: Disney Sports Basketball
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Disney Sports Football
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Disney Sports Skateboarding
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Disney Sports Soccer
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Disney's Tarzan: Untamed"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Disney's The Haunted Mansion"
+    developer: High Voltage Software
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: Donkey Kong Jungle Beat
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Donkey Konga
+    developer: Namco
+    publisher: Nintendo
+    region: North America
+
+  - name: Donkey Konga 2
+    developer: Namco
+    publisher: Nintendo
+    region: North America
+
+  - name: "Dora the Explorer: Journey to the Purple Planet"
+    developer: Monkey Bar Games
+    publisher: Global Star Software
+    region: North America
+
+  - name: "Dragon Ball Z: Budokai"
+    developer: Dimps
+    publisher: Infogrames
+    region: North America
+
+  - name: "Dragon Ball Z: Budokai 2"
+    developer: Dimps
+    publisher: Atari
+    region: North America
+
+  - name: "Dragon Ball Z: Sagas"
+    developer: Avalanche Software
+    publisher: Atari
+    region: North America
+
+  - name: "Dragon's Lair 3D: Return to the Lair"
+    developer: Dragonstone Software
+    publisher: Ubisoft
+    region: North America
+
+  - name: Driven
+    developer: BAM! Entertainment
+    publisher: BAM! Entertainment
+    region: North America
+
+  - name: Drome Racers
+    developer: Attention to Detail
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Duel Masters
+    developer: Ambrella
+    publisher: Atari
+    region: North America
+
+  - name: "Egg Mania: Eggstreme Madness"
+    developer: HotGen
+    publisher: Kemco
+    region: North America
+
+  - name: ESPN International Winter Sports 2002
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: ESPN MLS ExtraTime 2002
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Evolution Skateboarding
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Evolution Snowboarding
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Evolution Worlds
+    developer: Sting
+    publisher: Ubisoft
+    region: North America
+
+  - name: F-Zero GX
+    developer: Amusement Vision
+    publisher: Nintendo
+    region: North America
+
+  - name: F1 2002
+    developer: Visual Science
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Fantastic 4
+    developer: 7 Studios
+    publisher: Activision
+    region: North America
+
+  - name: FIFA 06
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA 07
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA Soccer 2002
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA Soccer 2003
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA Soccer 2004
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA Soccer 2005
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA Street
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: FIFA Street 2
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Fight Night Round 2
+    developer: EA Chicago
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Final Fantasy Crystal Chronicles
+    developer: Square Enix
+    publisher: Nintendo
+    region: North America
+
+  - name: Finding Nemo
+    developer: Traveller's Tales
+    publisher: THQ
+    region: North America
+
+  - name: "Fire Emblem: Path of Radiance"
+    developer: Intelligent Systems
+    publisher: Nintendo
+    region: North America
+
+  - name: FireBlade
+    developer: Kuju Entertainment
+    publisher: Midway Games
+    region: North America
+
+  - name: Flushed Away
+    developer: Monkey Bar Games
+    publisher: D3 Publisher
+    region: North America
+
+  - name: "Franklin: A Birthday Surprise"
+    developer: Krome Studios
+    publisher: The Game Factory
+    region: North America
+
+  - name: Freaky Flyers
+    developer: Midway Studios San Diego
+    publisher: Midway Games
+    region: North America
+
+  - name: Freedom Fighters
+    developer: IO Interactive
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Freestyle MetalX
+    developer: Deibus Studios
+    publisher: Midway Games
+    region: North America
+
+  - name: Frogger Beyond
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Frogger's Adventures: The Rescue"
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: From Russia with Love
+    developer: EA Redwood Shores
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Future Tactics: The Uprising"
+    developer: Zed Two
+    publisher: Crave Entertainment
+    region: North America
+
+  - name: Geist
+    developer: n-Space
+    publisher: Nintendo
+    region: North America
+
+  - name: Gladius
+    developer: LucasArts
+    publisher: LucasArts
+    region: North America
+
+  - name: Go! Go! Hypergrind
+    developer: Atlus
+    publisher: Atlus
+    region: North America
+
+  - name: "Godzilla: Destroy All Monsters Melee"
+    developer: Pipeworks Software
+    publisher: Infogrames
+    region: North America
+
+  - name: "GoldenEye: Rogue Agent"
+    developer: EA Los Angeles
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Gotcha Force
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Grooverider: Slot Car Thunder"
+    developer: King of the Jungle
+    publisher: Encore Software
+    region: North America
+
+  - name: Gun
+    developer: Neversoft
+    publisher: Activision
+    region: North America
+
+  - name: Happy Feet
+    developer: Artificial Mind and Movement
+    publisher: Midway Games
+    region: North America
+
+  - name: "Harvest Moon: A Wonderful Life"
+    developer: Marvelous Interactive
+    publisher: Natsume
+    region: North America
+
+  - name: "Harvest Moon: Another Wonderful Life"
+    developer: Marvelous Interactive
+    publisher: Natsume
+    region: North America
+
+  - name: "Harvest Moon: Magical Melody"
+    developer: Marvelous Interactive
+    publisher: Natsume
+    region: North America
+
+  - name: "Hello Kitty: Roller Rescue"
+    developer: Xpec Entertainment
+    publisher: Namco
+    region: North America
+
+  - name: "Hitman 2: Silent Assassin"
+    developer: IO Interactive
+    publisher: Eidos Interactive
+    region: North America
+
+  - name: Home Run King
+    developer: Wow Entertainment
+    publisher: Sega
+    region: North America
+
+  - name: "Hot Wheels: Velocity X"
+    developer: Beyond Games
+    publisher: THQ
+    region: North America
+
+  - name: Hot Wheels World Race
+    developer: Climax Brighton
+    publisher: THQ
+    region: North America
+
+  - name: Hulk
+    developer: Radical Entertainment
+    publisher: Vivendi Universal Games
+    region: North America
+
+  - name: "Hunter: The Reckoning"
+    developer: High Voltage Software
+    publisher: Interplay Entertainment
+    region: North America
+
+  - name: I-Ninja
+    developer: Argonaut Games
+    publisher: Namco
+    region: North America
+
+  - name: Ikaruga
+    developer: Treasure
+    publisher: Atari
+    region: North America
+
+  - name: Intellivision Lives!
+    developer: Crave Entertainment
+    publisher: Crave Entertainment
+    region: North America
+
+  - name: International Superstar Soccer 2
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Jeremy McGrath Supercross World
+    developer: Acclaim Studios Salt Lake City
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: "Jimmy Neutron: Boy Genius"
+    developer: BigSky Interactive
+    publisher: THQ
+    region: North America
+
+  - name: "Jimmy Neutron: Jet Fusion"
+    developer: Krome Studios
+    publisher: THQ
+    region: North America
+
+  - name: "Judge Dredd: Dredd vs. Death"
+    developer: Rebellion Developments
+    publisher: Sierra Entertainment
+    region: North America
+
+  - name: "Kao the Kangaroo: Round 2"
+    developer: Tate Interactive
+    publisher: Atari
+    region: North America
+
+  - name: "Kelly Slater's Pro Surfer"
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: King Arthur
+    developer: Krome Studios
+    publisher: Konami
+    region: North America
+
+  - name: Kirby Air Ride
+    developer: HAL Laboratory
+    publisher: Nintendo
+    region: North America
+
+  - name: "Konami Collector's Series: Arcade Advanced"
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Legend of Spyro: A New Beginning"
+    developer: Krome Studios
+    publisher: Sierra Entertainment
+    region: North America
+
+  - name: "LEGO Star Wars: The Video Game"
+    developer: Traveller's Tales
+    publisher: Eidos Interactive
+    region: North America
+
+  - name: "LEGO Star Wars II: The Original Trilogy"
+    developer: Traveller's Tales
+    publisher: LucasArts
+    region: North America
+
+  - name: "Looney Tunes: Back in Action"
+    developer: Warthog Games
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Lost Kingdoms
+    developer: FromSoftware
+    publisher: Activision
+    region: North America
+
+  - name: Lost Kingdoms II
+    developer: FromSoftware
+    publisher: Activision
+    region: North America
+
+  - name: "Luigi's Mansion"
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "Mace Griffin: Bounty Hunter"
+    developer: Warthog Games
+    publisher: Vivendi Universal Games
+    region: North America
+
+  - name: Madden NFL 2002
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Madden NFL 2003
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Madden NFL 2004
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Madden NFL 2005
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Madden NFL 06
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Madden NFL 07
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Madden NFL 08
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Major League Baseball 2K6
+    developer: Kush Games
+    publisher: 2K Sports
+    region: North America
+
+  - name: "Mario Golf: Toadstool Tour"
+    developer: Camelot Software Planning
+    publisher: Nintendo
+    region: North America
+
+  - name: "Mario Kart: Double Dash!!"
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Party 4
+    developer: Hudson Soft
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Party 5
+    developer: Hudson Soft
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Party 6
+    developer: Hudson Soft
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Party 7
+    developer: Hudson Soft
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Power Tennis
+    developer: Camelot Software Planning
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Superstar Baseball
+    developer: Namco
+    publisher: Nintendo
+    region: North America
+
+  - name: "Marvel Nemesis: Rise of the Imperfects"
+    developer: Nihilistic Software
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Mary-Kate and Ashley: Sweet 16 – Licensed to Drive"
+    developer: n-Space
+    publisher: Club Acclaim
+    region: North America
+
+  - name: "Mat Hoffman's Pro BMX 2"
+    developer: Rainbow Studios
+    publisher: Activision
+    region: North America
+
+  - name: MC Groovz Dance Craze
+    developer: Broadsword Interactive
+    publisher: Mad Catz
+    region: North America
+
+  - name: "Medal of Honor: European Assault"
+    developer: EA Los Angeles
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Medal of Honor: Frontline"
+    developer: EA Los Angeles
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Medal of Honor: Rising Sun"
+    developer: EA Los Angeles
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Mega Man Anniversary Collection
+    developer: Atomic Planet Entertainment
+    publisher: Capcom
+    region: North America
+
+  - name: Mega Man Network Transmission
+    developer: Arika
+    publisher: Capcom
+    region: North America
+
+  - name: Mega Man X Collection
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Mega Man X: Command Mission"
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Men in Black II: Alien Escape"
+    developer: Infogrames Melbourne
+    publisher: Infogrames
+    region: North America
+
+  - name: Metroid Prime
+    developer: Retro Studios
+    publisher: Nintendo
+    region: North America
+
+  - name: "Metroid Prime 2: Echoes"
+    developer: Retro Studios
+    publisher: Nintendo
+    region: North America
+
+  - name: Midway Arcade Treasures
+    developer: Digital Eclipse
+    publisher: Midway Games
+    region: North America
+
+  - name: Midway Arcade Treasures 2
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: Midway Arcade Treasures 3
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: "Minority Report: Everybody Runs"
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: MLB Slugfest 20-03
+    developer: Sports Mogul
+    publisher: Midway Games
+    region: North America
+
+  - name: MLB Slugfest 20-04
+    developer: Midway Studios Chicago
+    publisher: Midway Games
+    region: North America
+
+  - name: Monopoly Party
+    developer: Runecraft
+    publisher: Infogrames
+    region: North America
+
+  - name: "Monster 4x4: Masters of Metal"
+    developer: Ubisoft
+    publisher: Ubisoft
+    region: North America
+
+  - name: Monster House
+    developer: Artificial Mind and Movement
+    publisher: THQ
+    region: North America
+
+  - name: "Monster Jam: Maximum Destruction"
+    developer: Inland Productions
+    publisher: Ubisoft
+    region: North America
+
+  - name: Monsters, Inc. Scream Arena
+    developer: Radical Entertainment
+    publisher: THQ
+    region: North America
+
+  - name: "Mortal Kombat: Deadly Alliance"
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: "Mortal Kombat: Deception"
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: Muppets Party Cruise
+    developer: Jim Henson Interactive
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: MVP Baseball 2004
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: MVP Baseball 2005
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: MX Superfly
+    developer: Pacific Coast Power & Light
+    publisher: THQ
+    region: North America
+
+  - name: "Myst III: Exile"
+    developer: Presto Studios
+    publisher: Ubisoft
+    region: North America
+
+  - name: Namco Museum
+    developer: Mass Media
+    publisher: Namco
+    region: North America
+
+  - name: Namco Museum 50th Anniversary
+    developer: Digital Eclipse
+    publisher: Namco
+    region: North America
+
+  - name: "Naruto: Clash of Ninja"
+    developer: Eighting
+    publisher: D3 Publisher
+    region: North America
+
+  - name: "Naruto: Clash of Ninja 2"
+    developer: Eighting
+    publisher: D3 Publisher
+    region: North America
+
+  - name: NASCAR 2002
+    developer: EA Black Box
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "NASCAR: Dirt to Daytona"
+    developer: Monster Games
+    publisher: Infogrames
+    region: North America
+
+  - name: NASCAR Thunder 2003
+    developer: EA Sports
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NASCAR Thunder 2004
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA 2K2
+    developer: Visual Concepts
+    publisher: Sega
+    region: North America
+
+  - name: NBA 2K3
+    developer: Visual Concepts
+    publisher: Sega
+    region: North America
+
+  - name: NBA Courtside 2002
+    developer: Left Field Productions
+    publisher: Nintendo
+    region: North America
+
+  - name: NBA Live 2003
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA Live 2004
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA Live 2005
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA Live 06
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA Street
+    developer: NuFX
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA Street Vol. 2
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NBA Street Vol. 3
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NCAA College Basketball 2K3
+    developer: Visual Concepts
+    publisher: Sega
+    region: North America
+
+  - name: NCAA College Football 2K3
+    developer: Visual Concepts
+    publisher: Sega
+    region: North America
+
+  - name: NCAA Football 2003
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NCAA Football 2004
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NCAA Football 2005
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Need for Speed: Carbon"
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Need for Speed: Hot Pursuit 2"
+    developer: EA Black Box
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Need for Speed: Most Wanted"
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Need for Speed: Underground"
+    developer: EA Black Box
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Need for Speed: Underground 2"
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NFL 2K3
+    developer: Visual Concepts
+    publisher: Sega
+    region: North America
+
+  - name: NFL Blitz 2002
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: NFL Blitz 2003
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: NFL Blitz Pro
+    developer: Midway Games
+    publisher: Midway Games
+    region: North America
+
+  - name: NFL Street
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NFL Street 2
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NHL 06
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NHL 2003
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NHL 2004
+    developer: EA Black Box
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NHL 2005
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NHL Hitz 2002
+    developer: Black Box Games
+    publisher: Midway Games
+    region: North America
+
+  - name: NHL Hitz 2003
+    developer: EA Black Box
+    publisher: Midway Games
+    region: North America
+
+  - name: NHL Hitz Pro
+    developer: Next Level Games
+    publisher: Midway Games
+    region: North America
+
+  - name: Nickelodeon Party Blast
+    developer: Data Design Interactive
+    publisher: Infogrames
+    region: North America
+
+  - name: "Nicktoons: Battle for Volcano Island"
+    developer: Blue Tongue Entertainment
+    publisher: THQ
+    region: North America
+
+  - name: Nicktoons Unite!
+    developer: Blue Tongue Entertainment
+    publisher: THQ
+    region: North America
+
+  - name: Odama
+    developer: Vivarium
+    publisher: Nintendo
+    region: North America
+
+  - name: Open Season
+    developer: Ubisoft Quebec
+    publisher: Ubisoft
+    region: North America
+
+  - name: Outlaw Golf 2
+    developer: Hypnotix
+    publisher: Global Star Software
+    region: North America
+
+  - name: Over the Hedge
+    developer: Edge of Reality
+    publisher: Activision
+    region: North America
+
+  - name: Pac-Man Fever
+    developer: Mass Media
+    publisher: Namco
+    region: North America
+
+  - name: Pac-Man World 2
+    developer: Namco
+    publisher: Namco
+    region: North America
+
+  - name: Pac-Man World 3
+    developer: Blitz Games
+    publisher: Namco
+    region: North America
+
+  - name: "Paper Mario: The Thousand-Year Door"
+    developer: Intelligent Systems
+    publisher: Nintendo
+    region: North America
+
+  - name: Phantasy Star Online Episode I & II
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: "Phantasy Star Online Episode III: C.A.R.D. Revolution"
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Pikmin
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Pikmin 2
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "Pinball Hall of Fame: The Gottlieb Collection"
+    developer: FarSight Studios
+    publisher: Crave Entertainment
+    region: North America
+
+  - name: Pokémon Colosseum
+    developer: Genius Sonority
+    publisher: Nintendo
+    region: North America
+
+  - name: "Pokémon XD: Gale of Darkness"
+    developer: Genius Sonority
+    publisher: Nintendo
+    region: North America
+
+  - name: Polar Express
+    developer: Blue Tongue Entertainment
+    publisher: THQ
+    region: North America
+
+  - name: Pool Paradise
+    developer: Awesome Studios
+    publisher: Ignition Entertainment
+    region: North America
+
+  - name: "Power Rangers: Dino Thunder"
+    developer: Pacific Coast Power & Light
+    publisher: THQ
+    region: North America
+
+  - name: "Prince of Persia: The Sands of Time"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Prince of Persia: The Two Thrones"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Prince of Persia: Warrior Within"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: Puyo Pop Fever
+    developer: Sonic Team
+    publisher: Atlus
+    region: North America
+
+  - name: "R: Racing Evolution"
+    developer: Namco
+    publisher: Namco
+    region: North America
+
+  - name: "Rampage: Total Destruction"
+    developer: Pipeworks Software
+    publisher: Midway Games
+    region: North America
+
+  - name: Ratatouille
+    developer: Heavy Iron Studios
+    publisher: THQ
+    region: North America
+
+  - name: Rave Master
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Rayman 3: Hoodlum Havoc"
+    developer: Ubisoft
+    publisher: Ubisoft
+    region: North America
+
+  - name: Red Faction II
+    developer: Volition
+    publisher: THQ
+    region: North America
+
+  - name: RedCard 20-03
+    developer: Point of View
+    publisher: Midway Games
+    region: North America
+
+  - name: Reign of Fire
+    developer: Kuju Entertainment
+    publisher: BAM! Entertainment
+    region: North America
+
+  - name: Resident Evil
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: Resident Evil 0
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: Resident Evil 2
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Resident Evil 3: Nemesis"
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: Resident Evil 4
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: "Resident Evil Code: Veronica X"
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: Ribbit King
+    developer: Jamsworks
+    publisher: Bandai
+    region: North America
+
+  - name: "Road Trip: The Arcade Edition"
+    developer: Takumi Corporation
+    publisher: Conspiracy Entertainment
+    region: North America
+
+  - name: "Robotech: Battlecry"
+    developer: Vicious Cycle Software
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: Robots
+    developer: Eurocom
+    publisher: Vivendi Universal Games
+    region: North America
+
+  - name: Rocky
+    developer: Steel Monkeys
+    publisher: Ubisoft
+    region: North America
+
+  - name: Rogue Ops
+    developer: Bits Studios
+    publisher: Kemco
+    region: North America
+
+  - name: "Rogue Squadron II: Rogue Leader"
+    developer: Factor 5
+    publisher: LucasArts
+    region: North America
+
+  - name: "Rogue Squadron III: Rebel Strike"
+    developer: Factor 5
+    publisher: LucasArts
+    region: North America
+
+  - name: Scooby-Doo! Mystery Mayhem
+    developer: Artificial Mind and Movement
+    publisher: THQ
+    region: North America
+
+  - name: Scooby-Doo! Night of 100 Frights
+    developer: Heavy Iron Studios
+    publisher: THQ
+    region: North America
+
+  - name: Scooby-Doo! Unmasked
+    developer: Artificial Mind and Movement
+    publisher: THQ
+    region: North America
+
+  - name: "SeaWorld: Shamu's Deep Sea Adventures"
+    developer: Fun Labs
+    publisher: Activision
+    region: North America
+
+  - name: Second Sight
+    developer: Free Radical Design
+    publisher: Codemasters
+    region: North America
+
+  - name: Sega Soccer Slam
+    developer: Black Box Games
+    publisher: Sega
+    region: North America
+
+  - name: "Serious Sam: Next Encounter"
+    developer: Climax Solent
+    publisher: Global Star Software
+    region: North America
+
+  - name: Shadow the Hedgehog
+    developer: Sega Studio USA
+    publisher: Sega
+    region: North America
+
+  - name: Shark Tale
+    developer: Edge of Reality
+    publisher: Activision
+    region: North America
+
+  - name: Shrek 2
+    developer: Luxoflux
+    publisher: Activision
+    region: North America
+
+  - name: Shrek Extra Large
+    developer: Digital Illusions CE
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: "Shrek Smash n' Crash Racing"
+    developer: Torus Games
+    publisher: Activision
+    region: North America
+
+  - name: Shrek Super Party
+    developer: Mass Media
+    publisher: TDK Mediactive
+    region: North America
+
+  - name: "Simpsons: Hit & Run"
+    developer: Radical Entertainment
+    publisher: Vivendi Universal Games
+    region: North America
+
+  - name: "Simpsons: Road Rage"
+    developer: Radical Entertainment
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Skies of Arcadia Legends
+    developer: Overworks
+    publisher: Sega
+    region: North America
+
+  - name: "Smuggler's Run: Warzones"
+    developer: Angel Studios
+    publisher: Rockstar Games
+    region: North America
+
+  - name: "Sonic Adventure DX: Director's Cut"
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: "Sonic Adventure 2: Battle"
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Sonic Gems Collection
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Sonic Heroes
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Sonic Mega Collection
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Sonic Riders
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: SoulCalibur II
+    developer: Project Soul
+    publisher: Namco
+    region: North America
+
+  - name: "Spartan: Total Warrior"
+    developer: Creative Assembly
+    publisher: Sega
+    region: North America
+
+  - name: Spider-Man
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: Spider-Man 2
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: "SpongeBob SquarePants: Battle for Bikini Bottom"
+    developer: Heavy Iron Studios
+    publisher: THQ
+    region: North America
+
+  - name: "SpongeBob SquarePants: Creature from the Krusty Krab"
+    developer: Blitz Games
+    publisher: THQ
+    region: North America
+
+  - name: "SpongeBob SquarePants: Lights, Camera, Pants!"
+    developer: THQ Studio Australia
+    publisher: THQ
+    region: North America
+
+  - name: Spy Hunter
+    developer: Paradigm Entertainment
+    publisher: Midway Games
+    region: North America
+
+  - name: "Spyro: A Hero's Tail"
+    developer: Eurocom
+    publisher: Vivendi Universal Games
+    region: North America
+
+  - name: "Spyro: Enter the Dragonfly"
+    developer: Check Six Games
+    publisher: Universal Interactive
+    region: North America
+
+  - name: SSX 3
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: SSX on Tour
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: SSX Tricky
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Star Fox: Assault"
+    developer: Namco
+    publisher: Nintendo
+    region: North America
+
+  - name: "Star Wars: Bounty Hunter"
+    developer: LucasArts
+    publisher: LucasArts
+    region: North America
+
+  - name: "Star Wars: The Clone Wars"
+    developer: Pandemic Studios
+    publisher: LucasArts
+    region: North America
+
+  - name: "Star Wars Rogue Squadron II: Rogue Leader"
+    developer: Factor 5
+    publisher: LucasArts
+    region: North America
+
+  - name: "Star Wars Rogue Squadron III: Rebel Strike"
+    developer: Factor 5
+    publisher: LucasArts
+    region: North America
+
+  - name: Starsky & Hutch
+    developer: Mind's Eye Productions
+    publisher: Empire Interactive
+    region: North America
+
+  - name: "Summoner: A Goddess Reborn"
+    developer: Volition
+    publisher: THQ
+    region: North America
+
+  - name: Super Bubble Pop
+    developer: Runecraft
+    publisher: Jaleco
+    region: North America
+
+  - name: Super Mario Strikers
+    developer: Next Level Games
+    publisher: Nintendo
+    region: North America
+
+  - name: Super Mario Sunshine
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Super Monkey Ball
+    developer: Amusement Vision
+    publisher: Sega
+    region: North America
+
+  - name: Super Monkey Ball 2
+    developer: Amusement Vision
+    publisher: Sega
+    region: North America
+
+  - name: Super Smash Bros. Melee
+    developer: HAL Laboratory
+    publisher: Nintendo
+    region: North America
+
+  - name: "Superman: Shadow of Apokolips"
+    developer: Atari
+    publisher: Infogrames
+    region: North America
+
+  - name: SX Superstar
+    developer: Team17
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Tak and the Power of Juju
+    developer: Avalanche Software
+    publisher: THQ
+    region: North America
+
+  - name: "Tak 2: The Staff of Dreams"
+    developer: Avalanche Software
+    publisher: THQ
+    region: North America
+
+  - name: "Tak: The Great Juju Challenge"
+    developer: Avalanche Software
+    publisher: THQ
+    region: North America
+
+  - name: Tales of Symphonia
+    developer: Namco Tales Studio
+    publisher: Namco
+    region: North America
+
+  - name: "Taz: Wanted"
+    developer: Blitz Games
+    publisher: Infogrames
+    region: North America
+
+  - name: Teen Titans
+    developer: Artificial Mind and Movement
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: Teenage Mutant Ninja Turtles
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Teenage Mutant Ninja Turtles 2: Battle Nexus"
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Teenage Mutant Ninja Turtles 3: Mutant Nightmare"
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Tenchu: Wrath of Heaven"
+    developer: K2 LLC
+    publisher: Activision
+    region: North America
+
+  - name: "Terminator 3: The Redemption"
+    developer: Paradigm Entertainment
+    publisher: Atari
+    region: North America
+
+  - name: Tetris Worlds
+    developer: Blue Planet Software
+    publisher: THQ
+    region: North America
+
+  - name: The Ant Bully
+    developer: Artificial Mind and Movement
+    publisher: Midway Games
+    region: North America
+
+  - name: The Grim Adventures of Billy & Mandy
+    developer: High Voltage Software
+    publisher: Midway Games
+    region: North America
+
+  - name: The Hobbit
+    developer: Inevitable Entertainment
+    publisher: Sierra Entertainment
+    region: North America
+
+  - name: "The Incredible Hulk: Ultimate Destruction"
+    developer: Radical Entertainment
+    publisher: Sierra Entertainment
+    region: North America
+
+  - name: "The Legend of Zelda: Four Swords Adventures"
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "The Legend of Zelda: The Wind Waker"
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "The Legend of Zelda: Twilight Princess"
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "The Lord of the Rings: The Return of the King"
+    developer: EA Redwood Shores
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "The Lord of the Rings: The Third Age"
+    developer: EA Redwood Shores
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "The Lord of the Rings: The Two Towers"
+    developer: Stormfront Studios
+    publisher: Electronic Arts
+    region: North America
+
+  - name: The Polar Express
+    developer: Blue Tongue Entertainment
+    publisher: THQ
+    region: North America
+
+  - name: "The Powerpuff Girls: Relish Rampage"
+    developer: VIS Entertainment
+    publisher: BAM! Entertainment
+    region: North America
+
+  - name: "The Scorpion King: Rise of the Akkadian"
+    developer: Point of View
+    publisher: Universal Interactive
+    region: North America
+
+  - name: The Sims
+    developer: Edge of Reality
+    publisher: Electronic Arts
+    region: North America
+
+  - name: The Sims 2
+    developer: Maxis
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "The Sims 2: Pets"
+    developer: Maxis
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "The Sims Bustin' Out"
+    developer: Maxis
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Tiger Woods PGA Tour 2003
+    developer: EA Sports
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Tiger Woods PGA Tour 2004
+    developer: EA Sports
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Tiger Woods PGA Tour 2005
+    developer: EA Sports
+    publisher: Electronic Arts
+    region: North America
+
+  - name: TimeSplitters 2
+    developer: Free Radical Design
+    publisher: Eidos Interactive
+    region: North America
+
+  - name: "TimeSplitters: Future Perfect"
+    developer: Free Radical Design
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "TMNT: Mutant Melee"
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: "Tom and Jerry: War of the Whiskers"
+    developer: VIS Entertainment
+    publisher: NewKidCo
+    region: North America
+
+  - name: "Tom Clancy's Ghost Recon"
+    developer: Red Storm Entertainment
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tom Clancy's Ghost Recon 2"
+    developer: Red Storm Entertainment
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tom Clancy's Rainbow Six 3"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tom Clancy's Splinter Cell"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tom Clancy's Splinter Cell: Chaos Theory"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tom Clancy's Splinter Cell: Double Agent"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tom Clancy's Splinter Cell: Pandora Tomorrow"
+    developer: Ubisoft Shanghai
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Tony Hawk's American Wasteland"
+    developer: Neversoft
+    publisher: Activision
+    region: North America
+
+  - name: "Tony Hawk's Pro Skater 3"
+    developer: Neversoft
+    publisher: Activision
+    region: North America
+
+  - name: "Tony Hawk's Pro Skater 4"
+    developer: Neversoft
+    publisher: Activision
+    region: North America
+
+  - name: "Tony Hawk's Underground"
+    developer: Neversoft
+    publisher: Activision
+    region: North America
+
+  - name: "Tony Hawk's Underground 2"
+    developer: Neversoft
+    publisher: Activision
+    region: North America
+
+  - name: "Top Gun: Combat Zones"
+    developer: Digital Integration
+    publisher: Titus Interactive
+    region: North America
+
+  - name: "True Crime: New York City"
+    developer: Luxoflux
+    publisher: Activision
+    region: North America
+
+  - name: "True Crime: Streets of LA"
+    developer: Luxoflux
+    publisher: Activision
+    region: North America
+
+  - name: Tube Slider
+    developer: NDCube
+    publisher: NEC Interchannel
+    region: North America
+
+  - name: "Turok: Evolution"
+    developer: Acclaim Studios Austin
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Ty the Tasmanian Tiger
+    developer: Krome Studios
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Ty the Tasmanian Tiger 2: Bush Rescue"
+    developer: Krome Studios
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Ty the Tasmanian Tiger 3: Night of the Quinkan"
+    developer: Krome Studios
+    publisher: Activision
+    region: North America
+
+  - name: Ultimate Spider-Man
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: Universal Studios Theme Parks Adventure
+    developer: Kemco
+    publisher: Kemco
+    region: North America
+
+  - name: V-Rally
+    developer: Eden Studios
+    publisher: Infogrames
+    region: North America
+
+  - name: Viewtiful Joe
+    developer: Team Viewtiful
+    publisher: Capcom
+    region: North America
+
+  - name: Viewtiful Joe 2
+    developer: Clover Studio
+    publisher: Capcom
+    region: North America
+
+  - name: Virtua Quest
+    developer: TOSE
+    publisher: Sega
+    region: North America
+
+  - name: Virtua Striker 2002
+    developer: Amusement Vision
+    publisher: Sega
+    region: North America
+
+  - name: Wario World
+    developer: Treasure
+    publisher: Nintendo
+    region: North America
+
+  - name: "WarioWare, Inc.: Mega Party Game$!"
+    developer: Nintendo R&D1
+    publisher: Nintendo
+    region: North America
+
+  - name: "Wave Race: Blue Storm"
+    developer: Nintendo Software Technology
+    publisher: Nintendo
+    region: North America
+
+  - name: "Winnie the Pooh's Rumbly Tumbly Adventure"
+    developer: Phoenix Interactive
+    publisher: Ubisoft
+    region: North America
+
+  - name: World Soccer Winning Eleven 6 International
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Worms 3D
+    developer: Team17
+    publisher: Acclaim Entertainment
+    region: North America
+
+  - name: Worms Blast
+    developer: Team17
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Wreckless: The Yakuza Missions"
+    developer: Bunkasha
+    publisher: Activision
+    region: North America
+
+  - name: WWE Crush Hour
+    developer: Pacific Coast Power & Light
+    publisher: THQ
+    region: North America
+
+  - name: WWE Day of Reckoning
+    developer: Yuke's
+    publisher: THQ
+    region: North America
+
+  - name: WWE Day of Reckoning 2
+    developer: Yuke's
+    publisher: THQ
+    region: North America
+
+  - name: WWE WrestleMania X8
+    developer: Yuke's
+    publisher: THQ
+    region: North America
+
+  - name: WWE WrestleMania XIX
+    developer: Yuke's
+    publisher: THQ
+    region: North America
+
+  - name: X-Men Legends
+    developer: Raven Software
+    publisher: Activision
+    region: North America
+
+  - name: "X-Men Legends II: Rise of Apocalypse"
+    developer: Raven Software
+    publisher: Activision
+    region: North America
+
+  - name: "X-Men: The Official Game"
+    developer: Z-Axis
+    publisher: Activision
+    region: North America
+
+  - name: "X2: Wolverine's Revenge"
+    developer: GenePool Software
+    publisher: Activision
+    region: North America
+
+  - name: XIII
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: Yu-Gi-Oh! The Falsebound Kingdom
+    developer: Konami
+    publisher: Konami
+    region: North America
+
+  - name: Zoidberg
+    developer: Crave Entertainment
+    publisher: Crave Entertainment
+    region: North America
+

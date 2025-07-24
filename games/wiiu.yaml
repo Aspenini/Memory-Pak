@@ -1,0 +1,681 @@
+games:
+  - name: "Adventure Time: Explore the Dungeon Because I Don't Know!"
+    developer: WayForward Technologies
+    publisher: D3 Publisher
+    region: North America
+
+  - name: "Adventure Time: Finn & Jake Investigations"
+    developer: Vicious Cycle Software
+    publisher: Little Orbit
+    region: North America
+
+  - name: Amazing Spider-Man, The
+    developer: Beenox
+    publisher: Activision
+    region: North America
+
+  - name: Amazing Spider-Man 2, The
+    developer: Beenox
+    publisher: Activision
+    region: North America
+
+  - name: Angry Birds Star Wars
+    developer: Exient Entertainment
+    publisher: Activision
+    region: North America
+
+  - name: Angry Birds Trilogy
+    developer: Rovio Entertainment
+    publisher: Activision
+    region: North America
+
+  - name: "Animal Crossing: Amiibo Festival"
+    developer: Nd Cube
+    publisher: Nintendo
+    region: North America
+
+  - name: "Assassin's Creed III"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Assassin's Creed IV: Black Flag"
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: Barbie Dreamhouse Party
+    developer: Torus Games
+    publisher: Little Orbit
+    region: North America
+
+  - name: "Batman: Arkham City – Armored Edition"
+    developer: Rocksteady Studios
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "Batman: Arkham Origins"
+    developer: Warner Bros. Games Montreal
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: Bayonetta
+    developer: PlatinumGames
+    publisher: Nintendo
+    region: North America
+
+  - name: Bayonetta 2
+    developer: PlatinumGames
+    publisher: Nintendo
+    region: North America
+
+  - name: "Ben 10: Omniverse"
+    developer: Vicious Cycle Software
+    publisher: D3 Publisher
+    region: North America
+
+  - name: "Ben 10: Omniverse 2"
+    developer: High Voltage Software
+    publisher: D3 Publisher
+    region: North America
+
+  - name: "Cabela's Dangerous Hunts 2013"
+    developer: Cauldron
+    publisher: Activision
+    region: North America
+
+  - name: "Call of Duty: Black Ops II"
+    developer: Treyarch
+    publisher: Activision
+    region: North America
+
+  - name: "Call of Duty: Ghosts"
+    developer: Infinity Ward
+    publisher: Activision
+    region: North America
+
+  - name: "Captain Toad: Treasure Tracker"
+    developer: Nintendo EAD Tokyo
+    publisher: Nintendo
+    region: North America
+
+  - name: "Cars 3: Driven to Win"
+    developer: Avalanche Software
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: Darksiders II
+    developer: Vigil Games
+    publisher: THQ
+    region: North America
+
+  - name: "Deus Ex: Human Revolution – Director's Cut"
+    developer: Straight Right
+    publisher: Square Enix
+    region: North America
+
+  - name: "Devil's Third"
+    developer: Valhalla Game Studios
+    publisher: Nintendo
+    region: North America
+
+  - name: "Disney Epic Mickey 2: The Power of Two"
+    developer: Junction Point Studios
+    publisher: Disney Interactive Studios
+    region: North America
+
+  - name: Disney Infinity
+    developer: Avalanche Software
+    publisher: Disney Interactive Studios
+    region: North America
+
+  - name: Disney Infinity 3.0
+    developer: Avalanche Software
+    publisher: Disney Interactive Studios
+    region: North America
+
+  - name: Disney Planes
+    developer: Behaviour Interactive
+    publisher: Disney Interactive Studios
+    region: North America
+
+  - name: "Disney Planes: Fire & Rescue"
+    developer: Little Orbit
+    publisher: Little Orbit
+    region: North America
+
+  - name: "Donkey Kong Country: Tropical Freeze"
+    developer: Retro Studios
+    publisher: Nintendo
+    region: North America
+
+  - name: "DuckTales: Remastered"
+    developer: WayForward Technologies
+    publisher: Capcom
+    region: North America
+
+  - name: "Epic Mickey 2: The Power of Two"
+    developer: Junction Point Studios
+    publisher: Disney Interactive Studios
+    region: North America
+
+  - name: ESPN Sports Connection
+    developer: Ubisoft
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Family Party: 30 Great Games Obstacle Arcade"
+    developer: Art Co., Ltd
+    publisher: D3 Publisher
+    region: North America
+
+  - name: "Fast & Furious: Showdown"
+    developer: Firebrand Games
+    publisher: Activision
+    region: North America
+
+  - name: FIFA 13
+    developer: EA Canada
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Funky Barn
+    developer: Tasty Play
+    publisher: Ubisoft
+    region: North America
+
+  - name: Game & Wario
+    developer: Intelligent Systems
+    publisher: Nintendo
+    region: North America
+
+  - name: Game Party Champions
+    developer: Phosphor Games
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "Giana Sisters: Twisted Dreams"
+    developer: Black Forest Games
+    publisher: Black Forest Games
+    region: North America
+
+  - name: Hello Kitty Kruisers
+    developer: Scarab Entertainment
+    publisher: Bergsala Lightweight
+    region: North America
+
+  - name: "Hot Wheels: World's Best Driver"
+    developer: Firebrand Games
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: How to Train Your Dragon 2
+    developer: Torus Games
+    publisher: Little Orbit
+    region: North America
+
+  - name: Hyrule Warriors
+    developer: Omega Force
+    publisher: Nintendo
+    region: North America
+
+  - name: "Injustice: Gods Among Us"
+    developer: NetherRealm Studios
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: Jeopardy!
+    developer: Pipeworks Software
+    publisher: THQ
+    region: North America
+
+  - name: Just Dance 2014
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: Just Dance 2015
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: Just Dance 2016
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: Just Dance 2017
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: Just Dance 2018
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: Just Dance 4
+    developer: Ubisoft Paris
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Just Dance: Disney Party"
+    developer: Land Ho!
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Just Dance: Disney Party 2"
+    developer: Land Ho!
+    publisher: Ubisoft
+    region: North America
+
+  - name: Kirby and the Rainbow Curse
+    developer: HAL Laboratory
+    publisher: Nintendo
+    region: North America
+
+  - name: "Kung Fu Panda: Showdown of Legendary Legends"
+    developer: Vicious Cycle Software
+    publisher: Little Orbit
+    region: North America
+
+  - name: Legend of Kay Anniversary
+    developer: Neon Studios
+    publisher: Nordic Games
+    region: North America
+
+  - name: "Legend of Zelda, The: The Wind Waker HD"
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "Legend of Zelda, The: Twilight Princess HD"
+    developer: Tantalus Media
+    publisher: Nintendo
+    region: North America
+
+  - name: "LEGO Batman 2: DC Super Heroes"
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "LEGO Batman 3: Beyond Gotham"
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: LEGO City Undercover
+    developer: TT Fusion
+    publisher: Nintendo
+    region: North America
+
+  - name: LEGO Dimensions
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: LEGO Jurassic World
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: LEGO Marvel Super Heroes
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "LEGO Marvel's Avengers"
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "LEGO Star Wars: The Force Awakens"
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: LEGO The Hobbit
+    developer: Traveller's Tales
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: Madden NFL 13
+    developer: EA Tiburon
+    publisher: Electronic Arts
+    region: North America
+
+  - name: Mario & Sonic at the Sochi 2014 Olympic Winter Games
+    developer: Sega Sports R&D
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Kart 8
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Mario Party 10
+    developer: Nd Cube
+    publisher: Nintendo
+    region: North America
+
+  - name: "Mario Tennis: Ultra Smash"
+    developer: Camelot Software Planning
+    publisher: Nintendo
+    region: North America
+
+  - name: "Marvel Avengers: Battle for Earth"
+    developer: Ubisoft Quebec
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Mass Effect 3: Special Edition"
+    developer: Straight Right
+    publisher: Electronic Arts
+    region: North America
+
+  - name: "Monster High: 13 Wishes"
+    developer: Game Machine Studios
+    publisher: Little Orbit
+    region: North America
+
+  - name: "Monster High: New Ghoul in School"
+    developer: Torus Games
+    publisher: Little Orbit
+    region: North America
+
+  - name: Monster Hunter 3 Ultimate
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: NBA 2K13
+    developer: Visual Concepts
+    publisher: 2K Sports
+    region: North America
+
+  - name: "Need for Speed: Most Wanted U"
+    developer: Criterion Games
+    publisher: Electronic Arts
+    region: North America
+
+  - name: NES Remix Pack
+    developer: Nintendo EAD Tokyo
+    publisher: Nintendo
+    region: North America
+
+  - name: New Super Luigi U
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: New Super Mario Bros. U
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "Ninja Gaiden 3: Razor's Edge"
+    developer: Team Ninja
+    publisher: Nintendo
+    region: North America
+
+  - name: Nintendo Land
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Pac-Man and the Ghostly Adventures
+    developer: Monkey Bar Games
+    publisher: Namco Bandai Games
+    region: North America
+
+  - name: Pac-Man and the Ghostly Adventures 2
+    developer: Monkey Bar Games
+    publisher: Bandai Namco Games
+    region: North America
+
+  - name: Penguins of Madagascar
+    developer: Torus Games
+    publisher: Little Orbit
+    region: North America
+
+  - name: "Phineas and Ferb: Quest for Cool Stuff"
+    developer: Behaviour Interactive
+    publisher: Majesco Entertainment
+    region: North America
+
+  - name: Pikmin 3
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: "Planes: Fire & Rescue"
+    developer: Little Orbit
+    publisher: Little Orbit
+    region: North America
+
+  - name: Pokémon Rumble U
+    developer: Ambrella
+    publisher: Nintendo
+    region: North America
+
+  - name: Rapala Pro Bass Fishing
+    developer: Fun Labs
+    publisher: Activision
+    region: North America
+
+  - name: Rayman Legends
+    developer: Ubisoft Montpellier
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Resident Evil: Revelations"
+    developer: Capcom
+    publisher: Capcom
+    region: North America
+
+  - name: Rise of the Guardians
+    developer: Torus Games
+    publisher: D3 Publisher
+    region: North America
+
+  - name: Rodea the Sky Soldier
+    developer: Prope
+    publisher: NIS America
+    region: North America
+
+  - name: Scribblenauts Unlimited
+    developer: 5th Cell
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "Scribblenauts Unmasked: A DC Comics Adventure"
+    developer: 5th Cell
+    publisher: Warner Bros. Interactive
+    region: North America
+
+  - name: "Shantae: Half-Genie Hero"
+    developer: WayForward Technologies
+    publisher: WayForward Technologies
+    region: North America
+
+  - name: Shovel Knight
+    developer: Yacht Club Games
+    publisher: Yacht Club Games
+    region: North America
+
+  - name: Sing Party
+    developer: FreeStyleGames
+    publisher: Nintendo
+    region: North America
+
+  - name: "Skylanders: Giants"
+    developer: Toys for Bob
+    publisher: Activision
+    region: North America
+
+  - name: "Skylanders: Spyro's Adventure"
+    developer: Toys for Bob
+    publisher: Activision
+    region: North America
+
+  - name: "Skylanders: SuperChargers"
+    developer: Vicarious Visions
+    publisher: Activision
+    region: North America
+
+  - name: "Skylanders: Swap Force"
+    developer: Vicarious Visions
+    publisher: Activision
+    region: North America
+
+  - name: "Skylanders: Trap Team"
+    developer: Toys for Bob
+    publisher: Activision
+    region: North America
+
+  - name: Sniper Elite V2
+    developer: Rebellion Developments
+    publisher: 505 Games
+    region: North America
+
+  - name: Sonic & All-Stars Racing Transformed
+    developer: Sumo Digital
+    publisher: Sega
+    region: North America
+
+  - name: "Sonic Boom: Rise of Lyric"
+    developer: Big Red Button Entertainment
+    publisher: Sega
+    region: North America
+
+  - name: Sonic Lost World
+    developer: Sonic Team
+    publisher: Sega
+    region: North America
+
+  - name: Splatoon
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Sports Connection
+    developer: Ubisoft
+    publisher: Ubisoft
+    region: North America
+
+  - name: Super Mario 3D World
+    developer: Nintendo EAD Tokyo
+    publisher: Nintendo
+    region: North America
+
+  - name: Super Smash Bros. for Wii U
+    developer: Bandai Namco Games
+    publisher: Nintendo
+    region: North America
+
+  - name: Tank! Tank! Tank!
+    developer: Namco Bandai Games
+    publisher: Namco Bandai Games
+    region: North America
+
+  - name: "Tekken Tag Tournament 2: Wii U Edition"
+    developer: Namco Bandai Games
+    publisher: Namco Bandai Games
+    region: North America
+
+  - name: "The Croods: Prehistoric Party!"
+    developer: Torus Games
+    publisher: D3 Publisher
+    region: North America
+
+  - name: The Smurfs 2
+    developer: WayForward Technologies
+    publisher: Ubisoft
+    region: North America
+
+  - name: "The Voice: I Want You"
+    developer: BitKid
+    publisher: Activision
+    region: North America
+
+  - name: "Transformers Prime: The Game"
+    developer: Now Production
+    publisher: Activision
+    region: North America
+
+  - name: "Transformers: Rise of the Dark Spark"
+    developer: Edge of Reality
+    publisher: Activision
+    region: North America
+
+  - name: "Turbo: Super Stunt Squad"
+    developer: Monkey Bar Games
+    publisher: D3 Publisher
+    region: North America
+
+  - name: Warriors Orochi 3 Hyper
+    developer: Omega Force
+    publisher: Tecmo Koei
+    region: North America
+
+  - name: Watch Dogs
+    developer: Ubisoft Montreal
+    publisher: Ubisoft
+    region: North America
+
+  - name: Wheel of Fortune
+    developer: Pipeworks Software
+    publisher: THQ
+    region: North America
+
+  - name: Wii Fit U
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Wii Party U
+    developer: Nd Cube
+    publisher: Nintendo
+    region: North America
+
+  - name: Wii Sports Club
+    developer: Nintendo EAD
+    publisher: Nintendo
+    region: North America
+
+  - name: Wipeout 3
+    developer: Behaviour Interactive
+    publisher: Activision
+    region: North America
+
+  - name: "Wipeout: Create & Crash"
+    developer: Behaviour Interactive
+    publisher: Activision
+    region: North America
+
+  - name: Xenoblade Chronicles X
+    developer: Monolith Soft
+    publisher: Nintendo
+    region: North America
+
+  - name: "Yoshi's Woolly World"
+    developer: Good-Feel
+    publisher: Nintendo
+    region: North America
+
+  - name: "Your Shape: Fitness Evolved 2012"
+    developer: Ubisoft
+    publisher: Ubisoft
+    region: North America
+
+  - name: "Your Shape: Fitness Evolved 2013"
+    developer: Ubisoft
+    publisher: Ubisoft
+    region: North America
+
+  - name: ZombiU
+    developer: Ubisoft Montpellier
+    publisher: Ubisoft
+    region: North America
+
