@@ -1,0 +1,127 @@
+# Memory Pak
+
+A cross-platform game collection tracker built with Rust, egui, and eframe. Memory Pak allows you to track which consoles and games you own, have favorited, or want (wishlist).
+
+## Features
+
+- **Two Main Tabs**: Consoles and Games
+- **Hardcoded Console List**: Includes popular consoles from Nintendo, Sega, Sony, and Microsoft
+- **Console States**: Mark consoles as Owned, Favorite, or Wishlist, with notes
+- **Game States**: Mark games as Owned, Favorite, or Wishlist, with notes
+- **Embedded Game Database**: All game data is compiled directly into the binary using `include_dir!()`
+- **State Persistence**: Saves user data to platform-specific directories (desktop/mobile) or localStorage (web)
+- **Sorting Options**: Sort games by title, release year, or status
+- **Filtering Options**: Filter by All, Owned, Favorites, Wishlist, or Not Owned
+- **Search**: Search games by title
+- **Import/Export**: Export your entire collection state (consoles + games) to JSON and import it back
+- **Single Binary**: Everything is embedded, no external files needed
+
+## Project Structure
+
+```
+Memory-Pak/
+├── Cargo.toml          # Project configuration
+├── src/
+│   ├── main.rs        # Main application entry point
+│   ├── console_data.rs # Hardcoded console definitions
+│   ├── game_data.rs   # Embedded game data loading
+│   ├── persistence.rs # Save/load user state (native & web)
+│   └── ui.rs          # UI rendering functions
+└── database/
+    └── games/         # Game JSON files (embedded at compile time)
+        ├── nes.json
+        ├── snes.json
+        └── n64.json
+```
+
+## Building
+
+### Desktop (Windows, macOS, Linux)
+
+```bash
+cargo build --release
+```
+
+The executable will be in `target/release/memory-pak` (or `memory-pak.exe` on Windows).
+
+### WebAssembly
+
+```bash
+# Install wasm-pack if you haven't already
+cargo install wasm-pack
+
+# Build for web
+wasm-pack build --target web --out-dir pkg
+```
+
+### Android/iOS
+
+For mobile platforms, you'll need to set up the appropriate toolchains:
+
+- **Android**: Use `cargo-apk` or follow egui's Android setup guide
+- **iOS**: Use `cargo-lipo` or follow egui's iOS setup guide
+
+## Adding Game Data
+
+To add games for a console, create a JSON file in `database/games/` named after the console ID (e.g., `ps5.json`). The format is:
+
+```json
+[
+  {
+    "id": "ps5-spiderman",
+    "title": "Marvel's Spider-Man 2",
+    "year": 2023,
+    "publisher": "Sony Interactive Entertainment"
+  }
+]
+```
+
+The game data will be embedded into the binary at compile time.
+
+## User Data Storage
+
+- **Desktop/Mobile**: Stored in platform-specific user data directories:
+  - Windows: `%APPDATA%\com\memorypak\memory_pak\state\`
+  - macOS: `~/Library/Application Support/com.memorypak.memory_pak/state/`
+  - Linux: `~/.local/share/com/memorypak/memory_pak/state/`
+
+- **Web**: Stored in browser localStorage with keys like `memory_pak_state_{console_id}`
+
+## Export Format
+
+The export file contains all your console and game states in this format:
+
+```json
+{
+  "version": "1.0",
+  "export_date": "2024-01-01T00:00:00Z",
+  "console_states": [
+    {
+      "console_id": "nes",
+      "owned": true,
+      "favorite": false,
+      "wishlist": false,
+      "notes": "My original NES from 1985"
+    }
+  ],
+  "consoles": [
+    {
+      "console_id": "nes",
+      "games": [
+        {
+          "game_id": "nes-smb",
+          "owned": true,
+          "favorite": false,
+          "wishlist": false,
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}
+```
+
+## License
+
+This project is provided as-is for personal use.
+
