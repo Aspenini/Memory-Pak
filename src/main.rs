@@ -67,10 +67,19 @@ pub struct ConsoleExportData {
 }
 
 fn main() -> Result<(), eframe::Error> {
+    // Load app icon
+    let icon = load_app_icon();
+    
+    let mut viewport = egui::ViewportBuilder::default()
+        .with_inner_size([1200.0, 800.0])
+        .with_title("Memory Pak");
+    
+    if let Some(icon_data) = icon {
+        viewport = viewport.with_icon(icon_data);
+    }
+    
     let options = eframe::NativeOptions {
-        viewport: egui::ViewportBuilder::default()
-            .with_inner_size([1200.0, 800.0])
-            .with_title("Memory Pak"),
+        viewport,
         ..Default::default()
     };
 
@@ -84,6 +93,53 @@ fn main() -> Result<(), eframe::Error> {
         options,
         Box::new(|_cc| Box::new(MemoryPakApp::default())),
     )
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+fn load_app_icon() -> Option<egui::IconData> {
+    // Try platform-specific icons first
+    #[cfg(target_os = "windows")]
+    {
+        let icon_bytes = include_bytes!("../icons/windows/AppIcon.ico");
+        if let Ok(img) = image::load_from_memory_with_format(icon_bytes, image::ImageFormat::Ico) {
+            let rgba = img.to_rgba8();
+            let (width, height) = rgba.dimensions();
+            return Some(egui::IconData {
+                rgba: rgba.into_raw(),
+                width,
+                height,
+            });
+        }
+    }
+    
+    #[cfg(target_os = "macos")]
+    {
+        // Try .icns file - for now use PNG fallback since ICNS parsing is complex
+        // macOS will use the PNG icon
+    }
+    
+    // Fallback: Try to find a PNG icon
+    // For Linux and as fallback, use the web icon-512.png
+    {
+        let icon_bytes = include_bytes!("../icons/web/icon-512.png");
+        if let Ok(img) = image::load_from_memory(icon_bytes) {
+            let rgba = img.to_rgba8();
+            let (width, height) = rgba.dimensions();
+            return Some(egui::IconData {
+                rgba: rgba.into_raw(),
+                width,
+                height,
+            });
+        }
+    }
+    
+    None
+}
+
+#[cfg(target_arch = "wasm32")]
+fn load_app_icon() -> Option<egui::IconData> {
+    // No icon needed for web
+    None
 }
 
 #[derive(Default)]
