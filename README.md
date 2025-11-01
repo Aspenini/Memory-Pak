@@ -67,35 +67,6 @@ For mobile platforms, you'll need to set up the appropriate toolchains:
 - **Android**: Use `cargo-apk` or follow egui's Android setup guide
 - **iOS**: Use `cargo-lipo` or follow egui's iOS setup guide
 
-## Adding Game Data
-
-To add games for a console, create a JSON file in `database/` named after the console ID (e.g., `ps5.json`, `nes.json`). The format is:
-
-```json
-[
-  {
-    "title": "Marvel's Spider-Man 2",
-    "developer": "Insomniac Games",
-    "publisher": "Sony Interactive Entertainment",
-    "release_date": "2023-10-20"
-  }
-]
-```
-
-**Fields:**
-- `title` (required): Game title
-- `publisher` (required): Publisher name
-- `developer` (optional): Developer name
-- `release_date` (optional): ISO format date (YYYY-MM-DD), extracted year is used for display
-- Additional regional release dates (`jp_release`, `na_release`, `pal_release`) may be included but are not used
-
-**Stable IDs:**
-- Games automatically get stable IDs based on console ID + title hash
-- This means you can add, remove, or reorder games in JSON files without breaking existing saved states
-- Console ID is derived from the JSON filename (e.g., `nes.json` → console ID `"nes"`)
-
-The game data will be embedded into the binary at compile time using `include_dir!()`.
-
 ## User Data Storage
 
 - **Desktop/Mobile**: Stored in platform-specific user data directories:
@@ -140,8 +111,3 @@ The export file contains all your console and game states in this format:
 ```
 
 **Note:** Game IDs use the stable ID format (`{console_id}-{hash}`), ensuring compatibility across database updates.
-
-## License
-
-This project is provided as-is for personal use.
-
