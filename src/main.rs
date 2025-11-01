@@ -142,7 +142,6 @@ fn load_app_icon() -> Option<egui::IconData> {
     None
 }
 
-#[derive(Default)]
 struct MemoryPakApp {
     selected_console: Option<String>, // "all" means all consoles, otherwise console_id
     game_states: HashMap<String, GameState>, // game_id -> GameState (flat structure)
@@ -152,11 +151,26 @@ struct MemoryPakApp {
     ui_state: UiState,
 }
 
+impl Default for MemoryPakApp {
+    fn default() -> Self {
+        Self {
+            selected_console: Some("all".to_string()),
+            game_states: HashMap::new(),
+            console_states: HashMap::new(),
+            games: HashMap::new(),
+            consoles: Vec::new(),
+            ui_state: UiState::default(),
+        }
+    }
+}
+
 #[derive(Default)]
 struct UiState {
     active_tab: Tab,
     sort_by: SortOption,
+    console_sort_by: SortOption,
     filter_by: FilterOption,
+    console_filter_by: FilterOption,
     search_query: String,
     games_page: usize,
     consoles_page: usize,

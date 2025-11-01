@@ -76,52 +76,6 @@ pub fn save_game_states(console_id: &str, states: &HashMap<String, GameState>) -
     }
 }
 
-pub fn load_all_game_states() -> HashMap<String, HashMap<String, GameState>> {
-    let mut all_states = HashMap::new();
-
-    #[cfg(not(target_arch = "wasm32"))]
-    {
-        if let Some(state_dir) = get_state_dir() {
-            if let Ok(entries) = fs::read_dir(&state_dir) {
-                for entry in entries.flatten() {
-                    if let Some(file_name) = entry.path().file_stem().and_then(|s| s.to_str()) {
-                        all_states.insert(file_name.to_string(), load_game_states(file_name));
-                    }
-                }
-            }
-        }
-    }
-
-    #[cfg(target_arch = "wasm32")]
-    {
-        // Load all console states from localStorage
-        // We'll scan localStorage for keys matching our pattern
-        if let Some(window) = web_sys::window() {
-            if let Some(local_storage) = window.local_storage().ok().flatten() {
-                // Try to get all keys - JavaScript doesn't give us a direct way,
-                // so we'll try common console IDs and also check if there's a master list
-                // For now, we'll check a comprehensive list of possible console IDs
-                let possible_consoles = [
-                    "nes", "snes", "n64", "gamecube", "wii", "wiiu", "switch",
-                    "gb", "gba", "ds", "3ds",
-                    "genesis", "saturn", "dreamcast",
-                    "ps1", "ps2", "ps3", "ps4", "ps5",
-                    "xbox", "xbox360", "xboxone", "xboxseries",
-                ];
-                
-                for console_id in &possible_consoles {
-                    let states = load_game_states_web(console_id);
-                    if !states.is_empty() {
-                        all_states.insert(console_id.to_string(), states);
-                    }
-                }
-            }
-        }
-    }
-
-    all_states
-}
-
 /// Load all game states into a flat HashMap (game_id -> GameState)
 /// This consolidates all console-specific state files into one flat structure
 pub fn load_all_game_states_flat() -> HashMap<String, GameState> {

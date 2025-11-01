@@ -15,9 +15,65 @@ pub fn render_consoles_tab(
     ui.heading("Consoles");
     ui.separator();
 
+    // Controls
+    ui.horizontal(|ui| {
+        ui.label("Sort by:");
+        ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Title, "Title");
+        ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Year, "Year");
+        ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Status, "Status");
+
+        ui.separator();
+
+        ui.label("Filter:");
+        ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::All, "All");
+        ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Owned, "Owned");
+        ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Favorites, "Favorites");
+        ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Wishlist, "Wishlist");
+        ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::NotOwned, "Not Owned");
+    });
+
+    ui.separator();
+
+    // Filter and sort consoles
+    let mut filtered_consoles: Vec<&Console> = consoles.iter().collect();
+    
+    // Apply filter
+    filtered_consoles.retain(|console| {
+        let state = console_states.get(&console.id);
+        
+        match ui_state.console_filter_by {
+            FilterOption::All => true,
+            FilterOption::Owned => state.map(|s| s.owned).unwrap_or(false),
+            FilterOption::Favorites => state.map(|s| s.favorite).unwrap_or(false),
+            FilterOption::Wishlist => state.map(|s| s.wishlist).unwrap_or(false),
+            FilterOption::NotOwned => !state.map(|s| s.owned).unwrap_or(false),
+        }
+    });
+    
+    // Sort consoles
+    filtered_consoles.sort_by(|a, b| {
+        let a_state = console_states.get(&a.id);
+        let b_state = console_states.get(&b.id);
+        
+        match ui_state.console_sort_by {
+            SortOption::Title => a.name.cmp(&b.name),
+            SortOption::Year => a.year.cmp(&b.year),
+            SortOption::Status => {
+                // Sort by status priority: owned > favorite > wishlist > none
+                let a_priority = if let Some(state) = a_state {
+                    if state.owned { 3 } else if state.favorite { 2 } else if state.wishlist { 1 } else { 0 }
+                } else { 0 };
+                let b_priority = if let Some(state) = b_state {
+                    if state.owned { 3 } else if state.favorite { 2 } else if state.wishlist { 1 } else { 0 }
+                } else { 0 };
+                b_priority.cmp(&a_priority)
+            }
+        }
+    });
+
     // Pagination
     const CONSOLES_PER_PAGE: usize = 20;
-    let total_consoles = consoles.len();
+    let total_consoles = filtered_consoles.len();
     let total_pages = if total_consoles == 0 { 1 } else { (total_consoles + CONSOLES_PER_PAGE - 1) / CONSOLES_PER_PAGE };
     
     if ui_state.consoles_page >= total_pages {
@@ -26,7 +82,7 @@ pub fn render_consoles_tab(
     
     let start_idx = ui_state.consoles_page * CONSOLES_PER_PAGE;
     let end_idx = (start_idx + CONSOLES_PER_PAGE).min(total_consoles);
-    let consoles_for_page = &consoles[start_idx..end_idx];
+    let consoles_for_page = &filtered_consoles[start_idx..end_idx];
 
     ui.label(format!("Showing {} of {} consoles (Page {} of {})", 
         consoles_for_page.len(), 
