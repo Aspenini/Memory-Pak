@@ -46,15 +46,55 @@
         const downloadCards = document.querySelectorAll('.download-card');
         
         downloadCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Add click flash effect
+            // Only prevent default for placeholder links (href="#")
+            if (card.tagName === 'A' && card.getAttribute('href') === '#') {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Add click flash effect
+                    this.style.transition = 'none';
+                    this.style.filter = 'brightness(2)';
+                    setTimeout(() => {
+                        this.style.transition = '';
+                        this.style.filter = '';
+                    }, 150);
+                });
+            } else if (card.tagName === 'A' && card.getAttribute('href') !== '#') {
+                // For working download links, add flash effect on click but allow download
+                card.addEventListener('click', function(e) {
+                    // Add click flash effect
+                    this.style.transition = 'none';
+                    this.style.filter = 'brightness(2)';
+                    setTimeout(() => {
+                        this.style.transition = '';
+                        this.style.filter = '';
+                    }, 150);
+                    // Let the browser handle the download
+                });
+            }
+            
+            // Handle Linux card (div with child links) - add hover effects
+            if (card.classList.contains('linux-card')) {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            }
+        });
+        
+        // Handle Linux download buttons separately
+        const linuxDownloadBtns = document.querySelectorAll('.linux-download-btn');
+        linuxDownloadBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Add click flash effect but allow download
                 this.style.transition = 'none';
                 this.style.filter = 'brightness(2)';
                 setTimeout(() => {
                     this.style.transition = '';
                     this.style.filter = '';
                 }, 150);
+                // Let the browser handle the download
             });
         });
     }

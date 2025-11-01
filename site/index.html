@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Pak - Track Your Gaming Collection</title>
-    <meta name="description" content="Memory Pak is a cross-platform app for tracking which consoles and games you own, have favorited, or want to add to your wishlist. Fast, offline, and portable.">
+    <title>Memory Pak</title>
+    <meta name="description" content="A cross-platform retro game tracker powered by Rust with egui">
     <meta name="keywords" content="gaming collection, game tracker, console tracker, game wishlist, memory pak">
     <meta name="author" content="Memory Pak">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Memory Pak - Track Your Gaming Collection">
-    <meta property="og:description" content="Cross-platform app for tracking consoles and games. Mark items as owned, favorited, or wishlisted. Fast, offline, and portable.">
+    <meta property="og:title" content="Memory Pak">
+    <meta property="og:description" content="A cross-platform retro game tracker powered by Rust with egui">
     <meta property="og:image" content="/icons/web/icon-512.png">
-    <meta property="og:url" content="https://memorypak.app">
+    <meta property="og:url" content="https://aspenini.github.io/Memory-Pak/">
     <meta property="og:site_name" content="Memory Pak">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Memory Pak - Track Your Gaming Collection">
-    <meta name="twitter:description" content="Cross-platform app for tracking consoles and games. Mark items as owned, favorited, or wishlisted. Fast, offline, and portable.">
+    <meta name="twitter:title" content="Memory Pak">
+    <meta name="twitter:description" content="A cross-platform retro game tracker powered by Rust with egui">
     <meta name="twitter:image" content="/icons/web/icon-512.png">
     <meta name="twitter:image:alt" content="Memory Pak app icon">
     
@@ -84,21 +84,35 @@
                 <section class="downloads">
                     <h2 class="section-title">Download</h2>
                     <div class="download-grid">
-                        <a href="#" class="download-card" data-platform="windows">
+                        <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.0/memory-pak_0.1.0_windows-x86_64.exe" 
+                           class="download-card" 
+                           data-platform="windows"
+                           download="memory-pak_0.1.0_windows-x86_64.exe">
                             <img src="img/os-windows-11.png" alt="Windows" class="platform-icon">
                             <span class="platform-name">Windows</span>
-                            <span class="download-badge">Coming Soon</span>
+                            <span class="download-badge">Download</span>
                         </a>
                         <a href="#" class="download-card" data-platform="macos">
                             <img src="img/os-macos.png" alt="macOS" class="platform-icon">
                             <span class="platform-name">macOS</span>
                             <span class="download-badge">Coming Soon</span>
                         </a>
-                        <a href="#" class="download-card" data-platform="linux">
+                        <div class="download-card linux-card" data-platform="linux">
                             <img src="img/os-linux-na.png" alt="Linux" class="platform-icon">
                             <span class="platform-name">Linux</span>
-                            <span class="download-badge">Coming Soon</span>
-                        </a>
+                            <div class="linux-downloads">
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.0/memory-pak_0.1.0_linux-x86_64.deb" 
+                                   class="linux-download-btn"
+                                   download="memory-pak_0.1.0_linux-x86_64.deb">
+                                    <span class="download-badge">.deb Package</span>
+                                </a>
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.0/memory-pak_0.1.0_linux-x86_64" 
+                                   class="linux-download-btn"
+                                   download="memory-pak_0.1.0_linux-x86_64">
+                                    <span class="download-badge">Binary</span>
+                                </a>
+                            </div>
+                        </div>
                         <a href="#" class="download-card" data-platform="freebsd">
                             <img src="img/os-bsd.png" alt="FreeBSD" class="platform-icon">
                             <span class="platform-name">FreeBSD</span>
