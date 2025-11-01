@@ -3,6 +3,13 @@ name = "memory-pak"
 version = "0.1.0"
 edition = "2021"
 authors = ["Aspenini"]
+description = "A cross-platform retro game tracker powered by Rust with egui"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Aspenini/Memory-Pak"
+homepage = "https://aspenini.github.io/Memory-Pak"
+keywords = ["egui", "game", "collection", "tracker"]
+categories = ["gui", "utility"]
 
 [dependencies]
 egui = "0.27"
@@ -20,7 +27,10 @@ rfd = "0.14"
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
-web-sys = { version = "0.3", features = ["Window", "Document", "Element", "HtmlInputElement", "FileReader", "FileList"] }
+web-sys = { version = "0.3", features = [
+    "Window", "Document", "Element", "HtmlInputElement",
+    "FileReader", "FileList"
+] }
 js-sys = "0.3"
 console_error_panic_hook = "0.1"
 getrandom = { version = "0.2", features = ["js"] }
@@ -29,3 +39,19 @@ getrandom = { version = "0.2", features = ["js"] }
 opt-level = "z"
 lto = true
 codegen-units = 1
+
+[package.metadata.deb]
+maintainer = "Aspenini"
+license-file = ["LICENSE", "0"]
+copyright = "2025, Aspenini"
+depends = "$auto"
+section = "utils"
+priority = "optional"
+extended-description = "A cross-platform retro game tracker powered by Rust with egui"
+assets = [
+  ["target/release/memory-pak", "usr/bin/", "755"],
+  ["memory-pak.desktop", "usr/share/applications/", "644"],
+  ["icons/linux/AppIcon.png", "usr/share/icons/hicolor/512x512/apps/memory-pak.png", "644"],
+  ["README.md", "usr/share/doc/memory-pak/", "644"],
+  ["LICENSE", "usr/share/doc/memory-pak/", "644"]
+]

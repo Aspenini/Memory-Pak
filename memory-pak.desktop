@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.1.0
+Type=Application
+Name=Memory Pak
+Comment=A cross-platform retro game tracker powered by Rust with egui
+Exec=memory-pak
+Icon=memory-pak
+Terminal=false
+Categories=Utility;Game;
+StartupNotify=true
