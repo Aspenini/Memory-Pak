@@ -1,6 +1,7 @@
 use crate::{
     Console, ConsoleState, FilterOption, Game, GameState, SortOption, UiState,
 };
+use crate::game_data::get_console_from_id;
 use egui::*;
 use std::collections::HashMap;
 
@@ -8,71 +9,195 @@ pub fn render_consoles_tab(
     ui: &mut egui::Ui,
     consoles: &[Console],
     console_states: &mut HashMap<String, ConsoleState>,
-    game_states: &HashMap<String, HashMap<String, GameState>>,
+    game_states: &HashMap<String, GameState>,
+    ui_state: &mut UiState,
 ) {
-    ScrollArea::vertical().show(ui, |ui| {
-        ui.heading("Consoles");
-        ui.separator();
+    ui.heading("Consoles");
+    ui.separator();
 
-        let mut needs_save = false;
+    // Pagination
+    const CONSOLES_PER_PAGE: usize = 20;
+    let total_consoles = consoles.len();
+    let total_pages = if total_consoles == 0 { 1 } else { (total_consoles + CONSOLES_PER_PAGE - 1) / CONSOLES_PER_PAGE };
+    
+    if ui_state.consoles_page >= total_pages {
+        ui_state.consoles_page = 0;
+    }
+    
+    let start_idx = ui_state.consoles_page * CONSOLES_PER_PAGE;
+    let end_idx = (start_idx + CONSOLES_PER_PAGE).min(total_consoles);
+    let consoles_for_page = &consoles[start_idx..end_idx];
 
-        for console in consoles {
-            // Get or create console state
-            let console_state = console_states
-                .entry(console.id.clone())
-                .or_insert_with(|| ConsoleState {
-                    console_id: console.id.clone(),
-                    ..Default::default()
-                });
+    ui.label(format!("Showing {} of {} consoles (Page {} of {})", 
+        consoles_for_page.len(), 
+        total_consoles, 
+        ui_state.consoles_page + 1, 
+        total_pages));
 
-            // Count games for this console
-            let states = game_states.get(&console.id).map(|s| s.values()).unwrap_or_default();
-            let owned_count = states.clone().filter(|s| s.owned).count();
-            let favorite_count = states.clone().filter(|s| s.favorite).count();
-            let wishlist_count = states.clone().filter(|s| s.wishlist).count();
+    ui.separator();
 
-            ui.group(|ui| {
-                ui.horizontal(|ui| {
-                    ui.vertical(|ui| {
-                        ui.heading(&console.name);
-                        ui.label(format!("Manufacturer: {}", console.manufacturer));
-                        ui.label(format!("Year: {}", console.year));
-                    });
-                    ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-                        ui.vertical(|ui| {
-                            // Console state checkboxes
-                            ui.horizontal(|ui| {
-                                if ui.checkbox(&mut console_state.owned, "Owned").changed() {
-                                    needs_save = true;
-                                }
-                                if ui.checkbox(&mut console_state.favorite, "Favorite").changed() {
-                                    needs_save = true;
-                                }
-                                if ui.checkbox(&mut console_state.wishlist, "Wishlist").changed() {
-                                    needs_save = true;
-                                }
-                            });
-                            ui.separator();
-                            // Game counts
-                            ui.label(format!("Games - Owned: {}", owned_count));
-                            ui.label(format!("Favorites: {}", favorite_count));
-                            ui.label(format!("Wishlist: {}", wishlist_count));
+    // Use vertical layout to ensure pagination is always at bottom
+    ui.vertical(|ui| {
+        // Calculate available space
+        let pagination_height = if total_pages > 1 { 80.0 } else { 0.0 };
+        let available = ui.available_size();
+        let scroll_height = available.y - pagination_height;
+        
+        // Render consoles in scroll area with constrained height
+        ScrollArea::vertical()
+            .max_height(scroll_height.max(100.0))
+            .show(ui, |ui| {
+                let mut needs_save = false;
+
+                for console in consoles_for_page {
+                    // Get or create console state
+                    let console_state = console_states
+                        .entry(console.id.clone())
+                        .or_insert_with(|| ConsoleState {
+                            console_id: console.id.clone(),
+                            ..Default::default()
                         });
+
+                    // Count games for this console
+                    let owned_count = game_states
+                        .values()
+                        .filter(|state| {
+                            if let Some(game_console) = state.game_id.split('-').next() {
+                                game_console == console.id
+                            } else {
+                                false
+                            }
+                        })
+                        .filter(|state| state.owned)
+                        .count();
+                    
+                    let favorite_count = game_states
+                        .values()
+                        .filter(|state| {
+                            if let Some(game_console) = state.game_id.split('-').next() {
+                                game_console == console.id
+                            } else {
+                                false
+                            }
+                        })
+                        .filter(|state| state.favorite)
+                        .count();
+                    
+                    let wishlist_count = game_states
+                        .values()
+                        .filter(|state| {
+                            if let Some(game_console) = state.game_id.split('-').next() {
+                                game_console == console.id
+                            } else {
+                                false
+                            }
+                        })
+                        .filter(|state| state.wishlist)
+                        .count();
+
+                    ui.group(|ui| {
+                        ui.horizontal(|ui| {
+                            ui.vertical(|ui| {
+                                ui.heading(&console.name);
+                                ui.label(format!("Manufacturer: {}", console.manufacturer));
+                                ui.label(format!("Year: {}", console.year));
+                            });
+                            ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+                                ui.vertical(|ui| {
+                                    // Console state checkboxes
+                                    ui.horizontal(|ui| {
+                                        if ui.checkbox(&mut console_state.owned, "Owned").changed() {
+                                            needs_save = true;
+                                        }
+                                        if ui.checkbox(&mut console_state.favorite, "Favorite").changed() {
+                                            needs_save = true;
+                                        }
+                                        if ui.checkbox(&mut console_state.wishlist, "Wishlist").changed() {
+                                            needs_save = true;
+                                        }
+                                    });
+                                    ui.separator();
+                                    // Game counts
+                                    ui.label(format!("Games - Owned: {}", owned_count));
+                                    ui.label(format!("Favorites: {}", favorite_count));
+                                    ui.label(format!("Wishlist: {}", wishlist_count));
+                                });
+                            });
+                        });
+
+                        ui.separator();
+
+                        ui.label("Notes:");
+                        if ui.text_edit_multiline(&mut console_state.notes).changed() {
+                            needs_save = true;
+                        }
                     });
-                });
 
-                ui.separator();
+                    ui.add_space(10.0);
+                }
 
-                ui.label("Notes:");
-                if ui.text_edit_multiline(&mut console_state.notes).changed() {
-                    needs_save = true;
+                if needs_save {
+                    crate::persistence::save_console_states(console_states);
                 }
             });
+        
+        // Pagination controls - ALWAYS RENDERED at bottom
+        if total_pages > 1 {
             ui.add_space(10.0);
-        }
-
-        if needs_save {
-            crate::persistence::save_console_states(console_states);
+            ui.separator();
+            ui.horizontal(|ui| {
+                ui.spacing_mut().item_spacing = egui::vec2(10.0, 0.0);
+                
+                // Previous button
+                if ui.button("◀ Previous").clicked() && ui_state.consoles_page > 0 {
+                    ui_state.consoles_page -= 1;
+                }
+                
+                // Page number buttons (show up to 10 pages, centered around current)
+                let pages_to_show = 10;
+                let start_page = if total_pages <= pages_to_show {
+                    0
+                } else if ui_state.consoles_page < pages_to_show / 2 {
+                    0
+                } else if ui_state.consoles_page >= total_pages - pages_to_show / 2 {
+                    total_pages.saturating_sub(pages_to_show)
+                } else {
+                    ui_state.consoles_page - pages_to_show / 2
+                };
+                
+                let end_page = (start_page + pages_to_show).min(total_pages);
+                
+                if start_page > 0 {
+                    if ui.button("1").clicked() {
+                        ui_state.consoles_page = 0;
+                    }
+                    if start_page > 1 {
+                        ui.label("...");
+                    }
+                }
+                
+                for page_num in start_page..end_page {
+                    let is_current = page_num == ui_state.consoles_page;
+                    let button_text = format!("{}", page_num + 1);
+                    if ui.selectable_label(is_current, button_text).clicked() {
+                        ui_state.consoles_page = page_num;
+                    }
+                }
+                
+                if end_page < total_pages {
+                    if end_page < total_pages - 1 {
+                        ui.label("...");
+                    }
+                    if ui.button(format!("{}", total_pages)).clicked() {
+                        ui_state.consoles_page = total_pages - 1;
+                    }
+                }
+                
+                // Next button
+                if ui.button("Next ▶").clicked() && ui_state.consoles_page < total_pages - 1 {
+                    ui_state.consoles_page += 1;
+                }
+            });
         }
     });
 }
@@ -81,30 +206,40 @@ pub fn render_games_tab(
     ui: &mut egui::Ui,
     selected_console: &mut Option<String>,
     consoles: &[Console],
-    games: &mut HashMap<String, Vec<Game>>,
-    game_states: &mut HashMap<String, HashMap<String, GameState>>,
+    games: &HashMap<String, Game>,
+    game_states: &mut HashMap<String, GameState>,
     ui_state: &mut UiState,
 ) {
     ui.horizontal(|ui| {
         ui.label("Select Console:");
         egui::ComboBox::from_id_source("console_select")
             .selected_text(
-                selected_console
-                    .as_ref()
-                    .map(|id| {
-                        consoles
-                            .iter()
-                            .find(|c| &c.id == id)
-                            .map(|c| c.name.clone())
-                            .unwrap_or_else(|| id.clone())
-                    })
-                    .unwrap_or_else(|| "None".to_string()),
+                match selected_console.as_deref() {
+                    Some("all") => "All Consoles".to_string(),
+                    Some(id) => consoles
+                        .iter()
+                        .find(|c| &c.id == id)
+                        .map(|c| c.name.clone())
+                        .unwrap_or_else(|| id.to_string()),
+                    None => "None".to_string(),
+                },
             )
             .show_ui(ui, |ui| {
+                // Add "All Consoles" option
+                if ui
+                    .selectable_label(
+                        selected_console.as_deref() == Some("all"),
+                        "All Consoles",
+                    )
+                    .clicked()
+                {
+                    *selected_console = Some("all".to_string());
+                }
+                
                 for console in consoles {
                     if ui
                         .selectable_label(
-                            selected_console.as_ref() == Some(&console.id),
+                            selected_console.as_deref() == Some(&console.id),
                             &console.name,
                         )
                         .clicked()
@@ -115,7 +250,9 @@ pub fn render_games_tab(
             });
     });
 
-    if let Some(console_id) = selected_console {
+    let console_filter = selected_console.as_deref().unwrap_or("");
+    
+    if !console_filter.is_empty() {
         ui.separator();
 
         // Controls
@@ -150,16 +287,33 @@ pub fn render_games_tab(
 
         ui.separator();
 
-        // Get games for this console
-        let console_games = games.get(console_id).cloned().unwrap_or_default();
-        let states = game_states
-            .entry(console_id.clone())
-            .or_insert_with(HashMap::new);
+        // Check if filters changed and reset page if needed
+        // We'll use a simple approach: reset page when console changes
+        // The page bounds check below will handle other filter changes
+        static mut LAST_CONSOLE_FILTER: Option<String> = None;
+        unsafe {
+            let current_filter = console_filter.to_string();
+            if let Some(ref last_filter) = LAST_CONSOLE_FILTER {
+                if last_filter != &current_filter {
+                    ui_state.games_page = 0;
+                }
+            }
+            LAST_CONSOLE_FILTER = Some(current_filter);
+        }
+
+        // Filter games by console (if not "all")
+        let games_to_show: Vec<&Game> = if console_filter == "all" {
+            games.values().collect()
+        } else {
+            games.values()
+                .filter(|game| game.console_id == console_filter)
+                .collect()
+        };
 
         // Initialize states for games that don't have one yet
-        for game in &console_games {
-            if !states.contains_key(&game.id) {
-                states.insert(game.id.clone(), GameState {
+        for game in &games_to_show {
+            if !game_states.contains_key(&game.id) {
+                game_states.insert(game.id.clone(), GameState {
                     game_id: game.id.clone(),
                     ..Default::default()
                 });
@@ -167,10 +321,10 @@ pub fn render_games_tab(
         }
 
         // Filter games
-        let filtered_games: Vec<&Game> = console_games
-            .iter()
+        let filtered_games: Vec<&Game> = games_to_show
+            .into_iter()
             .filter(|game| {
-                let state = states.get(&game.id).unwrap();
+                let state = game_states.get(&game.id).unwrap();
                 
                 // Search filter
                 if !ui_state.search_query.is_empty() {
@@ -201,8 +355,8 @@ pub fn render_games_tab(
             }
             SortOption::Status => {
                 filtered_games.sort_by(|a, b| {
-                    let a_state = states.get(&a.id).unwrap();
-                    let b_state = states.get(&b.id).unwrap();
+                    let a_state = game_states.get(&a.id).unwrap();
+                    let b_state = game_states.get(&b.id).unwrap();
                     // Sort by owned > favorite > wishlist > none
                     let a_priority = if a_state.owned { 3 } else if a_state.favorite { 2 } else if a_state.wishlist { 1 } else { 0 };
                     let b_priority = if b_state.owned { 3 } else if b_state.favorite { 2 } else if b_state.wishlist { 1 } else { 0 };
@@ -211,49 +365,163 @@ pub fn render_games_tab(
             }
         }
 
-        // Render games
-        ScrollArea::vertical().show(ui, |ui| {
-            let mut needs_save = false;
+        // Pagination
+        const GAMES_PER_PAGE: usize = 50;
+        let total_games = filtered_games.len();
+        let total_pages = if total_games == 0 { 1 } else { (total_games + GAMES_PER_PAGE - 1) / GAMES_PER_PAGE };
+        
+        // Reset to page 0 if current page is out of bounds
+        if ui_state.games_page >= total_pages {
+            ui_state.games_page = 0;
+        }
+        
+        // Get games for current page
+        let start_idx = ui_state.games_page * GAMES_PER_PAGE;
+        let end_idx = (start_idx + GAMES_PER_PAGE).min(total_games);
+        let games_for_page = &filtered_games[start_idx..end_idx];
+
+        // Show game count and page info
+        ui.label(format!("Showing {} of {} games (Page {} of {})", 
+            games_for_page.len(), 
+            total_games, 
+            ui_state.games_page + 1, 
+            total_pages));
+
+        ui.separator();
+
+        // Use vertical layout to ensure pagination is always at bottom
+        ui.vertical(|ui| {
+            // Calculate available space
+            let pagination_height = if total_pages > 1 { 80.0 } else { 0.0 };
+            let available = ui.available_size();
+            let scroll_height = available.y - pagination_height;
             
-            for game in filtered_games {
-                let state = states.get_mut(&game.id).unwrap();
-                
-                ui.group(|ui| {
-                    ui.horizontal(|ui| {
-                        ui.vertical(|ui| {
-                            ui.heading(&game.title);
-                            ui.label(format!("Publisher: {}", game.publisher));
-                            ui.label(format!("Year: {}", game.year));
-                        });
+            // Render games in scroll area with constrained height
+            egui::ScrollArea::vertical()
+                .max_height(scroll_height.max(100.0))
+                .show(ui, |ui| {
+                    let mut needs_save = false;
+                    
+                    for game in games_for_page {
+                        let state = game_states.get_mut(&game.id).unwrap();
+                        
+                        ui.group(|ui| {
+                            ui.horizontal(|ui| {
+                                ui.vertical(|ui| {
+                                    // Show console badge if viewing "all" consoles
+                                    if console_filter == "all" {
+                                        let console_name = consoles
+                                            .iter()
+                                            .find(|c| c.id == game.console_id)
+                                            .map(|c| c.name.as_str())
+                                            .unwrap_or(&game.console_id);
+                                        ui.label(format!("[{}]", console_name));
+                                    }
+                                    ui.heading(&game.title);
+                                    ui.label(format!("Publisher: {}", game.publisher));
+                                    ui.label(format!("Year: {}", game.year));
+                                });
 
-                        ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-                            ui.vertical(|ui| {
-                                if ui.checkbox(&mut state.owned, "Owned").changed() {
-                                    needs_save = true;
-                                }
-                                if ui.checkbox(&mut state.favorite, "Favorite").changed() {
-                                    needs_save = true;
-                                }
-                                if ui.checkbox(&mut state.wishlist, "Wishlist").changed() {
-                                    needs_save = true;
-                                }
+                                ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+                                    ui.vertical(|ui| {
+                                        if ui.checkbox(&mut state.owned, "Owned").changed() {
+                                            needs_save = true;
+                                        }
+                                        if ui.checkbox(&mut state.favorite, "Favorite").changed() {
+                                            needs_save = true;
+                                        }
+                                        if ui.checkbox(&mut state.wishlist, "Wishlist").changed() {
+                                            needs_save = true;
+                                        }
+                                    });
+                                });
                             });
+
+                            ui.separator();
+
+                            ui.label("Notes:");
+                            if ui.text_edit_multiline(&mut state.notes).changed() {
+                                needs_save = true;
+                            }
                         });
-                    });
 
-                    ui.separator();
-
-                    ui.label("Notes:");
-                    if ui.text_edit_multiline(&mut state.notes).changed() {
-                        needs_save = true;
+                        ui.add_space(10.0);
+                    }
+                    
+                    if needs_save {
+                        // Save states grouped by console
+                        let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
+                        for (game_id, state) in game_states.iter() {
+                            let console_id = get_console_from_id(game_id);
+                            states_by_console
+                                .entry(console_id.to_string())
+                                .or_insert_with(HashMap::new)
+                                .insert(game_id.clone(), state.clone());
+                        }
+                        
+                        for (console_id, console_states) in states_by_console {
+                            crate::persistence::save_game_states(&console_id, &console_states);
+                        }
                     }
                 });
-
-                ui.add_space(10.0);
-            }
             
-            if needs_save {
-                crate::persistence::save_game_states(console_id, states);
+            // Pagination controls - ALWAYS RENDERED at bottom
+            if total_pages > 1 {
+                ui.add_space(10.0);
+                ui.separator();
+                ui.horizontal(|ui| {
+                    ui.spacing_mut().item_spacing = egui::vec2(10.0, 0.0);
+                    
+                    // Previous button
+                    if ui.button("◀ Previous").clicked() && ui_state.games_page > 0 {
+                        ui_state.games_page -= 1;
+                    }
+                    
+                    // Page number buttons (show up to 10 pages, centered around current)
+                    let pages_to_show = 10;
+                    let start_page = if total_pages <= pages_to_show {
+                        0
+                    } else if ui_state.games_page < pages_to_show / 2 {
+                        0
+                    } else if ui_state.games_page >= total_pages - pages_to_show / 2 {
+                        total_pages.saturating_sub(pages_to_show)
+                    } else {
+                        ui_state.games_page - pages_to_show / 2
+                    };
+                    
+                    let end_page = (start_page + pages_to_show).min(total_pages);
+                    
+                    if start_page > 0 {
+                        if ui.button("1").clicked() {
+                            ui_state.games_page = 0;
+                        }
+                        if start_page > 1 {
+                            ui.label("...");
+                        }
+                    }
+                    
+                    for page_num in start_page..end_page {
+                        let is_current = page_num == ui_state.games_page;
+                        let button_text = format!("{}", page_num + 1);
+                        if ui.selectable_label(is_current, button_text).clicked() {
+                            ui_state.games_page = page_num;
+                        }
+                    }
+                    
+                    if end_page < total_pages {
+                        if end_page < total_pages - 1 {
+                            ui.label("...");
+                        }
+                        if ui.button(format!("{}", total_pages)).clicked() {
+                            ui_state.games_page = total_pages - 1;
+                        }
+                    }
+                    
+                    // Next button
+                    if ui.button("Next ▶").clicked() && ui_state.games_page < total_pages - 1 {
+                        ui_state.games_page += 1;
+                    }
+                });
             }
         });
     } else {

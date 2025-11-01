@@ -122,6 +122,59 @@ pub fn load_all_game_states() -> HashMap<String, HashMap<String, GameState>> {
     all_states
 }
 
+/// Load all game states into a flat HashMap (game_id -> GameState)
+/// This consolidates all console-specific state files into one flat structure
+pub fn load_all_game_states_flat() -> HashMap<String, GameState> {
+    let mut flat_states = HashMap::new();
+
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        if let Some(state_dir) = get_state_dir() {
+            if let Ok(entries) = fs::read_dir(&state_dir) {
+                for entry in entries.flatten() {
+                    if let Some(file_name) = entry.path().file_stem().and_then(|s| s.to_str()) {
+                        // Skip console states file
+                        if file_name == "consoles" {
+                            continue;
+                        }
+                        let console_states = load_game_states(file_name);
+                        // Flatten into single HashMap
+                        for (game_id, state) in console_states {
+                            flat_states.insert(game_id, state);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        // Load all console states from localStorage and flatten
+        if let Some(window) = web_sys::window() {
+            if let Some(local_storage) = window.local_storage().ok().flatten() {
+                let possible_consoles = [
+                    "nes", "snes", "n64", "gamecube", "wii", "wiiu", "switch",
+                    "gb", "gbc", "gba", "ds", "3ds",
+                    "genesis", "mastersystem", "saturn", "dreamcast",
+                    "sg1000", "segacd", "sega32x", "gamegear", "pico",
+                    "ps1", "ps2", "ps3", "ps4", "ps5", "psp", "psvita",
+                    "xbox", "xbox360", "xboxone", "xboxseries",
+                ];
+                
+                for console_id in &possible_consoles {
+                    let console_states = load_game_states_web(console_id);
+                    for (game_id, state) in console_states {
+                        flat_states.insert(game_id, state);
+                    }
+                }
+            }
+        }
+    }
+
+    flat_states
+}
+
 pub fn get_console_states_file_path() -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join("consoles.json"))
 }
@@ -230,16 +283,29 @@ fn save_game_states_web(console_id: &str, states: &Vec<GameState>) -> bool {
 }
 
 pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>> {
+    // Group game states by console
+    let mut games_by_console: HashMap<String, Vec<GameState>> = HashMap::new();
+    for (game_id, state) in &app.game_states {
+        let console_id = if let Some(console) = game_id.split('-').next() {
+            console.to_string()
+        } else {
+            continue;
+        };
+        games_by_console
+            .entry(console_id)
+            .or_insert_with(Vec::new)
+            .push(state.clone());
+    }
+
     let export = ExportData {
         version: "1.0".to_string(),
         export_date: chrono::Utc::now().to_rfc3339(),
         console_states: app.console_states.values().cloned().collect(),
-        consoles: app
-            .game_states
-            .iter()
-            .map(|(console_id, states)| ConsoleExportData {
-                console_id: console_id.clone(),
-                games: states.values().cloned().collect(),
+        consoles: games_by_console
+            .into_iter()
+            .map(|(console_id, games)| ConsoleExportData {
+                console_id,
+                games,
             })
             .collect(),
     };
@@ -281,21 +347,26 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
                 app.console_states.insert(console_state.console_id.clone(), console_state);
             }
             
-            // Merge imported game states
+            // Merge imported game states (flat structure)
             for console_export in import.consoles {
-                let console_states = app.game_states
-                    .entry(console_export.console_id.clone())
-                    .or_insert_with(HashMap::new);
-                
                 for game_state in console_export.games {
-                    console_states.insert(game_state.game_id.clone(), game_state);
+                    app.game_states.insert(game_state.game_id.clone(), game_state);
                 }
             }
             
             // Save all imported states
             save_console_states(&app.console_states);
-            for (console_id, states) in &app.game_states {
-                save_game_states(console_id, states);
+            // Group and save game states by console
+            let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
+            for (game_id, state) in &app.game_states {
+                let console_id = game_id.split('-').next().unwrap_or("").to_string();
+                states_by_console
+                    .entry(console_id)
+                    .or_insert_with(HashMap::new)
+                    .insert(game_id.clone(), state.clone());
+            }
+            for (console_id, states) in states_by_console {
+                save_game_states(&console_id, &states);
             }
         }
     }

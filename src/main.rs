@@ -31,6 +31,7 @@ pub struct Game {
     pub title: String,
     pub year: u32,
     pub publisher: String,
+    pub console_id: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
@@ -87,10 +88,10 @@ fn main() -> Result<(), eframe::Error> {
 
 #[derive(Default)]
 struct MemoryPakApp {
-    selected_console: Option<String>,
-    game_states: HashMap<String, HashMap<String, GameState>>, // console_id -> game_id -> GameState
+    selected_console: Option<String>, // "all" means all consoles, otherwise console_id
+    game_states: HashMap<String, GameState>, // game_id -> GameState (flat structure)
     console_states: HashMap<String, ConsoleState>,          // console_id -> ConsoleState
-    games: HashMap<String, Vec<Game>>,                        // console_id -> Vec<Game>
+    games: HashMap<String, Game>,                        // game_id -> Game (flat structure)
     consoles: Vec<Console>,
     ui_state: UiState,
 }
@@ -101,6 +102,8 @@ struct UiState {
     sort_by: SortOption,
     filter_by: FilterOption,
     search_query: String,
+    games_page: usize,
+    consoles_page: usize,
     #[cfg(target_arch = "wasm32")]
     needs_import: bool,
     #[cfg(target_arch = "wasm32")]
@@ -138,7 +141,7 @@ impl eframe::App for MemoryPakApp {
         if self.consoles.is_empty() {
             self.consoles = get_hardcoded_consoles();
             self.games = load_embedded_games();
-            self.game_states = load_all_game_states();
+            self.game_states = load_all_game_states_flat();
             self.console_states = load_all_console_states();
         }
 
@@ -160,21 +163,26 @@ impl eframe::App for MemoryPakApp {
                                         self.console_states.insert(console_state.console_id.clone(), console_state);
                                     }
                                     
-                                    // Merge imported game states
+                                    // Merge imported game states (flat structure)
                                     for console_export in import.consoles {
-                                        let console_states = self.game_states
-                                            .entry(console_export.console_id.clone())
-                                            .or_insert_with(std::collections::HashMap::new);
-                                        
                                         for game_state in console_export.games {
-                                            console_states.insert(game_state.game_id.clone(), game_state);
+                                            self.game_states.insert(game_state.game_id.clone(), game_state);
                                         }
                                     }
                                     
                                     // Save all imported states
                                     crate::persistence::save_console_states(&self.console_states);
-                                    for (console_id, states) in &self.game_states {
-                                        crate::persistence::save_game_states(console_id, states);
+                                    // Group and save game states by console
+                                    let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
+                                    for (game_id, state) in &self.game_states {
+                                        let console_id = game_id.split('-').next().unwrap_or("").to_string();
+                                        states_by_console
+                                            .entry(console_id)
+                                            .or_insert_with(HashMap::new)
+                                            .insert(game_id.clone(), state.clone());
+                                    }
+                                    for (console_id, states) in states_by_console {
+                                        crate::persistence::save_game_states(&console_id, &states);
                                     }
                                     
                                     self.ui_state.needs_import = false;
@@ -226,12 +234,12 @@ impl eframe::App for MemoryPakApp {
 
         egui::CentralPanel::default().show(ctx, |ui| {
             match self.ui_state.active_tab {
-                Tab::Consoles => render_consoles_tab(ui, &self.consoles, &mut self.console_states, &self.game_states),
+                Tab::Consoles => render_consoles_tab(ui, &self.consoles, &mut self.console_states, &self.game_states, &mut self.ui_state),
                 Tab::Games => render_games_tab(
                     ui,
                     &mut self.selected_console,
                     &self.consoles,
-                    &mut self.games,
+                    &self.games,
                     &mut self.game_states,
                     &mut self.ui_state,
                 ),

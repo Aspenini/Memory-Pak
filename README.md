@@ -4,15 +4,20 @@ A cross-platform game collection tracker built with Rust, egui, and eframe. Memo
 
 ## Features
 
-- **Two Main Tabs**: Consoles and Games
+- **Two Main Tabs**: Consoles and Games (both with pagination)
 - **Hardcoded Console List**: Includes popular consoles from Nintendo, Sega, Sony, and Microsoft
 - **Console States**: Mark consoles as Owned, Favorite, or Wishlist, with notes
 - **Game States**: Mark games as Owned, Favorite, or Wishlist, with notes
-- **Embedded Game Database**: All game data is compiled directly into the binary using `include_dir!()`
+- **Embedded Game Database**: All game data is compiled directly into the binary using `include_dir!()` at runtime
+- **Stable ID System**: Games use content-based IDs (console + title hash), allowing database updates without breaking saved states
+- **Cross-Console Search**: View all games across all consoles with console badges, or filter by specific console
+- **Pagination**: 
+  - Games tab: 50 games per page
+  - Consoles tab: 20 consoles per page
 - **State Persistence**: Saves user data to platform-specific directories (desktop/mobile) or localStorage (web)
 - **Sorting Options**: Sort games by title, release year, or status
 - **Filtering Options**: Filter by All, Owned, Favorites, Wishlist, or Not Owned
-- **Search**: Search games by title
+- **Search**: Search games by title across all consoles
 - **Import/Export**: Export your entire collection state (consoles + games) to JSON and import it back
 - **Single Binary**: Everything is embedded, no external files needed
 
@@ -24,14 +29,15 @@ Memory-Pak/
 ├── src/
 │   ├── main.rs        # Main application entry point
 │   ├── console_data.rs # Hardcoded console definitions
-│   ├── game_data.rs   # Embedded game data loading
+│   ├── game_data.rs   # Embedded game data loading (runtime JSON parsing)
 │   ├── persistence.rs # Save/load user state (native & web)
 │   └── ui.rs          # UI rendering functions
-└── database/
-    └── games/         # Game JSON files (embedded at compile time)
-        ├── nes.json
-        ├── snes.json
-        └── n64.json
+└── database/          # Game JSON files (embedded at compile time)
+    ├── nes.json
+    ├── snes.json
+    ├── n64.json
+    ├── gameboyadvance.json
+    └── ... (one JSON file per console)
 ```
 
 ## Building
@@ -63,20 +69,32 @@ For mobile platforms, you'll need to set up the appropriate toolchains:
 
 ## Adding Game Data
 
-To add games for a console, create a JSON file in `database/games/` named after the console ID (e.g., `ps5.json`). The format is:
+To add games for a console, create a JSON file in `database/` named after the console ID (e.g., `ps5.json`, `nes.json`). The format is:
 
 ```json
 [
   {
-    "id": "ps5-spiderman",
     "title": "Marvel's Spider-Man 2",
-    "year": 2023,
-    "publisher": "Sony Interactive Entertainment"
+    "developer": "Insomniac Games",
+    "publisher": "Sony Interactive Entertainment",
+    "release_date": "2023-10-20"
   }
 ]
 ```
 
-The game data will be embedded into the binary at compile time.
+**Fields:**
+- `title` (required): Game title
+- `publisher` (required): Publisher name
+- `developer` (optional): Developer name
+- `release_date` (optional): ISO format date (YYYY-MM-DD), extracted year is used for display
+- Additional regional release dates (`jp_release`, `na_release`, `pal_release`) may be included but are not used
+
+**Stable IDs:**
+- Games automatically get stable IDs based on console ID + title hash
+- This means you can add, remove, or reorder games in JSON files without breaking existing saved states
+- Console ID is derived from the JSON filename (e.g., `nes.json` → console ID `"nes"`)
+
+The game data will be embedded into the binary at compile time using `include_dir!()`.
 
 ## User Data Storage
 
@@ -109,7 +127,7 @@ The export file contains all your console and game states in this format:
       "console_id": "nes",
       "games": [
         {
-          "game_id": "nes-smb",
+          "game_id": "nes-a1b2c3d4e5f6...",
           "owned": true,
           "favorite": false,
           "wishlist": false,
@@ -120,6 +138,8 @@ The export file contains all your console and game states in this format:
   ]
 }
 ```
+
+**Note:** Game IDs use the stable ID format (`{console_id}-{hash}`), ensuring compatibility across database updates.
 
 ## License
 
