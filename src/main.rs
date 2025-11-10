@@ -9,11 +9,13 @@ use web_sys::*;
 
 mod console_data;
 mod game_data;
+mod lego_dimensions;
 mod persistence;
 mod ui;
 
 use console_data::*;
 use game_data::*;
+use lego_dimensions::*;
 use persistence::*;
 use ui::*;
 
@@ -23,6 +25,8 @@ pub struct Console {
     pub name: String,
     pub manufacturer: String,
     pub year: u32,
+    #[serde(default)]
+    pub variant: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -58,6 +62,8 @@ pub struct ExportData {
     pub export_date: String,
     pub console_states: Vec<ConsoleState>,
     pub consoles: Vec<ConsoleExportData>,
+    #[serde(default)]
+    pub lego_dimensions_states: Vec<LegoDimensionState>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -69,15 +75,15 @@ pub struct ConsoleExportData {
 fn main() -> Result<(), eframe::Error> {
     // Load app icon
     let icon = load_app_icon();
-    
+
     let mut viewport = egui::ViewportBuilder::default()
         .with_inner_size([1200.0, 800.0])
         .with_title("Memory Pak");
-    
+
     if let Some(icon_data) = icon {
         viewport = viewport.with_icon(icon_data);
     }
-    
+
     let options = eframe::NativeOptions {
         viewport,
         ..Default::default()
@@ -111,13 +117,13 @@ fn load_app_icon() -> Option<egui::IconData> {
             });
         }
     }
-    
+
     #[cfg(target_os = "macos")]
     {
         // Try .icns file - for now use PNG fallback since ICNS parsing is complex
         // macOS will use the PNG icon
     }
-    
+
     // Fallback: Try to find a PNG icon
     // For Linux and as fallback, use the web icon-512.png
     {
@@ -132,7 +138,7 @@ fn load_app_icon() -> Option<egui::IconData> {
             });
         }
     }
-    
+
     None
 }
 
@@ -145,9 +151,11 @@ fn load_app_icon() -> Option<egui::IconData> {
 struct MemoryPakApp {
     selected_console: Option<String>, // "all" means all consoles, otherwise console_id
     game_states: HashMap<String, GameState>, // game_id -> GameState (flat structure)
-    console_states: HashMap<String, ConsoleState>,          // console_id -> ConsoleState
-    games: HashMap<String, Game>,                        // game_id -> Game (flat structure)
+    console_states: HashMap<String, ConsoleState>, // console_id -> ConsoleState
+    games: HashMap<String, Game>,     // game_id -> Game (flat structure)
     consoles: Vec<Console>,
+    lego_dimensions_figures: Vec<LegoDimensionFigure>,
+    lego_dimensions_states: HashMap<String, LegoDimensionState>,
     ui_state: UiState,
 }
 
@@ -159,6 +167,8 @@ impl Default for MemoryPakApp {
             console_states: HashMap::new(),
             games: HashMap::new(),
             consoles: Vec::new(),
+            lego_dimensions_figures: Vec::new(),
+            lego_dimensions_states: HashMap::new(),
             ui_state: UiState::default(),
         }
     }
@@ -174,6 +184,9 @@ struct UiState {
     search_query: String,
     games_page: usize,
     consoles_page: usize,
+    lego_sort_by: LegoSortOption,
+    lego_filter_by: FilterOption,
+    lego_search_query: String,
     #[cfg(target_arch = "wasm32")]
     needs_import: bool,
     #[cfg(target_arch = "wasm32")]
@@ -185,6 +198,7 @@ enum Tab {
     #[default]
     Consoles,
     Games,
+    LegoDimensions,
 }
 
 #[derive(Default, PartialEq)]
@@ -193,6 +207,15 @@ enum SortOption {
     Title,
     Year,
     Status,
+}
+
+#[derive(Default, PartialEq)]
+enum LegoSortOption {
+    #[default]
+    Name,
+    Category,
+    Year,
+    Pack,
 }
 
 #[derive(Default, PartialEq)]
@@ -213,6 +236,8 @@ impl eframe::App for MemoryPakApp {
             self.games = load_embedded_games();
             self.game_states = load_all_game_states_flat();
             self.console_states = load_all_console_states();
+            self.lego_dimensions_figures = load_lego_dimensions_figures();
+            self.lego_dimensions_states = load_lego_dimensions_states();
         }
 
         // Handle web import dialog
@@ -227,25 +252,41 @@ impl eframe::App for MemoryPakApp {
                         ui.text_edit_multiline(&mut self.ui_state.import_text);
                         ui.horizontal(|ui| {
                             if ui.button("Import").clicked() {
-                                if let Ok(import) = serde_json::from_str::<crate::ExportData>(&self.ui_state.import_text) {
+                                if let Ok(import) = serde_json::from_str::<crate::ExportData>(
+                                    &self.ui_state.import_text,
+                                ) {
                                     // Merge imported console states
                                     for console_state in import.console_states {
-                                        self.console_states.insert(console_state.console_id.clone(), console_state);
+                                        self.console_states.insert(
+                                            console_state.console_id.clone(),
+                                            console_state,
+                                        );
                                     }
-                                    
+
                                     // Merge imported game states (flat structure)
                                     for console_export in import.consoles {
                                         for game_state in console_export.games {
-                                            self.game_states.insert(game_state.game_id.clone(), game_state);
+                                            self.game_states
+                                                .insert(game_state.game_id.clone(), game_state);
                                         }
                                     }
-                                    
+
+                                    // Merge imported LEGO Dimensions states
+                                    for figure_state in import.lego_dimensions_states {
+                                        self.lego_dimensions_states
+                                            .insert(figure_state.figure_id.clone(), figure_state);
+                                    }
+
                                     // Save all imported states
                                     crate::persistence::save_console_states(&self.console_states);
                                     // Group and save game states by console
-                                    let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
+                                    let mut states_by_console: HashMap<
+                                        String,
+                                        HashMap<String, GameState>,
+                                    > = HashMap::new();
                                     for (game_id, state) in &self.game_states {
-                                        let console_id = game_id.split('-').next().unwrap_or("").to_string();
+                                        let console_id =
+                                            game_id.split('-').next().unwrap_or("").to_string();
                                         states_by_console
                                             .entry(console_id)
                                             .or_insert_with(HashMap::new)
@@ -254,7 +295,10 @@ impl eframe::App for MemoryPakApp {
                                     for (console_id, states) in states_by_console {
                                         crate::persistence::save_game_states(&console_id, &states);
                                     }
-                                    
+                                    crate::persistence::save_lego_dimensions_states(
+                                        &self.lego_dimensions_states,
+                                    );
+
                                     self.ui_state.needs_import = false;
                                     self.ui_state.import_text.clear();
                                 }
@@ -291,29 +335,51 @@ impl eframe::App for MemoryPakApp {
             .show(ctx, |ui| {
                 ui.heading("Tabs");
                 ui.separator();
-                if ui.selectable_label(self.ui_state.active_tab == Tab::Consoles, "Consoles")
+                if ui
+                    .selectable_label(self.ui_state.active_tab == Tab::Consoles, "Consoles")
                     .clicked()
                 {
                     self.ui_state.active_tab = Tab::Consoles;
                 }
-                if ui.selectable_label(self.ui_state.active_tab == Tab::Games, "Games").clicked()
+                if ui
+                    .selectable_label(self.ui_state.active_tab == Tab::Games, "Games")
+                    .clicked()
                 {
                     self.ui_state.active_tab = Tab::Games;
                 }
+                if ui
+                    .selectable_label(
+                        self.ui_state.active_tab == Tab::LegoDimensions,
+                        "LEGO Dimensions",
+                    )
+                    .clicked()
+                {
+                    self.ui_state.active_tab = Tab::LegoDimensions;
+                }
             });
 
-        egui::CentralPanel::default().show(ctx, |ui| {
-            match self.ui_state.active_tab {
-                Tab::Consoles => render_consoles_tab(ui, &self.consoles, &mut self.console_states, &self.game_states, &mut self.ui_state),
-                Tab::Games => render_games_tab(
-                    ui,
-                    &mut self.selected_console,
-                    &self.consoles,
-                    &self.games,
-                    &mut self.game_states,
-                    &mut self.ui_state,
-                ),
-            }
+        egui::CentralPanel::default().show(ctx, |ui| match self.ui_state.active_tab {
+            Tab::Consoles => render_consoles_tab(
+                ui,
+                &self.consoles,
+                &mut self.console_states,
+                &self.game_states,
+                &mut self.ui_state,
+            ),
+            Tab::Games => render_games_tab(
+                ui,
+                &mut self.selected_console,
+                &self.consoles,
+                &self.games,
+                &mut self.game_states,
+                &mut self.ui_state,
+            ),
+            Tab::LegoDimensions => render_lego_dimensions_tab(
+                ui,
+                &self.lego_dimensions_figures,
+                &mut self.lego_dimensions_states,
+                &mut self.ui_state,
+            ),
         });
     }
 }

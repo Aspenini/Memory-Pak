@@ -1,5 +1,5 @@
 use crate::{
-    ConsoleExportData, ConsoleState, ExportData, GameState, MemoryPakApp,
+    ConsoleExportData, ConsoleState, ExportData, GameState, LegoDimensionState, MemoryPakApp,
 };
 use directories::ProjectDirs;
 use serde_json;
@@ -35,6 +35,10 @@ pub fn get_state_file_path(console_id: &str) -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join(format!("{}.json", console_id)))
 }
 
+pub fn get_lego_dimensions_state_file_path() -> Option<PathBuf> {
+    get_state_dir().map(|dir| dir.join("lego_dimensions.json"))
+}
+
 pub fn load_game_states(console_id: &str) -> HashMap<String, GameState> {
     #[cfg(not(target_arch = "wasm32"))]
     {
@@ -59,7 +63,7 @@ pub fn load_game_states(console_id: &str) -> HashMap<String, GameState> {
 
 pub fn save_game_states(console_id: &str, states: &HashMap<String, GameState>) -> bool {
     let states_vec: Vec<GameState> = states.values().cloned().collect();
-    
+
     #[cfg(not(target_arch = "wasm32"))]
     {
         if let Some(path) = get_state_file_path(console_id) {
@@ -108,14 +112,40 @@ pub fn load_all_game_states_flat() -> HashMap<String, GameState> {
         if let Some(window) = web_sys::window() {
             if let Some(local_storage) = window.local_storage().ok().flatten() {
                 let possible_consoles = [
-                    "nes", "snes", "n64", "gamecube", "wii", "wiiu", "switch",
-                    "gb", "gbc", "gba", "ds", "3ds",
-                    "genesis", "mastersystem", "saturn", "dreamcast",
-                    "sg1000", "segacd", "sega32x", "gamegear", "pico",
-                    "ps1", "ps2", "ps3", "ps4", "ps5", "psp", "psvita",
-                    "xbox", "xbox360", "xboxone", "xboxseries",
+                    "nes",
+                    "snes",
+                    "n64",
+                    "gamecube",
+                    "wii",
+                    "wiiu",
+                    "switch",
+                    "gb",
+                    "gbc",
+                    "gba",
+                    "ds",
+                    "3ds",
+                    "genesis",
+                    "mastersystem",
+                    "saturn",
+                    "dreamcast",
+                    "sg1000",
+                    "segacd",
+                    "sega32x",
+                    "gamegear",
+                    "pico",
+                    "ps1",
+                    "ps2",
+                    "ps3",
+                    "ps4",
+                    "ps5",
+                    "psp",
+                    "psvita",
+                    "xbox",
+                    "xbox360",
+                    "xboxone",
+                    "xboxseries",
                 ];
-                
+
                 for console_id in &possible_consoles {
                     let console_states = load_game_states_web(console_id);
                     for (game_id, state) in console_states {
@@ -157,7 +187,7 @@ pub fn load_all_console_states() -> HashMap<String, ConsoleState> {
 
 pub fn save_console_states(states: &HashMap<String, ConsoleState>) -> bool {
     let states_vec: Vec<ConsoleState> = states.values().cloned().collect();
-    
+
     #[cfg(not(target_arch = "wasm32"))]
     {
         if let Some(path) = get_console_states_file_path() {
@@ -171,6 +201,47 @@ pub fn save_console_states(states: &HashMap<String, ConsoleState>) -> bool {
     #[cfg(target_arch = "wasm32")]
     {
         save_console_states_web(&states_vec)
+    }
+}
+
+pub fn load_lego_dimensions_states() -> HashMap<String, LegoDimensionState> {
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        if let Some(path) = get_lego_dimensions_state_file_path() {
+            if let Ok(content) = fs::read_to_string(&path) {
+                if let Ok(states_vec) = serde_json::from_str::<Vec<LegoDimensionState>>(&content) {
+                    return states_vec
+                        .into_iter()
+                        .map(|state| (state.figure_id.clone(), state))
+                        .collect();
+                }
+            }
+        }
+        HashMap::new()
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        load_lego_dimensions_states_web()
+    }
+}
+
+pub fn save_lego_dimensions_states(states: &HashMap<String, LegoDimensionState>) -> bool {
+    let states_vec: Vec<LegoDimensionState> = states.values().cloned().collect();
+
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        if let Some(path) = get_lego_dimensions_state_file_path() {
+            if let Ok(json) = serde_json::to_string_pretty(&states_vec) {
+                return fs::write(&path, json).is_ok();
+            }
+        }
+        false
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        save_lego_dimensions_states_web(&states_vec)
     }
 }
 
@@ -209,7 +280,9 @@ fn save_console_states_web(states: &Vec<ConsoleState>) -> bool {
 fn load_game_states_web(console_id: &str) -> HashMap<String, GameState> {
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
-            if let Ok(Some(data)) = local_storage.get_item(&format!("memory_pak_state_{}", console_id)) {
+            if let Ok(Some(data)) =
+                local_storage.get_item(&format!("memory_pak_state_{}", console_id))
+            {
                 if let Ok(states) = serde_json::from_str::<Vec<GameState>>(&data) {
                     return states
                         .into_iter()
@@ -229,6 +302,37 @@ fn save_game_states_web(console_id: &str, states: &Vec<GameState>) -> bool {
             if let Ok(json) = serde_json::to_string(states) {
                 return local_storage
                     .set_item(&format!("memory_pak_state_{}", console_id), &json)
+                    .is_ok();
+            }
+        }
+    }
+    false
+}
+
+#[cfg(target_arch = "wasm32")]
+fn load_lego_dimensions_states_web() -> HashMap<String, LegoDimensionState> {
+    if let Some(window) = web_sys::window() {
+        if let Some(local_storage) = window.local_storage().ok().flatten() {
+            if let Ok(Some(data)) = local_storage.get_item("memory_pak_lego_dimensions_states") {
+                if let Ok(states) = serde_json::from_str::<Vec<LegoDimensionState>>(&data) {
+                    return states
+                        .into_iter()
+                        .map(|state| (state.figure_id.clone(), state))
+                        .collect();
+                }
+            }
+        }
+    }
+    HashMap::new()
+}
+
+#[cfg(target_arch = "wasm32")]
+fn save_lego_dimensions_states_web(states: &Vec<LegoDimensionState>) -> bool {
+    if let Some(window) = web_sys::window() {
+        if let Some(local_storage) = window.local_storage().ok().flatten() {
+            if let Ok(json) = serde_json::to_string(states) {
+                return local_storage
+                    .set_item("memory_pak_lego_dimensions_states", &json)
                     .is_ok();
             }
         }
@@ -257,11 +361,9 @@ pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>>
         console_states: app.console_states.values().cloned().collect(),
         consoles: games_by_console
             .into_iter()
-            .map(|(console_id, games)| ConsoleExportData {
-                console_id,
-                games,
-            })
+            .map(|(console_id, games)| ConsoleExportData { console_id, games })
             .collect(),
+        lego_dimensions_states: app.lego_dimensions_states.values().cloned().collect(),
     };
 
     let json = serde_json::to_string_pretty(&export)?;
@@ -282,7 +384,7 @@ pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>>
         // Download via blob
         download_json_web(&json, "memory_pak_export.json");
     }
-    
+
     Ok(())
 }
 
@@ -295,19 +397,27 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
         {
             let content = std::fs::read_to_string(path)?;
             let import: ExportData = serde_json::from_str(&content)?;
-            
+
             // Merge imported console states
             for console_state in import.console_states {
-                app.console_states.insert(console_state.console_id.clone(), console_state);
+                app.console_states
+                    .insert(console_state.console_id.clone(), console_state);
             }
-            
+
             // Merge imported game states (flat structure)
             for console_export in import.consoles {
                 for game_state in console_export.games {
-                    app.game_states.insert(game_state.game_id.clone(), game_state);
+                    app.game_states
+                        .insert(game_state.game_id.clone(), game_state);
                 }
             }
-            
+
+            // Merge imported LEGO Dimensions states
+            for figure_state in import.lego_dimensions_states {
+                app.lego_dimensions_states
+                    .insert(figure_state.figure_id.clone(), figure_state);
+            }
+
             // Save all imported states
             save_console_states(&app.console_states);
             // Group and save game states by console
@@ -322,6 +432,7 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
             for (console_id, states) in states_by_console {
                 save_game_states(&console_id, &states);
             }
+            save_lego_dimensions_states(&app.lego_dimensions_states);
         }
     }
 
@@ -332,7 +443,7 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
         app.ui_state.needs_import = true;
         app.ui_state.import_text.clear();
     }
-    
+
     Ok(())
 }
 
@@ -340,10 +451,9 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
 fn download_json_web(json: &str, filename: &str) {
     if let Some(window) = web_sys::window() {
         let document = window.document().unwrap();
-        let blob = js_sys::Blob::new_with_str_sequence(
-            &js_sys::Array::of1(&js_sys::JsString::from(json)),
-        )
-        .unwrap();
+        let blob =
+            js_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(&js_sys::JsString::from(json)))
+                .unwrap();
         let url = web_sys::Url::create_object_url_with_blob(&blob).unwrap();
 
         let a = document.create_element("a").unwrap();
@@ -357,4 +467,3 @@ fn download_json_web(json: &str, filename: &str) {
         web_sys::Url::revoke_object_url(&url).unwrap();
     }
 }
-

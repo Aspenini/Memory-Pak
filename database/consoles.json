@@ -1,0 +1,447 @@
+[
+  {
+    "id": "nes",
+    "name": "Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "year": 1985
+  },
+  {
+    "id": "nes-toploader",
+    "name": "Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "year": 1993,
+    "variant": "Top Loader"
+  },
+  {
+    "id": "snes",
+    "name": "Super Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "year": 1990
+  },
+  {
+    "id": "snes-jr",
+    "name": "Super Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "year": 1997,
+    "variant": "SNES Jr."
+  },
+  {
+    "id": "n64",
+    "name": "Nintendo 64",
+    "manufacturer": "Nintendo",
+    "year": 1996
+  },
+  {
+    "id": "gamecube",
+    "name": "Nintendo GameCube",
+    "manufacturer": "Nintendo",
+    "year": 2001
+  },
+  {
+    "id": "wii",
+    "name": "Nintendo Wii",
+    "manufacturer": "Nintendo",
+    "year": 2006
+  },
+  {
+    "id": "wii-mini",
+    "name": "Nintendo Wii",
+    "manufacturer": "Nintendo",
+    "year": 2012,
+    "variant": "Mini"
+  },
+  {
+    "id": "wiiu",
+    "name": "Nintendo Wii U",
+    "manufacturer": "Nintendo",
+    "year": 2012
+  },
+  {
+    "id": "switch",
+    "name": "Nintendo Switch",
+    "manufacturer": "Nintendo",
+    "year": 2017
+  },
+  {
+    "id": "switch-lite",
+    "name": "Nintendo Switch",
+    "manufacturer": "Nintendo",
+    "year": 2019,
+    "variant": "Lite"
+  },
+  {
+    "id": "switch-oled",
+    "name": "Nintendo Switch",
+    "manufacturer": "Nintendo",
+    "year": 2021,
+    "variant": "OLED Model"
+  },
+  {
+    "id": "gb",
+    "name": "Game Boy",
+    "manufacturer": "Nintendo",
+    "year": 1989
+  },
+  {
+    "id": "gb-pocket",
+    "name": "Game Boy",
+    "manufacturer": "Nintendo",
+    "year": 1996,
+    "variant": "Pocket"
+  },
+  {
+    "id": "gb-light",
+    "name": "Game Boy",
+    "manufacturer": "Nintendo",
+    "year": 1998,
+    "variant": "Light"
+  },
+  {
+    "id": "gbc",
+    "name": "Game Boy Color",
+    "manufacturer": "Nintendo",
+    "year": 1998
+  },
+  {
+    "id": "gba",
+    "name": "Game Boy Advance",
+    "manufacturer": "Nintendo",
+    "year": 2001
+  },
+  {
+    "id": "gba-sp",
+    "name": "Game Boy Advance",
+    "manufacturer": "Nintendo",
+    "year": 2003,
+    "variant": "SP"
+  },
+  {
+    "id": "gba-micro",
+    "name": "Game Boy Advance",
+    "manufacturer": "Nintendo",
+    "year": 2005,
+    "variant": "Micro"
+  },
+  {
+    "id": "ds",
+    "name": "Nintendo DS",
+    "manufacturer": "Nintendo",
+    "year": 2004
+  },
+  {
+    "id": "ds-lite",
+    "name": "Nintendo DS",
+    "manufacturer": "Nintendo",
+    "year": 2006,
+    "variant": "Lite"
+  },
+  {
+    "id": "dsi",
+    "name": "Nintendo DS",
+    "manufacturer": "Nintendo",
+    "year": 2008,
+    "variant": "DSi"
+  },
+  {
+    "id": "3ds",
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": 2011
+  },
+  {
+    "id": "3ds-xl",
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": 2012,
+    "variant": "XL"
+  },
+  {
+    "id": "new-3ds",
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": 2014,
+    "variant": "New 3DS"
+  },
+  {
+    "id": "new-3ds-xl",
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": 2014,
+    "variant": "New 3DS XL"
+  },
+  {
+    "id": "2ds",
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": 2013,
+    "variant": "2DS"
+  },
+  {
+    "id": "new-2ds-xl",
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": 2017,
+    "variant": "New 2DS XL"
+  },
+  {
+    "id": "sg1000",
+    "name": "SG-1000",
+    "manufacturer": "Sega",
+    "year": 1983
+  },
+  {
+    "id": "mastersystem",
+    "name": "Sega Master System",
+    "manufacturer": "Sega",
+    "year": 1985
+  },
+  {
+    "id": "genesis",
+    "name": "Sega Genesis",
+    "manufacturer": "Sega",
+    "year": 1988
+  },
+  {
+    "id": "genesis-model2",
+    "name": "Sega Genesis",
+    "manufacturer": "Sega",
+    "year": 1993,
+    "variant": "Model 2"
+  },
+  {
+    "id": "genesis-model3",
+    "name": "Sega Genesis",
+    "manufacturer": "Sega",
+    "year": 1997,
+    "variant": "Model 3"
+  },
+  {
+    "id": "segacd",
+    "name": "Sega CD",
+    "manufacturer": "Sega",
+    "year": 1991
+  },
+  {
+    "id": "sega32x",
+    "name": "Sega 32X",
+    "manufacturer": "Sega",
+    "year": 1994
+  },
+  {
+    "id": "gamegear",
+    "name": "Game Gear",
+    "manufacturer": "Sega",
+    "year": 1990
+  },
+  {
+    "id": "pico",
+    "name": "Sega Pico",
+    "manufacturer": "Sega",
+    "year": 1993
+  },
+  {
+    "id": "saturn",
+    "name": "Sega Saturn",
+    "manufacturer": "Sega",
+    "year": 1994
+  },
+  {
+    "id": "saturn-model2",
+    "name": "Sega Saturn",
+    "manufacturer": "Sega",
+    "year": 1996,
+    "variant": "Model 2"
+  },
+  {
+    "id": "dreamcast",
+    "name": "Sega Dreamcast",
+    "manufacturer": "Sega",
+    "year": 1998
+  },
+  {
+    "id": "ps1",
+    "name": "PlayStation",
+    "manufacturer": "Sony",
+    "year": 1994
+  },
+  {
+    "id": "psone",
+    "name": "PlayStation",
+    "manufacturer": "Sony",
+    "year": 2000,
+    "variant": "PSone"
+  },
+  {
+    "id": "ps2",
+    "name": "PlayStation 2",
+    "manufacturer": "Sony",
+    "year": 2000
+  },
+  {
+    "id": "ps2-slim",
+    "name": "PlayStation 2",
+    "manufacturer": "Sony",
+    "year": 2004,
+    "variant": "Slim"
+  },
+  {
+    "id": "ps3",
+    "name": "PlayStation 3",
+    "manufacturer": "Sony",
+    "year": 2006
+  },
+  {
+    "id": "ps3-slim",
+    "name": "PlayStation 3",
+    "manufacturer": "Sony",
+    "year": 2009,
+    "variant": "Slim"
+  },
+  {
+    "id": "ps3-super-slim",
+    "name": "PlayStation 3",
+    "manufacturer": "Sony",
+    "year": 2012,
+    "variant": "Super Slim"
+  },
+  {
+    "id": "ps4",
+    "name": "PlayStation 4",
+    "manufacturer": "Sony",
+    "year": 2013
+  },
+  {
+    "id": "ps4-slim",
+    "name": "PlayStation 4",
+    "manufacturer": "Sony",
+    "year": 2016,
+    "variant": "Slim"
+  },
+  {
+    "id": "ps4-pro",
+    "name": "PlayStation 4",
+    "manufacturer": "Sony",
+    "year": 2016,
+    "variant": "Pro"
+  },
+  {
+    "id": "ps5",
+    "name": "PlayStation 5",
+    "manufacturer": "Sony",
+    "year": 2020
+  },
+  {
+    "id": "ps5-slim",
+    "name": "PlayStation 5",
+    "manufacturer": "Sony",
+    "year": 2023,
+    "variant": "Slim"
+  },
+  {
+    "id": "psp",
+    "name": "PlayStation Portable",
+    "manufacturer": "Sony",
+    "year": 2004
+  },
+  {
+    "id": "psp-2000",
+    "name": "PlayStation Portable",
+    "manufacturer": "Sony",
+    "year": 2007,
+    "variant": "Slim & Lite (2000)"
+  },
+  {
+    "id": "psp-3000",
+    "name": "PlayStation Portable",
+    "manufacturer": "Sony",
+    "year": 2008,
+    "variant": "3000"
+  },
+  {
+    "id": "psp-go",
+    "name": "PlayStation Portable",
+    "manufacturer": "Sony",
+    "year": 2009,
+    "variant": "Go"
+  },
+  {
+    "id": "psvita",
+    "name": "PlayStation Vita",
+    "manufacturer": "Sony",
+    "year": 2011
+  },
+  {
+    "id": "psvita-slim",
+    "name": "PlayStation Vita",
+    "manufacturer": "Sony",
+    "year": 2013,
+    "variant": "Slim (PCH-2000)"
+  },
+  {
+    "id": "xbox",
+    "name": "Xbox",
+    "manufacturer": "Microsoft",
+    "year": 2001
+  },
+  {
+    "id": "xbox360",
+    "name": "Xbox 360",
+    "manufacturer": "Microsoft",
+    "year": 2005
+  },
+  {
+    "id": "xbox360-s",
+    "name": "Xbox 360",
+    "manufacturer": "Microsoft",
+    "year": 2010,
+    "variant": "S (Slim)"
+  },
+  {
+    "id": "xbox360-e",
+    "name": "Xbox 360",
+    "manufacturer": "Microsoft",
+    "year": 2013,
+    "variant": "E"
+  },
+  {
+    "id": "xboxone",
+    "name": "Xbox One",
+    "manufacturer": "Microsoft",
+    "year": 2013
+  },
+  {
+    "id": "xboxone-s",
+    "name": "Xbox One",
+    "manufacturer": "Microsoft",
+    "year": 2016,
+    "variant": "S"
+  },
+  {
+    "id": "xboxone-x",
+    "name": "Xbox One",
+    "manufacturer": "Microsoft",
+    "year": 2017,
+    "variant": "X"
+  },
+  {
+    "id": "xboxseries",
+    "name": "Xbox Series X/S",
+    "manufacturer": "Microsoft",
+    "year": 2020
+  },
+  {
+    "id": "xboxseries-x",
+    "name": "Xbox Series",
+    "manufacturer": "Microsoft",
+    "year": 2020,
+    "variant": "Series X"
+  },
+  {
+    "id": "xboxseries-s",
+    "name": "Xbox Series",
+    "manufacturer": "Microsoft",
+    "year": 2020,
+    "variant": "Series S"
+  }
+]
+

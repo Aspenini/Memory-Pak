@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Batman",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "Starter Pack"
+  },
+  {
+    "name": "Wonder Woman",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71209 Fun Pack"
+  },
+  {
+    "name": "Cyborg",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71210 Fun Pack"
+  },
+  {
+    "name": "The Joker",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71229 Team Pack"
+  },
+  {
+    "name": "Harley Quinn",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71229 Team Pack"
+  },
+  {
+    "name": "Superman",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71236 Fun Pack"
+  },
+  {
+    "name": "Aquaman",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71237 Fun Pack"
+  },
+  {
+    "name": "Bane",
+    "category": "DC Comics",
+    "year": 1,
+    "pack_id": "71240 Fun Pack"
+  }
+]
+

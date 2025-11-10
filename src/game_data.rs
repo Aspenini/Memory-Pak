@@ -61,21 +61,26 @@ pub fn load_embedded_games() -> HashMap<String, Game> {
                 if let Some(file_stem) = file.path().file_stem().and_then(|s| s.to_str()) {
                     if let Some(console_id) = map_filename_to_console_id(file_stem) {
                         if let Ok(content) = std::str::from_utf8(file.contents()) {
-                            if let Ok(db_games) = serde_json::from_str::<Vec<DatabaseGame>>(content) {
+                            if let Ok(db_games) = serde_json::from_str::<Vec<DatabaseGame>>(content)
+                            {
                                 for db_game in db_games {
-                                    let year = db_game.release_date
+                                    let year = db_game
+                                        .release_date
                                         .as_ref()
                                         .map(|d| parse_year_from_iso_date(d))
                                         .unwrap_or(0);
                                     let game_id = generate_stable_id(console_id, &db_game.title);
-                                    
-                                    games.insert(game_id.clone(), Game {
-                                        id: game_id,
-                                        title: db_game.title,
-                                        year,
-                                        publisher: db_game.publisher,
-                                        console_id: console_id.to_string(),
-                                    });
+
+                                    games.insert(
+                                        game_id.clone(),
+                                        Game {
+                                            id: game_id,
+                                            title: db_game.title,
+                                            year,
+                                            publisher: db_game.publisher,
+                                            console_id: console_id.to_string(),
+                                        },
+                                    );
                                 }
                             }
                         }
