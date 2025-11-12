@@ -9,7 +9,7 @@ readme = "README.md"
 repository = "https://github.com/Aspenini/Memory-Pak"
 homepage = "https://aspenini.github.io/Memory-Pak"
 keywords = ["egui", "game", "collection", "tracker"]
-categories = ["gui", "utility"]
+categories = ["gui", "games"]
 
 [dependencies]
 egui = "0.27"
