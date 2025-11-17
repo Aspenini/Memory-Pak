@@ -4,7 +4,7 @@ version = 4
 
 [[package]]
 name = "Memory-Pak"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chrono",
  "console_error_panic_hook",

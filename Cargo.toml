@@ -1,6 +1,6 @@
 [package]
 name = "Memory-Pak"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Aspenini"]
 description = "A cross-platform retro game tracker powered by Rust with egui"
