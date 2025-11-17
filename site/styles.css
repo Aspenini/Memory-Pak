@@ -401,6 +401,15 @@ body {
 }
 
 @media (max-width: 768px) {
+    .crt-screen {
+        padding: 1rem;
+    }
+    
+    .retro-header {
+        padding: 2rem 0 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
     .glitch {
         font-size: 2rem;
         letter-spacing: 0.3rem;
@@ -408,6 +417,11 @@ body {
     
     .tagline {
         font-size: 1.2rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+        margin: 2rem 0;
     }
     
     .hero h2 {
@@ -420,24 +434,127 @@ body {
     
     .features {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 3rem 0;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+    
+    .downloads {
+        margin: 3rem 0;
     }
     
     .download-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .download-card {
+        padding: 1.5rem;
     }
     
     .section-title {
         font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .retro-footer {
+        padding: 2rem 0;
+        margin-top: 3rem;
     }
 }
 
 @media (max-width: 480px) {
+    .crt-screen {
+        padding: 0.75rem;
+    }
+    
+    .retro-header {
+        padding: 1.5rem 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
     .glitch {
         font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .hero {
+        padding: 1.5rem 0.75rem;
+        margin: 1.5rem 0;
+    }
+    
+    .hero h2 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .features {
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+    
+    .feature-card {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .feature-card p {
+        font-size: 1rem;
+    }
+    
+    .downloads {
+        margin: 2rem 0;
     }
     
     .download-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .download-card {
+        padding: 1.25rem;
+        gap: 0.75rem;
+    }
+    
+    .platform-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .platform-name {
+        font-size: 0.75rem;
+    }
+    
+    .download-badge {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .retro-footer {
+        padding: 1.5rem 0;
+        margin-top: 2rem;
+        font-size: 1rem;
     }
 }
 
