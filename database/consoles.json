@@ -7,10 +7,9 @@
   },
   {
     "id": "nes-toploader",
-    "name": "Nintendo Entertainment System",
+    "name": "Nintendo Entertainment System Top Loader",
     "manufacturer": "Nintendo",
-    "year": 1993,
-    "variant": "Top Loader"
+    "year": 1993
   },
   {
     "id": "snes",
@@ -20,10 +19,9 @@
   },
   {
     "id": "snes-jr",
-    "name": "Super Nintendo Entertainment System",
+    "name": "Super Nintendo Entertainment System SNES Jr.",
     "manufacturer": "Nintendo",
-    "year": 1997,
-    "variant": "SNES Jr."
+    "year": 1997
   },
   {
     "id": "n64",
@@ -45,10 +43,9 @@
   },
   {
     "id": "wii-mini",
-    "name": "Nintendo Wii",
+    "name": "Nintendo Wii Mini",
     "manufacturer": "Nintendo",
-    "year": 2012,
-    "variant": "Mini"
+    "year": 2012
   },
   {
     "id": "wiiu",
@@ -64,17 +61,15 @@
   },
   {
     "id": "switch-lite",
-    "name": "Nintendo Switch",
+    "name": "Nintendo Switch Lite",
     "manufacturer": "Nintendo",
-    "year": 2019,
-    "variant": "Lite"
+    "year": 2019
   },
   {
     "id": "switch-oled",
-    "name": "Nintendo Switch",
+    "name": "Nintendo Switch OLED Model",
     "manufacturer": "Nintendo",
-    "year": 2021,
-    "variant": "OLED Model"
+    "year": 2021
   },
   {
     "id": "gb",
@@ -84,17 +79,15 @@
   },
   {
     "id": "gb-pocket",
-    "name": "Game Boy",
+    "name": "Game Boy Pocket",
     "manufacturer": "Nintendo",
-    "year": 1996,
-    "variant": "Pocket"
+    "year": 1996
   },
   {
     "id": "gb-light",
-    "name": "Game Boy",
+    "name": "Game Boy Light",
     "manufacturer": "Nintendo",
-    "year": 1998,
-    "variant": "Light"
+    "year": 1998
   },
   {
     "id": "gbc",
@@ -110,17 +103,15 @@
   },
   {
     "id": "gba-sp",
-    "name": "Game Boy Advance",
+    "name": "Game Boy Advance SP",
     "manufacturer": "Nintendo",
-    "year": 2003,
-    "variant": "SP"
+    "year": 2003
   },
   {
     "id": "gba-micro",
-    "name": "Game Boy Advance",
+    "name": "Game Boy Advance Micro",
     "manufacturer": "Nintendo",
-    "year": 2005,
-    "variant": "Micro"
+    "year": 2005
   },
   {
     "id": "ds",
@@ -130,17 +121,15 @@
   },
   {
     "id": "ds-lite",
-    "name": "Nintendo DS",
+    "name": "Nintendo DS Lite",
     "manufacturer": "Nintendo",
-    "year": 2006,
-    "variant": "Lite"
+    "year": 2006
   },
   {
     "id": "dsi",
-    "name": "Nintendo DS",
+    "name": "Nintendo DSi",
     "manufacturer": "Nintendo",
-    "year": 2008,
-    "variant": "DSi"
+    "year": 2008
   },
   {
     "id": "3ds",
@@ -150,38 +139,33 @@
   },
   {
     "id": "3ds-xl",
-    "name": "Nintendo 3DS",
+    "name": "Nintendo 3DS XL",
     "manufacturer": "Nintendo",
-    "year": 2012,
-    "variant": "XL"
+    "year": 2012
   },
   {
     "id": "new-3ds",
-    "name": "Nintendo 3DS",
+    "name": "Nintendo New 3DS",
     "manufacturer": "Nintendo",
-    "year": 2014,
-    "variant": "New 3DS"
+    "year": 2014
   },
   {
     "id": "new-3ds-xl",
-    "name": "Nintendo 3DS",
+    "name": "Nintendo New 3DS XL",
     "manufacturer": "Nintendo",
-    "year": 2014,
-    "variant": "New 3DS XL"
+    "year": 2014
   },
   {
     "id": "2ds",
-    "name": "Nintendo 3DS",
+    "name": "Nintendo 2DS",
     "manufacturer": "Nintendo",
-    "year": 2013,
-    "variant": "2DS"
+    "year": 2013
   },
   {
     "id": "new-2ds-xl",
-    "name": "Nintendo 3DS",
+    "name": "Nintendo New 2DS XL",
     "manufacturer": "Nintendo",
-    "year": 2017,
-    "variant": "New 2DS XL"
+    "year": 2017
   },
   {
     "id": "sg1000",
@@ -203,17 +187,15 @@
   },
   {
     "id": "genesis-model2",
-    "name": "Sega Genesis",
+    "name": "Sega Genesis Model 2",
     "manufacturer": "Sega",
-    "year": 1993,
-    "variant": "Model 2"
+    "year": 1993
   },
   {
     "id": "genesis-model3",
-    "name": "Sega Genesis",
+    "name": "Sega Genesis Model 3",
     "manufacturer": "Sega",
-    "year": 1997,
-    "variant": "Model 3"
+    "year": 1997
   },
   {
     "id": "segacd",
@@ -247,10 +229,9 @@
   },
   {
     "id": "saturn-model2",
-    "name": "Sega Saturn",
+    "name": "Sega Saturn Model 2",
     "manufacturer": "Sega",
-    "year": 1996,
-    "variant": "Model 2"
+    "year": 1996
   },
   {
     "id": "dreamcast",
@@ -266,10 +247,9 @@
   },
   {
     "id": "psone",
-    "name": "PlayStation",
+    "name": "PlayStation PSone",
     "manufacturer": "Sony",
-    "year": 2000,
-    "variant": "PSone"
+    "year": 2000
   },
   {
     "id": "ps2",
@@ -279,10 +259,9 @@
   },
   {
     "id": "ps2-slim",
-    "name": "PlayStation 2",
+    "name": "PlayStation 2 Slim",
     "manufacturer": "Sony",
-    "year": 2004,
-    "variant": "Slim"
+    "year": 2004
   },
   {
     "id": "ps3",
@@ -292,17 +271,15 @@
   },
   {
     "id": "ps3-slim",
-    "name": "PlayStation 3",
+    "name": "PlayStation 3 Slim",
     "manufacturer": "Sony",
-    "year": 2009,
-    "variant": "Slim"
+    "year": 2009
   },
   {
     "id": "ps3-super-slim",
-    "name": "PlayStation 3",
+    "name": "PlayStation 3 Super Slim",
     "manufacturer": "Sony",
-    "year": 2012,
-    "variant": "Super Slim"
+    "year": 2012
   },
   {
     "id": "ps4",
@@ -312,17 +289,15 @@
   },
   {
     "id": "ps4-slim",
-    "name": "PlayStation 4",
+    "name": "PlayStation 4 Slim",
     "manufacturer": "Sony",
-    "year": 2016,
-    "variant": "Slim"
+    "year": 2016
   },
   {
     "id": "ps4-pro",
-    "name": "PlayStation 4",
+    "name": "PlayStation 4 Pro",
     "manufacturer": "Sony",
-    "year": 2016,
-    "variant": "Pro"
+    "year": 2016
   },
   {
     "id": "ps5",
@@ -332,10 +307,9 @@
   },
   {
     "id": "ps5-slim",
-    "name": "PlayStation 5",
+    "name": "PlayStation 5 Slim",
     "manufacturer": "Sony",
-    "year": 2023,
-    "variant": "Slim"
+    "year": 2023
   },
   {
     "id": "psp",
@@ -345,24 +319,21 @@
   },
   {
     "id": "psp-2000",
-    "name": "PlayStation Portable",
+    "name": "PlayStation Portable Slim & Lite (2000)",
     "manufacturer": "Sony",
-    "year": 2007,
-    "variant": "Slim & Lite (2000)"
+    "year": 2007
   },
   {
     "id": "psp-3000",
-    "name": "PlayStation Portable",
+    "name": "PlayStation Portable 3000",
     "manufacturer": "Sony",
-    "year": 2008,
-    "variant": "3000"
+    "year": 2008
   },
   {
     "id": "psp-go",
-    "name": "PlayStation Portable",
+    "name": "PlayStation Portable Go",
     "manufacturer": "Sony",
-    "year": 2009,
-    "variant": "Go"
+    "year": 2009
   },
   {
     "id": "psvita",
@@ -372,10 +343,9 @@
   },
   {
     "id": "psvita-slim",
-    "name": "PlayStation Vita",
+    "name": "PlayStation Vita Slim (PCH-2000)",
     "manufacturer": "Sony",
-    "year": 2013,
-    "variant": "Slim (PCH-2000)"
+    "year": 2013
   },
   {
     "id": "xbox",
@@ -391,17 +361,15 @@
   },
   {
     "id": "xbox360-s",
-    "name": "Xbox 360",
+    "name": "Xbox 360 S (Slim)",
     "manufacturer": "Microsoft",
-    "year": 2010,
-    "variant": "S (Slim)"
+    "year": 2010
   },
   {
     "id": "xbox360-e",
-    "name": "Xbox 360",
+    "name": "Xbox 360 E",
     "manufacturer": "Microsoft",
-    "year": 2013,
-    "variant": "E"
+    "year": 2013
   },
   {
     "id": "xboxone",
@@ -411,37 +379,177 @@
   },
   {
     "id": "xboxone-s",
-    "name": "Xbox One",
+    "name": "Xbox One S",
     "manufacturer": "Microsoft",
-    "year": 2016,
-    "variant": "S"
+    "year": 2016
   },
   {
     "id": "xboxone-x",
-    "name": "Xbox One",
+    "name": "Xbox One X",
     "manufacturer": "Microsoft",
-    "year": 2017,
-    "variant": "X"
+    "year": 2017
   },
   {
-    "id": "xboxseries",
-    "name": "Xbox Series X/S",
+    "id": "xboxseries-x",
+    "name": "Xbox Series X",
     "manufacturer": "Microsoft",
     "year": 2020
   },
   {
-    "id": "xboxseries-x",
-    "name": "Xbox Series",
+    "id": "xboxseries-s",
+    "name": "Xbox Series S",
     "manufacturer": "Microsoft",
-    "year": 2020,
-    "variant": "Series X"
+    "year": 2020
   },
   {
-    "id": "xboxseries-s",
-    "name": "Xbox Series",
-    "manufacturer": "Microsoft",
-    "year": 2020,
-    "variant": "Series S"
+    "id": "oculus-quest-1",
+    "name": "Oculus Quest",
+    "manufacturer": "Oculus",
+    "year": 2019
+  },
+  {
+    "id": "oculus-quest-2",
+    "name": "Oculus Quest 2",
+    "manufacturer": "Oculus",
+    "year": 2020
+  },
+  {
+    "id": "meta-quest-2",
+    "name": "Meta Quest 2",
+    "manufacturer": "Meta",
+    "year": 2020
+  },
+  {
+    "id": "meta-quest-3",
+    "name": "Meta Quest 3",
+    "manufacturer": "Meta",
+    "year": 2023
+  },
+  {
+    "id": "meta-quest-3s",
+    "name": "Meta Quest 3S",
+    "manufacturer": "Meta",
+    "year": 2024
+  },
+  {
+    "id": "ps5-pro",
+    "name": "PlayStation 5 Pro",
+    "manufacturer": "Sony",
+    "year": 2024
+  },
+  {
+    "id": "atari2600",
+    "name": "Atari 2600",
+    "manufacturer": "Atari",
+    "year": 1977
+  },
+  {
+    "id": "atari5200",
+    "name": "Atari 5200",
+    "manufacturer": "Atari",
+    "year": 1982
+  },
+  {
+    "id": "atari7800",
+    "name": "Atari 7800",
+    "manufacturer": "Atari",
+    "year": 1986
+  },
+  {
+    "id": "atari-lynx",
+    "name": "Atari Lynx",
+    "manufacturer": "Atari",
+    "year": 1989
+  },
+  {
+    "id": "atari-jaguar",
+    "name": "Atari Jaguar",
+    "manufacturer": "Atari",
+    "year": 1993
+  },
+  {
+    "id": "virtual-boy",
+    "name": "Virtual Boy",
+    "manufacturer": "Nintendo",
+    "year": 1995
+  },
+  {
+    "id": "turbografx-16",
+    "name": "TurboGrafx-16",
+    "manufacturer": "NEC",
+    "year": 1989
+  },
+  {
+    "id": "pc-engine",
+    "name": "PC Engine",
+    "manufacturer": "NEC",
+    "year": 1987
+  },
+  {
+    "id": "neo-geo",
+    "name": "Neo Geo",
+    "manufacturer": "SNK",
+    "year": 1990
+  },
+  {
+    "id": "neo-geo-pocket",
+    "name": "Neo Geo Pocket",
+    "manufacturer": "SNK",
+    "year": 1998
+  },
+  {
+    "id": "neo-geo-pocket-color",
+    "name": "Neo Geo Pocket Color",
+    "manufacturer": "SNK",
+    "year": 1999
+  },
+  {
+    "id": "steam-deck",
+    "name": "Steam Deck",
+    "manufacturer": "Valve",
+    "year": 2022
+  },
+  {
+    "id": "steam-deck-oled",
+    "name": "Steam Deck OLED",
+    "manufacturer": "Valve",
+    "year": 2023
+  },
+  {
+    "id": "steam-machine",
+    "name": "Steam Machine",
+    "manufacturer": "Valve",
+    "year": 2026
+  },
+  {
+    "id": "steam-frame",
+    "name": "Steam Frame",
+    "manufacturer": "Valve",
+    "year": 2026
+  },
+  {
+    "id": "valve-index",
+    "name": "Valve Index",
+    "manufacturer": "Valve",
+    "year": 2019
+  },
+  {
+    "id": "wonder-swan",
+    "name": "WonderSwan",
+    "manufacturer": "Bandai",
+    "year": 1999
+  },
+  {
+    "id": "wonder-swan-color",
+    "name": "WonderSwan Color",
+    "manufacturer": "Bandai",
+    "year": 2000
+  },
+  {
+    "id": "game-watch",
+    "name": "Game & Watch",
+    "manufacturer": "Nintendo",
+    "year": 1980
   }
 ]
 

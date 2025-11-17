@@ -184,6 +184,7 @@ struct UiState {
     filter_by: FilterOption,
     console_filter_by: FilterOption,
     search_query: String,
+    console_search_query: String,
     games_page: usize,
     consoles_page: usize,
     lego_sort_by: LegoSortOption,

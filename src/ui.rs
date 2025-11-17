@@ -7,11 +7,7 @@ use egui::*;
 use std::collections::HashMap;
 
 fn console_display_name(console: &Console) -> String {
-    if let Some(variant) = &console.variant {
-        format!("{} ({})", console.name, variant)
-    } else {
-        console.name.clone()
-    }
+    console.name.clone()
 }
 
 pub fn render_consoles_tab(
@@ -55,14 +51,40 @@ pub fn render_consoles_tab(
             FilterOption::NotOwned,
             "Not Owned",
         );
+
+        ui.separator();
+
+        ui.label("Search:");
+        ui.text_edit_singleline(&mut ui_state.console_search_query);
     });
 
     ui.separator();
 
+    // Reset page if search query changed
+    static mut LAST_CONSOLE_SEARCH: Option<String> = None;
+    unsafe {
+        let current_search = ui_state.console_search_query.clone();
+        if let Some(ref last_search) = LAST_CONSOLE_SEARCH {
+            if last_search != &current_search {
+                ui_state.consoles_page = 0;
+            }
+        }
+        LAST_CONSOLE_SEARCH = Some(current_search);
+    }
+
     // Filter and sort consoles
     let mut filtered_consoles: Vec<&Console> = consoles.iter().collect();
 
-    // Apply filter
+    // Apply search filter
+    if !ui_state.console_search_query.is_empty() {
+        let search_lower = ui_state.console_search_query.to_lowercase();
+        filtered_consoles.retain(|console| {
+            console.name.to_lowercase().contains(&search_lower)
+                || console.manufacturer.to_lowercase().contains(&search_lower)
+        });
+    }
+
+    // Apply status filter
     filtered_consoles.retain(|console| {
         let state = console_states.get(&console.id);
 
