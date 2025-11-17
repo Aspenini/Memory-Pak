@@ -159,6 +159,12 @@ struct MemoryPakApp {
     lego_dimensions_figures: Vec<LegoDimensionFigure>,
     lego_dimensions_states: HashMap<String, LegoDimensionState>,
     ui_state: UiState,
+    data_loaded: bool,
+    game_counts_by_console: HashMap<String, (usize, usize, usize)>, // (owned, favorite, wishlist)
+    pending_console_save: bool,
+    pending_game_save: bool,
+    pending_lego_save: bool,
+    last_save_time: Option<std::time::Instant>,
 }
 
 impl Default for MemoryPakApp {
@@ -172,6 +178,12 @@ impl Default for MemoryPakApp {
             lego_dimensions_figures: Vec::new(),
             lego_dimensions_states: HashMap::new(),
             ui_state: UiState::default(),
+            data_loaded: false,
+            game_counts_by_console: HashMap::new(),
+            pending_console_save: false,
+            pending_game_save: false,
+            pending_lego_save: false,
+            last_save_time: None,
         }
     }
 }
@@ -190,6 +202,13 @@ struct UiState {
     lego_sort_by: LegoSortOption,
     lego_filter_by: FilterOption,
     lego_search_query: String,
+    // Cached lowercase strings for search
+    search_query_lower: String,
+    console_search_query_lower: String,
+    lego_search_query_lower: String,
+    // Track last search/filter to detect changes
+    last_console_search: String,
+    last_console_filter: String,
     #[cfg(target_arch = "wasm32")]
     needs_import: bool,
     #[cfg(target_arch = "wasm32")]
@@ -231,17 +250,102 @@ enum FilterOption {
     NotOwned,
 }
 
+impl MemoryPakApp {
+    /// Compute game counts by console from game_states
+    fn compute_game_counts(game_states: &HashMap<String, GameState>) -> HashMap<String, (usize, usize, usize)> {
+        use crate::game_data::get_console_from_id;
+        let mut counts: HashMap<String, (usize, usize, usize)> = HashMap::new();
+        
+        for state in game_states.values() {
+            let console_id = get_console_from_id(&state.game_id);
+            let entry = counts.entry(console_id.to_string()).or_insert((0, 0, 0));
+            if state.owned { entry.0 += 1; }
+            if state.favorite { entry.1 += 1; }
+            if state.wishlist { entry.2 += 1; }
+        }
+        
+        counts
+    }
+
+    /// Invalidate and recompute game counts cache
+    pub fn invalidate_game_counts_cache(&mut self) {
+        self.game_counts_by_console = Self::compute_game_counts(&self.game_states);
+    }
+
+    /// Flush pending saves if enough time has passed (500ms debounce)
+    fn maybe_flush_saves(&mut self) {
+        const SAVE_DEBOUNCE_MS: u64 = 500;
+        
+        // Check if we have any pending saves
+        if !self.pending_console_save && !self.pending_game_save && !self.pending_lego_save {
+            return; // Nothing to save
+        }
+
+        // Check if enough time has passed since last save
+        if let Some(last_save) = self.last_save_time {
+            if last_save.elapsed().as_millis() < SAVE_DEBOUNCE_MS as u128 {
+                return; // Not enough time has passed
+            }
+        }
+
+        // Flush all pending saves
+        if self.pending_console_save {
+            crate::persistence::save_console_states(&self.console_states);
+            self.pending_console_save = false;
+        }
+
+        if self.pending_game_save {
+            // Group and save game states by console
+            let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
+            for (game_id, state) in &self.game_states {
+                let console_id = crate::game_data::get_console_from_id(game_id);
+                states_by_console
+                    .entry(console_id.to_string())
+                    .or_insert_with(HashMap::new)
+                    .insert(game_id.clone(), state.clone());
+            }
+            for (console_id, console_states) in states_by_console {
+                crate::persistence::save_game_states(&console_id, &console_states);
+            }
+            // Invalidate cache after saving game states
+            self.invalidate_game_counts_cache();
+            self.pending_game_save = false;
+        }
+
+        if self.pending_lego_save {
+            crate::persistence::save_lego_dimensions_states(&self.lego_dimensions_states);
+            self.pending_lego_save = false;
+        }
+
+        // Update last save time
+        self.last_save_time = Some(std::time::Instant::now());
+    }
+}
+
 impl eframe::App for MemoryPakApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         // Load data on first run
-        if self.consoles.is_empty() {
+        if !self.data_loaded {
             self.consoles = get_hardcoded_consoles();
             self.games = load_embedded_games();
             self.game_states = load_all_game_states_flat();
             self.console_states = load_all_console_states();
             self.lego_dimensions_figures = load_lego_dimensions_figures();
             self.lego_dimensions_states = load_lego_dimensions_states();
+            // Compute initial game counts
+            self.game_counts_by_console = Self::compute_game_counts(&self.game_states);
+            self.data_loaded = true;
         }
+
+        // Invalidate cache immediately when game states first change in a save cycle
+        // This ensures the cache is up-to-date even before the save debounce completes
+        // We only do this once per save cycle (when last_save_time is None)
+        if self.pending_game_save && self.last_save_time.is_none() {
+            self.invalidate_game_counts_cache();
+        }
+
+        // Flush pending saves if debounce time has passed
+        self.maybe_flush_saves();
 
         // Handle web import dialog
         #[cfg(target_arch = "wasm32")]
@@ -273,6 +377,8 @@ impl eframe::App for MemoryPakApp {
                                                 .insert(game_state.game_id.clone(), game_state);
                                         }
                                     }
+                                    // Invalidate cache after import
+                                    self.invalidate_game_counts_cache();
 
                                     // Merge imported LEGO Dimensions states
                                     for figure_state in import.lego_dimensions_states {
@@ -366,8 +472,9 @@ impl eframe::App for MemoryPakApp {
                 ui,
                 &self.consoles,
                 &mut self.console_states,
-                &self.game_states,
+                &self.game_counts_by_console,
                 &mut self.ui_state,
+                &mut self.pending_console_save,
             ),
             Tab::Games => render_games_tab(
                 ui,
@@ -376,12 +483,14 @@ impl eframe::App for MemoryPakApp {
                 &self.games,
                 &mut self.game_states,
                 &mut self.ui_state,
+                &mut self.pending_game_save,
             ),
             Tab::LegoDimensions => render_lego_dimensions_tab(
                 ui,
                 &self.lego_dimensions_figures,
                 &mut self.lego_dimensions_states,
                 &mut self.ui_state,
+                &mut self.pending_lego_save,
             ),
         });
     }

@@ -411,6 +411,8 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
                         .insert(game_state.game_id.clone(), game_state);
                 }
             }
+            // Invalidate cache after import
+            app.invalidate_game_counts_cache();
 
             // Merge imported LEGO Dimensions states
             for figure_state in import.lego_dimensions_states {

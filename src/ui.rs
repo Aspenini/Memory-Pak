@@ -1,4 +1,3 @@
-use crate::game_data::get_console_from_id;
 use crate::lego_dimensions::{figure_id, LegoDimensionFigure, LegoDimensionState};
 use crate::{
     Console, ConsoleState, FilterOption, Game, GameState, LegoSortOption, SortOption, UiState,
@@ -14,8 +13,9 @@ pub fn render_consoles_tab(
     ui: &mut egui::Ui,
     consoles: &[Console],
     console_states: &mut HashMap<String, ConsoleState>,
-    game_states: &HashMap<String, GameState>,
+    game_counts_by_console: &HashMap<String, (usize, usize, usize)>,
     ui_state: &mut UiState,
+    pending_console_save: &mut bool,
 ) {
     ui.heading("Consoles");
     ui.separator();
@@ -60,27 +60,21 @@ pub fn render_consoles_tab(
 
     ui.separator();
 
-    // Reset page if search query changed
-    static mut LAST_CONSOLE_SEARCH: Option<String> = None;
-    unsafe {
-        let current_search = ui_state.console_search_query.clone();
-        if let Some(ref last_search) = LAST_CONSOLE_SEARCH {
-            if last_search != &current_search {
-                ui_state.consoles_page = 0;
-            }
-        }
-        LAST_CONSOLE_SEARCH = Some(current_search);
+    // Update cached lowercase string and reset page if search query changed
+    if ui_state.console_search_query != ui_state.last_console_search {
+        ui_state.console_search_query_lower = ui_state.console_search_query.to_lowercase();
+        ui_state.last_console_search = ui_state.console_search_query.clone();
+        ui_state.consoles_page = 0;
     }
 
     // Filter and sort consoles
     let mut filtered_consoles: Vec<&Console> = consoles.iter().collect();
 
-    // Apply search filter
-    if !ui_state.console_search_query.is_empty() {
-        let search_lower = ui_state.console_search_query.to_lowercase();
+    // Apply search filter using cached lowercase
+    if !ui_state.console_search_query_lower.is_empty() {
         filtered_consoles.retain(|console| {
-            console.name.to_lowercase().contains(&search_lower)
-                || console.manufacturer.to_lowercase().contains(&search_lower)
+            console.name.to_lowercase().contains(&ui_state.console_search_query_lower)
+                || console.manufacturer.to_lowercase().contains(&ui_state.console_search_query_lower)
         });
     }
 
@@ -188,42 +182,11 @@ pub fn render_consoles_tab(
                                 ..Default::default()
                             });
 
-                    // Count games for this console
-                    let owned_count = game_states
-                        .values()
-                        .filter(|state| {
-                            if let Some(game_console) = state.game_id.split('-').next() {
-                                game_console == console.id
-                            } else {
-                                false
-                            }
-                        })
-                        .filter(|state| state.owned)
-                        .count();
-
-                    let favorite_count = game_states
-                        .values()
-                        .filter(|state| {
-                            if let Some(game_console) = state.game_id.split('-').next() {
-                                game_console == console.id
-                            } else {
-                                false
-                            }
-                        })
-                        .filter(|state| state.favorite)
-                        .count();
-
-                    let wishlist_count = game_states
-                        .values()
-                        .filter(|state| {
-                            if let Some(game_console) = state.game_id.split('-').next() {
-                                game_console == console.id
-                            } else {
-                                false
-                            }
-                        })
-                        .filter(|state| state.wishlist)
-                        .count();
+                    // Get game counts from cache
+                    let (owned_count, favorite_count, wishlist_count) = game_counts_by_console
+                        .get(&console.id)
+                        .copied()
+                        .unwrap_or((0, 0, 0));
 
                     ui.group(|ui| {
                         ui.horizontal(|ui| {
@@ -275,7 +238,7 @@ pub fn render_consoles_tab(
                 }
 
                 if needs_save {
-                    crate::persistence::save_console_states(console_states);
+                    *pending_console_save = true;
                 }
             });
 
@@ -347,17 +310,30 @@ pub fn render_games_tab(
     games: &HashMap<String, Game>,
     game_states: &mut HashMap<String, GameState>,
     ui_state: &mut UiState,
+    pending_game_save: &mut bool,
 ) {
+    // Get unique console IDs from loaded games (based on JSON files)
+    let mut console_ids: Vec<String> = games
+        .values()
+        .map(|game| game.console_id.clone())
+        .collect::<std::collections::HashSet<_>>()
+        .into_iter()
+        .collect();
+    console_ids.sort();
+
     ui.horizontal(|ui| {
         ui.label("Select Console:");
         egui::ComboBox::from_id_source("console_select")
             .selected_text(match selected_console.as_deref() {
                 Some("all") => "All Consoles".to_string(),
-                Some(id) => consoles
-                    .iter()
-                    .find(|c| &c.id == id)
-                    .map(|c| console_display_name(c))
-                    .unwrap_or_else(|| id.to_string()),
+                Some(id) => {
+                    // Try to find display name from consoles list, otherwise use the ID
+                    consoles
+                        .iter()
+                        .find(|c| &c.id == id)
+                        .map(|c| console_display_name(c))
+                        .unwrap_or_else(|| id.to_string())
+                }
                 None => "None".to_string(),
             })
             .show_ui(ui, |ui| {
@@ -369,15 +345,23 @@ pub fn render_games_tab(
                     *selected_console = Some("all".to_string());
                 }
 
-                for console in consoles {
+                // Show consoles based on available game JSON files
+                for console_id in &console_ids {
+                    // Try to find display name from consoles list, otherwise use the ID
+                    let display_name = consoles
+                        .iter()
+                        .find(|c| &c.id == console_id)
+                        .map(|c| console_display_name(c))
+                        .unwrap_or_else(|| console_id.clone());
+
                     if ui
                         .selectable_label(
-                            selected_console.as_deref() == Some(&console.id),
-                            console_display_name(console),
+                            selected_console.as_deref() == Some(console_id),
+                            display_name,
                         )
                         .clicked()
                     {
-                        *selected_console = Some(console.id.clone());
+                        *selected_console = Some(console_id.clone());
                     }
                 }
             });
@@ -416,18 +400,16 @@ pub fn render_games_tab(
 
         ui.separator();
 
-        // Check if filters changed and reset page if needed
-        // We'll use a simple approach: reset page when console changes
-        // The page bounds check below will handle other filter changes
-        static mut LAST_CONSOLE_FILTER: Option<String> = None;
-        unsafe {
-            let current_filter = console_filter.to_string();
-            if let Some(ref last_filter) = LAST_CONSOLE_FILTER {
-                if last_filter != &current_filter {
-                    ui_state.games_page = 0;
-                }
-            }
-            LAST_CONSOLE_FILTER = Some(current_filter);
+        // Update cached lowercase string and reset page if search query changed
+        if ui_state.search_query != ui_state.search_query_lower {
+            ui_state.search_query_lower = ui_state.search_query.to_lowercase();
+        }
+
+        // Check if console filter changed and reset page if needed
+        let current_filter = console_filter.to_string();
+        if ui_state.last_console_filter != current_filter {
+            ui_state.last_console_filter = current_filter.clone();
+            ui_state.games_page = 0;
         }
 
         // Filter games by console (if not "all")
@@ -459,13 +441,9 @@ pub fn render_games_tab(
             .filter(|game| {
                 let state = game_states.get(&game.id).unwrap();
 
-                // Search filter
-                if !ui_state.search_query.is_empty() {
-                    if !game
-                        .title
-                        .to_lowercase()
-                        .contains(&ui_state.search_query.to_lowercase())
-                    {
+                // Search filter using cached lowercase
+                if !ui_state.search_query_lower.is_empty() {
+                    if !game.title.to_lowercase().contains(&ui_state.search_query_lower) {
                         return false;
                     }
                 }
@@ -608,20 +586,7 @@ pub fn render_games_tab(
                     }
 
                     if needs_save {
-                        // Save states grouped by console
-                        let mut states_by_console: HashMap<String, HashMap<String, GameState>> =
-                            HashMap::new();
-                        for (game_id, state) in game_states.iter() {
-                            let console_id = get_console_from_id(game_id);
-                            states_by_console
-                                .entry(console_id.to_string())
-                                .or_insert_with(HashMap::new)
-                                .insert(game_id.clone(), state.clone());
-                        }
-
-                        for (console_id, console_states) in states_by_console {
-                            crate::persistence::save_game_states(&console_id, &console_states);
-                        }
+                        *pending_game_save = true;
                     }
                 });
 
@@ -696,6 +661,7 @@ pub fn render_lego_dimensions_tab(
     figures: &[LegoDimensionFigure],
     states: &mut HashMap<String, LegoDimensionState>,
     ui_state: &mut UiState,
+    pending_lego_save: &mut bool,
 ) {
     ui.heading("LEGO Dimensions Characters");
     ui.separator();
@@ -756,6 +722,11 @@ pub fn render_lego_dimensions_tab(
 
     ui.separator();
 
+    // Update cached lowercase string when search query changes
+    if ui_state.lego_search_query != ui_state.lego_search_query_lower {
+        ui_state.lego_search_query_lower = ui_state.lego_search_query.to_lowercase();
+    }
+
     let mut filtered_figures: Vec<&LegoDimensionFigure> = figures
         .iter()
         .filter(|figure| {
@@ -763,19 +734,11 @@ pub fn render_lego_dimensions_tab(
                 .get(&figure_id(figure))
                 .expect("state should exist for figure");
 
-            if !ui_state.lego_search_query.is_empty()
-                && !figure
-                    .name
-                    .to_lowercase()
-                    .contains(&ui_state.lego_search_query.to_lowercase())
-                && !figure
-                    .category
-                    .to_lowercase()
-                    .contains(&ui_state.lego_search_query.to_lowercase())
-                && !figure
-                    .pack_id
-                    .to_lowercase()
-                    .contains(&ui_state.lego_search_query.to_lowercase())
+            // Search filter using cached lowercase
+            if !ui_state.lego_search_query_lower.is_empty()
+                && !figure.name.to_lowercase().contains(&ui_state.lego_search_query_lower)
+                && !figure.category.to_lowercase().contains(&ui_state.lego_search_query_lower)
+                && !figure.pack_id.to_lowercase().contains(&ui_state.lego_search_query_lower)
             {
                 return false;
             }
@@ -859,7 +822,7 @@ pub fn render_lego_dimensions_tab(
             }
 
             if needs_save {
-                crate::persistence::save_lego_dimensions_states(states);
+                *pending_lego_save = true;
             }
         });
 }
