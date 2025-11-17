@@ -73,16 +73,6 @@
                 });
             }
             
-            // Handle Linux card (div with child links) - add hover effects
-            if (card.classList.contains('linux-card')) {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = '';
-                });
-            }
-            
             // Handle Cargo card - add hover effects
             if (card.classList.contains('cargo-card')) {
                 card.addEventListener('mouseenter', function() {
@@ -92,21 +82,6 @@
                     this.style.transform = '';
                 });
             }
-        });
-        
-        // Handle Linux download buttons separately
-        const linuxDownloadBtns = document.querySelectorAll('.linux-download-btn');
-        linuxDownloadBtns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                // Add click flash effect but allow download
-                this.style.transition = 'none';
-                this.style.filter = 'brightness(2)';
-                setTimeout(() => {
-                    this.style.transition = '';
-                    this.style.filter = '';
-                }, 150);
-                // Let the browser handle the download
-            });
         });
     }
 
