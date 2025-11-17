@@ -10,6 +10,7 @@ repository = "https://github.com/Aspenini/Memory-Pak"
 homepage = "https://aspenini.github.io/Memory-Pak"
 keywords = ["egui", "game", "collection", "tracker"]
 categories = ["gui", "games"]
+build = "build.rs"
 
 [dependencies]
 egui = "0.27"
