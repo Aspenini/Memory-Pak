@@ -349,6 +349,70 @@ body {
     border-color: var(--text-accent);
 }
 
+/* Cargo card specific styles */
+.cargo-card {
+    cursor: default;
+}
+
+.cargo-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px var(--text-primary));
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.cargo-card:hover .cargo-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.cargo-install {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.cargo-command {
+    display: block;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-align: center;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.copy-btn {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--text-primary);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.copy-btn:hover {
+    background: var(--text-accent);
+    color: var(--bg-dark);
+    border-color: var(--text-accent);
+    transform: scale(1.05);
+}
+
+.copy-btn:active {
+    transform: scale(0.98);
+}
+
 /* Linux card specific styles */
 .linux-card {
     cursor: default;
@@ -597,6 +661,21 @@ body {
     .download-badge {
         padding: 0.4rem 1rem;
         font-size: 0.85rem;
+    }
+    
+    .cargo-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cargo-command {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.75rem;
+    }
+    
+    .copy-btn {
+        font-size: 0.6rem;
+        padding: 0.6rem 0.75rem;
     }
     
     .section-title {

@@ -7,6 +7,7 @@
         initHoverEffects();
         initParallax();
         initCRTEffect();
+        initCargoCard();
     });
 
     // Enhanced glitch effect
@@ -74,6 +75,16 @@
             
             // Handle Linux card (div with child links) - add hover effects
             if (card.classList.contains('linux-card')) {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            }
+            
+            // Handle Cargo card - add hover effects
+            if (card.classList.contains('cargo-card')) {
                 card.addEventListener('mouseenter', function() {
                     this.style.transform = 'scale(1.05)';
                 });
@@ -224,6 +235,48 @@
             });
         }
     });
+
+    // Cargo card copy functionality
+    function initCargoCard() {
+        const copyBtn = document.getElementById('cargo-copy-btn');
+        if (!copyBtn) return;
+        
+        copyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const command = 'cargo install Memory-Pak';
+            navigator.clipboard.writeText(command).then(() => {
+                const copyText = this.querySelector('.copy-text');
+                const originalText = copyText.textContent;
+                copyText.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyText.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = command;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    const copyText = this.querySelector('.copy-text');
+                    const originalText = copyText.textContent;
+                    copyText.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyText.textContent = originalText;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Fallback copy failed:', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        });
+    }
 
     // Performance optimization: Reduce animations on slow devices
     if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
