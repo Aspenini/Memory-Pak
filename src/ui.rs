@@ -5,6 +5,35 @@ use crate::{
 };
 use egui::*;
 use std::collections::HashMap;
+use unicode_normalization::UnicodeNormalization;
+
+/// Normalize text for fuzzy searching:
+/// - Converts to lowercase
+/// - Normalizes Unicode characters (é -> e, ñ -> n, etc.)
+/// - Removes common special characters (apostrophes, colons, etc.)
+fn normalize_for_search(text: &str) -> String {
+    text.nfd() // Unicode Normalization Form Decomposed
+        .filter_map(|c| {
+            // Remove combining diacritical marks (accents)
+            // Combining marks are in Unicode ranges: 0300-036F, 1AB0-1AFF, 1DC0-1DFF, 20D0-20FF, FE20-FE2F
+            let code = c as u32;
+            if (0x0300..=0x036F).contains(&code)
+                || (0x1AB0..=0x1AFF).contains(&code)
+                || (0x1DC0..=0x1DFF).contains(&code)
+                || (0x20D0..=0x20FF).contains(&code)
+                || (0xFE20..=0xFE2F).contains(&code)
+            {
+                return None;
+            }
+            // Remove common special characters that users might skip
+            match c {
+                '\'' | ':' | '-' | '_' | '.' | ',' | '!' | '?' | ';' => None,
+                _ => Some(c),
+            }
+        })
+        .collect::<String>()
+        .to_lowercase()
+}
 
 fn console_display_name(console: &Console) -> String {
     console.name.clone()
@@ -61,9 +90,9 @@ pub fn render_consoles_tab(
 
     ui.separator();
 
-    // Update cached lowercase string and reset page if search query changed
+    // Update cached normalized string and reset page if search query changed
     if ui_state.console_search_query != ui_state.last_console_search {
-        ui_state.console_search_query_lower = ui_state.console_search_query.to_lowercase();
+        ui_state.console_search_query_lower = normalize_for_search(&ui_state.console_search_query);
         ui_state.last_console_search = ui_state.console_search_query.clone();
         ui_state.consoles_page = 0;
     }
@@ -71,11 +100,11 @@ pub fn render_consoles_tab(
     // Filter and sort consoles
     let mut filtered_consoles: Vec<&Console> = consoles.iter().collect();
 
-    // Apply search filter using cached lowercase
+    // Apply search filter using normalized strings
     if !ui_state.console_search_query_lower.is_empty() {
         filtered_consoles.retain(|console| {
-            console.name.to_lowercase().contains(&ui_state.console_search_query_lower)
-                || console.manufacturer.to_lowercase().contains(&ui_state.console_search_query_lower)
+            normalize_for_search(&console.name).contains(&ui_state.console_search_query_lower)
+                || normalize_for_search(&console.manufacturer).contains(&ui_state.console_search_query_lower)
         });
     }
 
@@ -401,9 +430,9 @@ pub fn render_games_tab(
 
         ui.separator();
 
-        // Update cached lowercase string and reset page if search query changed
+        // Update cached normalized string and reset page if search query changed
         if ui_state.search_query != ui_state.search_query_lower {
-            ui_state.search_query_lower = ui_state.search_query.to_lowercase();
+            ui_state.search_query_lower = normalize_for_search(&ui_state.search_query);
         }
 
         // Check if console filter changed and reset page if needed
@@ -442,9 +471,9 @@ pub fn render_games_tab(
             .filter(|game| {
                 let state = game_states.get(&game.id).unwrap();
 
-                // Search filter using cached lowercase
+                // Search filter using normalized strings
                 if !ui_state.search_query_lower.is_empty() {
-                    if !game.title.to_lowercase().contains(&ui_state.search_query_lower) {
+                    if !normalize_for_search(&game.title).contains(&ui_state.search_query_lower) {
                         return false;
                     }
                 }
@@ -723,9 +752,9 @@ pub fn render_lego_dimensions_tab(
 
     ui.separator();
 
-    // Update cached lowercase string when search query changes
+    // Update cached normalized string when search query changes
     if ui_state.lego_search_query != ui_state.lego_search_query_lower {
-        ui_state.lego_search_query_lower = ui_state.lego_search_query.to_lowercase();
+        ui_state.lego_search_query_lower = normalize_for_search(&ui_state.lego_search_query);
     }
 
     let mut filtered_figures: Vec<&LegoDimensionFigure> = figures
@@ -735,11 +764,11 @@ pub fn render_lego_dimensions_tab(
                 .get(&figure_id(figure))
                 .expect("state should exist for figure");
 
-            // Search filter using cached lowercase
+            // Search filter using normalized strings
             if !ui_state.lego_search_query_lower.is_empty()
-                && !figure.name.to_lowercase().contains(&ui_state.lego_search_query_lower)
-                && !figure.category.to_lowercase().contains(&ui_state.lego_search_query_lower)
-                && !figure.pack_id.to_lowercase().contains(&ui_state.lego_search_query_lower)
+                && !normalize_for_search(&figure.name).contains(&ui_state.lego_search_query_lower)
+                && !normalize_for_search(&figure.category).contains(&ui_state.lego_search_query_lower)
+                && !normalize_for_search(&figure.pack_id).contains(&ui_state.lego_search_query_lower)
             {
                 return false;
             }
@@ -902,9 +931,9 @@ pub fn render_skylanders_tab(
 
     ui.separator();
 
-    // Update cached lowercase string when search query changes
+    // Update cached normalized string when search query changes
     if ui_state.skylanders_search_query != ui_state.skylanders_search_query_lower {
-        ui_state.skylanders_search_query_lower = ui_state.skylanders_search_query.to_lowercase();
+        ui_state.skylanders_search_query_lower = normalize_for_search(&ui_state.skylanders_search_query);
     }
 
     let mut filtered_skylanders: Vec<&Skylander> = skylanders
@@ -914,12 +943,12 @@ pub fn render_skylanders_tab(
                 .get(&skylander_id(skylander))
                 .expect("state should exist for skylander");
 
-            // Search filter using cached lowercase
+            // Search filter using normalized strings
             if !ui_state.skylanders_search_query_lower.is_empty()
-                && !skylander.name.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
-                && !skylander.game.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
-                && !skylander.base_color.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
-                && !skylander.category.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
+                && !normalize_for_search(&skylander.name).contains(&ui_state.skylanders_search_query_lower)
+                && !normalize_for_search(&skylander.game).contains(&ui_state.skylanders_search_query_lower)
+                && !normalize_for_search(&skylander.base_color).contains(&ui_state.skylanders_search_query_lower)
+                && !normalize_for_search(&skylander.category).contains(&ui_state.skylanders_search_query_lower)
             {
                 return false;
             }
