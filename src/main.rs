@@ -12,12 +12,14 @@ use web_sys::*;
 mod console_data;
 mod game_data;
 mod lego_dimensions;
+mod skylanders;
 mod persistence;
 mod ui;
 
 use console_data::*;
 use game_data::*;
 use lego_dimensions::*;
+use skylanders::*;
 use persistence::*;
 use ui::*;
 
@@ -66,6 +68,8 @@ pub struct ExportData {
     pub consoles: Vec<ConsoleExportData>,
     #[serde(default)]
     pub lego_dimensions_states: Vec<LegoDimensionState>,
+    #[serde(default)]
+    pub skylanders_states: Vec<SkylanderState>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -158,12 +162,15 @@ struct MemoryPakApp {
     consoles: Vec<Console>,
     lego_dimensions_figures: Vec<LegoDimensionFigure>,
     lego_dimensions_states: HashMap<String, LegoDimensionState>,
+    skylanders: Vec<Skylander>,
+    skylanders_states: HashMap<String, SkylanderState>,
     ui_state: UiState,
     data_loaded: bool,
     game_counts_by_console: HashMap<String, (usize, usize, usize)>, // (owned, favorite, wishlist)
     pending_console_save: bool,
     pending_game_save: bool,
     pending_lego_save: bool,
+    pending_skylanders_save: bool,
     last_save_time: Option<std::time::Instant>,
 }
 
@@ -177,12 +184,15 @@ impl Default for MemoryPakApp {
             consoles: Vec::new(),
             lego_dimensions_figures: Vec::new(),
             lego_dimensions_states: HashMap::new(),
+            skylanders: Vec::new(),
+            skylanders_states: HashMap::new(),
             ui_state: UiState::default(),
             data_loaded: false,
             game_counts_by_console: HashMap::new(),
             pending_console_save: false,
             pending_game_save: false,
             pending_lego_save: false,
+            pending_skylanders_save: false,
             last_save_time: None,
         }
     }
@@ -202,10 +212,14 @@ struct UiState {
     lego_sort_by: LegoSortOption,
     lego_filter_by: FilterOption,
     lego_search_query: String,
+    skylanders_sort_by: SkylandersSortOption,
+    skylanders_filter_by: FilterOption,
+    skylanders_search_query: String,
     // Cached lowercase strings for search
     search_query_lower: String,
     console_search_query_lower: String,
     lego_search_query_lower: String,
+    skylanders_search_query_lower: String,
     // Track last search/filter to detect changes
     last_console_search: String,
     last_console_filter: String,
@@ -221,6 +235,7 @@ enum Tab {
     Consoles,
     Games,
     LegoDimensions,
+    Skylanders,
 }
 
 #[derive(Default, PartialEq)]
@@ -238,6 +253,15 @@ enum LegoSortOption {
     Category,
     Year,
     Pack,
+}
+
+#[derive(Default, PartialEq)]
+pub enum SkylandersSortOption {
+    #[default]
+    Name,
+    Game,
+    BaseColor,
+    Category,
 }
 
 #[derive(Default, PartialEq)]
@@ -277,7 +301,7 @@ impl MemoryPakApp {
         const SAVE_DEBOUNCE_MS: u64 = 500;
         
         // Check if we have any pending saves
-        if !self.pending_console_save && !self.pending_game_save && !self.pending_lego_save {
+        if !self.pending_console_save && !self.pending_game_save && !self.pending_lego_save && !self.pending_skylanders_save {
             return; // Nothing to save
         }
 
@@ -317,6 +341,11 @@ impl MemoryPakApp {
             self.pending_lego_save = false;
         }
 
+        if self.pending_skylanders_save {
+            crate::persistence::save_skylanders_states(&self.skylanders_states);
+            self.pending_skylanders_save = false;
+        }
+
         // Update last save time
         self.last_save_time = Some(std::time::Instant::now());
     }
@@ -332,6 +361,8 @@ impl eframe::App for MemoryPakApp {
             self.console_states = load_all_console_states();
             self.lego_dimensions_figures = load_lego_dimensions_figures();
             self.lego_dimensions_states = load_lego_dimensions_states();
+            self.skylanders = load_skylanders();
+            self.skylanders_states = load_skylanders_states();
             // Compute initial game counts
             self.game_counts_by_console = Self::compute_game_counts(&self.game_states);
             self.data_loaded = true;
@@ -386,6 +417,12 @@ impl eframe::App for MemoryPakApp {
                                             .insert(figure_state.figure_id.clone(), figure_state);
                                     }
 
+                                    // Merge imported Skylanders states
+                                    for skylander_state in import.skylanders_states {
+                                        self.skylanders_states
+                                            .insert(skylander_state.skylander_id.clone(), skylander_state);
+                                    }
+
                                     // Save all imported states
                                     crate::persistence::save_console_states(&self.console_states);
                                     // Group and save game states by console
@@ -406,6 +443,9 @@ impl eframe::App for MemoryPakApp {
                                     }
                                     crate::persistence::save_lego_dimensions_states(
                                         &self.lego_dimensions_states,
+                                    );
+                                    crate::persistence::save_skylanders_states(
+                                        &self.skylanders_states,
                                     );
 
                                     self.ui_state.needs_import = false;
@@ -465,6 +505,15 @@ impl eframe::App for MemoryPakApp {
                 {
                     self.ui_state.active_tab = Tab::LegoDimensions;
                 }
+                if ui
+                    .selectable_label(
+                        self.ui_state.active_tab == Tab::Skylanders,
+                        "Skylanders",
+                    )
+                    .clicked()
+                {
+                    self.ui_state.active_tab = Tab::Skylanders;
+                }
             });
 
         egui::CentralPanel::default().show(ctx, |ui| match self.ui_state.active_tab {
@@ -491,6 +540,13 @@ impl eframe::App for MemoryPakApp {
                 &mut self.lego_dimensions_states,
                 &mut self.ui_state,
                 &mut self.pending_lego_save,
+            ),
+            Tab::Skylanders => render_skylanders_tab(
+                ui,
+                &self.skylanders,
+                &mut self.skylanders_states,
+                &mut self.ui_state,
+                &mut self.pending_skylanders_save,
             ),
         });
     }

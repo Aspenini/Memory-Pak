@@ -1,6 +1,7 @@
 use crate::lego_dimensions::{figure_id, LegoDimensionFigure, LegoDimensionState};
+use crate::skylanders::{skylander_id, Skylander, SkylanderState};
 use crate::{
-    Console, ConsoleState, FilterOption, Game, GameState, LegoSortOption, SortOption, UiState,
+    Console, ConsoleState, FilterOption, Game, GameState, LegoSortOption, SkylandersSortOption, SortOption, UiState,
 };
 use egui::*;
 use std::collections::HashMap;
@@ -823,6 +824,186 @@ pub fn render_lego_dimensions_tab(
 
             if needs_save {
                 *pending_lego_save = true;
+            }
+        });
+}
+
+pub fn render_skylanders_tab(
+    ui: &mut egui::Ui,
+    skylanders: &[Skylander],
+    states: &mut HashMap<String, SkylanderState>,
+    ui_state: &mut UiState,
+    pending_skylanders_save: &mut bool,
+) {
+    ui.heading("Skylanders Characters");
+    ui.separator();
+
+    if skylanders.is_empty() {
+        ui.label("No Skylanders data available.");
+        return;
+    }
+
+    // Ensure states exist for all skylanders
+    for skylander in skylanders {
+        let id = skylander_id(skylander);
+        states
+            .entry(id.clone())
+            .or_insert_with(|| SkylanderState {
+                skylander_id: id,
+                ..Default::default()
+            });
+    }
+
+    ui.horizontal(|ui| {
+        ui.label("Sort by:");
+        ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::Name, "Name");
+        ui.selectable_value(
+            &mut ui_state.skylanders_sort_by,
+            SkylandersSortOption::Game,
+            "Game",
+        );
+        ui.selectable_value(
+            &mut ui_state.skylanders_sort_by,
+            SkylandersSortOption::BaseColor,
+            "Base Color",
+        );
+        ui.selectable_value(
+            &mut ui_state.skylanders_sort_by,
+            SkylandersSortOption::Category,
+            "Category",
+        );
+
+        ui.separator();
+
+        ui.label("Filter:");
+        ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::All, "All");
+        ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::Owned, "Owned");
+        ui.selectable_value(
+            &mut ui_state.skylanders_filter_by,
+            FilterOption::Favorites,
+            "Favorites",
+        );
+        ui.selectable_value(
+            &mut ui_state.skylanders_filter_by,
+            FilterOption::Wishlist,
+            "Wishlist",
+        );
+        ui.selectable_value(
+            &mut ui_state.skylanders_filter_by,
+            FilterOption::NotOwned,
+            "Not Owned",
+        );
+
+        ui.separator();
+
+        ui.label("Search:");
+        ui.text_edit_singleline(&mut ui_state.skylanders_search_query);
+    });
+
+    ui.separator();
+
+    // Update cached lowercase string when search query changes
+    if ui_state.skylanders_search_query != ui_state.skylanders_search_query_lower {
+        ui_state.skylanders_search_query_lower = ui_state.skylanders_search_query.to_lowercase();
+    }
+
+    let mut filtered_skylanders: Vec<&Skylander> = skylanders
+        .iter()
+        .filter(|skylander| {
+            let skylander_state = states
+                .get(&skylander_id(skylander))
+                .expect("state should exist for skylander");
+
+            // Search filter using cached lowercase
+            if !ui_state.skylanders_search_query_lower.is_empty()
+                && !skylander.name.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
+                && !skylander.game.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
+                && !skylander.base_color.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
+                && !skylander.category.to_lowercase().contains(&ui_state.skylanders_search_query_lower)
+            {
+                return false;
+            }
+
+            match ui_state.skylanders_filter_by {
+                FilterOption::All => true,
+                FilterOption::Owned => skylander_state.owned,
+                FilterOption::Favorites => skylander_state.favorite,
+                FilterOption::Wishlist => skylander_state.wishlist,
+                FilterOption::NotOwned => !skylander_state.owned,
+            }
+        })
+        .collect();
+
+    match ui_state.skylanders_sort_by {
+        SkylandersSortOption::Name => filtered_skylanders.sort_by(|a, b| a.name.cmp(&b.name)),
+        SkylandersSortOption::Game => filtered_skylanders.sort_by(|a, b| {
+            a.game
+                .cmp(&b.game)
+                .then(a.name.cmp(&b.name))
+                .then(a.base_color.cmp(&b.base_color))
+        }),
+        SkylandersSortOption::BaseColor => filtered_skylanders.sort_by(|a, b| {
+            a.base_color
+                .cmp(&b.base_color)
+                .then(a.game.cmp(&b.game))
+                .then(a.name.cmp(&b.name))
+        }),
+        SkylandersSortOption::Category => filtered_skylanders.sort_by(|a, b| {
+            a.category
+                .cmp(&b.category)
+                .then(a.game.cmp(&b.game))
+                .then(a.name.cmp(&b.name))
+        }),
+    }
+
+    egui::ScrollArea::vertical()
+        .auto_shrink([false; 2])
+        .show(ui, |ui| {
+            let mut needs_save = false;
+
+            for skylander in filtered_skylanders {
+                let id = skylander_id(skylander);
+                let state = states
+                    .get_mut(&id)
+                    .expect("state should exist for skylander when rendering");
+
+                ui.group(|ui| {
+                    ui.horizontal(|ui| {
+                        ui.vertical(|ui| {
+                            ui.heading(&skylander.name);
+                            ui.label(format!("Game: {}", skylander.game));
+                            ui.label(format!("Base Color: {}", skylander.base_color));
+                            ui.label(format!("Category: {}", skylander.category));
+                        });
+
+                        ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                            ui.vertical(|ui| {
+                                if ui.checkbox(&mut state.owned, "Owned").changed() {
+                                    needs_save = true;
+                                }
+                                if ui.checkbox(&mut state.favorite, "Favorite").changed() {
+                                    needs_save = true;
+                                }
+                                if ui.checkbox(&mut state.wishlist, "Wishlist").changed() {
+                                    needs_save = true;
+                                }
+                            });
+                        });
+                    });
+
+                    ui.separator();
+
+                    ui.label("Notes:");
+                    if ui.text_edit_multiline(&mut state.notes).changed() {
+                        needs_save = true;
+                    }
+                });
+
+                ui.add_space(8.0);
+            }
+
+            if needs_save {
+                *pending_skylanders_save = true;
             }
         });
 }

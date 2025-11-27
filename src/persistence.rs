@@ -1,5 +1,5 @@
 use crate::{
-    ConsoleExportData, ConsoleState, ExportData, GameState, LegoDimensionState, MemoryPakApp,
+    ConsoleExportData, ConsoleState, ExportData, GameState, LegoDimensionState, SkylanderState, MemoryPakApp,
 };
 use directories::ProjectDirs;
 use serde_json;
@@ -37,6 +37,10 @@ pub fn get_state_file_path(console_id: &str) -> Option<PathBuf> {
 
 pub fn get_lego_dimensions_state_file_path() -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join("lego_dimensions.json"))
+}
+
+pub fn get_skylanders_state_file_path() -> Option<PathBuf> {
+    get_state_dir().map(|dir| dir.join("skylanders.json"))
 }
 
 pub fn load_game_states(console_id: &str) -> HashMap<String, GameState> {
@@ -340,6 +344,78 @@ fn save_lego_dimensions_states_web(states: &Vec<LegoDimensionState>) -> bool {
     false
 }
 
+pub fn load_skylanders_states() -> HashMap<String, SkylanderState> {
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        if let Some(path) = get_skylanders_state_file_path() {
+            if let Ok(content) = fs::read_to_string(&path) {
+                if let Ok(states_vec) = serde_json::from_str::<Vec<SkylanderState>>(&content) {
+                    return states_vec
+                        .into_iter()
+                        .map(|state| (state.skylander_id.clone(), state))
+                        .collect();
+                }
+            }
+        }
+        HashMap::new()
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        load_skylanders_states_web()
+    }
+}
+
+pub fn save_skylanders_states(states: &HashMap<String, SkylanderState>) -> bool {
+    let states_vec: Vec<SkylanderState> = states.values().cloned().collect();
+
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        if let Some(path) = get_skylanders_state_file_path() {
+            if let Ok(json) = serde_json::to_string_pretty(&states_vec) {
+                return fs::write(&path, json).is_ok();
+            }
+        }
+        false
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        save_skylanders_states_web(&states_vec)
+    }
+}
+
+#[cfg(target_arch = "wasm32")]
+fn load_skylanders_states_web() -> HashMap<String, SkylanderState> {
+    if let Some(window) = web_sys::window() {
+        if let Some(local_storage) = window.local_storage().ok().flatten() {
+            if let Ok(Some(data)) = local_storage.get_item("memory_pak_skylanders_states") {
+                if let Ok(states) = serde_json::from_str::<Vec<SkylanderState>>(&data) {
+                    return states
+                        .into_iter()
+                        .map(|state| (state.skylander_id.clone(), state))
+                        .collect();
+                }
+            }
+        }
+    }
+    HashMap::new()
+}
+
+#[cfg(target_arch = "wasm32")]
+fn save_skylanders_states_web(states: &Vec<SkylanderState>) -> bool {
+    if let Some(window) = web_sys::window() {
+        if let Some(local_storage) = window.local_storage().ok().flatten() {
+            if let Ok(json) = serde_json::to_string(states) {
+                return local_storage
+                    .set_item("memory_pak_skylanders_states", &json)
+                    .is_ok();
+            }
+        }
+    }
+    false
+}
+
 pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>> {
     // Group game states by console
     let mut games_by_console: HashMap<String, Vec<GameState>> = HashMap::new();
@@ -364,6 +440,7 @@ pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>>
             .map(|(console_id, games)| ConsoleExportData { console_id, games })
             .collect(),
         lego_dimensions_states: app.lego_dimensions_states.values().cloned().collect(),
+        skylanders_states: app.skylanders_states.values().cloned().collect(),
     };
 
     let json = serde_json::to_string_pretty(&export)?;
@@ -420,6 +497,12 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
                     .insert(figure_state.figure_id.clone(), figure_state);
             }
 
+            // Merge imported Skylanders states
+            for skylander_state in import.skylanders_states {
+                app.skylanders_states
+                    .insert(skylander_state.skylander_id.clone(), skylander_state);
+            }
+
             // Save all imported states
             save_console_states(&app.console_states);
             // Group and save game states by console
@@ -435,6 +518,7 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
                 save_game_states(&console_id, &states);
             }
             save_lego_dimensions_states(&app.lego_dimensions_states);
+            save_skylanders_states(&app.skylanders_states);
         }
     }
 
