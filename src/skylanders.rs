@@ -37,9 +37,10 @@ pub fn skylander_id(skylander: &Skylander) -> String {
     }
 
     format!(
-        "skylander-{}-{}",
+        "skylander-{}-{}-{}",
         slugify(&skylander.game),
-        slugify(&skylander.name)
+        slugify(&skylander.name),
+        slugify(&skylander.category)
     )
 }
 
