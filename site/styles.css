@@ -331,6 +331,13 @@ body {
     text-align: center;
 }
 
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
 .download-badge {
     display: inline-block;
     padding: 0.5rem 1.5rem;
@@ -341,12 +348,27 @@ body {
     z-index: 1;
     transition: all 0.3s ease;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+    text-align: center;
 }
 
 .download-badge:hover {
     background: var(--text-accent);
     color: var(--bg-dark);
     border-color: var(--text-accent);
+}
+
+.download-badge.coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: transparent;
+}
+
+.download-badge.coming-soon:hover {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-color);
 }
 
 /* Cargo card specific styles */
