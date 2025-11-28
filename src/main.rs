@@ -124,14 +124,7 @@ fn load_app_icon() -> Option<egui::IconData> {
         }
     }
 
-    #[cfg(target_os = "macos")]
-    {
-        // Try .icns file - for now use PNG fallback since ICNS parsing is complex
-        // macOS will use the PNG icon
-    }
-
-    // Fallback: Try to find a PNG icon
-    // For Linux and as fallback, use the web icon-512.png
+    // Fallback: Use PNG icon for macOS, Linux, and Windows if ICO fails
     {
         let icon_bytes = include_bytes!("../icons/web/icon-512.png");
         if let Ok(img) = image::load_from_memory(icon_bytes) {
