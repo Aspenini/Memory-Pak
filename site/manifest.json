@@ -1,38 +1,52 @@
 {
-  "name": "Memory Pak",
+  "name": "Memory Pak - Retro Game Collection Tracker",
   "short_name": "Memory Pak",
-  "description": "Track Your Gaming Collection",
-  "start_url": "/",
+  "description": "Track your retro gaming collection across all platforms. Manage consoles, games, wishlists, and favorites with Memory Pak.",
+  "start_url": "/Memory-Pak/",
+  "scope": "/Memory-Pak/",
   "display": "standalone",
-  "background_color": "#000000",
+  "orientation": "any",
+  "background_color": "#0a0a0a",
   "theme_color": "#00ff00",
+  "categories": ["games", "utilities", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
   "icons": [
     {
-      "src": "/img/favicon.ico",
+      "src": "/Memory-Pak/img/favicon.ico",
       "type": "image/x-icon",
       "sizes": "16x16 32x32"
     },
     {
-      "src": "/icons/web/icon-192.png",
+      "src": "/Memory-Pak/img/icon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
-      "src": "/icons/web/icon-512.png",
+      "src": "/Memory-Pak/img/icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
     },
     {
-      "src": "/icons/web/icon-192-maskable.png",
+      "src": "/Memory-Pak/img/icon-192-maskable.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
     },
     {
-      "src": "/icons/web/icon-512-maskable.png",
+      "src": "/Memory-Pak/img/icon-512-maskable.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Memory-Pak/img/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ]
 }
