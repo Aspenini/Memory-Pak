@@ -42,30 +42,44 @@ Memory-Pak/
 
 ## Building
 
-### Desktop (Windows, macOS, Linux)
+### Standard Build
 
 ```bash
 cargo build --release
 ```
 
-The executable will be in `target/release/memory-pak` (or `memory-pak.exe` on Windows).
+Binary output: `target/release/memory_pak[.exe]`
+
+### Platform Installers
+
+**Windows (MSI):**
+```bash
+cargo install cargo-wix          # One-time install
+cargo wix                        # Build MSI
+```
+Output: `target/wix/Memory-Pak-0.1.4-x86_64.msi`  
+Requires: [WiX Toolset v3.11+](https://wixtoolset.org/)
+
+**macOS (.app):**
+```bash
+cargo install cargo-bundle       # One-time install
+cargo bundle --release
+```
+Output: `target/release/bundle/osx/Memory Pak.app`
+
+**Linux (.deb):**
+```bash
+cargo install cargo-deb          # One-time install
+cargo deb
+```
+Output: `target/debian/memory_pak_*.deb`
 
 ### WebAssembly
 
 ```bash
-# Install wasm-pack if you haven't already
-cargo install wasm-pack
-
-# Build for web
+cargo install wasm-pack          # One-time install
 wasm-pack build --target web --out-dir pkg
 ```
-
-### Android/iOS
-
-For mobile platforms, you'll need to set up the appropriate toolchains:
-
-- **Android**: Use `cargo-apk` or follow egui's Android setup guide
-- **iOS**: Use `cargo-lipo` or follow egui's iOS setup guide
 
 ## User Data Storage
 

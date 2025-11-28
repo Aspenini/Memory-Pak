@@ -1,6 +1,6 @@
 [package]
 name = "Memory-Pak"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 authors = ["Aspenini"]
 description = "A cross-platform retro game tracker powered by Rust with egui"
@@ -12,9 +12,13 @@ keywords = ["egui", "game", "collection", "tracker"]
 categories = ["gui", "games"]
 build = "build.rs"
 
+[[bin]]
+name = "memory_pak"
+path = "src/main.rs"
+
 [dependencies]
 egui = "0.27"
-eframe = { version = "0.27", default-features = true }
+eframe = "0.27"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 directories = "5.0"
@@ -42,6 +46,16 @@ opt-level = "z"
 lto = true
 codegen-units = 1
 
+[package.metadata.bundle]
+name = "Memory Pak"
+identifier = "com.Aspenini.MemoryPak"
+icon = ["icons/windows/AppIcon.ico", "icons/macos/AppIcon.icns", "icons/linux/AppIcon.png"]
+copyright = "Copyright (c) 2025 Aspenini. All rights reserved."
+category = "Utility"
+short_description = "A cross-platform retro game tracker"
+long_description = "Memory Pak is a cross-platform game collection tracker built with Rust, egui, and eframe. Track which consoles and games you own, have favorited, or want on your wishlist. Features embedded game databases, cross-console search, import/export, and more."
+resources = ["README.md", "LICENSE"]
+
 [package.metadata.deb]
 maintainer = "Aspenini"
 license-file = ["LICENSE", "0"]
@@ -49,10 +63,9 @@ copyright = "2025, Aspenini"
 depends = "$auto"
 section = "utils"
 priority = "optional"
-extended-description = "A cross-platform retro game tracker powered by Rust with egui"
+extended-description = "A cross-platform retro game tracker powered by Rust with egui. Track your console and game collections with ease."
 assets = [
-  ["target/release/memory-pak", "usr/bin/", "755"],
-  ["memory-pak.desktop", "usr/share/applications/", "644"],
+  ["target/release/memory_pak", "usr/bin/memory-pak", "755"],
   ["icons/linux/AppIcon.png", "usr/share/icons/hicolor/512x512/apps/memory-pak.png", "644"],
   ["README.md", "usr/share/doc/memory-pak/", "644"],
   ["LICENSE", "usr/share/doc/memory-pak/", "644"]
