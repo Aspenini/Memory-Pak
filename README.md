@@ -2,6 +2,11 @@
 
 A cross-platform game collection tracker built with Rust, egui, and eframe. Memory Pak allows you to track which consoles and games you own, have favorited, or want (wishlist).
 
+[![Crates.io](https://img.shields.io/crates/v/memory-pak?style=for-the-badge)](https://crates.io/crates/memory-pak)
+[![Crates.io Downloads](https://img.shields.io/crates/d/memory-pak?style=for-the-badge)](https://crates.io/crates/memory-pak)
+[![GitHub Release](https://img.shields.io/github/v/release/Aspenini/Memory-Pak?style=for-the-badge)](https://github.com/Aspenini/Memory-Pak/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/Aspenini/Memory-Pak/total?style=for-the-badge)](https://github.com/Aspenini/Memory-Pak/releases)
+
 ## Features
 
 - **Two Main Tabs**: Consoles and Games (both with pagination)
