@@ -6,7 +6,7 @@ target = "index.html"
 dist = "dist"
 
 # Public URL from which assets are served
-# public_url = "/"
+public_url = "./"
 
 [[hooks]]
 stage = "build"
