@@ -245,6 +245,8 @@ struct UiState {
     // Track last search/filter to detect changes
     last_console_search: String,
     last_console_filter: String,
+    // Sidebar visibility (for responsive design)
+    sidebar_visible: bool,
     #[cfg(target_arch = "wasm32")]
     needs_import: bool,
     #[cfg(target_arch = "wasm32")]
@@ -512,60 +514,126 @@ impl eframe::App for MemoryPakApp {
             }
         }
 
+        let screen_width = ctx.available_rect().width();
+        let is_narrow = screen_width < 700.0;
+        let is_mobile = screen_width < 500.0;
+
         egui::TopBottomPanel::top("menu").show(ctx, |ui| {
-            ui.horizontal(|ui| {
-                ui.heading("Memory Pak");
-                ui.separator();
-                if ui.button("Import").clicked() {
-                    if let Err(e) = import_data(self) {
-                        eprintln!("Import error: {:?}", e);
+            if is_mobile {
+                // Vertical layout for mobile
+                ui.vertical(|ui| {
+                    ui.horizontal(|ui| {
+                        // Menu button for mobile
+                        if ui.button("☰").clicked() {
+                            self.ui_state.sidebar_visible = !self.ui_state.sidebar_visible;
+                        }
+                        ui.heading("Memory Pak");
+                    });
+                    ui.horizontal(|ui| {
+                        if ui.button("Import").clicked() {
+                            if let Err(e) = import_data(self) {
+                                eprintln!("Import error: {:?}", e);
+                            }
+                        }
+                        if ui.button("Export").clicked() {
+                            if let Err(e) = export_data(self) {
+                                eprintln!("Export error: {:?}", e);
+                            }
+                        }
+                    });
+                });
+            } else {
+                // Horizontal layout for wider screens
+                ui.horizontal(|ui| {
+                    if is_narrow {
+                        // Show menu button on narrow screens
+                        if ui.button("☰").clicked() {
+                            self.ui_state.sidebar_visible = !self.ui_state.sidebar_visible;
+                        }
                     }
-                }
-                if ui.button("Export").clicked() {
-                    if let Err(e) = export_data(self) {
-                        eprintln!("Export error: {:?}", e);
+                    ui.heading("Memory Pak");
+                    ui.separator();
+                    if ui.button("Import").clicked() {
+                        if let Err(e) = import_data(self) {
+                            eprintln!("Import error: {:?}", e);
+                        }
                     }
-                }
-            });
+                    if ui.button("Export").clicked() {
+                        if let Err(e) = export_data(self) {
+                            eprintln!("Export error: {:?}", e);
+                        }
+                    }
+                });
+            }
         });
 
-        egui::SidePanel::left("sidebar")
-            .resizable(true)
-            .default_width(200.0)
-            .show(ctx, |ui| {
-                ui.heading("Tabs");
-                ui.separator();
-                if ui
-                    .selectable_label(self.ui_state.active_tab == Tab::Consoles, "Consoles")
-                    .clicked()
-                {
-                    self.ui_state.active_tab = Tab::Consoles;
-                }
-                if ui
-                    .selectable_label(self.ui_state.active_tab == Tab::Games, "Games")
-                    .clicked()
-                {
-                    self.ui_state.active_tab = Tab::Games;
-                }
-                if ui
-                    .selectable_label(
-                        self.ui_state.active_tab == Tab::LegoDimensions,
-                        "LEGO Dimensions",
-                    )
-                    .clicked()
-                {
-                    self.ui_state.active_tab = Tab::LegoDimensions;
-                }
-                if ui
-                    .selectable_label(
-                        self.ui_state.active_tab == Tab::Skylanders,
-                        "Skylanders",
-                    )
-                    .clicked()
-                {
-                    self.ui_state.active_tab = Tab::Skylanders;
-                }
-            });
+        // Show sidebar based on screen size and toggle state
+        let show_sidebar = if is_narrow {
+            self.ui_state.sidebar_visible
+        } else {
+            true // Always show on wide screens
+        };
+
+        if show_sidebar {
+            egui::SidePanel::left("sidebar")
+                .resizable(!is_narrow) // Don't allow resizing on narrow screens
+                .default_width(if is_narrow { screen_width * 0.7 } else { 200.0 })
+                .show(ctx, |ui| {
+                    ui.horizontal(|ui| {
+                        ui.heading("Tabs");
+                        if is_narrow {
+                            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                                if ui.button("✕").clicked() {
+                                    self.ui_state.sidebar_visible = false;
+                                }
+                            });
+                        }
+                    });
+                    ui.separator();
+                    if ui
+                        .selectable_label(self.ui_state.active_tab == Tab::Consoles, "Consoles")
+                        .clicked()
+                    {
+                        self.ui_state.active_tab = Tab::Consoles;
+                        if is_narrow {
+                            self.ui_state.sidebar_visible = false; // Auto-hide on selection for mobile
+                        }
+                    }
+                    if ui
+                        .selectable_label(self.ui_state.active_tab == Tab::Games, "Games")
+                        .clicked()
+                    {
+                        self.ui_state.active_tab = Tab::Games;
+                        if is_narrow {
+                            self.ui_state.sidebar_visible = false;
+                        }
+                    }
+                    if ui
+                        .selectable_label(
+                            self.ui_state.active_tab == Tab::LegoDimensions,
+                            "LEGO Dimensions",
+                        )
+                        .clicked()
+                    {
+                        self.ui_state.active_tab = Tab::LegoDimensions;
+                        if is_narrow {
+                            self.ui_state.sidebar_visible = false;
+                        }
+                    }
+                    if ui
+                        .selectable_label(
+                            self.ui_state.active_tab == Tab::Skylanders,
+                            "Skylanders",
+                        )
+                        .clicked()
+                    {
+                        self.ui_state.active_tab = Tab::Skylanders;
+                        if is_narrow {
+                            self.ui_state.sidebar_visible = false;
+                        }
+                    }
+                });
+        }
 
         egui::CentralPanel::default().show(ctx, |ui| match self.ui_state.active_tab {
             Tab::Consoles => render_consoles_tab(

@@ -7,6 +7,16 @@ use egui::*;
 use std::collections::HashMap;
 use unicode_normalization::UnicodeNormalization;
 
+/// Helper function to determine if we're on a narrow screen
+fn is_narrow_screen(ui: &egui::Ui) -> bool {
+    ui.available_width() < 700.0
+}
+
+/// Helper function to determine if we're on a very narrow screen (mobile-like)
+fn is_mobile_screen(ui: &egui::Ui) -> bool {
+    ui.available_width() < 500.0
+}
+
 /// Normalize text for fuzzy searching:
 /// - Converts to lowercase
 /// - Normalizes Unicode characters (é -> e, ñ -> n, etc.)
@@ -50,43 +60,56 @@ pub fn render_consoles_tab(
     ui.heading("Consoles");
     ui.separator();
 
-    // Controls
-    ui.horizontal(|ui| {
-        ui.label("Sort by:");
-        ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Title, "Title");
-        ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Year, "Year");
-        ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Status, "Status");
+    // Controls - responsive layout
+    let is_narrow = is_narrow_screen(ui);
+    
+    if is_narrow {
+        // Vertical layout for narrow screens
+        ui.vertical(|ui| {
+            ui.horizontal(|ui| {
+                ui.label("Sort:");
+                ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Title, "Title");
+                ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Year, "Year");
+                ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Status, "Status");
+            });
+            
+            ui.horizontal_wrapped(|ui| {
+                ui.label("Filter:");
+                ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::All, "All");
+                ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Owned, "Owned");
+                ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Favorites, "Fav");
+                ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Wishlist, "Wish");
+                ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::NotOwned, "Not");
+            });
+            
+            ui.horizontal(|ui| {
+                ui.label("Search:");
+                ui.add(egui::TextEdit::singleline(&mut ui_state.console_search_query).desired_width(ui.available_width() - 10.0));
+            });
+        });
+    } else {
+        // Horizontal layout for wider screens
+        ui.horizontal(|ui| {
+            ui.label("Sort by:");
+            ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Title, "Title");
+            ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Year, "Year");
+            ui.selectable_value(&mut ui_state.console_sort_by, SortOption::Status, "Status");
 
-        ui.separator();
+            ui.separator();
 
-        ui.label("Filter:");
-        ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::All, "All");
-        ui.selectable_value(
-            &mut ui_state.console_filter_by,
-            FilterOption::Owned,
-            "Owned",
-        );
-        ui.selectable_value(
-            &mut ui_state.console_filter_by,
-            FilterOption::Favorites,
-            "Favorites",
-        );
-        ui.selectable_value(
-            &mut ui_state.console_filter_by,
-            FilterOption::Wishlist,
-            "Wishlist",
-        );
-        ui.selectable_value(
-            &mut ui_state.console_filter_by,
-            FilterOption::NotOwned,
-            "Not Owned",
-        );
+            ui.label("Filter:");
+            ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::All, "All");
+            ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Owned, "Owned");
+            ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Favorites, "Favorites");
+            ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::Wishlist, "Wishlist");
+            ui.selectable_value(&mut ui_state.console_filter_by, FilterOption::NotOwned, "Not Owned");
 
-        ui.separator();
+            ui.separator();
 
-        ui.label("Search:");
-        ui.text_edit_singleline(&mut ui_state.console_search_query);
-    });
+            ui.label("Search:");
+            ui.text_edit_singleline(&mut ui_state.console_search_query);
+        });
+    }
 
     ui.separator();
 
@@ -219,42 +242,69 @@ pub fn render_consoles_tab(
                         .unwrap_or((0, 0, 0));
 
                     ui.group(|ui| {
-                        ui.horizontal(|ui| {
+                        let is_mobile = is_mobile_screen(ui);
+                        
+                        if is_mobile {
+                            // Stack vertically on mobile
                             ui.vertical(|ui| {
                                 let display_name = console_display_name(console);
                                 ui.heading(&display_name);
                                 ui.label(format!("Manufacturer: {}", console.manufacturer));
                                 ui.label(format!("Year: {}", console.year));
+                                
+                                ui.separator();
+                                
+                                // Console state checkboxes
+                                ui.horizontal_wrapped(|ui| {
+                                    if ui.checkbox(&mut console_state.owned, "Owned").changed() {
+                                        needs_save = true;
+                                    }
+                                    if ui.checkbox(&mut console_state.favorite, "Favorite").changed() {
+                                        needs_save = true;
+                                    }
+                                    if ui.checkbox(&mut console_state.wishlist, "Wishlist").changed() {
+                                        needs_save = true;
+                                    }
+                                });
+                                
+                                ui.separator();
+                                
+                                // Game counts
+                                ui.label(format!("Games - Owned: {} | Fav: {} | Wish: {}", 
+                                    owned_count, favorite_count, wishlist_count));
                             });
-                            ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+                        } else {
+                            // Horizontal layout for wider screens
+                            ui.horizontal(|ui| {
                                 ui.vertical(|ui| {
-                                    // Console state checkboxes
-                                    ui.horizontal(|ui| {
-                                        if ui.checkbox(&mut console_state.owned, "Owned").changed()
-                                        {
-                                            needs_save = true;
-                                        }
-                                        if ui
-                                            .checkbox(&mut console_state.favorite, "Favorite")
-                                            .changed()
-                                        {
-                                            needs_save = true;
-                                        }
-                                        if ui
-                                            .checkbox(&mut console_state.wishlist, "Wishlist")
-                                            .changed()
-                                        {
-                                            needs_save = true;
-                                        }
+                                    let display_name = console_display_name(console);
+                                    ui.heading(&display_name);
+                                    ui.label(format!("Manufacturer: {}", console.manufacturer));
+                                    ui.label(format!("Year: {}", console.year));
+                                });
+                                ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+                                    ui.vertical(|ui| {
+                                        // Console state checkboxes
+                                        ui.horizontal(|ui| {
+                                            if ui.checkbox(&mut console_state.owned, "Owned").changed() {
+                                                needs_save = true;
+                                            }
+                                            if ui.checkbox(&mut console_state.favorite, "Favorite").changed() {
+                                                needs_save = true;
+                                            }
+                                            if ui.checkbox(&mut console_state.wishlist, "Wishlist").changed() {
+                                                needs_save = true;
+                                            }
+                                        });
+                                        ui.separator();
+                                        // Game counts
+                                        ui.label(format!("Games - Owned: {}", owned_count));
+                                        ui.label(format!("Favorites: {}", favorite_count));
+                                        ui.label(format!("Wishlist: {}", wishlist_count));
                                     });
-                                    ui.separator();
-                                    // Game counts
-                                    ui.label(format!("Games - Owned: {}", owned_count));
-                                    ui.label(format!("Favorites: {}", favorite_count));
-                                    ui.label(format!("Wishlist: {}", wishlist_count));
                                 });
                             });
-                        });
+                        }
 
                         ui.separator();
 
@@ -277,15 +327,17 @@ pub fn render_consoles_tab(
             ui.add_space(10.0);
             ui.separator();
             ui.horizontal(|ui| {
-                ui.spacing_mut().item_spacing = egui::vec2(10.0, 0.0);
+                let is_mobile = is_mobile_screen(ui);
+                ui.spacing_mut().item_spacing = egui::vec2(if is_mobile { 5.0 } else { 10.0 }, 0.0);
 
-                // Previous button
-                if ui.button("◀ Previous").clicked() && ui_state.consoles_page > 0 {
+                // Previous button (shorter text on mobile)
+                let prev_text = if is_mobile { "◀" } else { "◀ Previous" };
+                if ui.button(prev_text).clicked() && ui_state.consoles_page > 0 {
                     ui_state.consoles_page -= 1;
                 }
 
-                // Page number buttons (show up to 10 pages, centered around current)
-                let pages_to_show = 10;
+                // Page number buttons (show fewer on mobile)
+                let pages_to_show = if is_mobile { 5 } else { 10 };
                 let start_page = if total_pages <= pages_to_show {
                     0
                 } else if ui_state.consoles_page < pages_to_show / 2 {
@@ -324,8 +376,9 @@ pub fn render_consoles_tab(
                     }
                 }
 
-                // Next button
-                if ui.button("Next ▶").clicked() && ui_state.consoles_page < total_pages - 1 {
+                // Next button (shorter text on mobile)
+                let next_text = if is_mobile { "▶" } else { "Next ▶" };
+                if ui.button(next_text).clicked() && ui_state.consoles_page < total_pages - 1 {
                     ui_state.consoles_page += 1;
                 }
             });
@@ -402,31 +455,56 @@ pub fn render_games_tab(
     if !console_filter.is_empty() {
         ui.separator();
 
-        // Controls
-        ui.horizontal(|ui| {
-            ui.label("Sort by:");
-            ui.selectable_value(&mut ui_state.sort_by, SortOption::Title, "Title");
-            ui.selectable_value(&mut ui_state.sort_by, SortOption::Year, "Year");
-            ui.selectable_value(&mut ui_state.sort_by, SortOption::Status, "Status");
+        // Controls - responsive layout
+        let is_narrow = is_narrow_screen(ui);
+        
+        if is_narrow {
+            // Vertical layout for narrow screens
+            ui.vertical(|ui| {
+                ui.horizontal(|ui| {
+                    ui.label("Sort:");
+                    ui.selectable_value(&mut ui_state.sort_by, SortOption::Title, "Title");
+                    ui.selectable_value(&mut ui_state.sort_by, SortOption::Year, "Year");
+                    ui.selectable_value(&mut ui_state.sort_by, SortOption::Status, "Status");
+                });
+                
+                ui.horizontal_wrapped(|ui| {
+                    ui.label("Filter:");
+                    ui.selectable_value(&mut ui_state.filter_by, FilterOption::All, "All");
+                    ui.selectable_value(&mut ui_state.filter_by, FilterOption::Owned, "Owned");
+                    ui.selectable_value(&mut ui_state.filter_by, FilterOption::Favorites, "Fav");
+                    ui.selectable_value(&mut ui_state.filter_by, FilterOption::Wishlist, "Wish");
+                    ui.selectable_value(&mut ui_state.filter_by, FilterOption::NotOwned, "Not");
+                });
+                
+                ui.horizontal(|ui| {
+                    ui.label("Search:");
+                    ui.add(egui::TextEdit::singleline(&mut ui_state.search_query).desired_width(ui.available_width() - 10.0));
+                });
+            });
+        } else {
+            // Horizontal layout for wider screens
+            ui.horizontal(|ui| {
+                ui.label("Sort by:");
+                ui.selectable_value(&mut ui_state.sort_by, SortOption::Title, "Title");
+                ui.selectable_value(&mut ui_state.sort_by, SortOption::Year, "Year");
+                ui.selectable_value(&mut ui_state.sort_by, SortOption::Status, "Status");
 
-            ui.separator();
+                ui.separator();
 
-            ui.label("Filter:");
-            ui.selectable_value(&mut ui_state.filter_by, FilterOption::All, "All");
-            ui.selectable_value(&mut ui_state.filter_by, FilterOption::Owned, "Owned");
-            ui.selectable_value(
-                &mut ui_state.filter_by,
-                FilterOption::Favorites,
-                "Favorites",
-            );
-            ui.selectable_value(&mut ui_state.filter_by, FilterOption::Wishlist, "Wishlist");
-            ui.selectable_value(&mut ui_state.filter_by, FilterOption::NotOwned, "Not Owned");
+                ui.label("Filter:");
+                ui.selectable_value(&mut ui_state.filter_by, FilterOption::All, "All");
+                ui.selectable_value(&mut ui_state.filter_by, FilterOption::Owned, "Owned");
+                ui.selectable_value(&mut ui_state.filter_by, FilterOption::Favorites, "Favorites");
+                ui.selectable_value(&mut ui_state.filter_by, FilterOption::Wishlist, "Wishlist");
+                ui.selectable_value(&mut ui_state.filter_by, FilterOption::NotOwned, "Not Owned");
 
-            ui.separator();
+                ui.separator();
 
-            ui.label("Search:");
-            ui.text_edit_singleline(&mut ui_state.search_query);
-        });
+                ui.label("Search:");
+                ui.text_edit_singleline(&mut ui_state.search_query);
+            });
+        }
 
         ui.separator();
 
@@ -571,9 +649,11 @@ pub fn render_games_tab(
 
                     for game in games_for_page {
                         let state = game_states.get_mut(&game.id).unwrap();
+                        let is_mobile = is_mobile_screen(ui);
 
                         ui.group(|ui| {
-                            ui.horizontal(|ui| {
+                            if is_mobile {
+                                // Stack vertically on mobile
                                 ui.vertical(|ui| {
                                     // Show console badge if viewing "all" consoles
                                     if console_filter == "all" {
@@ -587,10 +667,10 @@ pub fn render_games_tab(
                                     ui.heading(&game.title);
                                     ui.label(format!("Publisher: {}", game.publisher));
                                     ui.label(format!("Year: {}", game.year));
-                                });
-
-                                ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-                                    ui.vertical(|ui| {
+                                    
+                                    ui.separator();
+                                    
+                                    ui.horizontal_wrapped(|ui| {
                                         if ui.checkbox(&mut state.owned, "Owned").changed() {
                                             needs_save = true;
                                         }
@@ -602,7 +682,39 @@ pub fn render_games_tab(
                                         }
                                     });
                                 });
-                            });
+                            } else {
+                                // Horizontal layout for wider screens
+                                ui.horizontal(|ui| {
+                                    ui.vertical(|ui| {
+                                        // Show console badge if viewing "all" consoles
+                                        if console_filter == "all" {
+                                            let console_name = consoles
+                                                .iter()
+                                                .find(|c| c.id == game.console_id)
+                                                .map(|c| console_display_name(c))
+                                                .unwrap_or_else(|| game.console_id.clone());
+                                            ui.label(format!("[{}]", console_name));
+                                        }
+                                        ui.heading(&game.title);
+                                        ui.label(format!("Publisher: {}", game.publisher));
+                                        ui.label(format!("Year: {}", game.year));
+                                    });
+
+                                    ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+                                        ui.vertical(|ui| {
+                                            if ui.checkbox(&mut state.owned, "Owned").changed() {
+                                                needs_save = true;
+                                            }
+                                            if ui.checkbox(&mut state.favorite, "Favorite").changed() {
+                                                needs_save = true;
+                                            }
+                                            if ui.checkbox(&mut state.wishlist, "Wishlist").changed() {
+                                                needs_save = true;
+                                            }
+                                        });
+                                    });
+                                });
+                            }
 
                             ui.separator();
 
@@ -625,15 +737,17 @@ pub fn render_games_tab(
                 ui.add_space(10.0);
                 ui.separator();
                 ui.horizontal(|ui| {
-                    ui.spacing_mut().item_spacing = egui::vec2(10.0, 0.0);
+                    let is_mobile = is_mobile_screen(ui);
+                    ui.spacing_mut().item_spacing = egui::vec2(if is_mobile { 5.0 } else { 10.0 }, 0.0);
 
-                    // Previous button
-                    if ui.button("◀ Previous").clicked() && ui_state.games_page > 0 {
+                    // Previous button (shorter text on mobile)
+                    let prev_text = if is_mobile { "◀" } else { "◀ Previous" };
+                    if ui.button(prev_text).clicked() && ui_state.games_page > 0 {
                         ui_state.games_page -= 1;
                     }
 
-                    // Page number buttons (show up to 10 pages, centered around current)
-                    let pages_to_show = 10;
+                    // Page number buttons (show fewer on mobile)
+                    let pages_to_show = if is_mobile { 5 } else { 10 };
                     let start_page = if total_pages <= pages_to_show {
                         0
                     } else if ui_state.games_page < pages_to_show / 2 {
@@ -672,8 +786,9 @@ pub fn render_games_tab(
                         }
                     }
 
-                    // Next button
-                    if ui.button("Next ▶").clicked() && ui_state.games_page < total_pages - 1 {
+                    // Next button (shorter text on mobile)
+                    let next_text = if is_mobile { "▶" } else { "Next ▶" };
+                    if ui.button(next_text).clicked() && ui_state.games_page < total_pages - 1 {
                         ui_state.games_page += 1;
                     }
                 });
@@ -712,43 +827,74 @@ pub fn render_lego_dimensions_tab(
             });
     }
 
-    ui.horizontal(|ui| {
-        ui.label("Sort by:");
-        ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Name, "Name");
-        ui.selectable_value(
-            &mut ui_state.lego_sort_by,
-            LegoSortOption::Category,
-            "Category",
-        );
-        ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Year, "Year");
-        ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Pack, "Pack");
+    // Controls - responsive layout
+    let is_narrow = is_narrow_screen(ui);
+    
+    if is_narrow {
+        // Vertical layout for narrow screens
+        ui.vertical(|ui| {
+            ui.horizontal_wrapped(|ui| {
+                ui.label("Sort:");
+                ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Name, "Name");
+                ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Category, "Cat");
+                ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Year, "Year");
+                ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Pack, "Pack");
+            });
+            
+            ui.horizontal_wrapped(|ui| {
+                ui.label("Filter:");
+                ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::All, "All");
+                ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::Owned, "Owned");
+                ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::Favorites, "Fav");
+                ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::Wishlist, "Wish");
+                ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::NotOwned, "Not");
+            });
+            
+            ui.horizontal(|ui| {
+                ui.label("Search:");
+                ui.add(egui::TextEdit::singleline(&mut ui_state.lego_search_query).desired_width(ui.available_width() - 10.0));
+            });
+        });
+    } else {
+        // Horizontal layout for wider screens
+        ui.horizontal(|ui| {
+            ui.label("Sort by:");
+            ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Name, "Name");
+            ui.selectable_value(
+                &mut ui_state.lego_sort_by,
+                LegoSortOption::Category,
+                "Category",
+            );
+            ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Year, "Year");
+            ui.selectable_value(&mut ui_state.lego_sort_by, LegoSortOption::Pack, "Pack");
 
-        ui.separator();
+            ui.separator();
 
-        ui.label("Filter:");
-        ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::All, "All");
-        ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::Owned, "Owned");
-        ui.selectable_value(
-            &mut ui_state.lego_filter_by,
-            FilterOption::Favorites,
-            "Favorites",
-        );
-        ui.selectable_value(
-            &mut ui_state.lego_filter_by,
-            FilterOption::Wishlist,
-            "Wishlist",
-        );
-        ui.selectable_value(
-            &mut ui_state.lego_filter_by,
-            FilterOption::NotOwned,
-            "Not Owned",
-        );
+            ui.label("Filter:");
+            ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::All, "All");
+            ui.selectable_value(&mut ui_state.lego_filter_by, FilterOption::Owned, "Owned");
+            ui.selectable_value(
+                &mut ui_state.lego_filter_by,
+                FilterOption::Favorites,
+                "Favorites",
+            );
+            ui.selectable_value(
+                &mut ui_state.lego_filter_by,
+                FilterOption::Wishlist,
+                "Wishlist",
+            );
+            ui.selectable_value(
+                &mut ui_state.lego_filter_by,
+                FilterOption::NotOwned,
+                "Not Owned",
+            );
 
-        ui.separator();
+            ui.separator();
 
-        ui.label("Search:");
-        ui.text_edit_singleline(&mut ui_state.lego_search_query);
-    });
+            ui.label("Search:");
+            ui.text_edit_singleline(&mut ui_state.lego_search_query);
+        });
+    }
 
     ui.separator();
 
@@ -815,18 +961,20 @@ pub fn render_lego_dimensions_tab(
                 let state = states
                     .get_mut(&id)
                     .expect("state should exist for figure when rendering");
+                let is_mobile = is_mobile_screen(ui);
 
                 ui.group(|ui| {
-                    ui.horizontal(|ui| {
+                    if is_mobile {
+                        // Stack vertically on mobile
                         ui.vertical(|ui| {
                             ui.heading(&figure.name);
                             ui.label(format!("Category: {}", figure.category));
                             ui.label(format!("Pack ID: {}", figure.pack_id));
                             ui.label(format!("Year: {}", figure.year));
-                        });
-
-                        ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                            ui.vertical(|ui| {
+                            
+                            ui.separator();
+                            
+                            ui.horizontal_wrapped(|ui| {
                                 if ui.checkbox(&mut state.owned, "Owned").changed() {
                                     needs_save = true;
                                 }
@@ -838,7 +986,31 @@ pub fn render_lego_dimensions_tab(
                                 }
                             });
                         });
-                    });
+                    } else {
+                        // Horizontal layout for wider screens
+                        ui.horizontal(|ui| {
+                            ui.vertical(|ui| {
+                                ui.heading(&figure.name);
+                                ui.label(format!("Category: {}", figure.category));
+                                ui.label(format!("Pack ID: {}", figure.pack_id));
+                                ui.label(format!("Year: {}", figure.year));
+                            });
+
+                            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                                ui.vertical(|ui| {
+                                    if ui.checkbox(&mut state.owned, "Owned").changed() {
+                                        needs_save = true;
+                                    }
+                                    if ui.checkbox(&mut state.favorite, "Favorite").changed() {
+                                        needs_save = true;
+                                    }
+                                    if ui.checkbox(&mut state.wishlist, "Wishlist").changed() {
+                                        needs_save = true;
+                                    }
+                                });
+                            });
+                        });
+                    }
 
                     ui.separator();
 
@@ -883,51 +1055,82 @@ pub fn render_skylanders_tab(
             });
     }
 
-    ui.horizontal(|ui| {
-        ui.label("Sort by:");
-        ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::Name, "Name");
-        ui.selectable_value(
-            &mut ui_state.skylanders_sort_by,
-            SkylandersSortOption::Game,
-            "Game",
-        );
-        ui.selectable_value(
-            &mut ui_state.skylanders_sort_by,
-            SkylandersSortOption::BaseColor,
-            "Base Color",
-        );
-        ui.selectable_value(
-            &mut ui_state.skylanders_sort_by,
-            SkylandersSortOption::Category,
-            "Category",
-        );
+    // Controls - responsive layout
+    let is_narrow = is_narrow_screen(ui);
+    
+    if is_narrow {
+        // Vertical layout for narrow screens
+        ui.vertical(|ui| {
+            ui.horizontal_wrapped(|ui| {
+                ui.label("Sort:");
+                ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::Name, "Name");
+                ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::Game, "Game");
+                ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::BaseColor, "Color");
+                ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::Category, "Cat");
+            });
+            
+            ui.horizontal_wrapped(|ui| {
+                ui.label("Filter:");
+                ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::All, "All");
+                ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::Owned, "Owned");
+                ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::Favorites, "Fav");
+                ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::Wishlist, "Wish");
+                ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::NotOwned, "Not");
+            });
+            
+            ui.horizontal(|ui| {
+                ui.label("Search:");
+                ui.add(egui::TextEdit::singleline(&mut ui_state.skylanders_search_query).desired_width(ui.available_width() - 10.0));
+            });
+        });
+    } else {
+        // Horizontal layout for wider screens
+        ui.horizontal(|ui| {
+            ui.label("Sort by:");
+            ui.selectable_value(&mut ui_state.skylanders_sort_by, SkylandersSortOption::Name, "Name");
+            ui.selectable_value(
+                &mut ui_state.skylanders_sort_by,
+                SkylandersSortOption::Game,
+                "Game",
+            );
+            ui.selectable_value(
+                &mut ui_state.skylanders_sort_by,
+                SkylandersSortOption::BaseColor,
+                "Base Color",
+            );
+            ui.selectable_value(
+                &mut ui_state.skylanders_sort_by,
+                SkylandersSortOption::Category,
+                "Category",
+            );
 
-        ui.separator();
+            ui.separator();
 
-        ui.label("Filter:");
-        ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::All, "All");
-        ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::Owned, "Owned");
-        ui.selectable_value(
-            &mut ui_state.skylanders_filter_by,
-            FilterOption::Favorites,
-            "Favorites",
-        );
-        ui.selectable_value(
-            &mut ui_state.skylanders_filter_by,
-            FilterOption::Wishlist,
-            "Wishlist",
-        );
-        ui.selectable_value(
-            &mut ui_state.skylanders_filter_by,
-            FilterOption::NotOwned,
-            "Not Owned",
-        );
+            ui.label("Filter:");
+            ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::All, "All");
+            ui.selectable_value(&mut ui_state.skylanders_filter_by, FilterOption::Owned, "Owned");
+            ui.selectable_value(
+                &mut ui_state.skylanders_filter_by,
+                FilterOption::Favorites,
+                "Favorites",
+            );
+            ui.selectable_value(
+                &mut ui_state.skylanders_filter_by,
+                FilterOption::Wishlist,
+                "Wishlist",
+            );
+            ui.selectable_value(
+                &mut ui_state.skylanders_filter_by,
+                FilterOption::NotOwned,
+                "Not Owned",
+            );
 
-        ui.separator();
+            ui.separator();
 
-        ui.label("Search:");
-        ui.text_edit_singleline(&mut ui_state.skylanders_search_query);
-    });
+            ui.label("Search:");
+            ui.text_edit_singleline(&mut ui_state.skylanders_search_query);
+        });
+    }
 
     ui.separator();
 
@@ -995,18 +1198,20 @@ pub fn render_skylanders_tab(
                 let state = states
                     .get_mut(&id)
                     .expect("state should exist for skylander when rendering");
+                let is_mobile = is_mobile_screen(ui);
 
                 ui.group(|ui| {
-                    ui.horizontal(|ui| {
+                    if is_mobile {
+                        // Stack vertically on mobile
                         ui.vertical(|ui| {
                             ui.heading(&skylander.name);
                             ui.label(format!("Game: {}", skylander.game));
                             ui.label(format!("Base Color: {}", skylander.base_color));
                             ui.label(format!("Category: {}", skylander.category));
-                        });
-
-                        ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                            ui.vertical(|ui| {
+                            
+                            ui.separator();
+                            
+                            ui.horizontal_wrapped(|ui| {
                                 if ui.checkbox(&mut state.owned, "Owned").changed() {
                                     needs_save = true;
                                 }
@@ -1018,7 +1223,31 @@ pub fn render_skylanders_tab(
                                 }
                             });
                         });
-                    });
+                    } else {
+                        // Horizontal layout for wider screens
+                        ui.horizontal(|ui| {
+                            ui.vertical(|ui| {
+                                ui.heading(&skylander.name);
+                                ui.label(format!("Game: {}", skylander.game));
+                                ui.label(format!("Base Color: {}", skylander.base_color));
+                                ui.label(format!("Category: {}", skylander.category));
+                            });
+
+                            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                                ui.vertical(|ui| {
+                                    if ui.checkbox(&mut state.owned, "Owned").changed() {
+                                        needs_save = true;
+                                    }
+                                    if ui.checkbox(&mut state.favorite, "Favorite").changed() {
+                                        needs_save = true;
+                                    }
+                                    if ui.checkbox(&mut state.wishlist, "Wishlist").changed() {
+                                        needs_save = true;
+                                    }
+                                });
+                            });
+                        });
+                    }
 
                     ui.separator();
 
