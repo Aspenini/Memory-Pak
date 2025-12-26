@@ -190,7 +190,10 @@ struct MemoryPakApp {
     pending_game_save: bool,
     pending_lego_save: bool,
     pending_skylanders_save: bool,
+    #[cfg(not(target_arch = "wasm32"))]
     last_save_time: Option<std::time::Instant>,
+    #[cfg(target_arch = "wasm32")]
+    last_save_time: Option<f64>, // Use timestamp in milliseconds for web
 }
 
 impl Default for MemoryPakApp {
@@ -317,7 +320,7 @@ impl MemoryPakApp {
 
     /// Flush pending saves if enough time has passed (500ms debounce)
     fn maybe_flush_saves(&mut self) {
-        const SAVE_DEBOUNCE_MS: u64 = 500;
+        const SAVE_DEBOUNCE_MS: f64 = 500.0;
         
         // Check if we have any pending saves
         if !self.pending_console_save && !self.pending_game_save && !self.pending_lego_save && !self.pending_skylanders_save {
@@ -325,9 +328,26 @@ impl MemoryPakApp {
         }
 
         // Check if enough time has passed since last save
-        if let Some(last_save) = self.last_save_time {
-            if last_save.elapsed().as_millis() < SAVE_DEBOUNCE_MS as u128 {
-                return; // Not enough time has passed
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            if let Some(last_save) = self.last_save_time {
+                if last_save.elapsed().as_millis() < SAVE_DEBOUNCE_MS as u128 {
+                    return; // Not enough time has passed
+                }
+            }
+        }
+
+        #[cfg(target_arch = "wasm32")]
+        {
+            if let Some(last_save_time) = self.last_save_time {
+                if let Some(window) = web_sys::window() {
+                    if let Some(performance) = window.performance() {
+                        let now = performance.now();
+                        if now - last_save_time < SAVE_DEBOUNCE_MS {
+                            return; // Not enough time has passed
+                        }
+                    }
+                }
             }
         }
 
@@ -366,7 +386,19 @@ impl MemoryPakApp {
         }
 
         // Update last save time
-        self.last_save_time = Some(std::time::Instant::now());
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            self.last_save_time = Some(std::time::Instant::now());
+        }
+
+        #[cfg(target_arch = "wasm32")]
+        {
+            if let Some(window) = web_sys::window() {
+                if let Some(performance) = window.performance() {
+                    self.last_save_time = Some(performance.now());
+                }
+            }
+        }
     }
 }
 

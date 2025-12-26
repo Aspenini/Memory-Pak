@@ -269,12 +269,27 @@ fn load_console_states_web() -> HashMap<String, ConsoleState> {
 
 #[cfg(target_arch = "wasm32")]
 fn save_console_states_web(states: &Vec<ConsoleState>) -> bool {
+    use wasm_bindgen::JsValue;
+    
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
-            if let Ok(json) = serde_json::to_string(states) {
-                return local_storage
-                    .set_item("memory_pak_console_states", &json)
-                    .is_ok();
+            match serde_json::to_string(states) {
+                Ok(json) => {
+                    match local_storage.set_item("memory_pak_console_states", &json) {
+                        Ok(_) => return true,
+                        Err(e) => {
+                            web_sys::console::error_1(&JsValue::from_str(&format!(
+                                "Failed to save console states: {:?}", e
+                            )));
+                            return false;
+                        }
+                    }
+                }
+                Err(e) => {
+                    web_sys::console::error_1(&JsValue::from_str(&format!(
+                        "Failed to serialize console states: {}", e
+                    )));
+                }
             }
         }
     }
@@ -302,12 +317,27 @@ fn load_game_states_web(console_id: &str) -> HashMap<String, GameState> {
 
 #[cfg(target_arch = "wasm32")]
 fn save_game_states_web(console_id: &str, states: &Vec<GameState>) -> bool {
+    use wasm_bindgen::JsValue;
+    
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
-            if let Ok(json) = serde_json::to_string(states) {
-                return local_storage
-                    .set_item(&format!("memory_pak_state_{}", console_id), &json)
-                    .is_ok();
+            match serde_json::to_string(states) {
+                Ok(json) => {
+                    match local_storage.set_item(&format!("memory_pak_state_{}", console_id), &json) {
+                        Ok(_) => return true,
+                        Err(e) => {
+                            web_sys::console::error_1(&JsValue::from_str(&format!(
+                                "Failed to save game states for {}: {:?}", console_id, e
+                            )));
+                            return false;
+                        }
+                    }
+                }
+                Err(e) => {
+                    web_sys::console::error_1(&JsValue::from_str(&format!(
+                        "Failed to serialize game states: {}", e
+                    )));
+                }
             }
         }
     }
@@ -333,12 +363,27 @@ fn load_lego_dimensions_states_web() -> HashMap<String, LegoDimensionState> {
 
 #[cfg(target_arch = "wasm32")]
 fn save_lego_dimensions_states_web(states: &Vec<LegoDimensionState>) -> bool {
+    use wasm_bindgen::JsValue;
+    
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
-            if let Ok(json) = serde_json::to_string(states) {
-                return local_storage
-                    .set_item("memory_pak_lego_dimensions_states", &json)
-                    .is_ok();
+            match serde_json::to_string(states) {
+                Ok(json) => {
+                    match local_storage.set_item("memory_pak_lego_dimensions_states", &json) {
+                        Ok(_) => return true,
+                        Err(e) => {
+                            web_sys::console::error_1(&JsValue::from_str(&format!(
+                                "Failed to save LEGO Dimensions states: {:?}", e
+                            )));
+                            return false;
+                        }
+                    }
+                }
+                Err(e) => {
+                    web_sys::console::error_1(&JsValue::from_str(&format!(
+                        "Failed to serialize LEGO Dimensions states: {}", e
+                    )));
+                }
             }
         }
     }
@@ -405,12 +450,27 @@ fn load_skylanders_states_web() -> HashMap<String, SkylanderState> {
 
 #[cfg(target_arch = "wasm32")]
 fn save_skylanders_states_web(states: &Vec<SkylanderState>) -> bool {
+    use wasm_bindgen::JsValue;
+    
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
-            if let Ok(json) = serde_json::to_string(states) {
-                return local_storage
-                    .set_item("memory_pak_skylanders_states", &json)
-                    .is_ok();
+            match serde_json::to_string(states) {
+                Ok(json) => {
+                    match local_storage.set_item("memory_pak_skylanders_states", &json) {
+                        Ok(_) => return true,
+                        Err(e) => {
+                            web_sys::console::error_1(&JsValue::from_str(&format!(
+                                "Failed to save Skylanders states: {:?}", e
+                            )));
+                            return false;
+                        }
+                    }
+                }
+                Err(e) => {
+                    web_sys::console::error_1(&JsValue::from_str(&format!(
+                        "Failed to serialize Skylanders states: {}", e
+                    )));
+                }
             }
         }
     }
