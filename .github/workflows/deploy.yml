@@ -24,27 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: wasm32-unknown-unknown
-          override: true
-
-      - name: Install Trunk
-        run: |
-          wget -qO- https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
-          sudo mv trunk /usr/local/bin/
-
-      - name: Build WASM app
-        run: trunk build --release
-
-      - name: Create app directory in site
-        run: mkdir -p site/app
-
-      - name: Copy WASM build to site/app
-        run: cp -r dist/* site/app/
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -52,7 +31,7 @@ jobs:
       - name: Add .nojekyll
         run: touch site/.nojekyll
 
-      - name: Upload artifact (site/)
+      - name: Upload artifact (docs/)
         uses: actions/upload-pages-artifact@v3
         with:
           # path relative to the repo root
