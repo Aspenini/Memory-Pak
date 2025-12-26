@@ -4,10 +4,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[cfg(target_arch = "wasm32")]
-use wasm_bindgen::prelude::*;
-
-#[cfg(target_arch = "wasm32")]
-use web_sys::*;
+use wasm_bindgen::JsCast;
 
 mod console_data;
 mod game_data;
@@ -78,6 +75,7 @@ pub struct ConsoleExportData {
     pub games: Vec<GameState>,
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 fn main() -> Result<(), eframe::Error> {
     // Load app icon
     let icon = load_app_icon();
@@ -95,16 +93,44 @@ fn main() -> Result<(), eframe::Error> {
         ..Default::default()
     };
 
-    #[cfg(target_arch = "wasm32")]
-    {
-        console_error_panic_hook::set_once();
-    }
-
     eframe::run_native(
         "Memory Pak",
         options,
-        Box::new(|_cc| Box::new(MemoryPakApp::default())),
+        Box::new(|_cc| Ok(Box::new(MemoryPakApp::default()))),
     )
+}
+
+#[cfg(target_arch = "wasm32")]
+fn main() {
+    // This is required to enable logging in WASM
+    console_error_panic_hook::set_once();
+    
+    // Make sure panics are logged using `console.error`.
+    wasm_logger::init(wasm_logger::Config::default());
+
+    let web_options = eframe::WebOptions::default();
+
+    wasm_bindgen_futures::spawn_local(async {
+        let document = web_sys::window()
+            .expect("No window")
+            .document()
+            .expect("No document");
+        
+        let canvas = document
+            .get_element_by_id("memory_pak_canvas")
+            .expect("Failed to find memory_pak_canvas")
+            .dyn_into::<web_sys::HtmlCanvasElement>()
+            .expect("memory_pak_canvas is not a canvas element");
+
+        eframe::WebRunner::new()
+            .start(
+                canvas,
+                web_options,
+                Box::new(|_cc| Ok(Box::new(MemoryPakApp::default()))),
+            )
+            .await
+            .expect("failed to start eframe");
+    });
 }
 
 #[cfg(not(target_arch = "wasm32"))]

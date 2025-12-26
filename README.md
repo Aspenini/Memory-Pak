@@ -55,6 +55,20 @@ cargo build --release
 
 Binary output: `target/release/memory_pak[.exe]`
 
+### Web Build (WASM)
+
+```bash
+# Install Trunk (one-time)
+cargo install trunk
+rustup target add wasm32-unknown-unknown
+
+# Development with hot reload → opens at http://127.0.0.1:8080
+trunk serve
+
+# Production build → output in dist/
+trunk build --release
+```
+
 ### Platform Installers
 
 **Windows (MSI):**

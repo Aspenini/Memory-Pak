@@ -353,7 +353,7 @@ pub fn render_games_tab(
 
     ui.horizontal(|ui| {
         ui.label("Select Console:");
-        egui::ComboBox::from_id_source("console_select")
+        egui::ComboBox::from_id_salt("console_select")
             .selected_text(match selected_console.as_deref() {
                 Some("all") => "All Consoles".to_string(),
                 Some(id) => {

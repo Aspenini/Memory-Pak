@@ -1,0 +1,33 @@
+[build]
+# The index HTML file to use
+target = "index.html"
+
+# The output directory for the built app
+dist = "dist"
+
+# Public URL from which assets are served
+# public_url = "/"
+
+[[hooks]]
+stage = "build"
+command = "sh"
+command_arguments = ["-c", "echo 'Building Memory Pak for WASM...'"]
+
+[watch]
+# Paths to watch for changes
+watch = ["src", "database"]
+ignore = ["target", "dist", ".git"]
+
+[serve]
+# The address to serve on
+address = "127.0.0.1"
+
+# The port to serve on
+port = 8080
+
+# Open the browser on serve
+open = true
+
+# Enable auto-reload
+ws_protocol = "ws"
+

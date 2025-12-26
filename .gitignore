@@ -1,3 +1,20 @@
+# Rust
 /target
+
+# Web build output
+/dist
+
+# Generated files
 src/games_generated.rs
 memory-pak.desktop
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

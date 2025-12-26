@@ -1,0 +1,4 @@
+[target.wasm32-unknown-unknown]
+# Use lld for faster linking
+rustflags = ["-C", "link-arg=-zstack-size=1048576"]
+

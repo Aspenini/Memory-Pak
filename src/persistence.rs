@@ -1,16 +1,17 @@
 use crate::{
     ConsoleExportData, ConsoleState, ExportData, GameState, LegoDimensionState, SkylanderState, MemoryPakApp,
 };
-use directories::ProjectDirs;
 use serde_json;
 use std::collections::HashMap;
-use std::fs;
 use std::path::PathBuf;
+
+#[cfg(not(target_arch = "wasm32"))]
+use directories::ProjectDirs;
+#[cfg(not(target_arch = "wasm32"))]
+use std::fs;
 
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
-#[cfg(target_arch = "wasm32")]
-use web_sys::{Document, HtmlInputElement, Window};
 
 pub fn get_state_dir() -> Option<PathBuf> {
     #[cfg(not(target_arch = "wasm32"))]
@@ -114,7 +115,7 @@ pub fn load_all_game_states_flat() -> HashMap<String, GameState> {
     {
         // Load all console states from localStorage and flatten
         if let Some(window) = web_sys::window() {
-            if let Some(local_storage) = window.local_storage().ok().flatten() {
+            if let Some(_local_storage) = window.local_storage().ok().flatten() {
                 let possible_consoles = [
                     "nes",
                     "snes",
@@ -538,7 +539,7 @@ fn download_json_web(json: &str, filename: &str) {
     if let Some(window) = web_sys::window() {
         let document = window.document().unwrap();
         let blob =
-            js_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(&js_sys::JsString::from(json)))
+            web_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(&js_sys::JsString::from(json)))
                 .unwrap();
         let url = web_sys::Url::create_object_url_with_blob(&blob).unwrap();
 
