@@ -143,11 +143,16 @@
                             <img src="img/os-macos.png" alt="macOS" class="platform-icon">
                             <span class="platform-name">macOS</span>
                             <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/Memory-Pak-0.1.5-macOS-x86_64.app.zip" 
-                                   class="download-badge" 
-                                   data-release-match="macos,.app.zip"
-                                   download="Memory-Pak-0.1.5-macOS-x86_64.app.zip">App Bundle</a>
-                                <span class="download-badge coming-soon" data-release-match="macos,.dmg" data-release-label="DMG Download">DMG Coming Soon</span>
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                   class="download-badge"
+                                   data-release-match="macos,.app,arm64"
+                                   data-release-label="App (Apple Silicon)"
+                                   data-release-empty-label="App coming soon"
+                                   download="Memory-Pak-macos-arm64.app.zip">App (Apple Silicon)</a>
+                                <span class="download-badge coming-soon"
+                                      data-release-match="macos,.dmg,arm64"
+                                      data-release-label="DMG (Apple Silicon)"
+                                      data-release-empty-label="DMG coming soon">DMG coming soon</span>
                             </div>
                         </div>
                         <div class="download-card" data-platform="linux">
@@ -158,6 +163,12 @@
                                    class="download-badge" 
                                    data-release-match="linux,.deb"
                                    download="memory-pak_0.1.5-1_linux-amd64.deb">DEB Installer</a>
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                   class="download-badge"
+                                   data-release-match="linux,.tar.gz"
+                                   data-release-label="Linux archive (.tar.gz)"
+                                   download="memory-pak-linux.tar.gz">Archive (.tar.gz)</a>
+                                <span class="download-badge coming-soon">Flatpak coming soon</span>
                             </div>
                         </div>
                         <div class="download-card" data-platform="freebsd">
