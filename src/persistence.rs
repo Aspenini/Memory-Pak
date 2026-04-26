@@ -1,8 +1,10 @@
-#[cfg(not(target_os = "android"))]
-use crate::{ConsoleExportData, ExportData};
-use crate::{ConsoleState, GameState, LegoDimensionState, MemoryPakApp, SkylanderState};
-use serde_json;
+use crate::{
+    ConsoleExportData, ConsoleState, ExportData, GameState, LegoDimensionState, MemoryPakApp,
+    SkylanderState,
+};
 use std::collections::HashMap;
+#[cfg(not(target_arch = "wasm32"))]
+use std::io::ErrorKind;
 #[cfg(not(target_arch = "wasm32"))]
 use std::path::PathBuf;
 
@@ -44,20 +46,30 @@ pub fn get_skylanders_state_file_path() -> Option<PathBuf> {
 #[cfg(not(target_arch = "wasm32"))]
 pub fn load_game_states(console_id: &str) -> HashMap<String, GameState> {
     if let Some(path) = get_state_file_path(console_id) {
-        if let Ok(content) = fs::read_to_string(&path) {
-            if let Ok(states) = serde_json::from_str::<Vec<GameState>>(&content) {
-                return states
-                    .into_iter()
-                    .map(|state| (state.game_id.clone(), state))
-                    .collect();
+        match fs::read_to_string(&path) {
+            Ok(content) => match serde_json::from_str::<Vec<GameState>>(&content) {
+                Ok(states) => {
+                    return states
+                        .into_iter()
+                        .map(|state| (state.game_id.clone(), state))
+                        .collect();
+                }
+                Err(err) => {
+                    eprintln!("Failed to parse game state file {}: {err}", path.display());
+                }
+            },
+            Err(err) if err.kind() != ErrorKind::NotFound => {
+                eprintln!("Failed to read game state file {}: {err}", path.display());
             }
+            Err(_) => {}
         }
     }
     HashMap::new()
 }
 
 pub fn save_game_states(console_id: &str, states: &HashMap<String, GameState>) -> bool {
-    let states_vec: Vec<GameState> = states.values().cloned().collect();
+    let mut states_vec: Vec<GameState> = states.values().cloned().collect();
+    states_vec.sort_by(|a, b| a.game_id.cmp(&b.game_id));
 
     #[cfg(not(target_arch = "wasm32"))]
     {
@@ -105,44 +117,9 @@ pub fn load_all_game_states_flat() -> HashMap<String, GameState> {
     {
         // Load all console states from localStorage and flatten
         if let Some(window) = web_sys::window() {
-            if let Some(_local_storage) = window.local_storage().ok().flatten() {
-                let possible_consoles = [
-                    "nes",
-                    "snes",
-                    "n64",
-                    "gamecube",
-                    "wii",
-                    "wiiu",
-                    "switch",
-                    "gb",
-                    "gbc",
-                    "gba",
-                    "ds",
-                    "3ds",
-                    "genesis",
-                    "mastersystem",
-                    "saturn",
-                    "dreamcast",
-                    "sg1000",
-                    "segacd",
-                    "sega32x",
-                    "gamegear",
-                    "pico",
-                    "ps1",
-                    "ps2",
-                    "ps3",
-                    "ps4",
-                    "ps5",
-                    "psp",
-                    "psvita",
-                    "xbox",
-                    "xbox360",
-                    "xboxone",
-                    "xboxseries",
-                ];
-
-                for console_id in &possible_consoles {
-                    let console_states = load_game_states_web(console_id);
+            if window.local_storage().ok().flatten().is_some() {
+                for console_id in crate::game_data::game_database_console_ids() {
+                    let console_states = load_game_states_web(&console_id);
                     for (game_id, state) in console_states {
                         flat_states.insert(game_id, state);
                     }
@@ -163,13 +140,28 @@ pub fn load_all_console_states() -> HashMap<String, ConsoleState> {
     #[cfg(not(target_arch = "wasm32"))]
     {
         if let Some(path) = get_console_states_file_path() {
-            if let Ok(content) = fs::read_to_string(&path) {
-                if let Ok(states_vec) = serde_json::from_str::<Vec<ConsoleState>>(&content) {
-                    return states_vec
-                        .into_iter()
-                        .map(|state| (state.console_id.clone(), state))
-                        .collect();
+            match fs::read_to_string(&path) {
+                Ok(content) => match serde_json::from_str::<Vec<ConsoleState>>(&content) {
+                    Ok(states_vec) => {
+                        return states_vec
+                            .into_iter()
+                            .map(|state| (state.console_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => {
+                        eprintln!(
+                            "Failed to parse console state file {}: {err}",
+                            path.display()
+                        );
+                    }
+                },
+                Err(err) if err.kind() != ErrorKind::NotFound => {
+                    eprintln!(
+                        "Failed to read console state file {}: {err}",
+                        path.display()
+                    );
                 }
+                Err(_) => {}
             }
         }
         HashMap::new()
@@ -182,7 +174,8 @@ pub fn load_all_console_states() -> HashMap<String, ConsoleState> {
 }
 
 pub fn save_console_states(states: &HashMap<String, ConsoleState>) -> bool {
-    let states_vec: Vec<ConsoleState> = states.values().cloned().collect();
+    let mut states_vec: Vec<ConsoleState> = states.values().cloned().collect();
+    states_vec.sort_by(|a, b| a.console_id.cmp(&b.console_id));
 
     #[cfg(not(target_arch = "wasm32"))]
     {
@@ -204,13 +197,28 @@ pub fn load_lego_dimensions_states() -> HashMap<String, LegoDimensionState> {
     #[cfg(not(target_arch = "wasm32"))]
     {
         if let Some(path) = get_lego_dimensions_state_file_path() {
-            if let Ok(content) = fs::read_to_string(&path) {
-                if let Ok(states_vec) = serde_json::from_str::<Vec<LegoDimensionState>>(&content) {
-                    return states_vec
-                        .into_iter()
-                        .map(|state| (state.figure_id.clone(), state))
-                        .collect();
+            match fs::read_to_string(&path) {
+                Ok(content) => match serde_json::from_str::<Vec<LegoDimensionState>>(&content) {
+                    Ok(states_vec) => {
+                        return states_vec
+                            .into_iter()
+                            .map(|state| (state.figure_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => {
+                        eprintln!(
+                            "Failed to parse LEGO Dimensions state file {}: {err}",
+                            path.display()
+                        );
+                    }
+                },
+                Err(err) if err.kind() != ErrorKind::NotFound => {
+                    eprintln!(
+                        "Failed to read LEGO Dimensions state file {}: {err}",
+                        path.display()
+                    );
                 }
+                Err(_) => {}
             }
         }
         HashMap::new()
@@ -223,7 +231,8 @@ pub fn load_lego_dimensions_states() -> HashMap<String, LegoDimensionState> {
 }
 
 pub fn save_lego_dimensions_states(states: &HashMap<String, LegoDimensionState>) -> bool {
-    let states_vec: Vec<LegoDimensionState> = states.values().cloned().collect();
+    let mut states_vec: Vec<LegoDimensionState> = states.values().cloned().collect();
+    states_vec.sort_by(|a, b| a.figure_id.cmp(&b.figure_id));
 
     #[cfg(not(target_arch = "wasm32"))]
     {
@@ -246,11 +255,14 @@ fn load_console_states_web() -> HashMap<String, ConsoleState> {
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             if let Ok(Some(data)) = local_storage.get_item("memory_pak_console_states") {
-                if let Ok(states) = serde_json::from_str::<Vec<ConsoleState>>(&data) {
-                    return states
-                        .into_iter()
-                        .map(|state| (state.console_id.clone(), state))
-                        .collect();
+                match serde_json::from_str::<Vec<ConsoleState>>(&data) {
+                    Ok(states) => {
+                        return states
+                            .into_iter()
+                            .map(|state| (state.console_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => log_web_error(&format!("Failed to parse console states: {err}")),
                 }
             }
         }
@@ -294,11 +306,18 @@ fn load_game_states_web(console_id: &str) -> HashMap<String, GameState> {
             if let Ok(Some(data)) =
                 local_storage.get_item(&format!("memory_pak_state_{}", console_id))
             {
-                if let Ok(states) = serde_json::from_str::<Vec<GameState>>(&data) {
-                    return states
-                        .into_iter()
-                        .map(|state| (state.game_id.clone(), state))
-                        .collect();
+                match serde_json::from_str::<Vec<GameState>>(&data) {
+                    Ok(states) => {
+                        return states
+                            .into_iter()
+                            .map(|state| (state.game_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => {
+                        log_web_error(&format!(
+                            "Failed to parse game states for {console_id}: {err}"
+                        ));
+                    }
                 }
             }
         }
@@ -343,11 +362,16 @@ fn load_lego_dimensions_states_web() -> HashMap<String, LegoDimensionState> {
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             if let Ok(Some(data)) = local_storage.get_item("memory_pak_lego_dimensions_states") {
-                if let Ok(states) = serde_json::from_str::<Vec<LegoDimensionState>>(&data) {
-                    return states
-                        .into_iter()
-                        .map(|state| (state.figure_id.clone(), state))
-                        .collect();
+                match serde_json::from_str::<Vec<LegoDimensionState>>(&data) {
+                    Ok(states) => {
+                        return states
+                            .into_iter()
+                            .map(|state| (state.figure_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => {
+                        log_web_error(&format!("Failed to parse LEGO Dimensions states: {err}"));
+                    }
                 }
             }
         }
@@ -390,13 +414,28 @@ pub fn load_skylanders_states() -> HashMap<String, SkylanderState> {
     #[cfg(not(target_arch = "wasm32"))]
     {
         if let Some(path) = get_skylanders_state_file_path() {
-            if let Ok(content) = fs::read_to_string(&path) {
-                if let Ok(states_vec) = serde_json::from_str::<Vec<SkylanderState>>(&content) {
-                    return states_vec
-                        .into_iter()
-                        .map(|state| (state.skylander_id.clone(), state))
-                        .collect();
+            match fs::read_to_string(&path) {
+                Ok(content) => match serde_json::from_str::<Vec<SkylanderState>>(&content) {
+                    Ok(states_vec) => {
+                        return states_vec
+                            .into_iter()
+                            .map(|state| (state.skylander_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => {
+                        eprintln!(
+                            "Failed to parse Skylanders state file {}: {err}",
+                            path.display()
+                        );
+                    }
+                },
+                Err(err) if err.kind() != ErrorKind::NotFound => {
+                    eprintln!(
+                        "Failed to read Skylanders state file {}: {err}",
+                        path.display()
+                    );
                 }
+                Err(_) => {}
             }
         }
         HashMap::new()
@@ -409,7 +448,8 @@ pub fn load_skylanders_states() -> HashMap<String, SkylanderState> {
 }
 
 pub fn save_skylanders_states(states: &HashMap<String, SkylanderState>) -> bool {
-    let states_vec: Vec<SkylanderState> = states.values().cloned().collect();
+    let mut states_vec: Vec<SkylanderState> = states.values().cloned().collect();
+    states_vec.sort_by(|a, b| a.skylander_id.cmp(&b.skylander_id));
 
     #[cfg(not(target_arch = "wasm32"))]
     {
@@ -432,11 +472,16 @@ fn load_skylanders_states_web() -> HashMap<String, SkylanderState> {
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             if let Ok(Some(data)) = local_storage.get_item("memory_pak_skylanders_states") {
-                if let Ok(states) = serde_json::from_str::<Vec<SkylanderState>>(&data) {
-                    return states
-                        .into_iter()
-                        .map(|state| (state.skylander_id.clone(), state))
-                        .collect();
+                match serde_json::from_str::<Vec<SkylanderState>>(&data) {
+                    Ok(states) => {
+                        return states
+                            .into_iter()
+                            .map(|state| (state.skylander_id.clone(), state))
+                            .collect();
+                    }
+                    Err(err) => {
+                        log_web_error(&format!("Failed to parse Skylanders states: {err}"));
+                    }
                 }
             }
         }
@@ -476,39 +521,19 @@ fn save_skylanders_states_web(states: &Vec<SkylanderState>) -> bool {
 pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>> {
     #[cfg(target_os = "android")]
     {
-        let _ = app;
-        Err("export via file picker is not implemented on Android yet".into())
+        let json = export_json(app)?;
+        let filename = format!(
+            "memory_pak_export_{}.json",
+            chrono::Utc::now().format("%Y%m%d_%H%M%S")
+        );
+        crate::android_platform::export_json_to_downloads(&filename, &json)?;
+        crate::android_platform::toast("Exported to Downloads/Memory Pak");
+        Ok(())
     }
 
     #[cfg(not(target_os = "android"))]
     {
-        // Group game states by console
-        let mut games_by_console: HashMap<String, Vec<GameState>> = HashMap::new();
-        for (game_id, state) in &app.game_states {
-            let console_id = if let Some(console) = game_id.split('-').next() {
-                console.to_string()
-            } else {
-                continue;
-            };
-            games_by_console
-                .entry(console_id)
-                .or_insert_with(Vec::new)
-                .push(state.clone());
-        }
-
-        let export = ExportData {
-            version: "1.0".to_string(),
-            export_date: chrono::Utc::now().to_rfc3339(),
-            console_states: app.console_states.values().cloned().collect(),
-            consoles: games_by_console
-                .into_iter()
-                .map(|(console_id, games)| ConsoleExportData { console_id, games })
-                .collect(),
-            lego_dimensions_states: app.lego_dimensions_states.values().cloned().collect(),
-            skylanders_states: app.skylanders_states.values().cloned().collect(),
-        };
-
-        let json = serde_json::to_string_pretty(&export)?;
+        let json = export_json(app)?;
 
         #[cfg(not(target_arch = "wasm32"))]
         {
@@ -524,7 +549,7 @@ pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>>
         #[cfg(target_arch = "wasm32")]
         {
             // Download via blob
-            download_json_web(&json, "memory_pak_export.json");
+            download_json_web(&json, "memory_pak_export.json")?;
         }
 
         Ok(())
@@ -535,7 +560,8 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
     #[cfg(target_os = "android")]
     {
         let _ = app;
-        Err("import via file picker is not implemented on Android yet".into())
+        crate::android_platform::show_import_hint();
+        Ok(())
     }
 
     #[cfg(not(target_os = "android"))]
@@ -547,51 +573,7 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
         {
             let content = std::fs::read_to_string(path)?;
             let import: ExportData = serde_json::from_str(&content)?;
-
-            // Merge imported console states
-            for console_state in import.console_states {
-                app.console_states
-                    .insert(console_state.console_id.clone(), console_state);
-            }
-
-            // Merge imported game states (flat structure)
-            for console_export in import.consoles {
-                for game_state in console_export.games {
-                    app.game_states
-                        .insert(game_state.game_id.clone(), game_state);
-                }
-            }
-            // Invalidate cache after import
-            app.invalidate_game_counts_cache();
-
-            // Merge imported LEGO Dimensions states
-            for figure_state in import.lego_dimensions_states {
-                app.lego_dimensions_states
-                    .insert(figure_state.figure_id.clone(), figure_state);
-            }
-
-            // Merge imported Skylanders states
-            for skylander_state in import.skylanders_states {
-                app.skylanders_states
-                    .insert(skylander_state.skylander_id.clone(), skylander_state);
-            }
-
-            // Save all imported states
-            save_console_states(&app.console_states);
-            // Group and save game states by console
-            let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
-            for (game_id, state) in &app.game_states {
-                let console_id = game_id.split('-').next().unwrap_or("").to_string();
-                states_by_console
-                    .entry(console_id)
-                    .or_insert_with(HashMap::new)
-                    .insert(game_id.clone(), state.clone());
-            }
-            for (console_id, states) in states_by_console {
-                save_game_states(&console_id, &states);
-            }
-            save_lego_dimensions_states(&app.lego_dimensions_states);
-            save_skylanders_states(&app.skylanders_states);
+            apply_import_data(app, import);
         }
 
         #[cfg(target_arch = "wasm32")]
@@ -606,24 +588,147 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
     }
 }
 
-#[cfg(target_arch = "wasm32")]
-fn download_json_web(json: &str, filename: &str) {
-    if let Some(window) = web_sys::window() {
-        let document = window.document().unwrap();
-        let blob = web_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(
-            &js_sys::JsString::from(json),
-        ))
-        .unwrap();
-        let url = web_sys::Url::create_object_url_with_blob(&blob).unwrap();
-
-        let a = document.create_element("a").unwrap();
-        let a = a.dyn_into::<web_sys::HtmlElement>().unwrap();
-        a.set_attribute("href", &url).unwrap();
-        a.set_attribute("download", filename).unwrap();
-        a.style().set_property("display", "none").unwrap();
-        document.body().unwrap().append_child(&a).unwrap();
-        a.click();
-        document.body().unwrap().remove_child(&a).unwrap();
-        web_sys::Url::revoke_object_url(&url).unwrap();
+pub fn apply_import_data(app: &mut MemoryPakApp, import: ExportData) {
+    // Merge imported console states
+    for console_state in import.console_states {
+        app.console_states
+            .insert(console_state.console_id.clone(), console_state);
     }
+
+    // Merge imported game states (flat structure)
+    for console_export in import.consoles {
+        for game_state in console_export.games {
+            app.game_states
+                .insert(game_state.game_id.clone(), game_state);
+        }
+    }
+    app.invalidate_game_counts_cache();
+
+    for figure_state in import.lego_dimensions_states {
+        app.lego_dimensions_states
+            .insert(figure_state.figure_id.clone(), figure_state);
+    }
+
+    for skylander_state in import.skylanders_states {
+        app.skylanders_states
+            .insert(skylander_state.skylander_id.clone(), skylander_state);
+    }
+
+    save_console_states(&app.console_states);
+    let mut states_by_console: HashMap<String, HashMap<String, GameState>> = HashMap::new();
+    for (game_id, state) in &app.game_states {
+        let console_id = crate::game_data::get_console_from_id(game_id).to_string();
+        states_by_console
+            .entry(console_id)
+            .or_default()
+            .insert(game_id.clone(), state.clone());
+    }
+    for (console_id, states) in states_by_console {
+        save_game_states(&console_id, &states);
+    }
+    save_lego_dimensions_states(&app.lego_dimensions_states);
+    save_skylanders_states(&app.skylanders_states);
+}
+
+pub(crate) fn export_json(app: &MemoryPakApp) -> Result<String, serde_json::Error> {
+    // Group game states by console
+    let mut games_by_console: HashMap<String, Vec<GameState>> = HashMap::new();
+    for (game_id, state) in &app.game_states {
+        let console_id = crate::game_data::get_console_from_id(game_id).to_string();
+        if console_id.is_empty() {
+            continue;
+        }
+        games_by_console
+            .entry(console_id)
+            .or_default()
+            .push(state.clone());
+    }
+
+    let mut console_states: Vec<ConsoleState> = app.console_states.values().cloned().collect();
+    console_states.sort_by(|a, b| a.console_id.cmp(&b.console_id));
+
+    let mut consoles: Vec<ConsoleExportData> = games_by_console
+        .into_iter()
+        .map(|(console_id, mut games)| {
+            games.sort_by(|a, b| a.game_id.cmp(&b.game_id));
+            ConsoleExportData { console_id, games }
+        })
+        .collect();
+    consoles.sort_by(|a, b| a.console_id.cmp(&b.console_id));
+
+    let mut lego_dimensions_states: Vec<LegoDimensionState> =
+        app.lego_dimensions_states.values().cloned().collect();
+    lego_dimensions_states.sort_by(|a, b| a.figure_id.cmp(&b.figure_id));
+
+    let mut skylanders_states: Vec<SkylanderState> =
+        app.skylanders_states.values().cloned().collect();
+    skylanders_states.sort_by(|a, b| a.skylander_id.cmp(&b.skylander_id));
+
+    let export = ExportData {
+        version: "1.0".to_string(),
+        export_date: chrono::Utc::now().to_rfc3339(),
+        console_states,
+        consoles,
+        lego_dimensions_states,
+        skylanders_states,
+    };
+
+    serde_json::to_string_pretty(&export)
+}
+
+#[cfg(target_arch = "wasm32")]
+fn download_json_web(json: &str, filename: &str) -> Result<(), Box<dyn std::error::Error>> {
+    let window = web_sys::window().ok_or_else(|| web_error("No browser window is available"))?;
+    let document = window
+        .document()
+        .ok_or_else(|| web_error("No browser document is available"))?;
+    let body = document
+        .body()
+        .ok_or_else(|| web_error("No document body is available"))?;
+    let blob =
+        web_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(&js_sys::JsString::from(json)))
+            .map_err(|err| web_error(format!("Failed to create export blob: {err:?}")))?;
+    let url = web_sys::Url::create_object_url_with_blob(&blob)
+        .map_err(|err| web_error(format!("Failed to create export URL: {err:?}")))?;
+
+    let result = (|| {
+        let a = document
+            .create_element("a")
+            .map_err(|err| web_error(format!("Failed to create download link: {err:?}")))?
+            .dyn_into::<web_sys::HtmlElement>()
+            .map_err(|err| web_error(format!("Download link is not an HTML element: {err:?}")))?;
+        a.set_attribute("href", &url)
+            .map_err(|err| web_error(format!("Failed to set download href: {err:?}")))?;
+        a.set_attribute("download", filename)
+            .map_err(|err| web_error(format!("Failed to set download filename: {err:?}")))?;
+        a.style()
+            .set_property("display", "none")
+            .map_err(|err| web_error(format!("Failed to hide download link: {err:?}")))?;
+        body.append_child(&a)
+            .map_err(|err| web_error(format!("Failed to attach download link: {err:?}")))?;
+        a.click();
+        body.remove_child(&a)
+            .map_err(|err| web_error(format!("Failed to remove download link: {err:?}")))?;
+        Ok(())
+    })();
+
+    let revoke_result = web_sys::Url::revoke_object_url(&url)
+        .map_err(|err| web_error(format!("Failed to revoke export URL: {err:?}")));
+
+    result.and(revoke_result)
+}
+
+#[cfg(target_arch = "wasm32")]
+fn web_error(message: impl Into<String>) -> Box<dyn std::error::Error> {
+    Box::new(std::io::Error::new(
+        std::io::ErrorKind::Other,
+        message.into(),
+    ))
+}
+
+#[cfg(target_arch = "wasm32")]
+fn log_web_error(message: &str) {
+    use wasm_bindgen::JsValue;
+
+    web_sys::console::error_1(&JsValue::from_str(message));
 }

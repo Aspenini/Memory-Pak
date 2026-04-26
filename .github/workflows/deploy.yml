@@ -27,11 +27,31 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache cargo registry and build
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Trunk
+        run: cargo install trunk --locked
+
+      - name: Build web app
+        run: trunk build --release
+
+      - name: Copy web app into site
+        run: |
+          rm -rf site/app
+          mkdir -p site/app
+          cp -R dist/. site/app/
+
       # Optional: ensure Jekyll doesn't change static files
       - name: Add .nojekyll
         run: touch site/.nojekyll
 
-      - name: Upload artifact (docs/)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # path relative to the repo root

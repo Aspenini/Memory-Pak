@@ -14,6 +14,7 @@ dependencies = [
  "getrandom 0.2.16",
  "image 0.24.9",
  "include_dir",
+ "jni",
  "js-sys",
  "rfd",
  "serde",

@@ -11,6 +11,12 @@ mod persistence;
 mod skylanders;
 mod ui;
 
+#[cfg(test)]
+mod data_validation;
+
+#[cfg(target_os = "android")]
+mod android_platform;
+
 use console_data::*;
 use game_data::*;
 use lego_dimensions::*;
@@ -145,6 +151,7 @@ pub fn run_memory_pak_web() {
 #[cfg(target_os = "android")]
 #[no_mangle]
 fn android_main(app: winit::platform::android::activity::AndroidApp) {
+    android_platform::init(app.clone());
     if let Err(err) = run_memory_pak_native(Some(app)) {
         eprintln!("Failed to start Memory Pak: {err}");
     }
@@ -353,6 +360,26 @@ impl MemoryPakApp {
         }
     }
 
+    #[cfg(target_os = "android")]
+    fn maybe_import_android_view_intent(&mut self) {
+        let Some(result) = android_platform::take_view_intent_json() else {
+            return;
+        };
+
+        match result.and_then(|json| {
+            serde_json::from_str::<ExportData>(&json).map_err(|err| err.to_string())
+        }) {
+            Ok(import) => {
+                crate::persistence::apply_import_data(self, import);
+                android_platform::toast("Memory Pak import complete");
+            }
+            Err(err) => {
+                eprintln!("Android import error: {err}");
+                android_platform::toast("Could not import Memory Pak JSON");
+            }
+        }
+    }
+
     /// Compute game counts by console from game_states
     fn compute_game_counts(
         game_states: &HashMap<String, GameState>,
@@ -380,6 +407,39 @@ impl MemoryPakApp {
     /// Invalidate and recompute game counts cache
     pub fn invalidate_game_counts_cache(&mut self) {
         self.game_counts_by_console = Self::compute_game_counts(&self.game_states);
+    }
+
+    fn migrate_legacy_game_state_ids(&mut self) {
+        let mut migrated_states = Vec::new();
+        let mut legacy_ids_to_remove = Vec::new();
+
+        for game in self.games.values() {
+            let legacy_id = generate_legacy_id(&game.console_id, &game.title);
+            if legacy_id == game.id {
+                continue;
+            }
+
+            if let Some(mut legacy_state) = self.game_states.remove(&legacy_id) {
+                legacy_state.game_id = game.id.clone();
+                migrated_states.push((game.id.clone(), legacy_state));
+                legacy_ids_to_remove.push(legacy_id);
+            }
+        }
+
+        if migrated_states.is_empty() {
+            return;
+        }
+
+        for (game_id, state) in migrated_states {
+            self.game_states.entry(game_id).or_insert(state);
+        }
+
+        for legacy_id in legacy_ids_to_remove {
+            self.game_states.remove(&legacy_id);
+        }
+
+        self.pending_game_save = true;
+        self.invalidate_game_counts_cache();
     }
 
     /// Flush pending saves if enough time has passed (500ms debounce)
@@ -432,7 +492,7 @@ impl MemoryPakApp {
                 let console_id = crate::game_data::get_console_from_id(game_id);
                 states_by_console
                     .entry(console_id.to_string())
-                    .or_insert_with(HashMap::new)
+                    .or_default()
                     .insert(game_id.clone(), state.clone());
             }
             for (console_id, console_states) in states_by_console {
@@ -475,11 +535,15 @@ impl eframe::App for MemoryPakApp {
         #[cfg(target_os = "android")]
         self.apply_android_style(ctx);
 
+        #[cfg(target_os = "android")]
+        self.maybe_import_android_view_intent();
+
         // Load data on first run
         if !self.data_loaded {
             self.consoles = get_hardcoded_consoles();
             self.games = load_embedded_games();
             self.game_states = load_all_game_states_flat();
+            self.migrate_legacy_game_state_ids();
             self.console_states = load_all_console_states();
             self.lego_dimensions_figures = load_lego_dimensions_figures();
             self.lego_dimensions_states = load_lego_dimensions_states();
@@ -515,63 +579,7 @@ impl eframe::App for MemoryPakApp {
                                 if let Ok(import) = serde_json::from_str::<crate::ExportData>(
                                     &self.ui_state.import_text,
                                 ) {
-                                    // Merge imported console states
-                                    for console_state in import.console_states {
-                                        self.console_states.insert(
-                                            console_state.console_id.clone(),
-                                            console_state,
-                                        );
-                                    }
-
-                                    // Merge imported game states (flat structure)
-                                    for console_export in import.consoles {
-                                        for game_state in console_export.games {
-                                            self.game_states
-                                                .insert(game_state.game_id.clone(), game_state);
-                                        }
-                                    }
-                                    // Invalidate cache after import
-                                    self.invalidate_game_counts_cache();
-
-                                    // Merge imported LEGO Dimensions states
-                                    for figure_state in import.lego_dimensions_states {
-                                        self.lego_dimensions_states
-                                            .insert(figure_state.figure_id.clone(), figure_state);
-                                    }
-
-                                    // Merge imported Skylanders states
-                                    for skylander_state in import.skylanders_states {
-                                        self.skylanders_states.insert(
-                                            skylander_state.skylander_id.clone(),
-                                            skylander_state,
-                                        );
-                                    }
-
-                                    // Save all imported states
-                                    crate::persistence::save_console_states(&self.console_states);
-                                    // Group and save game states by console
-                                    let mut states_by_console: HashMap<
-                                        String,
-                                        HashMap<String, GameState>,
-                                    > = HashMap::new();
-                                    for (game_id, state) in &self.game_states {
-                                        let console_id =
-                                            game_id.split('-').next().unwrap_or("").to_string();
-                                        states_by_console
-                                            .entry(console_id)
-                                            .or_insert_with(HashMap::new)
-                                            .insert(game_id.clone(), state.clone());
-                                    }
-                                    for (console_id, states) in states_by_console {
-                                        crate::persistence::save_game_states(&console_id, &states);
-                                    }
-                                    crate::persistence::save_lego_dimensions_states(
-                                        &self.lego_dimensions_states,
-                                    );
-                                    crate::persistence::save_skylanders_states(
-                                        &self.skylanders_states,
-                                    );
-
+                                    crate::persistence::apply_import_data(self, import);
                                     self.ui_state.needs_import = false;
                                     self.ui_state.import_text.clear();
                                 }

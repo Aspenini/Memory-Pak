@@ -24,23 +24,20 @@ fn is_mobile_screen(ui: &egui::Ui) -> bool {
 /// - Removes common special characters (apostrophes, colons, etc.)
 fn normalize_for_search(text: &str) -> String {
     text.nfd() // Unicode Normalization Form Decomposed
-        .filter_map(|c| {
+        .filter(|c| {
             // Remove combining diacritical marks (accents)
             // Combining marks are in Unicode ranges: 0300-036F, 1AB0-1AFF, 1DC0-1DFF, 20D0-20FF, FE20-FE2F
-            let code = c as u32;
+            let code = *c as u32;
             if (0x0300..=0x036F).contains(&code)
                 || (0x1AB0..=0x1AFF).contains(&code)
                 || (0x1DC0..=0x1DFF).contains(&code)
                 || (0x20D0..=0x20FF).contains(&code)
                 || (0xFE20..=0xFE2F).contains(&code)
             {
-                return None;
+                return false;
             }
             // Remove common special characters that users might skip
-            match c {
-                '\'' | ':' | '-' | '_' | '.' | ',' | '!' | '?' | ';' => None,
-                _ => Some(c),
-            }
+            !matches!(*c, '\'' | ':' | '-' | '_' | '.' | ',' | '!' | '?' | ';')
         })
         .collect::<String>()
         .to_lowercase()
@@ -228,7 +225,7 @@ pub fn render_consoles_tab(
     let total_pages = if total_consoles == 0 {
         1
     } else {
-        (total_consoles + CONSOLES_PER_PAGE - 1) / CONSOLES_PER_PAGE
+        total_consoles.div_ceil(CONSOLES_PER_PAGE)
     };
 
     if ui_state.consoles_page >= total_pages {
@@ -392,15 +389,14 @@ pub fn render_consoles_tab(
 
                 // Page number buttons (show fewer on mobile)
                 let pages_to_show = if is_mobile { 5 } else { 10 };
-                let start_page = if total_pages <= pages_to_show {
-                    0
-                } else if ui_state.consoles_page < pages_to_show / 2 {
-                    0
-                } else if ui_state.consoles_page >= total_pages - pages_to_show / 2 {
-                    total_pages.saturating_sub(pages_to_show)
-                } else {
-                    ui_state.consoles_page - pages_to_show / 2
-                };
+                let start_page =
+                    if total_pages <= pages_to_show || ui_state.consoles_page < pages_to_show / 2 {
+                        0
+                    } else if ui_state.consoles_page >= total_pages - pages_to_show / 2 {
+                        total_pages.saturating_sub(pages_to_show)
+                    } else {
+                        ui_state.consoles_page - pages_to_show / 2
+                    };
 
                 let end_page = (start_page + pages_to_show).min(total_pages);
 
@@ -467,8 +463,8 @@ pub fn render_games_tab(
                     // Try to find display name from consoles list, otherwise use the ID
                     consoles
                         .iter()
-                        .find(|c| &c.id == id)
-                        .map(|c| console_display_name(c))
+                        .find(|c| c.id.as_str() == id)
+                        .map(console_display_name)
                         .unwrap_or_else(|| id.to_string())
                 }
                 None => "None".to_string(),
@@ -488,7 +484,7 @@ pub fn render_games_tab(
                     let display_name = consoles
                         .iter()
                         .find(|c| &c.id == console_id)
-                        .map(|c| console_display_name(c))
+                        .map(console_display_name)
                         .unwrap_or_else(|| console_id.clone());
 
                     if ui
@@ -611,10 +607,10 @@ pub fn render_games_tab(
                 let state = game_states.get(&game.id).unwrap();
 
                 // Search filter using normalized strings
-                if !ui_state.search_query_lower.is_empty() {
-                    if !normalize_for_search(&game.title).contains(&ui_state.search_query_lower) {
-                        return false;
-                    }
+                if !ui_state.search_query_lower.is_empty()
+                    && !normalize_for_search(&game.title).contains(&ui_state.search_query_lower)
+                {
+                    return false;
                 }
 
                 // Status filter
@@ -671,7 +667,7 @@ pub fn render_games_tab(
         let total_pages = if total_games == 0 {
             1
         } else {
-            (total_games + GAMES_PER_PAGE - 1) / GAMES_PER_PAGE
+            total_games.div_ceil(GAMES_PER_PAGE)
         };
 
         // Reset to page 0 if current page is out of bounds
@@ -721,7 +717,7 @@ pub fn render_games_tab(
                                         let console_name = consoles
                                             .iter()
                                             .find(|c| c.id == game.console_id)
-                                            .map(|c| console_display_name(c))
+                                            .map(console_display_name)
                                             .unwrap_or_else(|| game.console_id.clone());
                                         ui.label(format!("[{}]", console_name));
                                     }
@@ -752,7 +748,7 @@ pub fn render_games_tab(
                                             let console_name = consoles
                                                 .iter()
                                                 .find(|c| c.id == game.console_id)
-                                                .map(|c| console_display_name(c))
+                                                .map(console_display_name)
                                                 .unwrap_or_else(|| game.console_id.clone());
                                             ui.label(format!("[{}]", console_name));
                                         }
@@ -816,9 +812,9 @@ pub fn render_games_tab(
 
                     // Page number buttons (show fewer on mobile)
                     let pages_to_show = if is_mobile { 5 } else { 10 };
-                    let start_page = if total_pages <= pages_to_show {
-                        0
-                    } else if ui_state.games_page < pages_to_show / 2 {
+                    let start_page = if total_pages <= pages_to_show
+                        || ui_state.games_page < pages_to_show / 2
+                    {
                         0
                     } else if ui_state.games_page >= total_pages - pages_to_show / 2 {
                         total_pages.saturating_sub(pages_to_show)

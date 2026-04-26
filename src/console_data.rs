@@ -1,5 +1,4 @@
 use crate::Console;
-use serde_json;
 
 const CONSOLES_JSON: &str = include_str!("../database/consoles.json");
 

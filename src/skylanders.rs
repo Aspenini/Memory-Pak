@@ -19,7 +19,13 @@ pub struct SkylanderState {
 
 pub fn load_skylanders() -> Vec<Skylander> {
     let data = include_str!("../database/skylanders.json");
-    serde_json::from_str::<Vec<Skylander>>(data).unwrap_or_default()
+    match serde_json::from_str::<Vec<Skylander>>(data) {
+        Ok(skylanders) => skylanders,
+        Err(err) => {
+            eprintln!("Failed to parse embedded Skylanders database: {err}");
+            Vec::new()
+        }
+    }
 }
 
 pub fn skylander_id(skylander: &Skylander) -> String {

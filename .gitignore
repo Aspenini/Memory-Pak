@@ -3,6 +3,7 @@
 
 # Web build output
 /dist
+/site/app
 
 # Generated files
 src/games_generated.rs

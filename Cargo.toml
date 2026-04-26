@@ -17,7 +17,7 @@ name = "memory_pak"
 path = "src/main.rs"
 
 [lib]
-name = "memory_pak"
+name = "memory_pak_core"
 path = "src/lib.rs"
 crate-type = ["rlib", "cdylib"]
 
@@ -41,6 +41,7 @@ eframe = { version = "0.33.3", default-features = false, features = ["wayland", 
 
 [target.'cfg(target_os = "android")'.dependencies]
 eframe = { version = "0.33.3", default-features = false, features = ["android-native-activity"] }
+jni = "0.21"
 winit = { version = "0.30", default-features = false, features = ["android-native-activity", "rwh_06"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
@@ -77,6 +78,20 @@ theme = "@android:style/Theme.DeviceDefault.NoActionBar"
 label = "Memory Pak"
 config_changes = "orientation|keyboardHidden|screenSize|screenLayout|uiMode"
 exported = true
+
+[[package.metadata.android.application.activity.intent_filter]]
+actions = ["android.intent.action.VIEW"]
+categories = ["android.intent.category.DEFAULT", "android.intent.category.OPENABLE"]
+
+[[package.metadata.android.application.activity.intent_filter.data]]
+mime_type = "application/json"
+
+[[package.metadata.android.application.activity.intent_filter]]
+actions = ["android.intent.action.VIEW"]
+categories = ["android.intent.category.DEFAULT", "android.intent.category.OPENABLE"]
+
+[[package.metadata.android.application.activity.intent_filter.data]]
+mime_type = "text/*"
 
 [profile.release]
 opt-level = "z"

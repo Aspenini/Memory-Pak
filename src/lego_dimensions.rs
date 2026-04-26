@@ -19,7 +19,13 @@ pub struct LegoDimensionState {
 
 pub fn load_lego_dimensions_figures() -> Vec<LegoDimensionFigure> {
     let data = include_str!("../database/legodimensions.json");
-    serde_json::from_str::<Vec<LegoDimensionFigure>>(data).unwrap_or_default()
+    match serde_json::from_str::<Vec<LegoDimensionFigure>>(data) {
+        Ok(figures) => figures,
+        Err(err) => {
+            eprintln!("Failed to parse embedded LEGO Dimensions database: {err}");
+            Vec::new()
+        }
+    }
 }
 
 pub fn figure_id(figure: &LegoDimensionFigure) -> String {
