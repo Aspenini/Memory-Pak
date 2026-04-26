@@ -207,6 +207,8 @@ struct MemoryPakApp {
     pending_game_save: bool,
     pending_lego_save: bool,
     pending_skylanders_save: bool,
+    #[cfg(target_os = "android")]
+    android_style_applied: bool,
     #[cfg(not(target_arch = "wasm32"))]
     last_save_time: Option<std::time::Instant>,
     #[cfg(target_arch = "wasm32")]
@@ -232,6 +234,8 @@ impl Default for MemoryPakApp {
             pending_game_save: false,
             pending_lego_save: false,
             pending_skylanders_save: false,
+            #[cfg(target_os = "android")]
+            android_style_applied: false,
             last_save_time: None,
         }
     }
@@ -316,6 +320,39 @@ enum FilterOption {
 }
 
 impl MemoryPakApp {
+    #[cfg(target_os = "android")]
+    fn apply_android_style(&mut self, ctx: &egui::Context) {
+        if self.android_style_applied {
+            return;
+        }
+
+        let mut style = (*ctx.style()).clone();
+        style.spacing.interact_size = egui::vec2(
+            style.spacing.interact_size.x.max(48.0),
+            style.spacing.interact_size.y.max(48.0),
+        );
+        style.spacing.button_padding = egui::vec2(
+            style.spacing.button_padding.x.max(12.0),
+            style.spacing.button_padding.y.max(8.0),
+        );
+        style.spacing.item_spacing = egui::vec2(
+            style.spacing.item_spacing.x.max(10.0),
+            style.spacing.item_spacing.y.max(8.0),
+        );
+        ctx.set_style(style);
+        self.android_style_applied = true;
+    }
+
+    #[cfg(target_os = "android")]
+    fn android_top_padding(ctx: &egui::Context) -> f32 {
+        let safe_top = ctx.input(|input| input.safe_area_insets().0.top);
+        if safe_top > 0.0 {
+            safe_top + 6.0
+        } else {
+            44.0
+        }
+    }
+
     /// Compute game counts by console from game_states
     fn compute_game_counts(
         game_states: &HashMap<String, GameState>,
@@ -435,6 +472,9 @@ impl MemoryPakApp {
 
 impl eframe::App for MemoryPakApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        #[cfg(target_os = "android")]
+        self.apply_android_style(ctx);
+
         // Load data on first run
         if !self.data_loaded {
             self.consoles = get_hardcoded_consoles();
@@ -550,6 +590,9 @@ impl eframe::App for MemoryPakApp {
         let is_mobile = screen_width < 500.0;
 
         egui::TopBottomPanel::top("menu").show(ctx, |ui| {
+            #[cfg(target_os = "android")]
+            ui.add_space(Self::android_top_padding(ctx));
+
             if is_mobile {
                 // Vertical layout for mobile
                 ui.vertical(|ui| {

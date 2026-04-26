@@ -8,6 +8,7 @@
         initParallax();
         initCRTEffect();
         initCargoCard();
+        initReleaseDownloads();
     });
 
     // Enhanced glitch effect
@@ -251,6 +252,113 @@
                 document.body.removeChild(textArea);
             });
         });
+    }
+
+    // Resolve platform downloads from latest GitHub release assets.
+    function initReleaseDownloads() {
+        const owner = 'Aspenini';
+        const repo = 'Memory-Pak';
+        const latestReleaseUrl = `https://api.github.com/repos/${owner}/${repo}/releases/latest`;
+        const releaseVersionEl = document.getElementById('release-version');
+
+        function markNoRelease(target) {
+            const noReleaseText = target.getAttribute('data-release-empty-label') || 'No release found';
+
+            if (target.tagName === 'A') {
+                const replacementSpan = document.createElement('span');
+                replacementSpan.className = 'download-badge coming-soon';
+                replacementSpan.setAttribute('data-release-match', target.getAttribute('data-release-match') || '');
+                replacementSpan.setAttribute('data-release-label', target.textContent || 'Download');
+                replacementSpan.textContent = noReleaseText;
+                if (target.parentNode) {
+                    target.parentNode.replaceChild(replacementSpan, target);
+                }
+                return;
+            }
+
+            target.classList.add('coming-soon');
+            target.textContent = noReleaseText;
+        }
+
+        function setAllUnavailable() {
+            const currentTargets = document.querySelectorAll('[data-release-match]');
+            currentTargets.forEach(markNoRelease);
+        }
+
+        // Do not keep stale hardcoded links; only show resolved latest release assets.
+        setAllUnavailable();
+
+        fetch(latestReleaseUrl, {
+            headers: {
+                'Accept': 'application/vnd.github+json'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`GitHub API request failed: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(release => {
+                if (!release || !Array.isArray(release.assets) || release.assets.length === 0) {
+                    if (releaseVersionEl) {
+                        releaseVersionEl.textContent = 'Latest version: no release found';
+                    }
+                    return;
+                }
+
+                const assets = release.assets;
+                if (releaseVersionEl) {
+                    releaseVersionEl.textContent = `Latest version: ${release.tag_name || 'unknown'}`;
+                }
+                const currentTargets = document.querySelectorAll('[data-release-match]');
+
+                currentTargets.forEach(target => {
+                    const rawMatch = target.getAttribute('data-release-match');
+                    if (!rawMatch) return;
+
+                    const keywords = rawMatch
+                        .split(',')
+                        .map(part => part.trim().toLowerCase())
+                        .filter(Boolean);
+                    if (keywords.length === 0) return;
+
+                    const matchedAsset = assets.find(asset => {
+                        const name = (asset && asset.name ? asset.name : '').toLowerCase();
+                        return keywords.every(keyword => name.includes(keyword));
+                    });
+
+                    if (!matchedAsset || !matchedAsset.browser_download_url) {
+                        markNoRelease(target);
+                        return;
+                    }
+
+                    if (target.tagName === 'A') {
+                        target.href = matchedAsset.browser_download_url;
+                        target.setAttribute('download', matchedAsset.name || '');
+                        return;
+                    }
+
+                    const replacementLink = document.createElement('a');
+                    replacementLink.className = 'download-badge';
+                    replacementLink.href = matchedAsset.browser_download_url;
+                    replacementLink.setAttribute('download', matchedAsset.name || '');
+                    replacementLink.textContent = target.getAttribute('data-release-label') || 'Download';
+                    replacementLink.title = `From latest release (${release.tag_name || 'latest'})`;
+                    replacementLink.setAttribute('data-release-match', rawMatch);
+
+                    if (target.parentNode) {
+                        target.parentNode.replaceChild(replacementLink, target);
+                    }
+                });
+            })
+            .catch(error => {
+                if (releaseVersionEl) {
+                    releaseVersionEl.textContent = 'Latest version: no release found';
+                }
+                setAllUnavailable();
+                console.warn('Unable to load latest release assets.', error);
+            });
     }
 
     // Performance optimization: Reduce animations on slow devices

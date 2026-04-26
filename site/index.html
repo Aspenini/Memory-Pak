@@ -123,6 +123,7 @@
 
                 <section class="downloads">
                     <h2 class="section-title">Download</h2>
+                    <p class="description" id="release-version">Latest version: loading...</p>
                     <div class="download-grid">
                         <div class="download-card" data-platform="windows">
                             <img src="img/os-windows-11.png" alt="Windows" class="platform-icon">
@@ -130,9 +131,11 @@
                             <div class="download-buttons">
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/Memory-Pak-0.1.5-windows-x86_64.msi" 
                                    class="download-badge" 
+                                   data-release-match="windows,.msi"
                                    download="Memory-Pak-0.1.5-windows-x86_64.msi">MSI Installer</a>
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/Memory-Pak-0.1.5-windows-x86_64-portable.exe" 
                                    class="download-badge" 
+                                   data-release-match="windows,portable,.exe"
                                    download="Memory-Pak-0.1.5-windows-x86_64-portable.exe">Portable EXE</a>
                             </div>
                         </div>
@@ -142,8 +145,9 @@
                             <div class="download-buttons">
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/Memory-Pak-0.1.5-macOS-x86_64.app.zip" 
                                    class="download-badge" 
+                                   data-release-match="macos,.app.zip"
                                    download="Memory-Pak-0.1.5-macOS-x86_64.app.zip">App Bundle</a>
-                                <span class="download-badge coming-soon">DMG Coming Soon</span>
+                                <span class="download-badge coming-soon" data-release-match="macos,.dmg" data-release-label="DMG Download">DMG Coming Soon</span>
                             </div>
                         </div>
                         <div class="download-card" data-platform="linux">
@@ -152,6 +156,7 @@
                             <div class="download-buttons">
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/memory-pak_0.1.5-1_linux-amd64.deb" 
                                    class="download-badge" 
+                                   data-release-match="linux,.deb"
                                    download="memory-pak_0.1.5-1_linux-amd64.deb">DEB Installer</a>
                             </div>
                         </div>
