@@ -1,6 +1,6 @@
 # Memory Pak
 
-A cross-platform game collection tracker built with Rust, egui, and eframe. Memory Pak allows you to track which consoles and games you own, have favorited, or want (wishlist).
+A cross-platform game collection tracker built with Rust, egui, and eframe. Memory Pak allows you to track which consoles and games you own, have favorited, or want on your wishlist.
 
 [![Crates.io](https://img.shields.io/crates/v/memory-pak?style=for-the-badge)](https://crates.io/crates/memory-pak)
 [![Crates.io Downloads](https://img.shields.io/crates/d/memory-pak?style=for-the-badge)](https://crates.io/crates/memory-pak)
@@ -9,45 +9,52 @@ A cross-platform game collection tracker built with Rust, egui, and eframe. Memo
 
 ## Features
 
-- **Two Main Tabs**: Consoles and Games (both with pagination)
-- **Hardcoded Console List**: Includes popular consoles from Nintendo, Sega, Sony, and Microsoft
+- **Two Main Tabs**: Consoles and Games, both with pagination
+- **Collector Tabs**: LEGO Dimensions and Skylanders tracking
 - **Console States**: Mark consoles as Owned, Favorite, or Wishlist, with notes
 - **Game States**: Mark games as Owned, Favorite, or Wishlist, with notes
-- **Embedded Game Database**: All game data is compiled directly into the binary using `include_dir!()` at runtime
-- **Stable ID System**: Games use content-based IDs (console + title hash), allowing database updates without breaking saved states
-- **Cross-Console Search**: View all games across all consoles with console badges, or filter by specific console
-- **Pagination**: 
-  - Games tab: 50 games per page
-  - Consoles tab: 20 consoles per page
-- **State Persistence**: Saves user data to platform-specific directories (desktop/mobile) or localStorage (web)
-- **Sorting Options**: Sort games by title, release year, or status
-- **Filtering Options**: Filter by All, Owned, Favorites, Wishlist, or Not Owned
-- **Search**: Search games by title across all consoles
-- **Import/Export**: Export your entire collection state (consoles + games) to JSON and import it back
-- **Single Binary**: Everything is embedded, no external files needed
+- **Embedded Game Database**: Game data is compiled directly into the binary
+- **Stable ID System**: Games use content-based IDs so database updates do not break saved states
+- **Cross-Console Search**: View all games across all consoles, or filter by one console
+- **Sorting and Filtering**: Sort by title, release year, or status and filter by collection state
+- **State Persistence**: Saves user data to platform-specific directories or browser localStorage
+- **Import/Export**: Export your collection state to JSON and import it back
 
 ## Project Structure
 
-```
+```text
 Memory-Pak/
 ├── Cargo.toml          # Project configuration
+├── justfile            # Common build/check/package commands
 ├── src/
-│   ├── main.rs        # Main application entry point
-│   ├── console_data.rs # Hardcoded console definitions
-│   ├── game_data.rs   # Embedded game data loading (runtime JSON parsing)
-│   ├── persistence.rs # Save/load user state (native & web)
-│   └── ui.rs          # UI rendering functions
-└── database/          # Game JSON files (embedded at compile time)
+│   ├── lib.rs          # Shared app code and platform entrypoints
+│   ├── main.rs         # Thin desktop/web binary wrapper
+│   ├── console_data.rs # Console definitions
+│   ├── game_data.rs    # Embedded game data loading
+│   ├── persistence.rs  # Save/load user state
+│   └── ui.rs           # UI rendering functions
+└── database/           # JSON data embedded at compile time
     ├── nes.json
     ├── snes.json
     ├── n64.json
-    ├── gameboyadvance.json
     └── ... (one JSON file per console)
 ```
 
 ## Building
 
-### Standard Build
+### Just Recipes
+
+Install [`just`](https://github.com/casey/just), then run:
+
+```bash
+just                 # list available recipes
+just check           # cargo check
+just build           # desktop release build
+just web-build       # production WASM build
+just android-build   # native Android APK via cargo-apk
+```
+
+### Desktop
 
 ```bash
 cargo build --release
@@ -58,60 +65,79 @@ Binary output: `target/release/memory_pak[.exe]`
 ### Web Build (WASM)
 
 ```bash
-# Install Trunk (one-time)
-cargo install trunk
-rustup target add wasm32-unknown-unknown
+# One-time setup
+just install-web-tools
 
-# Development with hot reload → opens at http://127.0.0.1:8080
-trunk serve
+# Development with hot reload, opens at http://127.0.0.1:8080
+just web-serve
 
-# Production build → output in dist/
-trunk build --release
+# Production build, output in dist/
+just web-build
 ```
+
+### Android Native APK
+
+Native Android compilation uses eframe's `android-native-activity` backend and [`cargo-apk`](https://github.com/rust-mobile/cargo-apk).
+
+```bash
+# One-time Rust-side setup
+just install-android-tools
+
+# One-time local release signing key setup
+just android-keystore
+
+# Requires Android SDK/NDK variables discoverable by cargo-apk.
+# You will be prompted for the keystore password.
+just android-build
+
+# Build, install, and run on an attached device/emulator
+just android-run
+```
+
+Android APKs must be signed to install or update, but this does not require a Google Play developer account. `just android-keystore` creates a local self-signed release keystore under `.android/`, which is ignored by Git. Keep that keystore and password safe; future direct APK updates for the same package name must be signed with the same key.
+
+Configured Android targets:
+
+- `aarch64-linux-android`
+- `armv7-linux-androideabi`
+- `x86_64-linux-android`
 
 ### Platform Installers
 
 **Windows (MSI):**
+
 ```bash
-cargo install cargo-wix          # One-time install
-cargo wix                        # Build MSI
+cargo install cargo-wix
+cargo wix
 ```
-Output: `target/wix/Memory-Pak-0.1.4-x86_64.msi`  
+
+Output: `target/wix/Memory-Pak-0.1.5-x86_64.msi`
 Requires: [WiX Toolset v3.11+](https://wixtoolset.org/)
 
 **macOS (.app):**
+
 ```bash
-cargo install cargo-bundle       # One-time install
+cargo install cargo-bundle
 cargo bundle --release
 ```
+
 Output: `target/release/bundle/osx/Memory Pak.app`
 
 **Linux (.deb):**
+
 ```bash
-cargo install cargo-deb          # One-time install
+cargo install cargo-deb
 cargo deb
 ```
+
 Output: `target/debian/memory_pak_*.deb`
-
-### WebAssembly
-
-```bash
-cargo install wasm-pack          # One-time install
-wasm-pack build --target web --out-dir pkg
-```
 
 ## User Data Storage
 
-- **Desktop/Mobile**: Stored in platform-specific user data directories:
-  - Windows: `%APPDATA%\com\memorypak\memory_pak\state\`
-  - macOS: `~/Library/Application Support/com.memorypak.memory_pak/state/`
-  - Linux: `~/.local/share/com/memorypak/memory_pak/state/`
-
-- **Web**: Stored in browser localStorage with keys like `memory_pak_state_{console_id}`
+- **Desktop/Mobile**: Stored in platform-specific user data directories.
+- **Web**: Stored in browser localStorage with keys like `memory_pak_state_{console_id}`.
 
 ## Export Format
-
-The export file contains all your console and game states in this format:
 
 ```json
 {
@@ -143,4 +169,4 @@ The export file contains all your console and game states in this format:
 }
 ```
 
-**Note:** Game IDs use the stable ID format (`{console_id}-{hash}`), ensuring compatibility across database updates.
+Game IDs use the stable ID format `{console_id}-{hash}` for compatibility across database updates.

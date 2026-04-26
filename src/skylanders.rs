@@ -43,4 +43,3 @@ pub fn skylander_id(skylander: &Skylander) -> String {
         slugify(&skylander.category)
     )
 }
-

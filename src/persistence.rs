@@ -1,8 +1,9 @@
-use crate::{
-    ConsoleExportData, ConsoleState, ExportData, GameState, LegoDimensionState, SkylanderState, MemoryPakApp,
-};
+#[cfg(not(target_os = "android"))]
+use crate::{ConsoleExportData, ExportData};
+use crate::{ConsoleState, GameState, LegoDimensionState, MemoryPakApp, SkylanderState};
 use serde_json;
 use std::collections::HashMap;
+#[cfg(not(target_arch = "wasm32"))]
 use std::path::PathBuf;
 
 #[cfg(not(target_arch = "wasm32"))]
@@ -13,57 +14,46 @@ use std::fs;
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::JsCast;
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn get_state_dir() -> Option<PathBuf> {
-    #[cfg(not(target_arch = "wasm32"))]
-    {
-        if let Some(proj_dirs) = ProjectDirs::from("com", "memorypak", "memory_pak") {
-            let state_dir = proj_dirs.data_dir().join("state");
-            if let Err(_) = fs::create_dir_all(&state_dir) {
-                return None;
-            }
-            return Some(state_dir);
+    if let Some(proj_dirs) = ProjectDirs::from("com", "memorypak", "memory_pak") {
+        let state_dir = proj_dirs.data_dir().join("state");
+        if fs::create_dir_all(&state_dir).is_err() {
+            return None;
         }
-        None
+        return Some(state_dir);
     }
-
-    #[cfg(target_arch = "wasm32")]
-    {
-        None // Web uses localStorage, not file paths
-    }
+    None
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn get_state_file_path(console_id: &str) -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join(format!("{}.json", console_id)))
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn get_lego_dimensions_state_file_path() -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join("lego_dimensions.json"))
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn get_skylanders_state_file_path() -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join("skylanders.json"))
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn load_game_states(console_id: &str) -> HashMap<String, GameState> {
-    #[cfg(not(target_arch = "wasm32"))]
-    {
-        if let Some(path) = get_state_file_path(console_id) {
-            if let Ok(content) = fs::read_to_string(&path) {
-                if let Ok(states) = serde_json::from_str::<Vec<GameState>>(&content) {
-                    return states
-                        .into_iter()
-                        .map(|state| (state.game_id.clone(), state))
-                        .collect();
-                }
+    if let Some(path) = get_state_file_path(console_id) {
+        if let Ok(content) = fs::read_to_string(&path) {
+            if let Ok(states) = serde_json::from_str::<Vec<GameState>>(&content) {
+                return states
+                    .into_iter()
+                    .map(|state| (state.game_id.clone(), state))
+                    .collect();
             }
         }
-        HashMap::new()
     }
-
-    #[cfg(target_arch = "wasm32")]
-    {
-        load_game_states_web(console_id)
-    }
+    HashMap::new()
 }
 
 pub fn save_game_states(console_id: &str, states: &HashMap<String, GameState>) -> bool {
@@ -164,6 +154,7 @@ pub fn load_all_game_states_flat() -> HashMap<String, GameState> {
     flat_states
 }
 
+#[cfg(not(target_arch = "wasm32"))]
 pub fn get_console_states_file_path() -> Option<PathBuf> {
     get_state_dir().map(|dir| dir.join("consoles.json"))
 }
@@ -270,24 +261,24 @@ fn load_console_states_web() -> HashMap<String, ConsoleState> {
 #[cfg(target_arch = "wasm32")]
 fn save_console_states_web(states: &Vec<ConsoleState>) -> bool {
     use wasm_bindgen::JsValue;
-    
+
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             match serde_json::to_string(states) {
-                Ok(json) => {
-                    match local_storage.set_item("memory_pak_console_states", &json) {
-                        Ok(_) => return true,
-                        Err(e) => {
-                            web_sys::console::error_1(&JsValue::from_str(&format!(
-                                "Failed to save console states: {:?}", e
-                            )));
-                            return false;
-                        }
+                Ok(json) => match local_storage.set_item("memory_pak_console_states", &json) {
+                    Ok(_) => return true,
+                    Err(e) => {
+                        web_sys::console::error_1(&JsValue::from_str(&format!(
+                            "Failed to save console states: {:?}",
+                            e
+                        )));
+                        return false;
                     }
-                }
+                },
                 Err(e) => {
                     web_sys::console::error_1(&JsValue::from_str(&format!(
-                        "Failed to serialize console states: {}", e
+                        "Failed to serialize console states: {}",
+                        e
                     )));
                 }
             }
@@ -318,16 +309,18 @@ fn load_game_states_web(console_id: &str) -> HashMap<String, GameState> {
 #[cfg(target_arch = "wasm32")]
 fn save_game_states_web(console_id: &str, states: &Vec<GameState>) -> bool {
     use wasm_bindgen::JsValue;
-    
+
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             match serde_json::to_string(states) {
                 Ok(json) => {
-                    match local_storage.set_item(&format!("memory_pak_state_{}", console_id), &json) {
+                    match local_storage.set_item(&format!("memory_pak_state_{}", console_id), &json)
+                    {
                         Ok(_) => return true,
                         Err(e) => {
                             web_sys::console::error_1(&JsValue::from_str(&format!(
-                                "Failed to save game states for {}: {:?}", console_id, e
+                                "Failed to save game states for {}: {:?}",
+                                console_id, e
                             )));
                             return false;
                         }
@@ -335,7 +328,8 @@ fn save_game_states_web(console_id: &str, states: &Vec<GameState>) -> bool {
                 }
                 Err(e) => {
                     web_sys::console::error_1(&JsValue::from_str(&format!(
-                        "Failed to serialize game states: {}", e
+                        "Failed to serialize game states: {}",
+                        e
                     )));
                 }
             }
@@ -364,7 +358,7 @@ fn load_lego_dimensions_states_web() -> HashMap<String, LegoDimensionState> {
 #[cfg(target_arch = "wasm32")]
 fn save_lego_dimensions_states_web(states: &Vec<LegoDimensionState>) -> bool {
     use wasm_bindgen::JsValue;
-    
+
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             match serde_json::to_string(states) {
@@ -373,7 +367,8 @@ fn save_lego_dimensions_states_web(states: &Vec<LegoDimensionState>) -> bool {
                         Ok(_) => return true,
                         Err(e) => {
                             web_sys::console::error_1(&JsValue::from_str(&format!(
-                                "Failed to save LEGO Dimensions states: {:?}", e
+                                "Failed to save LEGO Dimensions states: {:?}",
+                                e
                             )));
                             return false;
                         }
@@ -381,7 +376,8 @@ fn save_lego_dimensions_states_web(states: &Vec<LegoDimensionState>) -> bool {
                 }
                 Err(e) => {
                     web_sys::console::error_1(&JsValue::from_str(&format!(
-                        "Failed to serialize LEGO Dimensions states: {}", e
+                        "Failed to serialize LEGO Dimensions states: {}",
+                        e
                     )));
                 }
             }
@@ -451,24 +447,24 @@ fn load_skylanders_states_web() -> HashMap<String, SkylanderState> {
 #[cfg(target_arch = "wasm32")]
 fn save_skylanders_states_web(states: &Vec<SkylanderState>) -> bool {
     use wasm_bindgen::JsValue;
-    
+
     if let Some(window) = web_sys::window() {
         if let Some(local_storage) = window.local_storage().ok().flatten() {
             match serde_json::to_string(states) {
-                Ok(json) => {
-                    match local_storage.set_item("memory_pak_skylanders_states", &json) {
-                        Ok(_) => return true,
-                        Err(e) => {
-                            web_sys::console::error_1(&JsValue::from_str(&format!(
-                                "Failed to save Skylanders states: {:?}", e
-                            )));
-                            return false;
-                        }
+                Ok(json) => match local_storage.set_item("memory_pak_skylanders_states", &json) {
+                    Ok(_) => return true,
+                    Err(e) => {
+                        web_sys::console::error_1(&JsValue::from_str(&format!(
+                            "Failed to save Skylanders states: {:?}",
+                            e
+                        )));
+                        return false;
                     }
-                }
+                },
                 Err(e) => {
                     web_sys::console::error_1(&JsValue::from_str(&format!(
-                        "Failed to serialize Skylanders states: {}", e
+                        "Failed to serialize Skylanders states: {}",
+                        e
                     )));
                 }
             }
@@ -478,57 +474,73 @@ fn save_skylanders_states_web(states: &Vec<SkylanderState>) -> bool {
 }
 
 pub fn export_data(app: &MemoryPakApp) -> Result<(), Box<dyn std::error::Error>> {
-    // Group game states by console
-    let mut games_by_console: HashMap<String, Vec<GameState>> = HashMap::new();
-    for (game_id, state) in &app.game_states {
-        let console_id = if let Some(console) = game_id.split('-').next() {
-            console.to_string()
-        } else {
-            continue;
-        };
-        games_by_console
-            .entry(console_id)
-            .or_insert_with(Vec::new)
-            .push(state.clone());
+    #[cfg(target_os = "android")]
+    {
+        let _ = app;
+        Err("export via file picker is not implemented on Android yet".into())
     }
 
-    let export = ExportData {
-        version: "1.0".to_string(),
-        export_date: chrono::Utc::now().to_rfc3339(),
-        console_states: app.console_states.values().cloned().collect(),
-        consoles: games_by_console
-            .into_iter()
-            .map(|(console_id, games)| ConsoleExportData { console_id, games })
-            .collect(),
-        lego_dimensions_states: app.lego_dimensions_states.values().cloned().collect(),
-        skylanders_states: app.skylanders_states.values().cloned().collect(),
-    };
-
-    let json = serde_json::to_string_pretty(&export)?;
-
-    #[cfg(not(target_arch = "wasm32"))]
+    #[cfg(not(target_os = "android"))]
     {
-        // Use native file dialog
-        if let Some(path) = rfd::FileDialog::new()
-            .set_file_name("memory_pak_export.json")
-            .save_file()
-        {
-            std::fs::write(path, json)?;
+        // Group game states by console
+        let mut games_by_console: HashMap<String, Vec<GameState>> = HashMap::new();
+        for (game_id, state) in &app.game_states {
+            let console_id = if let Some(console) = game_id.split('-').next() {
+                console.to_string()
+            } else {
+                continue;
+            };
+            games_by_console
+                .entry(console_id)
+                .or_insert_with(Vec::new)
+                .push(state.clone());
         }
-    }
 
-    #[cfg(target_arch = "wasm32")]
-    {
-        // Download via blob
-        download_json_web(&json, "memory_pak_export.json");
-    }
+        let export = ExportData {
+            version: "1.0".to_string(),
+            export_date: chrono::Utc::now().to_rfc3339(),
+            console_states: app.console_states.values().cloned().collect(),
+            consoles: games_by_console
+                .into_iter()
+                .map(|(console_id, games)| ConsoleExportData { console_id, games })
+                .collect(),
+            lego_dimensions_states: app.lego_dimensions_states.values().cloned().collect(),
+            skylanders_states: app.skylanders_states.values().cloned().collect(),
+        };
 
-    Ok(())
+        let json = serde_json::to_string_pretty(&export)?;
+
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            // Use native file dialog
+            if let Some(path) = rfd::FileDialog::new()
+                .set_file_name("memory_pak_export.json")
+                .save_file()
+            {
+                std::fs::write(path, json)?;
+            }
+        }
+
+        #[cfg(target_arch = "wasm32")]
+        {
+            // Download via blob
+            download_json_web(&json, "memory_pak_export.json");
+        }
+
+        Ok(())
+    }
 }
 
 pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Error>> {
-    #[cfg(not(target_arch = "wasm32"))]
+    #[cfg(target_os = "android")]
     {
+        let _ = app;
+        Err("import via file picker is not implemented on Android yet".into())
+    }
+
+    #[cfg(not(target_os = "android"))]
+    {
+        #[cfg(not(target_arch = "wasm32"))]
         if let Some(path) = rfd::FileDialog::new()
             .add_filter("JSON", &["json"])
             .pick_file()
@@ -581,26 +593,27 @@ pub fn import_data(app: &mut MemoryPakApp) -> Result<(), Box<dyn std::error::Err
             save_lego_dimensions_states(&app.lego_dimensions_states);
             save_skylanders_states(&app.skylanders_states);
         }
-    }
 
-    #[cfg(target_arch = "wasm32")]
-    {
-        // For web, we'll show a modal dialog for importing JSON text
-        // The UI will handle showing the import dialog
-        app.ui_state.needs_import = true;
-        app.ui_state.import_text.clear();
-    }
+        #[cfg(target_arch = "wasm32")]
+        {
+            // For web, we'll show a modal dialog for importing JSON text
+            // The UI will handle showing the import dialog
+            app.ui_state.needs_import = true;
+            app.ui_state.import_text.clear();
+        }
 
-    Ok(())
+        Ok(())
+    }
 }
 
 #[cfg(target_arch = "wasm32")]
 fn download_json_web(json: &str, filename: &str) {
     if let Some(window) = web_sys::window() {
         let document = window.document().unwrap();
-        let blob =
-            web_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(&js_sys::JsString::from(json)))
-                .unwrap();
+        let blob = web_sys::Blob::new_with_str_sequence(&js_sys::Array::of1(
+            &js_sys::JsString::from(json),
+        ))
+        .unwrap();
         let url = web_sys::Url::create_object_url_with_blob(&blob).unwrap();
 
         let a = document.create_element("a").unwrap();

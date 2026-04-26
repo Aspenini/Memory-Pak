@@ -7,6 +7,9 @@
 # Generated files
 src/games_generated.rs
 memory-pak.desktop
+.android/
+*.keystore
+*.jks
 
 # IDE
 .vscode/
