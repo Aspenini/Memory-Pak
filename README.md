@@ -6,6 +6,8 @@ A cross-platform game collection tracker built with Rust, egui, and eframe. Memo
 [![Crates.io Downloads](https://img.shields.io/crates/d/memory-pak?style=for-the-badge)](https://crates.io/crates/memory-pak)
 [![GitHub Release](https://img.shields.io/github/v/release/Aspenini/Memory-Pak?style=for-the-badge)](https://github.com/Aspenini/Memory-Pak/releases)
 [![GitHub Downloads](https://img.shields.io/github/downloads/Aspenini/Memory-Pak/total?style=for-the-badge)](https://github.com/Aspenini/Memory-Pak/releases)
+[![CI](https://github.com/Aspenini/Memory-Pak/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Aspenini/Memory-Pak/actions/workflows/ci.yml)
+[![Deploy Website](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml)
 
 ## Features
 
