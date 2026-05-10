@@ -119,7 +119,6 @@ pub fn run() {
             app: Mutex::new(app),
         })
         .plugin(tauri_plugin_dialog::init())
-        .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
             load_initial_state,
             query_consoles,
