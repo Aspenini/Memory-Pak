@@ -1,9 +1,9 @@
 use directories::ProjectDirs;
 use memory_pak_core::{
-    get_console_from_id, ConsoleState, GameState, LegoDimensionState, PersistedState,
-    SkylanderState,
+    game_database_console_ids, get_console_from_id, ConsoleState, GameState, LegoDimensionState,
+    PersistedState, SkylanderState,
 };
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::fs;
 use std::io;
 use std::io::ErrorKind;
@@ -55,27 +55,10 @@ fn load_console_states(state_dir: &Path) -> io::Result<HashMap<String, ConsoleSt
 
 fn load_game_states(state_dir: &Path) -> io::Result<HashMap<String, GameState>> {
     let mut flat = HashMap::new();
+    let allowed: HashSet<String> = game_database_console_ids().into_iter().collect();
 
-    let entries = match fs::read_dir(state_dir) {
-        Ok(entries) => entries,
-        Err(err) if err.kind() == ErrorKind::NotFound => return Ok(flat),
-        Err(err) => return Err(err),
-    };
-
-    for entry in entries.flatten() {
-        let path = entry.path();
-        if path.extension().and_then(|ext| ext.to_str()) != Some("json") {
-            continue;
-        }
-
-        let Some(stem) = path.file_stem().and_then(|stem| stem.to_str()) else {
-            continue;
-        };
-
-        if matches!(stem, "consoles" | "lego_dimensions" | "skylanders") {
-            continue;
-        }
-
+    for console_id in &allowed {
+        let path = state_dir.join(format!("{console_id}.json"));
         for state in read_vec_json::<GameState>(&path)? {
             flat.insert(state.game_id.clone(), state);
         }
