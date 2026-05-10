@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>Memory Pak - Cross-Platform Retro Game Collection Tracker</title>
     <meta name="title" content="Memory Pak - Cross-Platform Retro Game Collection Tracker">
-    <meta name="description" content="Track your retro gaming collection across all platforms. Manage consoles, games, wishlists, and favorites with Memory Pak - a fast, offline-first game tracker built with Rust. Available for Windows, macOS, and Linux.">
+    <meta name="description" content="Track your retro gaming collection across desktop, web, and mobile. Manage consoles, games, wishlists, and favorites with Memory Pak - a fast, offline-first tracker built with Tauri, Svelte, and Rust.">
     <meta name="keywords" content="game collection tracker, retro gaming, console tracker, game library manager, wishlist app, game database, video game organizer, collection manager, gaming catalog, memory pak, rust app, cross-platform game tracker, NES, SNES, N64, PlayStation, Xbox, Nintendo, Sega">
     <meta name="author" content="Aspenini">
     <meta name="robots" content="index, follow">
@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://aspenini.github.io/Memory-Pak/">
     <meta property="og:site_name" content="Memory Pak">
     <meta property="og:title" content="Memory Pak - Cross-Platform Retro Game Collection Tracker">
-    <meta property="og:description" content="Track your retro gaming collection across all platforms. Manage consoles, games, wishlists, and favorites with Memory Pak - a fast, offline-first game tracker built with Rust.">
+    <meta property="og:description" content="Track your retro gaming collection across desktop, web, and mobile. Manage consoles, games, wishlists, and favorites with Memory Pak.">
     <meta property="og:image" content="https://aspenini.github.io/Memory-Pak/img/icon-512.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
@@ -29,7 +29,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://aspenini.github.io/Memory-Pak/">
     <meta name="twitter:title" content="Memory Pak - Cross-Platform Retro Game Collection Tracker">
-    <meta name="twitter:description" content="Track your retro gaming collection across all platforms. Manage consoles, games, wishlists, and favorites with Memory Pak - built with Rust.">
+    <meta name="twitter:description" content="Track your retro gaming collection across desktop, web, and mobile with Memory Pak.">
     <meta name="twitter:image" content="https://aspenini.github.io/Memory-Pak/img/icon-512.png">
     <meta name="twitter:image:alt" content="Memory Pak app icon">
     <meta name="twitter:creator" content="@Aspenini">
@@ -49,7 +49,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Memory Pak",
-        "description": "A cross-platform retro game collection tracker built with Rust, egui, and eframe. Track which consoles and games you own, have favorited, or want on your wishlist.",
+        "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. Track which consoles and games you own, have favorited, or want on your wishlist.",
         "url": "https://aspenini.github.io/Memory-Pak/",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": ["Windows", "macOS", "Linux"],
@@ -62,7 +62,7 @@
             "@type": "Person",
             "name": "Aspenini"
         },
-        "softwareVersion": "0.1.5",
+        "softwareVersion": "0.3.0",
         "downloadUrl": "https://github.com/Aspenini/Memory-Pak/releases",
         "image": "https://aspenini.github.io/Memory-Pak/img/icon-512.png",
         "screenshot": "https://aspenini.github.io/Memory-Pak/img/icon-512.png"
@@ -96,7 +96,7 @@
                     <div class="hero-content">
                         <h2>Organize Your Console & Game Collection</h2>
                         <p class="description">
-                            Memory Pak is a cross-platform app for tracking which consoles and games you own, 
+                            Memory Pak is a cross-platform app for tracking which consoles and games you own,
                             have favorited, or want to add to your wishlist. Fast, offline, and portable.
                         </p>
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="feature-card">
                         <div class="card-header">Portable</div>
-                        <p>Single binary with embedded database</p>
+                        <p>Shared Rust core with embedded database</p>
                     </div>
                 </section>
 
@@ -129,14 +129,14 @@
                             <img src="img/os-windows-11.png" alt="Windows" class="platform-icon">
                             <span class="platform-name">Windows</span>
                             <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/Memory-Pak-0.1.5-windows-x86_64.msi" 
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
                                    class="download-badge" 
                                    data-release-match="windows,.msi"
-                                   download="Memory-Pak-0.1.5-windows-x86_64.msi">MSI Installer</a>
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/download/v0.1.5/Memory-Pak-0.1.5-windows-x86_64-portable.exe" 
+                                   download="Memory-Pak-windows-x86_64.msi">MSI Installer</a>
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
                                    class="download-badge" 
                                    data-release-match="windows,portable,.exe"
-                                   download="Memory-Pak-0.1.5-windows-x86_64-portable.exe">Portable EXE</a>
+                                   download="Memory-Pak-windows-x86_64-portable.exe">Portable EXE</a>
                             </div>
                         </div>
                         <div class="download-card" data-platform="macos">
@@ -175,7 +175,7 @@
                         <div class="download-card" data-platform="web">
                             <img src="img/os-web.png" alt="Web" class="platform-icon">
                             <span class="platform-name">Web</span>
-                            <a href="/app/index.html" 
+                            <a href="/Memory-Pak/app/index.html"
                                class="download-badge" 
                                target="_blank">Launch Web App</a>
                         </div>
@@ -209,7 +209,7 @@
                 </section>
 
                 <footer class="retro-footer">
-                    <p>Built with Rust • Powered by egui</p>
+                    <p>Built with Tauri • Svelte • Rust • WebAssembly</p>
                     <a href="https://github.com/Aspenini/Memory-Pak" target="_blank" rel="noopener noreferrer" class="github-link">
                         <img src="img/github.png" alt="GitHub" class="github-icon">
                         <span>View on GitHub</span>
@@ -221,4 +221,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

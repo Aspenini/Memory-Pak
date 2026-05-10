@@ -1,0 +1,31 @@
+[package]
+name = "memory-pak-tauri"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Tauri shell for Memory Pak"
+build = "build.rs"
+
+[lib]
+name = "memory_pak_tauri"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "memory-pak"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+directories.workspace = true
+memory_pak_core = { path = "../crates/memory_pak_core" }
+serde.workspace = true
+serde_json.workspace = true
+tauri = { version = "2.11.1", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+thiserror.workspace = true

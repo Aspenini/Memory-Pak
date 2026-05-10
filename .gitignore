@@ -1,11 +1,21 @@
 # Rust
 /target
 
-# Web build output
+# Frontend build output and dependencies
 /dist
+/frontend/dist
+/frontend/node_modules
+/frontend/playwright-report
+/frontend/test-results
+/frontend/src/wasm/*
+!/frontend/src/wasm/.gitkeep
 /site/app
 
-# Generated files
+# Tauri generated files (output of tauri-build)
+/src-tauri/gen
+/src-tauri/target
+
+# Legacy generated source files (from previous architecture, kept for safety)
 src/games_generated.rs
 memory-pak.desktop
 .android/

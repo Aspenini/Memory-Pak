@@ -1,124 +1,37 @@
-[package]
-name = "Memory-Pak"
-version = "0.2.0"
+[workspace]
+members = [
+    "crates/memory_pak_core",
+    "crates/memory_pak_wasm",
+    "src-tauri",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.3.0"
 edition = "2021"
 authors = ["Aspenini"]
-description = "A cross-platform retro game tracker powered by Rust with egui"
 license = "MIT"
-readme = "README.md"
 repository = "https://github.com/Aspenini/Memory-Pak"
 homepage = "https://aspenini.github.io/Memory-Pak"
-keywords = ["egui", "game", "collection", "tracker"]
-categories = ["gui", "games"]
-build = "build.rs"
 
-[[bin]]
-name = "memory_pak"
-path = "src/main.rs"
-
-[lib]
-name = "memory_pak_core"
-path = "src/lib.rs"
-crate-type = ["rlib", "cdylib"]
-
-[dependencies]
-egui = "0.33.3"
-eframe = { version = "0.33.3", default-features = false, features = ["default_fonts", "glow"] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
+[workspace.dependencies]
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde", "wasmbind"] }
 directories = "6.0"
 include_dir = "0.7"
-chrono = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde-wasm-bindgen = "0.6"
+thiserror = "2.0"
 unicode-normalization = "0.1"
-
-[target.'cfg(all(not(target_arch = "wasm32"), not(target_os = "android")))'.dependencies]
-eframe = { version = "0.33.3", default-features = false, features = ["accesskit"] }
-image = "0.24"
-rfd = "0.14"
-
-[target.'cfg(all(not(target_arch = "wasm32"), not(target_os = "android"), target_os = "linux"))'.dependencies]
-eframe = { version = "0.33.3", default-features = false, features = ["wayland", "x11"] }
-
-[target.'cfg(target_os = "android")'.dependencies]
-eframe = { version = "0.33.3", default-features = false, features = ["android-native-activity"] }
-jni = "0.21"
-winit = { version = "0.30", default-features = false, features = ["android-native-activity", "rwh_06"] }
-
-[target.'cfg(target_arch = "wasm32")'.dependencies]
-eframe = { version = "0.33.3", default-features = false, features = ["web_screen_reader"] }
 wasm-bindgen = "0.2"
-wasm-bindgen-futures = "0.4"
-web-sys = { version = "0.3", features = [
-    "Window", "Document", "Element", "HtmlInputElement",
-    "FileReader", "FileList", "Url", "Blob", "HtmlElement",
-    "Performance", "Storage", "HtmlCanvasElement", "console"
-] }
-js-sys = "0.3"
 console_error_panic_hook = "0.1"
-wasm-logger = "0.2"
-getrandom = { version = "0.2", features = ["js"] }
 
-[package.metadata.android]
-package = "com.aspenini.memorypak"
-build_targets = ["aarch64-linux-android", "armv7-linux-androideabi", "x86_64-linux-android"]
-resources = "icons/android/res"
-apk_name = "Memory-Pak"
-strip = "strip"
-
-[package.metadata.android.sdk]
-min_sdk_version = 23
-target_sdk_version = 35
-
-[package.metadata.android.application]
-label = "Memory Pak"
-icon = "@mipmap/ic_launcher"
-theme = "@android:style/Theme.DeviceDefault.NoActionBar"
-
-[package.metadata.android.application.activity]
-label = "Memory Pak"
-config_changes = "orientation|keyboardHidden|screenSize|screenLayout|uiMode"
-exported = true
-
-[[package.metadata.android.application.activity.intent_filter]]
-actions = ["android.intent.action.VIEW"]
-categories = ["android.intent.category.DEFAULT", "android.intent.category.OPENABLE"]
-
-[[package.metadata.android.application.activity.intent_filter.data]]
-mime_type = "application/json"
-
-[[package.metadata.android.application.activity.intent_filter]]
-actions = ["android.intent.action.VIEW"]
-categories = ["android.intent.category.DEFAULT", "android.intent.category.OPENABLE"]
-
-[[package.metadata.android.application.activity.intent_filter.data]]
-mime_type = "text/*"
-
+# Smaller, faster Tauri release bundles. The defaults add ~30-50% binary size
+# and slow down startup; these are the values the Tauri team recommends.
 [profile.release]
-opt-level = "z"
-lto = true
+opt-level = "s"
+lto = "thin"
 codegen-units = 1
+panic = "abort"
+strip = "symbols"
 
-[package.metadata.bundle]
-name = "Memory Pak"
-identifier = "com.Aspenini.MemoryPak"
-icon = ["icons/windows/AppIcon.ico", "icons/macos/AppIcon.icns", "icons/linux/AppIcon.png"]
-copyright = "Copyright (c) 2025 Aspenini. All rights reserved."
-category = "Utility"
-short_description = "A cross-platform retro game tracker"
-long_description = "Memory Pak is a cross-platform game collection tracker built with Rust, egui, and eframe. Track which consoles and games you own, have favorited, or want on your wishlist. Features embedded game databases, cross-console search, import/export, and more."
-resources = ["README.md", "LICENSE"]
-
-[package.metadata.deb]
-maintainer = "Aspenini"
-license-file = ["LICENSE", "0"]
-copyright = "2025, Aspenini"
-depends = "$auto"
-section = "utils"
-priority = "optional"
-extended-description = "A cross-platform retro game tracker powered by Rust with egui. Track your console and game collections with ease."
-assets = [
-  ["target/release/memory_pak", "usr/bin/memory-pak", "755"],
-  ["icons/linux/AppIcon.png", "usr/share/icons/hicolor/512x512/apps/memory-pak.png", "644"],
-  ["README.md", "usr/share/doc/memory-pak/", "644"],
-  ["LICENSE", "usr/share/doc/memory-pak/", "644"]
-]

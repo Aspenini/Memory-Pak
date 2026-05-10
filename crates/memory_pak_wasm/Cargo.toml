@@ -1,0 +1,26 @@
+[package]
+name = "memory_pak_wasm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "WASM bindings for the Memory Pak core"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+console_error_panic_hook.workspace = true
+memory_pak_core = { path = "../memory_pak_core" }
+serde.workspace = true
+serde_json.workspace = true
+serde-wasm-bindgen.workspace = true
+wasm-bindgen.workspace = true
+
+# wasm-pack's bundled wasm-opt is older than current rustc and rejects
+# `nontrapping-fptoint` instructions that ship by default. Disable the
+# extra wasm-opt pass; rustc release optimizations are sufficient.
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false

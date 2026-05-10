@@ -1,8 +1,6 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy Website
 
 on:
-  # run manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -35,26 +33,32 @@ jobs:
       - name: Cache cargo registry and build
         uses: Swatinem/rust-cache@v2
 
-      - name: Install Trunk
-        run: cargo install trunk --locked
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
 
-      - name: Build web app
-        run: trunk build --release
+      - name: Install wasm-pack
+        run: cargo install wasm-pack --locked
+
+      - name: Install frontend dependencies
+        run: bun install --cwd frontend --frozen-lockfile
+
+      - name: Build PWA
+        run: bun run --cwd frontend build
 
       - name: Copy web app into site
         run: |
           rm -rf site/app
           mkdir -p site/app
-          cp -R dist/. site/app/
+          cp -R frontend/dist/. site/app/
 
-      # Optional: ensure Jekyll doesn't change static files
       - name: Add .nojekyll
         run: touch site/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # path relative to the repo root
           path: site
 
       - name: Deploy to GitHub Pages

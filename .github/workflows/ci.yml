@@ -10,12 +10,21 @@ permissions:
   contents: read
 
 jobs:
-  rust-and-web-checks:
-    name: Rust + Web Checks
+  rust-and-frontend:
+    name: Rust + Frontend
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install Linux dependencies for Tauri
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -26,23 +35,81 @@ jobs:
       - name: Cache cargo registry and build
         uses: Swatinem/rust-cache@v2
 
-      - name: Install Trunk
-        run: cargo install trunk --locked
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
+
+      - name: Install wasm-pack
+        run: cargo install wasm-pack --locked
+
+      - name: Install frontend dependencies
+        run: bun install --cwd frontend --frozen-lockfile
 
       - name: Format check
         run: cargo fmt --all -- --check
 
       - name: Clippy check
-        run: cargo clippy --all-targets --all-features -- -D warnings
+        run: cargo clippy --workspace --all-targets -- -D warnings
 
-      - name: Run tests
-        run: cargo test --all-targets --all-features
-
-      - name: Native check
-        run: cargo check --all-targets --all-features
+      - name: Run Rust tests
+        run: cargo test --workspace
 
       - name: Wasm target check
-        run: cargo check --target wasm32-unknown-unknown
+        run: cargo check -p memory_pak_wasm --target wasm32-unknown-unknown
 
-      - name: Web production build
-        run: trunk build --release
+      - name: Frontend tests
+        run: bun run --cwd frontend test
+
+      - name: Frontend production build
+        run: bun run --cwd frontend build
+
+  tauri-desktop:
+    name: Tauri desktop smoke build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Linux dependencies for Tauri
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache cargo registry and build
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            .
+          key: tauri-${{ matrix.os }}
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
+
+      - name: Install wasm-pack
+        run: cargo install wasm-pack --locked
+
+      - name: Install frontend dependencies
+        run: bun install --cwd frontend --frozen-lockfile
+
+      - name: Build frontend (consumed by Tauri)
+        run: bun run --cwd frontend build
+
+      - name: Build Tauri desktop binary
+        run: cargo build -p memory-pak-tauri --bin memory-pak --release

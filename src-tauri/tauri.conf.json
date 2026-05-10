@@ -1,0 +1,50 @@
+{
+  "$schema": "../frontend/node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Memory Pak",
+  "version": "0.3.0",
+  "identifier": "com.Aspenini.MemoryPak",
+  "build": {
+    "beforeDevCommand": "bun run --cwd ../frontend dev:tauri",
+    "beforeBuildCommand": "bun run --cwd ../frontend build",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../frontend/dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Memory Pak",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 360,
+        "minHeight": 640
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "Utility",
+    "shortDescription": "A cross-platform retro game tracker",
+    "longDescription": "Memory Pak is a cross-platform game collection tracker built with Tauri, Svelte, and Rust.",
+    "copyright": "Copyright (c) 2026 Aspenini. All rights reserved.",
+    "icon": [
+      "../icons/windows/AppIcon.ico",
+      "../icons/macos/AppIcon.icns",
+      "../icons/linux/AppIcon.png",
+      "../icons/web/icon-512.png"
+    ],
+    "fileAssociations": [
+      {
+        "ext": ["json"],
+        "mimeType": "application/json",
+        "name": "Memory Pak Export",
+        "role": "Editor"
+      }
+    ],
+    "resources": ["../README.md", "../LICENSE"]
+  }
+}

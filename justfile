@@ -1,73 +1,78 @@
-set shell := ["powershell.exe", "-NoLogo", "-NoProfile", "-Command"]
-
-app := "memory_pak"
-android_targets := "aarch64-linux-android armv7-linux-androideabi x86_64-linux-android"
-android_keystore := ".android/memory-pak-release.keystore"
+set shell := ["sh", "-cu"]
 
 default:
     just --list
 
-# Shared quality checks
+# Install Rust and frontend tools used by the new stack.
+install-tools:
+    rustup target add wasm32-unknown-unknown
+    cargo install wasm-pack tauri-cli
+    bun install --cwd frontend
+
+# Copy the canonical icon set in icons/web into the PWA public folder.
+# Run this whenever icons/web/ changes so the PWA bundle stays in sync.
+sync-icons:
+    rm -f frontend/public/icons/*.png frontend/public/icons/*.ico
+    cp icons/web/apple-touch-icon.png frontend/public/icons/
+    cp icons/web/favicon.ico frontend/public/icons/
+    cp icons/web/icon-192.png frontend/public/icons/
+    cp icons/web/icon-192-maskable.png frontend/public/icons/
+    cp icons/web/icon-512.png frontend/public/icons/
+    cp icons/web/icon-512-maskable.png frontend/public/icons/
+
+# Rust checks
 fmt:
-    cargo fmt
+    cargo fmt --all
 
 clippy:
-    cargo clippy --all-targets --all-features -- -D warnings
+    cargo clippy --workspace --all-targets -- -D warnings
 
 test:
-    cargo test --all-targets --all-features
+    cargo test --workspace
 
-all-checks: fmt clippy test check check-web web-build
-
-# Desktop
 check:
-    cargo check
+    cargo check --workspace
 
-build:
-    cargo build --release
+check-wasm:
+    cargo check -p memory_pak_wasm --target wasm32-unknown-unknown
 
-run:
-    cargo run
+# Frontend
+frontend-dev:
+    bun run --cwd frontend dev
 
-# Windows
-windows-msi:
-    cargo wix
+frontend-build:
+    bun run --cwd frontend build
 
-# macOS
-macos-app:
-    cargo bundle --release
+frontend-test:
+    bun run --cwd frontend test
 
-# Linux
-linux-deb:
-    cargo deb
+frontend-e2e:
+    bun run --cwd frontend e2e
 
-# Web
-install-web-tools:
-    rustup target add wasm32-unknown-unknown
-    cargo install trunk
+# Tauri desktop
+tauri-dev:
+    cargo tauri dev
 
-check-web:
-    cargo check --target wasm32-unknown-unknown
+tauri-build:
+    cargo tauri build
 
-web-build:
-    trunk build --release
+# Tauri mobile
+android-init:
+    cargo tauri android init
 
-web-serve:
-    trunk serve
-
-# Android
-install-android-tools:
-    rustup target add {{android_targets}}
-    cargo install cargo-apk
-
-android-keystore:
-    New-Item -ItemType Directory -Force .android | Out-Null; keytool -genkeypair -v -keystore "{{android_keystore}}" -alias memory-pak -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=Memory Pak, O=Memory Pak, C=US"
-
-android-debug-build:
-    cargo apk build --lib
+android-dev:
+    cargo tauri android dev
 
 android-build:
-    if (!(Test-Path "{{android_keystore}}")) { throw "Missing {{android_keystore}}. Run 'just android-keystore' once and keep that file safe." }; $env:CARGO_APK_RELEASE_KEYSTORE = (Resolve-Path "{{android_keystore}}").Path; $secure = Read-Host "Release keystore password" -AsSecureString; $ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure); try { $env:CARGO_APK_RELEASE_KEYSTORE_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr); cargo apk build --lib --release } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr); Remove-Item Env:CARGO_APK_RELEASE_KEYSTORE_PASSWORD -ErrorAction SilentlyContinue }
+    cargo tauri android build
 
-android-run:
-    if (!(Test-Path "{{android_keystore}}")) { throw "Missing {{android_keystore}}. Run 'just android-keystore' once and keep that file safe." }; $env:CARGO_APK_RELEASE_KEYSTORE = (Resolve-Path "{{android_keystore}}").Path; $secure = Read-Host "Release keystore password" -AsSecureString; $ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure); try { $env:CARGO_APK_RELEASE_KEYSTORE_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr); cargo apk run --lib --release } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr); Remove-Item Env:CARGO_APK_RELEASE_KEYSTORE_PASSWORD -ErrorAction SilentlyContinue }
+ios-init:
+    cargo tauri ios init
+
+ios-dev:
+    cargo tauri ios dev
+
+ios-build:
+    cargo tauri ios build
+
+all-checks: fmt clippy test check-wasm frontend-test frontend-build
