@@ -91,7 +91,11 @@ fn import_json(json: String, state: State<'_, AppState>) -> Result<PersistedStat
 
 #[tauri::command]
 fn export_json(state: State<'_, AppState>) -> Result<String, String> {
-    state.app.lock().export_json().map_err(|err| err.to_string())
+    state
+        .app
+        .lock()
+        .export_json()
+        .map_err(|err| err.to_string())
 }
 
 #[tauri::command]
