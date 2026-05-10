@@ -6,7 +6,8 @@
 *.yaml text eol=lf
 *.json text eol=lf
 *.md text eol=lf
-justfile text eol=lf
+*.ts text eol=lf
+*.svelte text eol=lf
 
 *.png binary
 *.ico binary

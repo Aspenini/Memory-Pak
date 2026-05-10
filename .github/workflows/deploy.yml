@@ -45,7 +45,7 @@ jobs:
         run: bun install --cwd frontend --frozen-lockfile
 
       - name: Build PWA
-        run: bun run --cwd frontend build
+        run: bun run frontend:build
 
       - name: Copy web app into site
         run: |

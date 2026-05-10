@@ -36,29 +36,34 @@ Install the rest of the tooling (`wasm-pack`, `tauri-cli`, the WASM target,
 and frontend deps) in one shot:
 
 ```bash
-just install-tools
+bun run install-tools
 ```
 
 ## Development
 
+All commands are exposed as Bun scripts in the root `package.json`. Run
+`bun run --list` to see every available script.
+
 ```bash
-just test             # cargo test --workspace
-just check-wasm       # check WASM adapter against wasm32-unknown-unknown
-just frontend-dev     # Svelte/Vite PWA development server
-just frontend-build   # production PWA build
-just tauri-dev        # Tauri desktop app
+bun run test               # cargo test --workspace
+bun run check:wasm         # check WASM adapter against wasm32-unknown-unknown
+bun run frontend:dev       # Svelte/Vite PWA development server
+bun run frontend:build     # production PWA build
+bun run tauri:dev          # Tauri desktop app
+bun run all-checks         # fmt + clippy + test + check:wasm + frontend test/build
+bun run sync-icons         # mirror icons/web/ into the PWA public folder
 ```
 
 Tauri mobile entrypoints are scaffolded through the standard Tauri CLI:
 
 ```bash
-just android-init
-just android-dev
-just android-build
+bun run android:init
+bun run android:dev
+bun run android:build
 
-just ios-init
-just ios-dev
-just ios-build
+bun run ios:init
+bun run ios:dev
+bun run ios:build
 ```
 
 ## User Data Storage

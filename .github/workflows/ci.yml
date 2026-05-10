@@ -47,22 +47,22 @@ jobs:
         run: bun install --cwd frontend --frozen-lockfile
 
       - name: Format check
-        run: cargo fmt --all -- --check
+        run: bun run fmt:check
 
       - name: Clippy check
-        run: cargo clippy --workspace --all-targets -- -D warnings
+        run: bun run clippy
 
       - name: Run Rust tests
-        run: cargo test --workspace
+        run: bun run test
 
       - name: Wasm target check
-        run: cargo check -p memory_pak_wasm --target wasm32-unknown-unknown
+        run: bun run check:wasm
 
       - name: Frontend tests
-        run: bun run --cwd frontend test
+        run: bun run frontend:test
 
       - name: Frontend production build
-        run: bun run --cwd frontend build
+        run: bun run frontend:build
 
   tauri-desktop:
     name: Tauri desktop smoke build (${{ matrix.os }})
@@ -109,7 +109,7 @@ jobs:
         run: bun install --cwd frontend --frozen-lockfile
 
       - name: Build frontend (consumed by Tauri)
-        run: bun run --cwd frontend build
+        run: bun run frontend:build
 
       - name: Build Tauri desktop binary
         run: cargo build -p memory-pak-tauri --bin memory-pak --release
