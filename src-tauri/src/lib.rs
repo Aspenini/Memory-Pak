@@ -4,9 +4,9 @@ use memory_pak_core::{
     CollectionStats, InitialState, MemoryPakApp, PersistedState, QueryInput, QueryResult,
     SetItemNotesInput, SetItemStatusInput,
 };
+use parking_lot::Mutex;
 use persistence::{load_persisted_state, save_persisted_state};
 use std::path::PathBuf;
-use std::sync::Mutex;
 use tauri::State;
 
 struct AppState {
@@ -14,45 +14,40 @@ struct AppState {
 }
 
 #[tauri::command]
-fn load_initial_state(state: State<'_, AppState>) -> Result<InitialState, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    Ok(app.initial_state())
+fn load_initial_state(state: State<'_, AppState>) -> InitialState {
+    state.app.lock().initial_state()
 }
 
 #[tauri::command]
 fn query_consoles(
     input: QueryInput,
     state: State<'_, AppState>,
-) -> Result<QueryResult<memory_pak_core::ConsoleView>, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    Ok(app.query_consoles(input))
+) -> QueryResult<memory_pak_core::ConsoleView> {
+    state.app.lock().query_consoles(input)
 }
 
 #[tauri::command]
 fn query_games(
     input: QueryInput,
     state: State<'_, AppState>,
-) -> Result<QueryResult<memory_pak_core::GameView>, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    Ok(app.query_games(input))
+) -> QueryResult<memory_pak_core::GameView> {
+    state.app.lock().query_games(input)
 }
 
 #[tauri::command]
 fn query_lego(
     input: QueryInput,
     state: State<'_, AppState>,
-) -> Result<QueryResult<memory_pak_core::LegoView>, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    Ok(app.query_lego(input))
+) -> QueryResult<memory_pak_core::LegoView> {
+    state.app.lock().query_lego(input)
 }
 
 #[tauri::command]
 fn query_skylanders(
     input: QueryInput,
     state: State<'_, AppState>,
-) -> Result<QueryResult<memory_pak_core::SkylanderView>, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    Ok(app.query_skylanders(input))
+) -> QueryResult<memory_pak_core::SkylanderView> {
+    state.app.lock().query_skylanders(input)
 }
 
 #[tauri::command]
@@ -60,8 +55,11 @@ fn set_item_status(
     input: SetItemStatusInput,
     state: State<'_, AppState>,
 ) -> Result<PersistedState, String> {
-    let mut app = state.app.lock().map_err(lock_error)?;
-    let snapshot = app.set_item_status(input).map_err(|err| err.to_string())?;
+    let snapshot = state
+        .app
+        .lock()
+        .set_item_status(input)
+        .map_err(|err| err.to_string())?;
     save_persisted_state(&snapshot).map_err(|err| err.to_string())?;
     Ok(snapshot)
 }
@@ -71,30 +69,34 @@ fn set_item_notes(
     input: SetItemNotesInput,
     state: State<'_, AppState>,
 ) -> Result<PersistedState, String> {
-    let mut app = state.app.lock().map_err(lock_error)?;
-    let snapshot = app.set_item_notes(input).map_err(|err| err.to_string())?;
+    let snapshot = state
+        .app
+        .lock()
+        .set_item_notes(input)
+        .map_err(|err| err.to_string())?;
     save_persisted_state(&snapshot).map_err(|err| err.to_string())?;
     Ok(snapshot)
 }
 
 #[tauri::command]
 fn import_json(json: String, state: State<'_, AppState>) -> Result<PersistedState, String> {
-    let mut app = state.app.lock().map_err(lock_error)?;
-    let snapshot = app.import_json(&json).map_err(|err| err.to_string())?;
+    let snapshot = state
+        .app
+        .lock()
+        .import_json(&json)
+        .map_err(|err| err.to_string())?;
     save_persisted_state(&snapshot).map_err(|err| err.to_string())?;
     Ok(snapshot)
 }
 
 #[tauri::command]
 fn export_json(state: State<'_, AppState>) -> Result<String, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    app.export_json().map_err(|err| err.to_string())
+    state.app.lock().export_json().map_err(|err| err.to_string())
 }
 
 #[tauri::command]
-fn get_collection_stats(state: State<'_, AppState>) -> Result<CollectionStats, String> {
-    let app = state.app.lock().map_err(lock_error)?;
-    Ok(app.collection_stats())
+fn get_collection_stats(state: State<'_, AppState>) -> CollectionStats {
+    state.app.lock().collection_stats()
 }
 
 #[tauri::command]
@@ -135,8 +137,4 @@ pub fn run() {
         ])
         .run(tauri::generate_context!())
         .expect("error while running Memory Pak");
-}
-
-fn lock_error<T>(_: std::sync::PoisonError<T>) -> String {
-    "application state lock was poisoned".to_string()
 }

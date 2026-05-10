@@ -23,6 +23,7 @@ tauri-build = { version = "2", features = [] }
 [dependencies]
 directories.workspace = true
 memory_pak_core = { path = "../crates/memory_pak_core" }
+parking_lot.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 tauri = { version = "2.11.1", features = [] }

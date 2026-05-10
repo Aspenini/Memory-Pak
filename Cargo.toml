@@ -18,6 +18,7 @@ homepage = "https://aspenini.github.io/Memory-Pak"
 chrono = { version = "0.4", default-features = false, features = ["clock", "serde", "wasmbind"] }
 directories = "6.0"
 include_dir = "0.7"
+parking_lot = "0.12"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 serde-wasm-bindgen = "0.6"
