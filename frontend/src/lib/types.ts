@@ -16,6 +16,7 @@ export interface ConsoleCounts {
 }
 
 export interface ConsoleView {
+  kind: 'console';
   id: string;
   name: string;
   manufacturer: string;
@@ -26,6 +27,7 @@ export interface ConsoleView {
 }
 
 export interface GameView {
+  kind: 'game';
   id: string;
   title: string;
   year: number;
@@ -36,6 +38,7 @@ export interface GameView {
 }
 
 export interface LegoView {
+  kind: 'lego';
   id: string;
   name: string;
   category: string;
@@ -45,6 +48,7 @@ export interface LegoView {
 }
 
 export interface SkylanderView {
+  kind: 'skylander';
   id: string;
   name: string;
   game: string;
@@ -161,18 +165,18 @@ export interface MemoryPakBackend {
 }
 
 export function isConsoleView(row: RowView): row is ConsoleView {
-  return 'manufacturer' in row;
+  return row.kind === 'console';
 }
 
 export function isGameView(row: RowView): row is GameView {
-  return 'publisher' in row;
+  return row.kind === 'game';
 }
 
 export function isLegoView(row: RowView): row is LegoView {
-  return 'packId' in row;
+  return row.kind === 'lego';
 }
 
 export function isSkylanderView(row: RowView): row is SkylanderView {
-  return 'baseColor' in row;
+  return row.kind === 'skylander';
 }
 

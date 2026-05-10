@@ -202,6 +202,7 @@ pub struct ConsoleCounts {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ConsoleView {
+    pub kind: ItemKind,
     pub id: String,
     pub name: String,
     pub manufacturer: String,
@@ -214,6 +215,7 @@ pub struct ConsoleView {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct GameView {
+    pub kind: ItemKind,
     pub id: String,
     pub title: String,
     pub year: u32,
@@ -226,6 +228,7 @@ pub struct GameView {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct LegoView {
+    pub kind: ItemKind,
     pub id: String,
     pub name: String,
     pub category: String,
@@ -237,6 +240,7 @@ pub struct LegoView {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SkylanderView {
+    pub kind: ItemKind,
     pub id: String,
     pub name: String,
     pub game: String,
@@ -711,6 +715,7 @@ impl MemoryPakApp {
 
     fn console_view(&self, console: &Console) -> ConsoleView {
         ConsoleView {
+            kind: ItemKind::Console,
             id: console.id.clone(),
             name: console.name.clone(),
             manufacturer: console.manufacturer.clone(),
@@ -732,6 +737,7 @@ impl MemoryPakApp {
 
     fn game_view(&self, game: &Game, console_names: &HashMap<String, String>) -> GameView {
         GameView {
+            kind: ItemKind::Game,
             id: game.id.clone(),
             title: game.title.clone(),
             year: game.year,
@@ -753,6 +759,7 @@ impl MemoryPakApp {
     fn lego_view(&self, figure: &LegoDimensionFigure) -> LegoView {
         let id = figure_id(figure);
         LegoView {
+            kind: ItemKind::Lego,
             id: id.clone(),
             name: figure.name.clone(),
             category: figure.category.clone(),
@@ -770,6 +777,7 @@ impl MemoryPakApp {
     fn skylander_view(&self, skylander: &Skylander) -> SkylanderView {
         let id = skylander_id(skylander);
         SkylanderView {
+            kind: ItemKind::Skylander,
             id: id.clone(),
             name: skylander.name.clone(),
             game: skylander.game.clone(),

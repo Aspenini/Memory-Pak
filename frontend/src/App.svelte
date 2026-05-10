@@ -188,10 +188,7 @@
   }
 
   function kindForRow(row: RowView): ItemKind {
-    if (isConsoleView(row)) return 'console';
-    if (isGameView(row)) return 'game';
-    if (isLegoView(row)) return 'lego';
-    return 'skylander';
+    return row.kind;
   }
 
   function rowTitle(row: RowView): string {
