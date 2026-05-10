@@ -51,8 +51,11 @@ bun run frontend:dev       # Svelte/Vite PWA development server
 bun run frontend:build     # production PWA build
 bun run tauri:dev          # Tauri desktop app
 bun run all-checks         # fmt + clippy + test + check:wasm + frontend test/build
-bun run sync-icons         # mirror icons/web/ into the PWA public folder
 ```
+
+Icons under `icons/web/` are the canonical PWA icon source. Vite serves
+them under `/icons/...` in dev and emits them to `dist/icons/...` at
+build time, so there is no separate copy to keep in sync.
 
 Tauri mobile entrypoints are scaffolded through the standard Tauri CLI:
 
