@@ -62,13 +62,15 @@
   let scrollElement: HTMLDivElement;
   let refreshSerial = 0;
   let lastQueryKey = '';
+  let isMobile = false;
+  let isShort = false;
 
   // Per-row in-flight notes; flushes to backend on blur.
   let pendingNotes: Record<string, string> = {};
 
   $: sortOptions = getSortOptions(activeTab);
   $: if (!sortOptions.some((option) => option.id === sortBy)) sortBy = sortOptions[0].id;
-  $: rowHeight = estimatedRowHeight(activeTab);
+  $: rowHeight = estimatedRowHeight(activeTab, isMobile, isShort);
   $: rowVirtualizer = createVirtualizer({
     count: rows.length,
     getScrollElement: () => scrollElement,
@@ -80,7 +82,29 @@
     void refreshRows();
   }
 
-  onMount(async () => {
+  onMount(() => {
+    const mqMobile = window.matchMedia('(max-width: 960px)');
+    const mqShort = window.matchMedia('(max-height: 600px)');
+    isMobile = mqMobile.matches;
+    isShort = mqShort.matches;
+    const onMobile = (event: MediaQueryListEvent) => {
+      isMobile = event.matches;
+    };
+    const onShort = (event: MediaQueryListEvent) => {
+      isShort = event.matches;
+    };
+    mqMobile.addEventListener('change', onMobile);
+    mqShort.addEventListener('change', onShort);
+
+    void initBackend();
+
+    return () => {
+      mqMobile.removeEventListener('change', onMobile);
+      mqShort.removeEventListener('change', onShort);
+    };
+  });
+
+  async function initBackend(): Promise<void> {
     try {
       backend = await createBackend();
       initial = await backend.loadInitialState();
@@ -91,7 +115,7 @@
       error = cause instanceof Error ? cause.message : String(cause);
       loading = false;
     }
-  });
+  }
 
   async function refreshRows(): Promise<void> {
     if (!backend) return;
@@ -265,9 +289,18 @@
     return initial.totalSkylanders;
   }
 
-  function estimatedRowHeight(tab: TabId): number {
-    // Consoles also render a meta line (owned/favorite/wishlist counts).
-    return tab === 'consoles' ? 196 : 176;
+  function estimatedRowHeight(tab: TabId, mobile: boolean, short: boolean): number {
+    // Cards include a notes textarea + 3 status buttons. Consoles also
+    // render an extra meta line (owned/favorite/wishlist counts). Heights
+    // include a small inter-card gap controlled by .row-slot padding.
+    if (mobile && short) {
+      // Landscape phones / short windows: tighter rows, side-by-side head.
+      return tab === 'consoles' ? 168 : 148;
+    }
+    if (mobile) {
+      return tab === 'consoles' ? 280 : 250;
+    }
+    return tab === 'consoles' ? 208 : 188;
   }
 
   type TabSummary = { owned: number; favorite: number; wishlist: number; total: number };
@@ -476,64 +509,68 @@
             <div class="virtual-space" style={`height: ${$rowVirtualizer.getTotalSize()}px`}>
               {#each $rowVirtualizer.getVirtualItems() as virtualRow (rows[virtualRow.index].id)}
                 {@const row = rows[virtualRow.index]}
-                <article
-                  class="card"
-                  class:owned={row.state.owned}
-                  class:favorite={row.state.favorite}
-                  class:wishlist={row.state.wishlist}
+                <div
+                  class="row-slot"
                   style={`height: ${virtualRow.size}px; transform: translateY(${virtualRow.start}px)`}
-                  data-kind={row.kind}
                 >
-                  <header class="card-head">
-                    <div class="card-title">
-                      <strong title={rowTitle(row)}>{rowTitle(row)}</strong>
-                      <span title={rowSubtitle(row)}>{rowSubtitle(row)}</span>
-                      {#if rowMeta(row)}
-                        <small>{rowMeta(row)}</small>
-                      {/if}
-                    </div>
-                    <div class="card-actions" role="group" aria-label="Status">
-                      <button
-                        type="button"
-                        class:pressed={row.state.owned}
-                        on:click={() => toggleStatus(row, 'owned')}
-                        aria-pressed={row.state.owned}
-                        title="Toggle owned"
-                      >
-                        <Check size={16} />
-                        <span>Owned</span>
-                      </button>
-                      <button
-                        type="button"
-                        class:pressed={row.state.favorite}
-                        on:click={() => toggleStatus(row, 'favorite')}
-                        aria-pressed={row.state.favorite}
-                        title="Toggle favorite"
-                      >
-                        <Star size={16} />
-                        <span>Favorite</span>
-                      </button>
-                      <button
-                        type="button"
-                        class:pressed={row.state.wishlist}
-                        on:click={() => toggleStatus(row, 'wishlist')}
-                        aria-pressed={row.state.wishlist}
-                        title="Toggle wishlist"
-                      >
-                        <Heart size={16} />
-                        <span>Wishlist</span>
-                      </button>
-                    </div>
-                  </header>
-                  <textarea
-                    class="card-notes"
-                    placeholder="Notes"
-                    rows="2"
-                    value={notesValue(row)}
-                    on:input={(event) => onNotesInput(row.id, event.currentTarget.value)}
-                    on:blur={() => flushNotes(row)}
-                  ></textarea>
-                </article>
+                  <article
+                    class="card"
+                    class:owned={row.state.owned}
+                    class:favorite={row.state.favorite}
+                    class:wishlist={row.state.wishlist}
+                    data-kind={row.kind}
+                  >
+                    <header class="card-head">
+                      <div class="card-title">
+                        <strong title={rowTitle(row)}>{rowTitle(row)}</strong>
+                        <span title={rowSubtitle(row)}>{rowSubtitle(row)}</span>
+                        {#if rowMeta(row)}
+                          <small>{rowMeta(row)}</small>
+                        {/if}
+                      </div>
+                      <div class="card-actions" role="group" aria-label="Status">
+                        <button
+                          type="button"
+                          class:pressed={row.state.owned}
+                          on:click={() => toggleStatus(row, 'owned')}
+                          aria-pressed={row.state.owned}
+                          title="Toggle owned"
+                        >
+                          <Check size={16} />
+                          <span>Owned</span>
+                        </button>
+                        <button
+                          type="button"
+                          class:pressed={row.state.favorite}
+                          on:click={() => toggleStatus(row, 'favorite')}
+                          aria-pressed={row.state.favorite}
+                          title="Toggle favorite"
+                        >
+                          <Star size={16} />
+                          <span>Favorite</span>
+                        </button>
+                        <button
+                          type="button"
+                          class:pressed={row.state.wishlist}
+                          on:click={() => toggleStatus(row, 'wishlist')}
+                          aria-pressed={row.state.wishlist}
+                          title="Toggle wishlist"
+                        >
+                          <Heart size={16} />
+                          <span>Wishlist</span>
+                        </button>
+                      </div>
+                    </header>
+                    <textarea
+                      class="card-notes"
+                      placeholder="Notes"
+                      rows="2"
+                      value={notesValue(row)}
+                      on:input={(event) => onNotesInput(row.id, event.currentTarget.value)}
+                      on:blur={() => flushNotes(row)}
+                    ></textarea>
+                  </article>
+                </div>
               {/each}
             </div>
           {/if}
