@@ -14,6 +14,7 @@
     "check:wasm": "cargo check -p memory_pak_wasm --target wasm32-unknown-unknown",
 
     "frontend:dev": "bun run --cwd frontend dev",
+    "frontend:dev:tauri": "bun run --cwd frontend dev:tauri",
     "frontend:build": "bun run --cwd frontend build",
     "frontend:test": "bun run --cwd frontend test",
     "frontend:e2e": "bun run --cwd frontend e2e",

@@ -4,8 +4,8 @@
   "version": "0.3.0",
   "identifier": "com.Aspenini.MemoryPak",
   "build": {
-    "beforeDevCommand": "bun run --cwd ../frontend dev:tauri",
-    "beforeBuildCommand": "bun run --cwd ../frontend build",
+    "beforeDevCommand": "bun run frontend:dev:tauri",
+    "beforeBuildCommand": "bun run frontend:build",
     "devUrl": "http://localhost:5173",
     "frontendDist": "../frontend/dist"
   },
