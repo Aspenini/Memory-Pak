@@ -304,7 +304,7 @@
     }
   }
 
-  async function importCollection(): Promise<void> {
+  async function restoreCollection(): Promise<void> {
     mobileMenuOpen = false;
     if (!backend?.importFromFile) return;
     const importedStats = await backend.importFromFile();
@@ -313,7 +313,7 @@
     await refreshRows();
   }
 
-  async function exportCollection(): Promise<void> {
+  async function backupCollection(): Promise<void> {
     mobileMenuOpen = false;
     if (backend?.exportToFile) {
       await backend.exportToFile();
@@ -486,10 +486,8 @@
         {ownershipPercent}
         {mobileMenuOpen}
         on:openNav={() => (navOpen = true)}
-        on:import={importCollection}
-        on:export={exportCollection}
-        on:backup={exportCollection}
-        on:restore={importCollection}
+        on:backup={backupCollection}
+        on:restore={restoreCollection}
         on:toggleMobileMenu={toggleMobileMenu}
       />
 

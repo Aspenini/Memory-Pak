@@ -15,8 +15,6 @@
   const dropdownFade = { duration: 90 };
   const dispatch = createEventDispatcher<{
     openNav: void;
-    import: void;
-    export: void;
     backup: void;
     restore: void;
     toggleMobileMenu: void;
@@ -73,13 +71,13 @@
     {/if}
   </div>
   <div class="top-actions">
-    <button class="ghost-button" on:click={() => dispatch('import')}>
-      <Upload size={18} />
-      <span>Import</span>
-    </button>
-    <button class="ghost-button" on:click={() => dispatch('export')}>
+    <button class="ghost-button" on:click={() => dispatch('backup')}>
       <Download size={18} />
-      <span>Export</span>
+      <span>Backup</span>
+    </button>
+    <button class="ghost-button" on:click={() => dispatch('restore')}>
+      <Upload size={18} />
+      <span>Restore</span>
     </button>
   </div>
   <div class="mobile-menu-wrap">
@@ -95,8 +93,6 @@
 
     {#if mobileMenuOpen}
       <div class="mobile-action-menu" role="menu" transition:fade={dropdownFade}>
-        <button type="button" role="menuitem" on:click={() => dispatch('import')}>Import</button>
-        <button type="button" role="menuitem" on:click={() => dispatch('export')}>Export</button>
         <button type="button" role="menuitem" on:click={() => dispatch('backup')}>Backup</button>
         <button type="button" role="menuitem" on:click={() => dispatch('restore')}>Restore</button>
       </div>
