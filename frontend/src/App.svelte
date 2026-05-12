@@ -3,6 +3,7 @@
   import {
     Boxes,
     Check,
+    ChevronDown,
     Database,
     Download,
     Gamepad2,
@@ -59,7 +60,9 @@
   let refreshing = false;
   let error = '';
   let navOpen = false;
+  let openSelect: 'console' | 'sort' | null = null;
   let scrollElement: HTMLDivElement;
+  let rowCount = 0;
   let refreshSerial = 0;
   let lastQueryKey = '';
   let isMobile = false;
@@ -72,7 +75,7 @@
   $: if (!sortOptions.some((option) => option.id === sortBy)) sortBy = sortOptions[0].id;
   $: rowHeight = estimatedRowHeight(activeTab, isMobile, isShort);
   $: rowVirtualizer = createVirtualizer({
-    count: rows.length,
+    count: rowCount,
     getScrollElement: () => scrollElement,
     estimateSize: () => rowHeight,
     overscan: 8
@@ -95,12 +98,23 @@
     };
     mqMobile.addEventListener('change', onMobile);
     mqShort.addEventListener('change', onShort);
+    const closeSelects = (event: MouseEvent) => {
+      if (event.target instanceof HTMLElement && event.target.closest('.select-wrap')) return;
+      openSelect = null;
+    };
+    const closeSelectsOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') openSelect = null;
+    };
+    document.addEventListener('click', closeSelects);
+    document.addEventListener('keydown', closeSelectsOnEscape);
 
     void initBackend();
 
     return () => {
       mqMobile.removeEventListener('change', onMobile);
       mqShort.removeEventListener('change', onShort);
+      document.removeEventListener('click', closeSelects);
+      document.removeEventListener('keydown', closeSelectsOnEscape);
     };
   });
 
@@ -117,9 +131,10 @@
     }
   }
 
-  async function refreshRows(): Promise<void> {
+  async function refreshRows(options: { preserveScroll?: boolean } = {}): Promise<void> {
     if (!backend) return;
     const serial = ++refreshSerial;
+    const scrollTop = options.preserveScroll ? scrollElement?.scrollTop : undefined;
     refreshing = true;
 
     try {
@@ -143,9 +158,16 @@
 
       if (serial !== refreshSerial) return;
       rows = nextRows;
+      rowCount = nextRows.length;
       pendingNotes = {};
-      if (queryKey !== lastQueryKey) {
+      const queryChanged = queryKey !== lastQueryKey;
+      if (queryChanged) {
         lastQueryKey = queryKey;
+      }
+      if (options.preserveScroll && scrollTop !== undefined) {
+        await tick();
+        scrollElement?.scrollTo({ top: scrollTop });
+      } else if (queryChanged) {
         await tick();
         scrollElement?.scrollTo({ top: 0 });
       }
@@ -164,6 +186,30 @@
   function setTab(tab: TabId): void {
     activeTab = tab;
     navOpen = false;
+    openSelect = null;
+  }
+
+  function toggleSelect(select: 'console' | 'sort'): void {
+    openSelect = openSelect === select ? null : select;
+  }
+
+  function selectConsole(consoleId: string): void {
+    selectedConsole = consoleId;
+    openSelect = null;
+  }
+
+  function selectSort(sortId: string): void {
+    sortBy = sortId;
+    openSelect = null;
+  }
+
+  function selectedConsoleLabel(): string {
+    if (selectedConsole === 'all') return 'All consoles';
+    return initial?.consoles.find((console) => console.id === selectedConsole)?.name ?? 'All consoles';
+  }
+
+  function sortLabel(sortId: string): string {
+    return sortOptions.find((option) => option.id === sortId)?.label ?? sortOptions[0]?.label ?? 'Title';
   }
 
   async function toggleStatus(row: RowView, field: 'owned' | 'favorite' | 'wishlist'): Promise<void> {
@@ -182,7 +228,7 @@
       await refreshStats();
       // Filter changes a row's visibility; resync the list when filter is restrictive.
       if (filterBy !== 'all') {
-        await refreshRows();
+        await refreshRows({ preserveScroll: true });
       }
     } catch (cause) {
       // Roll back on failure.
@@ -238,15 +284,15 @@
   }
 
   function rowSubtitle(row: RowView): string {
-    if (isConsoleView(row)) return `${row.manufacturer} · ${row.year}`;
-    if (isGameView(row)) return `${row.consoleName} · ${row.publisher} · ${row.year || 'Unknown year'}`;
-    if (isLegoView(row)) return `${row.category} · ${row.packId} · ${row.year}`;
-    return `${row.game} · ${row.category} · ${row.baseColor}`;
+    if (isConsoleView(row)) return `${row.manufacturer} / ${row.year}`;
+    if (isGameView(row)) return `${row.consoleName} / ${row.publisher} / ${row.year || 'Unknown year'}`;
+    if (isLegoView(row)) return `${row.category} / ${row.packId} / ${row.year}`;
+    return `${row.game} / ${row.category} / ${row.baseColor}`;
   }
 
   function rowMeta(row: RowView): string | null {
     if (isConsoleView(row)) {
-      return `${row.gameCounts.owned} owned · ${row.gameCounts.favorite} favorite · ${row.gameCounts.wishlist} wishlist`;
+      return `${row.gameCounts.owned} owned / ${row.gameCounts.favorite} favorite / ${row.gameCounts.wishlist} wishlist`;
     }
     return null;
   }
@@ -305,37 +351,37 @@
 
   type TabSummary = { owned: number; favorite: number; wishlist: number; total: number };
 
-  function summaryForActiveTab(): TabSummary {
-    if (!stats) return { owned: 0, favorite: 0, wishlist: 0, total: 0 };
-    if (activeTab === 'consoles') {
+  function summaryForActiveTab(tab: TabId, currentStats: CollectionStats | null): TabSummary {
+    if (!currentStats) return { owned: 0, favorite: 0, wishlist: 0, total: 0 };
+    if (tab === 'consoles') {
       return {
-        owned: stats.ownedConsoles,
-        favorite: stats.favoriteConsoles,
-        wishlist: stats.wishlistConsoles,
-        total: stats.totalConsoles
+        owned: currentStats.ownedConsoles,
+        favorite: currentStats.favoriteConsoles,
+        wishlist: currentStats.wishlistConsoles,
+        total: currentStats.totalConsoles
       };
     }
-    if (activeTab === 'games') {
+    if (tab === 'games') {
       return {
-        owned: stats.ownedGames,
-        favorite: stats.favoriteGames,
-        wishlist: stats.wishlistGames,
-        total: stats.totalGames
+        owned: currentStats.ownedGames,
+        favorite: currentStats.favoriteGames,
+        wishlist: currentStats.wishlistGames,
+        total: currentStats.totalGames
       };
     }
-    if (activeTab === 'lego') {
+    if (tab === 'lego') {
       return {
-        owned: stats.ownedLegoDimensions,
+        owned: currentStats.ownedLegoDimensions,
         favorite: 0,
         wishlist: 0,
-        total: stats.totalLegoDimensions
+        total: currentStats.totalLegoDimensions
       };
     }
     return {
-      owned: stats.ownedSkylanders,
+      owned: currentStats.ownedSkylanders,
       favorite: 0,
       wishlist: 0,
-      total: stats.totalSkylanders
+      total: currentStats.totalSkylanders
     };
   }
 
@@ -346,7 +392,17 @@
     return 'Skylanders';
   }
 
-  $: summary = summaryForActiveTab();
+  $: summary = summaryForActiveTab(activeTab, stats);
+  $: activeTotal = !initial
+    ? 0
+    : activeTab === 'consoles'
+      ? initial.consoles.length
+      : activeTab === 'games'
+        ? initial.totalGames
+        : activeTab === 'lego'
+          ? initial.totalLegoDimensions
+          : initial.totalSkylanders;
+  $: ownershipPercent = activeTotal ? Math.min(100, Math.round((summary.owned / activeTotal) * 100)) : 0;
 </script>
 
 {#if loading}
@@ -366,7 +422,6 @@
         <img src="./icons/icon-192.png" alt="" />
         <div>
           <strong>Memory Pak</strong>
-          <span>{summary.owned.toLocaleString()} / {summary.total.toLocaleString()} owned</span>
         </div>
       </div>
 
@@ -381,7 +436,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        <small>Memory Pak · v0.3</small>
+        <small>Memory Pak // v0.3</small>
       </div>
     </aside>
 
@@ -398,8 +453,15 @@
           <h1>{tabs.find((tab) => tab.id === activeTab)?.label}</h1>
           <p>
             {rows.length.toLocaleString()} shown
-            {#if refreshing}<span class="dim">· syncing</span>{/if}
+            {#if refreshing}<span class="dim"> // syncing</span>{/if}
           </p>
+          <div
+            class="ownership-meter"
+            style={`--meter: ${ownershipPercent}%`}
+            aria-label={`${ownershipPercent}% owned`}
+          >
+            <span></span>
+          </div>
         </div>
         <div class="topbar-summary" aria-label="Collection summary">
           <div>
@@ -465,25 +527,75 @@
 
         <div class="toolbar-selects">
           {#if activeTab === 'games'}
-            <label class="select-wrap">
-              <span>Console</span>
-              <select bind:value={selectedConsole} aria-label="Console">
-                <option value="all">All consoles</option>
-                {#each initial?.consoles ?? [] as console}
-                  <option value={console.id}>{console.name}</option>
-                {/each}
-              </select>
-            </label>
+            <div class="select-wrap">
+              <button
+                class="select-trigger"
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded={openSelect === 'console'}
+                on:click={() => toggleSelect('console')}
+              >
+                <span class="select-label">Console</span>
+                <strong>{selectedConsoleLabel()}</strong>
+                <ChevronDown size={16} />
+              </button>
+
+              {#if openSelect === 'console'}
+                <div class="select-popover" role="listbox" aria-label="Console" transition:fade>
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={selectedConsole === 'all'}
+                    class:selected={selectedConsole === 'all'}
+                    on:click={() => selectConsole('all')}
+                  >
+                    All consoles
+                  </button>
+                  {#each initial?.consoles ?? [] as console}
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={selectedConsole === console.id}
+                      class:selected={selectedConsole === console.id}
+                      on:click={() => selectConsole(console.id)}
+                    >
+                      {console.name}
+                    </button>
+                  {/each}
+                </div>
+              {/if}
+            </div>
           {/if}
 
-          <label class="select-wrap">
-            <span>Sort</span>
-            <select bind:value={sortBy} aria-label="Sort">
+          <div class="select-wrap">
+            <button
+              class="select-trigger"
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded={openSelect === 'sort'}
+              on:click={() => toggleSelect('sort')}
+            >
+              <span class="select-label">Sort</span>
+              <strong>{sortLabel(sortBy)}</strong>
+              <ChevronDown size={16} />
+            </button>
+
+            {#if openSelect === 'sort'}
+              <div class="select-popover compact" role="listbox" aria-label="Sort" transition:fade>
               {#each sortOptions as option}
-                <option value={option.id}>{option.label}</option>
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={sortBy === option.id}
+                    class:selected={sortBy === option.id}
+                    on:click={() => selectSort(option.id)}
+                  >
+                    {option.label}
+                  </button>
               {/each}
-            </select>
-          </label>
+              </div>
+            {/if}
+          </div>
         </div>
       </section>
 

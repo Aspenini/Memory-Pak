@@ -1,5 +1,13 @@
 # Memory Pak
 
+[![CI](https://github.com/Aspenini/Memory-Pak/actions/workflows/ci.yml/badge.svg)](https://github.com/Aspenini/Memory-Pak/actions/workflows/ci.yml)
+[![Deploy Website](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/Aspenini/Memory-Pak?label=release)](https://github.com/Aspenini/Memory-Pak/releases/latest)
+[![GitHub Release Downloads](https://img.shields.io/github/downloads/Aspenini/Memory-Pak/total?label=release%20downloads)](https://github.com/Aspenini/Memory-Pak/releases)
+[![crates.io](https://img.shields.io/crates/v/Memory-Pak?label=crates.io)](https://crates.io/crates/Memory-Pak)
+[![crates.io Downloads](https://img.shields.io/crates/d/Memory-Pak?label=crates.io%20downloads)](https://crates.io/crates/Memory-Pak)
+[![License](https://img.shields.io/github/license/Aspenini/Memory-Pak)](LICENSE)
+
 A cross-platform game collection tracker built with Rust, Tauri 2, Svelte, and WebAssembly. Memory Pak tracks consoles, games, LEGO Dimensions figures, and Skylanders across owned, favorite, wishlist, and notes states.
 
 ## Features

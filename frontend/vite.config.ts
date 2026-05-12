@@ -4,9 +4,9 @@ import { extname, join, resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 
 const host = process.env.TAURI_DEV_HOST;
-const isTauri = Boolean(process.env.TAURI_ENV_PLATFORM);
 
 const ICONS_DIR = resolve(__dirname, '../icons/web');
+const ICON_URL_PREFIXES = ['/icons', '/app/icons', '/Memory-Pak/app/icons'];
 
 const ICON_MIME: Record<string, string> = {
   '.png': 'image/png',
@@ -18,11 +18,14 @@ function sharedIconsPlugin(): Plugin {
   return {
     name: 'memory-pak-shared-icons',
     configureServer(server) {
-      server.middlewares.use('/icons', (req, res, next) => {
+      server.middlewares.use((req, res, next) => {
         if (!req.url) return next();
         const url = req.url.split('?')[0];
-        if (!url || url === '/' || url.includes('..')) return next();
-        const filename = url.replace(/^\/+/, '');
+        if (!url || url.includes('..')) return next();
+        const prefix = ICON_URL_PREFIXES.find((candidate) => url === candidate || url.startsWith(`${candidate}/`));
+        if (!prefix) return next();
+        const filename = url.slice(prefix.length).replace(/^\/+/, '');
+        if (!filename) return next();
         const file = join(ICONS_DIR, filename);
         if (!existsSync(file)) return next();
         const mime = ICON_MIME[extname(file).toLowerCase()];
@@ -47,7 +50,7 @@ function sharedIconsPlugin(): Plugin {
 export default defineConfig({
   plugins: [svelte(), sharedIconsPlugin()],
   clearScreen: false,
-  base: isTauri ? './' : '/Memory-Pak/app/',
+  base: './',
   envPrefix: ['VITE_', 'TAURI_ENV_*'],
   server: {
     port: 5173,
