@@ -9,6 +9,7 @@
     Gamepad2,
     Heart,
     Menu,
+    MoreVertical,
     Monitor,
     Package,
     Search,
@@ -32,20 +33,21 @@
   } from './lib/types';
   import { isConsoleView, isGameView, isLegoView } from './lib/types';
 
-  const tabs: Array<{ id: TabId; label: string; icon: typeof Monitor }> = [
-    { id: 'consoles', label: 'Consoles', icon: Monitor },
-    { id: 'games', label: 'Games', icon: Gamepad2 },
-    { id: 'lego', label: 'LEGO Dimensions', icon: Boxes },
-    { id: 'skylanders', label: 'Skylanders', icon: Package }
+  const tabs: Array<{ id: TabId; label: string; mobileLabel: string; icon: typeof Monitor }> = [
+    { id: 'consoles', label: 'Consoles', mobileLabel: 'Consoles', icon: Monitor },
+    { id: 'games', label: 'Games', mobileLabel: 'Games', icon: Gamepad2 },
+    { id: 'lego', label: 'LEGO Dimensions', mobileLabel: 'LEGO', icon: Boxes },
+    { id: 'skylanders', label: 'Skylanders', mobileLabel: 'Sky', icon: Package }
   ];
 
-  const filters: Array<{ id: FilterId; label: string }> = [
-    { id: 'all', label: 'All' },
-    { id: 'owned', label: 'Owned' },
-    { id: 'favorites', label: 'Favorites' },
-    { id: 'wishlist', label: 'Wishlist' },
-    { id: 'notOwned', label: 'Not owned' }
+  const filters: Array<{ id: FilterId; label: string; mobileLabel: string }> = [
+    { id: 'all', label: 'All', mobileLabel: 'All' },
+    { id: 'owned', label: 'Owned', mobileLabel: 'Owned' },
+    { id: 'favorites', label: 'Favorites', mobileLabel: 'Fav' },
+    { id: 'wishlist', label: 'Wishlist', mobileLabel: 'Wish' },
+    { id: 'notOwned', label: 'Not owned', mobileLabel: 'Missing' }
   ];
+  const dropdownFade = { duration: 90 };
 
   let backend: MemoryPakBackend | null = null;
   let initial: InitialState | null = null;
@@ -60,8 +62,12 @@
   let refreshing = false;
   let error = '';
   let navOpen = false;
+  let mobileMenuOpen = false;
   let openSelect: 'console' | 'sort' | null = null;
+  let detailRow: RowView | null = null;
   let scrollElement: HTMLDivElement;
+  let filterPillsElement: HTMLDivElement;
+  let filterIndicator = { left: 0, width: 0 };
   let rowCount = 0;
   let refreshSerial = 0;
   let lastQueryKey = '';
@@ -84,6 +90,10 @@
   $: if (backend && initial && queryKey) {
     void refreshRows();
   }
+  $: if (filterPillsElement && filterBy) {
+    isMobile;
+    void scheduleFilterIndicatorUpdate();
+  }
 
   onMount(() => {
     const mqMobile = window.matchMedia('(max-width: 960px)');
@@ -100,13 +110,20 @@
     mqShort.addEventListener('change', onShort);
     const closeSelects = (event: MouseEvent) => {
       if (event.target instanceof HTMLElement && event.target.closest('.select-wrap')) return;
+      if (event.target instanceof HTMLElement && event.target.closest('.mobile-menu-wrap')) return;
       openSelect = null;
+      mobileMenuOpen = false;
     };
     const closeSelectsOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') openSelect = null;
+      if (event.key === 'Escape') {
+        openSelect = null;
+        mobileMenuOpen = false;
+        detailRow = null;
+      }
     };
     document.addEventListener('click', closeSelects);
     document.addEventListener('keydown', closeSelectsOnEscape);
+    window.addEventListener('resize', updateFilterIndicator);
 
     void initBackend();
 
@@ -115,8 +132,24 @@
       mqShort.removeEventListener('change', onShort);
       document.removeEventListener('click', closeSelects);
       document.removeEventListener('keydown', closeSelectsOnEscape);
+      window.removeEventListener('resize', updateFilterIndicator);
     };
   });
+
+  async function scheduleFilterIndicatorUpdate(): Promise<void> {
+    await tick();
+    updateFilterIndicator();
+  }
+
+  function updateFilterIndicator(): void {
+    if (!filterPillsElement) return;
+    const activeButton = filterPillsElement.querySelector<HTMLElement>(`[data-filter="${filterBy}"]`);
+    if (!activeButton) return;
+    filterIndicator = {
+      left: activeButton.offsetLeft,
+      width: activeButton.offsetWidth
+    };
+  }
 
   async function initBackend(): Promise<void> {
     try {
@@ -186,10 +219,13 @@
   function setTab(tab: TabId): void {
     activeTab = tab;
     navOpen = false;
+    mobileMenuOpen = false;
     openSelect = null;
+    detailRow = null;
   }
 
   function toggleSelect(select: 'console' | 'sort'): void {
+    mobileMenuOpen = false;
     openSelect = openSelect === select ? null : select;
   }
 
@@ -201,6 +237,11 @@
   function selectSort(sortId: string): void {
     sortBy = sortId;
     openSelect = null;
+  }
+
+  function toggleMobileMenu(): void {
+    openSelect = null;
+    mobileMenuOpen = !mobileMenuOpen;
   }
 
   function selectedConsoleLabel(): string {
@@ -218,6 +259,9 @@
     // Optimistic mutation so the chip flips instantly.
     row.state[field] = next;
     rows = rows;
+    if (detailRow?.id === row.id && detailRow.kind === row.kind) {
+      detailRow = row;
+    }
 
     try {
       await backend.setItemStatus({
@@ -234,6 +278,9 @@
       // Roll back on failure.
       row.state[field] = !next;
       rows = rows;
+      if (detailRow?.id === row.id && detailRow.kind === row.kind) {
+        detailRow = row;
+      }
       error = cause instanceof Error ? cause.message : String(cause);
     }
   }
@@ -256,12 +303,16 @@
       const { [row.id]: _drop, ...rest } = pendingNotes;
       pendingNotes = rest;
       rows = rows;
+      if (detailRow?.id === row.id && detailRow.kind === row.kind) {
+        detailRow = row;
+      }
     } catch (cause) {
       error = cause instanceof Error ? cause.message : String(cause);
     }
   }
 
   async function importCollection(): Promise<void> {
+    mobileMenuOpen = false;
     if (!backend?.importFromFile) return;
     const imported = await backend.importFromFile();
     if (!imported) return;
@@ -270,6 +321,7 @@
   }
 
   async function exportCollection(): Promise<void> {
+    mobileMenuOpen = false;
     if (backend?.exportToFile) {
       await backend.exportToFile();
       return;
@@ -277,6 +329,35 @@
     if (backend) {
       await backend.exportJson();
     }
+  }
+
+  async function backupCollection(): Promise<void> {
+    await exportCollection();
+  }
+
+  async function restoreCollection(): Promise<void> {
+    await importCollection();
+  }
+
+  function openDetails(row: RowView): void {
+    if (!isMobile) return;
+    mobileMenuOpen = false;
+    openSelect = null;
+    detailRow = row;
+  }
+
+  function closeDetails(discardPending = true): void {
+    if (detailRow && discardPending) {
+      const { [detailRow.id]: _drop, ...rest } = pendingNotes;
+      pendingNotes = rest;
+    }
+    detailRow = null;
+  }
+
+  async function saveDetails(): Promise<void> {
+    if (!detailRow) return;
+    await flushNotes(detailRow);
+    closeDetails(false);
   }
 
   function rowTitle(row: RowView): string {
@@ -290,6 +371,13 @@
     return `${row.game} / ${row.category} / ${row.baseColor}`;
   }
 
+  function rowMobileSubtitle(row: RowView): string {
+    if (isConsoleView(row)) return `${row.manufacturer} · ${row.year}`;
+    if (isGameView(row)) return `${row.consoleName} · ${row.year || 'Unknown year'}`;
+    if (isLegoView(row)) return `${row.category} · ${row.year}`;
+    return `${row.game} · ${row.category}`;
+  }
+
   function rowMeta(row: RowView): string | null {
     if (isConsoleView(row)) {
       return `${row.gameCounts.owned} owned / ${row.gameCounts.favorite} favorite / ${row.gameCounts.wishlist} wishlist`;
@@ -297,8 +385,39 @@
     return null;
   }
 
+  function rowMobileMeta(row: RowView): string | null {
+    if (isConsoleView(row)) {
+      return `${row.gameCounts.owned} owned · ${row.gameCounts.favorite} fav · ${row.gameCounts.wishlist} wish`;
+    }
+    const states = [
+      row.state.owned ? 'owned' : 'not owned',
+      row.state.favorite ? 'fav' : 'not fav',
+      row.state.wishlist ? 'wish' : 'not wish'
+    ];
+    return states.join(' · ');
+  }
+
   function notesValue(row: RowView): string {
     return pendingNotes[row.id] ?? row.state.notes;
+  }
+
+  function notePreview(row: RowView): string {
+    return notesValue(row).trim();
+  }
+
+  function detailStats(row: RowView): Array<{ label: string; value: string | number }> {
+    if (isConsoleView(row)) {
+      return [
+        { label: 'Owned', value: row.gameCounts.owned },
+        { label: 'Favorite', value: row.gameCounts.favorite },
+        { label: 'Wishlist', value: row.gameCounts.wishlist }
+      ];
+    }
+    return [
+      { label: 'Owned', value: row.state.owned ? 'Yes' : 'No' },
+      { label: 'Favorite', value: row.state.favorite ? 'Yes' : 'No' },
+      { label: 'Wishlist', value: row.state.wishlist ? 'Yes' : 'No' }
+    ];
   }
 
   function getSortOptions(tab: TabId): Array<{ id: string; label: string }> {
@@ -336,15 +455,11 @@
   }
 
   function estimatedRowHeight(tab: TabId, mobile: boolean, short: boolean): number {
-    // Cards include a notes textarea + 3 status buttons. Consoles also
-    // render an extra meta line (owned/favorite/wishlist counts). Heights
-    // include a small inter-card gap controlled by .row-slot padding.
     if (mobile && short) {
-      // Landscape phones / short windows: tighter rows, side-by-side head.
-      return tab === 'consoles' ? 168 : 148;
+      return 100;
     }
     if (mobile) {
-      return tab === 'consoles' ? 280 : 250;
+      return 118;
     }
     return tab === 'consoles' ? 208 : 188;
   }
@@ -436,7 +551,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        <small>Memory Pak // v0.3</small>
+        <small>v0.3</small>
       </div>
     </aside>
 
@@ -453,6 +568,12 @@
           <h1>{tabs.find((tab) => tab.id === activeTab)?.label}</h1>
           <p>
             {rows.length.toLocaleString()} shown
+            <span class="mobile-inline-stats">
+              · {summary.owned.toLocaleString()} owned
+              {#if summary.favorite > 0 || activeTab === 'consoles' || activeTab === 'games'}
+                · {summary.favorite.toLocaleString()} favorite
+              {/if}
+            </span>
             {#if refreshing}<span class="dim"> // syncing</span>{/if}
           </p>
           <div
@@ -494,6 +615,26 @@
             <span>Export</span>
           </button>
         </div>
+        <div class="mobile-menu-wrap">
+          <button
+            class="icon-button mobile-more"
+            type="button"
+            aria-label="Open collection actions"
+            aria-expanded={mobileMenuOpen}
+            on:click={toggleMobileMenu}
+          >
+            <MoreVertical size={20} />
+          </button>
+
+          {#if mobileMenuOpen}
+            <div class="mobile-action-menu" role="menu" transition:fade={dropdownFade}>
+              <button type="button" role="menuitem" on:click={importCollection}>Import</button>
+              <button type="button" role="menuitem" on:click={exportCollection}>Export</button>
+              <button type="button" role="menuitem" on:click={backupCollection}>Backup</button>
+              <button type="button" role="menuitem" on:click={restoreCollection}>Restore</button>
+            </div>
+          {/if}
+        </div>
       </header>
 
       <section class="toolbar" aria-label="Filters">
@@ -512,15 +653,23 @@
           {/if}
         </label>
 
-        <div class="filter-pills" role="tablist" aria-label="Filter by status">
+        <div
+          bind:this={filterPillsElement}
+          class="filter-pills"
+          class:ready={filterIndicator.width > 0}
+          style={`--filter-left: ${filterIndicator.left}px; --filter-width: ${filterIndicator.width}px`}
+          role="tablist"
+          aria-label="Filter by status"
+        >
           {#each filters as filter}
             <button
               role="tab"
+              data-filter={filter.id}
               aria-selected={filterBy === filter.id}
               class:active={filterBy === filter.id}
               on:click={() => (filterBy = filter.id)}
             >
-              {filter.label}
+              {isMobile ? filter.mobileLabel : filter.label}
             </button>
           {/each}
         </div>
@@ -540,8 +689,13 @@
                 <ChevronDown size={16} />
               </button>
 
-              {#if openSelect === 'console'}
-                <div class="select-popover" role="listbox" aria-label="Console" transition:fade>
+              {#if openSelect === 'console' && !isMobile}
+                <div
+                  class="select-popover"
+                  role="listbox"
+                  aria-label="Console"
+                  transition:fade={dropdownFade}
+                >
                   <button
                     type="button"
                     role="option"
@@ -580,9 +734,14 @@
               <ChevronDown size={16} />
             </button>
 
-            {#if openSelect === 'sort'}
-              <div class="select-popover compact" role="listbox" aria-label="Sort" transition:fade>
-              {#each sortOptions as option}
+            {#if openSelect === 'sort' && !isMobile}
+              <div
+                class="select-popover compact"
+                role="listbox"
+                aria-label="Sort"
+                transition:fade={dropdownFade}
+              >
+                {#each sortOptions as option}
                   <button
                     type="button"
                     role="option"
@@ -592,7 +751,7 @@
                   >
                     {option.label}
                   </button>
-              {/each}
+                {/each}
               </div>
             {/if}
           </div>
@@ -625,63 +784,99 @@
                   class="row-slot"
                   style={`height: ${virtualRow.size}px; transform: translateY(${virtualRow.start}px)`}
                 >
-                  <article
-                    class="card"
-                    class:owned={row.state.owned}
-                    class:favorite={row.state.favorite}
-                    class:wishlist={row.state.wishlist}
-                    data-kind={row.kind}
-                  >
-                    <header class="card-head">
-                      <div class="card-title">
+                  {#if isMobile}
+                    <button
+                      type="button"
+                      class="mobile-card"
+                      class:owned={row.state.owned}
+                      class:favorite={row.state.favorite}
+                      class:wishlist={row.state.wishlist}
+                      data-kind={row.kind}
+                      on:click={() => openDetails(row)}
+                    >
+                      <span class="mobile-card-top">
                         <strong title={rowTitle(row)}>{rowTitle(row)}</strong>
-                        <span title={rowSubtitle(row)}>{rowSubtitle(row)}</span>
-                        {#if rowMeta(row)}
-                          <small>{rowMeta(row)}</small>
-                        {/if}
-                      </div>
-                      <div class="card-actions" role="group" aria-label="Status">
-                        <button
-                          type="button"
-                          class:pressed={row.state.owned}
-                          on:click={() => toggleStatus(row, 'owned')}
-                          aria-pressed={row.state.owned}
-                          title="Toggle owned"
-                        >
-                          <Check size={16} />
-                          <span>Owned</span>
-                        </button>
-                        <button
-                          type="button"
-                          class:pressed={row.state.favorite}
-                          on:click={() => toggleStatus(row, 'favorite')}
-                          aria-pressed={row.state.favorite}
-                          title="Toggle favorite"
-                        >
-                          <Star size={16} />
-                          <span>Favorite</span>
-                        </button>
-                        <button
-                          type="button"
-                          class:pressed={row.state.wishlist}
-                          on:click={() => toggleStatus(row, 'wishlist')}
-                          aria-pressed={row.state.wishlist}
-                          title="Toggle wishlist"
-                        >
-                          <Heart size={16} />
-                          <span>Wishlist</span>
-                        </button>
-                      </div>
-                    </header>
-                    <textarea
-                      class="card-notes"
-                      placeholder="Notes"
-                      rows="2"
-                      value={notesValue(row)}
-                      on:input={(event) => onNotesInput(row.id, event.currentTarget.value)}
-                      on:blur={() => flushNotes(row)}
-                    ></textarea>
-                  </article>
+                        <span class="mobile-status-icons" aria-hidden="true">
+                          <span class="mobile-status-icon owned" class:active={row.state.owned}>
+                            <Check size={16} />
+                          </span>
+                          <span class="mobile-status-icon favorite" class:active={row.state.favorite}>
+                            <Star size={16} />
+                          </span>
+                          <span class="mobile-status-icon wishlist" class:active={row.state.wishlist}>
+                            <Heart size={16} />
+                          </span>
+                        </span>
+                      </span>
+                      <span class="mobile-card-subtitle" title={rowMobileSubtitle(row)}>
+                        {rowMobileSubtitle(row)}
+                      </span>
+                      {#if rowMobileMeta(row)}
+                        <span class="mobile-card-meta">{rowMobileMeta(row)}</span>
+                      {/if}
+                      {#if notePreview(row)}
+                        <span class="mobile-card-note">Note: {notePreview(row)}</span>
+                      {/if}
+                    </button>
+                  {:else}
+                    <article
+                      class="card"
+                      class:owned={row.state.owned}
+                      class:favorite={row.state.favorite}
+                      class:wishlist={row.state.wishlist}
+                      data-kind={row.kind}
+                    >
+                      <header class="card-head">
+                        <div class="card-title">
+                          <strong title={rowTitle(row)}>{rowTitle(row)}</strong>
+                          <span title={rowSubtitle(row)}>{rowSubtitle(row)}</span>
+                          {#if rowMeta(row)}
+                            <small>{rowMeta(row)}</small>
+                          {/if}
+                        </div>
+                        <div class="card-actions" role="group" aria-label="Status">
+                          <button
+                            type="button"
+                            class:pressed={row.state.owned}
+                            on:click={() => toggleStatus(row, 'owned')}
+                            aria-pressed={row.state.owned}
+                            title="Toggle owned"
+                          >
+                            <Check size={16} />
+                            <span>Owned</span>
+                          </button>
+                          <button
+                            type="button"
+                            class:pressed={row.state.favorite}
+                            on:click={() => toggleStatus(row, 'favorite')}
+                            aria-pressed={row.state.favorite}
+                            title="Toggle favorite"
+                          >
+                            <Star size={16} />
+                            <span>Favorite</span>
+                          </button>
+                          <button
+                            type="button"
+                            class:pressed={row.state.wishlist}
+                            on:click={() => toggleStatus(row, 'wishlist')}
+                            aria-pressed={row.state.wishlist}
+                            title="Toggle wishlist"
+                          >
+                            <Heart size={16} />
+                            <span>Wishlist</span>
+                          </button>
+                        </div>
+                      </header>
+                      <textarea
+                        class="card-notes"
+                        placeholder="Notes"
+                        rows="2"
+                        value={notesValue(row)}
+                        on:input={(event) => onNotesInput(row.id, event.currentTarget.value)}
+                        on:blur={() => flushNotes(row)}
+                      ></textarea>
+                    </article>
+                  {/if}
                 </div>
               {/each}
             </div>
@@ -692,11 +887,141 @@
 
     <nav class="bottom-tabs" aria-label="Collection sections">
       {#each tabs as tab}
-        <button class:active={activeTab === tab.id} on:click={() => setTab(tab.id)}>
+        <button aria-label={tab.label} class:active={activeTab === tab.id} on:click={() => setTab(tab.id)}>
           <svelte:component this={tab.icon} size={20} />
-          <span>{tab.label}</span>
+          <span>{tab.mobileLabel}</span>
         </button>
       {/each}
     </nav>
+
+    {#if isMobile && openSelect}
+      <button class="sheet-scrim" aria-label="Close selector" on:click={() => (openSelect = null)} transition:fade={dropdownFade}></button>
+      <dialog
+        class="bottom-sheet option-sheet"
+        open
+        aria-labelledby="option-sheet-title"
+      >
+        <span class="sheet-handle"></span>
+        <header class="sheet-header">
+          <h2 id="option-sheet-title">{openSelect === 'sort' ? 'Sort by' : 'Console'}</h2>
+          <button class="icon-button" type="button" aria-label="Close selector" on:click={() => (openSelect = null)}>
+            <X size={18} />
+          </button>
+        </header>
+
+        {#if openSelect === 'sort'}
+          <div class="sheet-options" role="listbox" aria-label="Sort by">
+            {#each sortOptions as option}
+              <button
+                type="button"
+                role="option"
+                aria-selected={sortBy === option.id}
+                class:selected={sortBy === option.id}
+                on:click={() => selectSort(option.id)}
+              >
+                <span>{sortBy === option.id ? '●' : '○'}</span>
+                {option.label}
+              </button>
+            {/each}
+          </div>
+        {:else}
+          <div class="sheet-options" role="listbox" aria-label="Console">
+            <button
+              type="button"
+              role="option"
+              aria-selected={selectedConsole === 'all'}
+              class:selected={selectedConsole === 'all'}
+              on:click={() => selectConsole('all')}
+            >
+              <span>{selectedConsole === 'all' ? '●' : '○'}</span>
+              All consoles
+            </button>
+            {#each initial?.consoles ?? [] as console}
+              <button
+                type="button"
+                role="option"
+                aria-selected={selectedConsole === console.id}
+                class:selected={selectedConsole === console.id}
+                on:click={() => selectConsole(console.id)}
+              >
+                <span>{selectedConsole === console.id ? '●' : '○'}</span>
+                {console.name}
+              </button>
+            {/each}
+          </div>
+        {/if}
+      </dialog>
+    {/if}
+
+    {#if detailRow}
+      <button class="sheet-scrim" aria-label="Close details" on:click={() => closeDetails()} transition:fade={dropdownFade}></button>
+      <dialog class="bottom-sheet detail-sheet" open aria-labelledby="detail-sheet-title">
+        <span class="sheet-handle"></span>
+        <header class="sheet-header">
+          <div>
+            <h2 id="detail-sheet-title">{rowTitle(detailRow)}</h2>
+            <p>{rowMobileSubtitle(detailRow)}</p>
+          </div>
+          <button class="icon-button" type="button" aria-label="Close details" on:click={() => closeDetails()}>
+            <X size={18} />
+          </button>
+        </header>
+
+        <div class="sheet-actions" role="group" aria-label="Status">
+          <button
+            type="button"
+            class:pressed={detailRow.state.owned}
+            on:click={() => toggleStatus(detailRow!, 'owned')}
+            aria-pressed={detailRow.state.owned}
+          >
+            <Check size={16} />
+            Owned
+          </button>
+          <button
+            type="button"
+            class:pressed={detailRow.state.favorite}
+            on:click={() => toggleStatus(detailRow!, 'favorite')}
+            aria-pressed={detailRow.state.favorite}
+          >
+            <Star size={16} />
+            Favorite
+          </button>
+          <button
+            type="button"
+            class:pressed={detailRow.state.wishlist}
+            on:click={() => toggleStatus(detailRow!, 'wishlist')}
+            aria-pressed={detailRow.state.wishlist}
+          >
+            <Heart size={16} />
+            Wishlist
+          </button>
+        </div>
+
+        <section class="sheet-section">
+          <h3>Stats</h3>
+          <dl class="detail-stats">
+            {#each detailStats(detailRow) as stat}
+              <div>
+                <dt>{stat.label}</dt>
+                <dd>{stat.value}</dd>
+              </div>
+            {/each}
+          </dl>
+        </section>
+
+        <section class="sheet-section">
+          <h3>Notes</h3>
+          <textarea
+            class="detail-notes"
+            placeholder="No notes"
+            rows="4"
+            value={notesValue(detailRow)}
+            on:input={(event) => onNotesInput(detailRow!.id, event.currentTarget.value)}
+          ></textarea>
+        </section>
+
+        <button class="sheet-save" type="button" on:click={saveDetails}>Save</button>
+      </dialog>
+    {/if}
   </div>
 {/if}
