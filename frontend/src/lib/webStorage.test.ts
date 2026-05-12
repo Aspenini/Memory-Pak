@@ -1,50 +1,41 @@
-import { describe, expect, it, beforeEach } from 'vitest';
-import { loadPersistedState, savePersistedState } from './webStorage';
-import type { PersistedState } from './types';
+import { describe, expect, it, beforeEach, vi } from 'vitest';
 
-beforeEach(() => {
-  localStorage.clear();
+beforeEach(async () => {
+  // Install a fresh in-memory IndexedDB for each test...
+  const { IDBFactory } = await import('fake-indexeddb');
+  Object.defineProperty(globalThis, 'indexedDB', {
+    value: new IDBFactory(),
+    configurable: true,
+    writable: true
+  });
+  // ...and force webStorage to be re-imported so its cached connection
+  // points at the new IndexedDB instance.
+  vi.resetModules();
 });
 
-describe('web storage compatibility', () => {
-  it('loads existing localStorage keys', () => {
-    localStorage.setItem(
-      'memory_pak_console_states',
-      JSON.stringify([{ console_id: 'nes', owned: true, favorite: false, wishlist: false, notes: '' }])
-    );
-    localStorage.setItem(
-      'memory_pak_state_nes',
-      JSON.stringify([{ game_id: 'nes-aaaaaaaaaaaaaaaa', owned: false, favorite: true, wishlist: false, notes: '' }])
-    );
-
-    const state = loadPersistedState();
-
-    expect(state.console_states.nes.owned).toBe(true);
-    expect(state.game_states['nes-aaaaaaaaaaaaaaaa'].favorite).toBe(true);
+describe('web storage (IndexedDB)', () => {
+  it('returns an empty state when nothing is persisted', async () => {
+    const { loadPersistedState } = await import('./webStorage');
+    const state = await loadPersistedState();
+    expect(state.entries).toEqual({});
   });
 
-  it('saves the versioned snapshot and legacy split files', () => {
-    const state: PersistedState = {
-      console_states: {
-        nes: { console_id: 'nes', owned: true, favorite: false, wishlist: false, notes: '' }
-      },
-      game_states: {
-        'nes-aaaaaaaaaaaaaaaa': {
-          game_id: 'nes-aaaaaaaaaaaaaaaa',
+  it('round-trips entries through IndexedDB', async () => {
+    const { loadPersistedState, savePersistedState } = await import('./webStorage');
+    await savePersistedState({
+      entries: {
+        'console:nes': { owned: true, favorite: false, wishlist: false, notes: '' },
+        'game:nes/super-mario-bros': {
           owned: true,
-          favorite: false,
+          favorite: true,
           wishlist: false,
           notes: 'cart only'
         }
-      },
-      lego_dimensions_states: {},
-      skylanders_states: {}
-    };
+      }
+    });
 
-    savePersistedState(state);
-
-    expect(localStorage.getItem('memory_pak_state_v2')).toContain('cart only');
-    expect(localStorage.getItem('memory_pak_state_nes')).toContain('cart only');
+    const state = await loadPersistedState();
+    expect(state.entries['console:nes']?.owned).toBe(true);
+    expect(state.entries['game:nes/super-mario-bros']?.notes).toBe('cart only');
   });
 });
-

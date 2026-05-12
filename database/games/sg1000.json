@@ -1,0 +1,1965 @@
+{
+  "schema_version": 1,
+  "console": {
+    "id": "sg1000",
+    "name": "SG-1000",
+    "manufacturer": "Sega",
+    "family": "Sega",
+    "form_factor": "home",
+    "generation": 2,
+    "abbreviation": "SG-1000",
+    "launch_year": 1983
+  },
+  "source": {
+    "type": "wikipedia",
+    "files": [
+      "List of SG-1000 games - Wikipedia.html"
+    ],
+    "extracted_at": "2026-05-12T20:29:27Z"
+  },
+  "counts": {
+    "total": 114,
+    "released": 114,
+    "unreleased": 0
+  },
+  "games": [
+    {
+      "title": "Addition Tutor",
+      "slug": "addition-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Alpha Alphabet",
+      "slug": "alpha-alphabet",
+      "developer": "Wayne G. Richmond",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Australian General Knowledge Tutor",
+      "slug": "australian-general-knowledge-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Australian Geography Tutor",
+      "slug": "australian-geography-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Bank Panic",
+      "slug": "bank-panic",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-09",
+      "releases": {
+        "jp": "1985-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Blackjack",
+      "slug": "blackjack",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-08",
+        "br": null
+      }
+    },
+    {
+      "title": "Bomb Jack",
+      "slug": "bomb-jack",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-12",
+      "releases": {
+        "jp": "1985-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Borderline",
+      "slug": "borderline",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": "1984-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "C-So!",
+      "slug": "c-so",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986-02",
+      "releases": {
+        "jp": "1986-02",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chack'n Pop",
+      "slug": "chack-n-pop",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-09",
+      "releases": {
+        "jp": "1985-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Baseball",
+      "slug": "champion-baseball",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-10",
+      "releases": {
+        "jp": "1983-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Billiards",
+      "slug": "champion-billiards",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986",
+      "releases": {
+        "jp": "1986",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Boxing",
+      "slug": "champion-boxing",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-10",
+      "releases": {
+        "jp": "1984-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Golf",
+      "slug": "champion-golf",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-03",
+      "releases": {
+        "jp": "1984-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-06",
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Ice Hockey",
+      "slug": "champion-ice-hockey",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-12",
+      "releases": {
+        "jp": "1985-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Kendo",
+      "slug": "champion-kendo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986-04",
+      "releases": {
+        "jp": "1986-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Pro Wrestling",
+      "slug": "champion-pro-wrestling",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-03",
+      "releases": {
+        "jp": "1985-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Soccer",
+      "slug": "champion-soccer",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-11",
+      "releases": {
+        "jp": "1984-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Champion Tennis",
+      "slug": "champion-tennis",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-08",
+      "releases": {
+        "jp": "1983-08",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983-11",
+        "br": null
+      }
+    },
+    {
+      "title": "Championship Lode Runner",
+      "slug": "championship-lode-runner",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-12",
+      "releases": {
+        "jp": "1985-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Choplifter",
+      "slug": "choplifter",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-07",
+      "releases": {
+        "jp": "1985-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuugaku Hisshuu Eibunpou (Chuugaku 1-Nen)",
+      "slug": "chuugaku-hisshuu-eibunpou-chuugaku-1-nen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuugaku Hisshuu Eibunpou (Chuugaku 2-Nen)",
+      "slug": "chuugaku-hisshuu-eibunpou-chuugaku-2-nen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuugaku Hisshuu Eisakubun (Chuugaku 1-Nen)",
+      "slug": "chuugaku-hisshuu-eisakubun-chuugaku-1-nen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuugaku Hisshuu Eisakubun (Chuugaku 2-Nen)",
+      "slug": "chuugaku-hisshuu-eisakubun-chuugaku-2-nen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuugaku Hisshuu Eitango (Chuugaku 1-Nen)",
+      "slug": "chuugaku-hisshuu-eitango-chuugaku-1-nen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuugaku Hisshuu Eitango (Chuugaku 2-Nen)",
+      "slug": "chuugaku-hisshuu-eitango-chuugaku-2-nen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Congo Bongo",
+      "slug": "congo-bongo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-07-15",
+      "releases": {
+        "jp": "1983-07-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983-11",
+        "br": null
+      }
+    },
+    {
+      "title": "Demon Division",
+      "slug": "demon-division",
+      "developer": "Pyramid Software",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Division Tutor",
+      "slug": "division-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Doki Doki Penguin Land",
+      "slug": "doki-doki-penguin-land",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-07",
+      "releases": {
+        "jp": "1985-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dragon Wang",
+      "slug": "dragon-wang",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-07",
+      "releases": {
+        "jp": "1985-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dragonquest",
+      "slug": "dragonquest",
+      "developer": "Hercules Gunter",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-07",
+        "br": null
+      }
+    },
+    {
+      "title": "Drol",
+      "slug": "drol",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-10",
+      "releases": {
+        "jp": "1985-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Elevator Action",
+      "slug": "elevator-action",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-11",
+      "releases": {
+        "jp": "1985-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Environoid",
+      "slug": "environoid",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Exerion",
+      "slug": "exerion",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-03",
+      "releases": {
+        "jp": "1984-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-06",
+        "br": null
+      }
+    },
+    {
+      "title": "Flashword 1",
+      "slug": "flashword-1",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Flashword 2",
+      "slug": "flashword-2",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Flicky",
+      "slug": "flicky",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-12",
+      "releases": {
+        "jp": "1984-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Girl's Garden",
+      "slug": "girl-s-garden",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-01",
+      "releases": {
+        "jp": "1985-01",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Golgo 13",
+      "slug": "golgo-13",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-04",
+      "releases": {
+        "jp": "1984-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GP World",
+      "slug": "gp-world",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-04",
+      "releases": {
+        "jp": "1985-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gulkave",
+      "slug": "gulkave",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986",
+      "releases": {
+        "jp": "1986",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "H.E.R.O.",
+      "slug": "h-e-r-o",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-12",
+      "releases": {
+        "jp": "1985-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hang-On II",
+      "slug": "hang-on-ii",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-12",
+      "releases": {
+        "jp": "1985-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Heroic Quest",
+      "slug": "heroic-quest",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Home Mahjong",
+      "slug": "home-mahjong",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-12",
+      "releases": {
+        "jp": "1984-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hustle Chumy",
+      "slug": "hustle-chumy",
+      "developer": "Compile Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-11",
+      "releases": {
+        "jp": "1984-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hyper Sports",
+      "slug": "hyper-sports",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-04",
+      "releases": {
+        "jp": "1985-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ice Cream Stall",
+      "slug": "ice-cream-stall",
+      "developer": "Pyramid Software",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-08",
+        "br": null
+      }
+    },
+    {
+      "title": "Kagaku (Gensokigou Master)",
+      "slug": "kagaku-gensokigou-master",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Keyboard Learning Program",
+      "slug": "keyboard-learning-program",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Learning the Alphabet",
+      "slug": "learning-the-alphabet",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Learning to Count",
+      "slug": "learning-to-count",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Lode Runner",
+      "slug": "lode-runner",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-09",
+      "releases": {
+        "jp": "1984-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Loretta no Shōzō: Sherlock Holmes",
+      "slug": "loretta-no-shozo-sherlock-holmes",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1987-02-18",
+      "releases": {
+        "jp": "1987-02-18",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mahjong",
+      "slug": "mahjong",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-07-15",
+      "releases": {
+        "jp": "1983-07-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Marauding Multiplication",
+      "slug": "marauding-multiplication",
+      "developer": "Pyramid Software",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Metric Mentals",
+      "slug": "metric-mentals",
+      "developer": "Wayne G. Richmond",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Monaco GP",
+      "slug": "monaco-gp",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-12",
+      "releases": {
+        "jp": "1983-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Multiplication Tutor",
+      "slug": "multiplication-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Music",
+      "slug": "music",
+      "developer": "Mitec",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "N-Sub",
+      "slug": "n-sub",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-07-15",
+      "releases": {
+        "jp": "1983-07-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983-11",
+        "br": null
+      }
+    },
+    {
+      "title": "Nihonshi Nenpyou",
+      "slug": "nihonshi-nenpyou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninja Princess",
+      "slug": "ninja-princess",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986-02",
+      "releases": {
+        "jp": "1986-02",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Orguss",
+      "slug": "orguss",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-05",
+      "releases": {
+        "jp": "1984-05",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-10",
+        "br": null
+      }
+    },
+    {
+      "title": "Othello",
+      "slug": "othello",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-07",
+      "releases": {
+        "jp": "1985-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pacar",
+      "slug": "pacar",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-11",
+      "releases": {
+        "jp": "1983-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Pachinko",
+      "slug": "pachinko",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-12",
+      "releases": {
+        "jp": "1983-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pachinko II",
+      "slug": "pachinko-ii",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-04",
+      "releases": {
+        "jp": "1984-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pitfall II: Lost Caverns",
+      "slug": "pitfall-ii-lost-caverns",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-07",
+      "releases": {
+        "jp": "1985-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pop Flamer",
+      "slug": "pop-flamer",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-11",
+      "releases": {
+        "jp": "1983-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Reverso",
+      "slug": "reverso",
+      "developer": "Gold Record Software",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-08",
+        "br": null
+      }
+    },
+    {
+      "title": "Rock n' Bolt",
+      "slug": "rock-n-bolt",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-11",
+      "releases": {
+        "jp": "1985-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Roman Numbers-Up",
+      "slug": "roman-numbers-up",
+      "developer": "Wayne G. Richmond",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Safari Hunting",
+      "slug": "safari-hunting",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-08",
+      "releases": {
+        "jp": "1983-08",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983-11",
+        "br": null
+      }
+    },
+    {
+      "title": "Safari Race",
+      "slug": "safari-race",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-07",
+      "releases": {
+        "jp": "1984-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-10",
+        "br": null
+      }
+    },
+    {
+      "title": "Satellite Subtraction",
+      "slug": "satellite-subtraction",
+      "developer": "Pyramid Software",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Sega Flipper",
+      "slug": "sega-flipper",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-10",
+      "releases": {
+        "jp": "1983-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Sega-Galaga",
+      "slug": "sega-galaga",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-11",
+      "releases": {
+        "jp": "1983-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sekaishi Nenpyou (Monbushou Shidouyouryou Junkyo)",
+      "slug": "sekaishi-nenpyou-monbushou-shidouyouryou-junkyo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Serizawa Hachidan no Tsume Shōgi",
+      "slug": "serizawa-hachidan-no-tsume-shogi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-07-15",
+      "releases": {
+        "jp": "1983-07-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shinnyū Shain Tōru-kun",
+      "slug": "shinnyu-shain-toru-kun",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-04",
+      "releases": {
+        "jp": "1985-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sindbad Mystery",
+      "slug": "sindbad-mystery",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-01",
+      "releases": {
+        "jp": "1984-01",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Sokoban",
+      "slug": "sokoban",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-12",
+      "releases": {
+        "jp": "1985-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Solar Conquest",
+      "slug": "solar-conquest",
+      "developer": "Programming Concepts",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-07",
+        "br": null
+      }
+    },
+    {
+      "title": "Space Invaders",
+      "slug": "space-invaders",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-06",
+      "releases": {
+        "jp": "1985-06",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Space Slalom",
+      "slug": "space-slalom",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-12",
+      "releases": {
+        "jp": "1983-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Spelling Tutor",
+      "slug": "spelling-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Spellomatic 1",
+      "slug": "spellomatic-1",
+      "developer": "Wayne G. Richmond",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Spellomatic 2",
+      "slug": "spellomatic-2",
+      "developer": "Wayne G. Richmond",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Star Force",
+      "slug": "star-force",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985",
+      "releases": {
+        "jp": "1985",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Jacker",
+      "slug": "star-jacker",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-07-15",
+      "releases": {
+        "jp": "1983-07-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983-11",
+        "br": null
+      }
+    },
+    {
+      "title": "Subtraction Tutor",
+      "slug": "subtraction-tutor",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983",
+        "br": null
+      }
+    },
+    {
+      "title": "Super Tank",
+      "slug": "super-tank",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986",
+      "releases": {
+        "jp": "1986",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tank Addition",
+      "slug": "tank-addition",
+      "developer": "Pyramid Software",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshī Sansū (Shōgaku 4-Nensei-jō)",
+      "slug": "tanoshi-sansu-shogaku-4-nensei-jo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshī Sansū (Shōgaku 4-Nensei-ka)",
+      "slug": "tanoshi-sansu-shogaku-4-nensei-ka",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshī Sansū (Shōgaku 5-Nensei-jō)",
+      "slug": "tanoshi-sansu-shogaku-5-nensei-jo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshī Sansū (Shōgaku 5-Nensei-ka)",
+      "slug": "tanoshi-sansu-shogaku-5-nensei-ka",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshī Sansū (Shōgaku 6-Nensei-jō)",
+      "slug": "tanoshi-sansu-shogaku-6-nensei-jo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshī Sansū (Shōgaku 6-Nensei-ka)",
+      "slug": "tanoshi-sansu-shogaku-6-nensei-ka",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Black Onyx",
+      "slug": "the-black-onyx",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1987",
+      "releases": {
+        "jp": "1987",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Castle",
+      "slug": "the-castle",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986",
+      "releases": {
+        "jp": "1986",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Uranai Angel Cutie",
+      "slug": "uranai-angel-cutie",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-12",
+      "releases": {
+        "jp": "1984-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Watch Me Draw",
+      "slug": "watch-me-draw",
+      "developer": "John Sands Electronics",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Whiz Kid Mental Arithmetic",
+      "slug": "whiz-kid-mental-arithmetic",
+      "developer": "Wayne G. Richmond",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984",
+        "br": null
+      }
+    },
+    {
+      "title": "Wonder Boy",
+      "slug": "wonder-boy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1986",
+      "releases": {
+        "jp": "1986",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Word Block",
+      "slug": "word-block",
+      "developer": "Creative Print Ideas",
+      "publisher": "John Sands Electronics",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1984-08",
+        "br": null
+      }
+    },
+    {
+      "title": "Yamato",
+      "slug": "yamato",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1983-07-15",
+      "releases": {
+        "jp": "1983-07-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": "1983-11",
+        "br": null
+      }
+    },
+    {
+      "title": "Zaxxon",
+      "slug": "zaxxon",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-02",
+      "releases": {
+        "jp": "1985-02",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zippy Race",
+      "slug": "zippy-race",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1984-03",
+      "releases": {
+        "jp": "1984-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zoom 909",
+      "slug": "zoom-909",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1985-07",
+      "releases": {
+        "jp": "1985-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    }
+  ]
+}

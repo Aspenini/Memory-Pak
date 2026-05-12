@@ -1,32 +1,31 @@
 import { invoke } from '@tauri-apps/api/core';
 import { open, save } from '@tauri-apps/plugin-dialog';
 import type {
+  CollectibleView,
   CollectionStats,
   ConsoleView,
   GameView,
   InitialState,
-  LegoView,
   MemoryPakBackend,
-  PersistedState,
+  MutationResult,
   QueryInput,
   QueryResult,
   SetItemNotesInput,
-  SetItemStatusInput,
-  SkylanderView
+  SetItemStatusInput
 } from './types';
 
 export function createTauriBackend(): MemoryPakBackend {
   return {
     loadInitialState: () => invoke<InitialState>('load_initial_state'),
-    queryConsoles: (input: QueryInput) => invoke<QueryResult<ConsoleView>>('query_consoles', { input }),
+    queryConsoles: (input: QueryInput) =>
+      invoke<QueryResult<ConsoleView>>('query_consoles', { input }),
     queryGames: (input: QueryInput) => invoke<QueryResult<GameView>>('query_games', { input }),
-    queryLego: (input: QueryInput) => invoke<QueryResult<LegoView>>('query_lego', { input }),
-    querySkylanders: (input: QueryInput) =>
-      invoke<QueryResult<SkylanderView>>('query_skylanders', { input }),
+    queryCollectibles: (input: QueryInput) =>
+      invoke<QueryResult<CollectibleView>>('query_collectibles', { input }),
     setItemStatus: (input: SetItemStatusInput) =>
-      invoke<PersistedState>('set_item_status', { input }),
-    setItemNotes: (input: SetItemNotesInput) => invoke<PersistedState>('set_item_notes', { input }),
-    importJson: (json: string) => invoke<PersistedState>('import_json', { json }),
+      invoke<MutationResult>('set_item_status', { input }),
+    setItemNotes: (input: SetItemNotesInput) => invoke<MutationResult>('set_item_notes', { input }),
+    importJson: (json: string) => invoke<CollectionStats>('import_json', { json }),
     exportJson: () => invoke<string>('export_json'),
     getCollectionStats: () => invoke<CollectionStats>('get_collection_stats'),
     importFromFile: async () => {
@@ -35,7 +34,7 @@ export function createTauriBackend(): MemoryPakBackend {
         filters: [{ name: 'Memory Pak Export', extensions: ['json'] }]
       });
       if (typeof path !== 'string') return undefined;
-      return invoke<PersistedState>('import_from_path', { path });
+      return invoke<CollectionStats>('import_from_path', { path });
     },
     exportToFile: async () => {
       const path = await save({
@@ -47,4 +46,3 @@ export function createTauriBackend(): MemoryPakBackend {
     }
   };
 }
-

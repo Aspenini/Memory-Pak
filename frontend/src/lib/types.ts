@@ -1,8 +1,21 @@
-export type ItemKind = 'console' | 'game' | 'lego' | 'skylander';
-export type TabId = 'consoles' | 'games' | 'lego' | 'skylanders';
-export type FilterId = 'all' | 'owned' | 'favorites' | 'wishlist' | 'notOwned';
+export type ItemKind = 'console' | 'game' | 'collectible';
+export type TabId = 'consoles' | 'games' | 'collectibles';
+export type FilterBy = 'all' | 'owned' | 'favorites' | 'wishlist' | 'notOwned';
+export type SortKey =
+  | 'title'
+  | 'name'
+  | 'year'
+  | 'status'
+  | 'category'
+  | 'group'
+  | 'collection'
+  | 'variant'
+  | 'manufacturer';
 
-export interface StatusState {
+/** Wire form of an EntryId; structurally `kind:locator`. */
+export type EntryId = string;
+
+export interface EntryState {
   owned: boolean;
   favorite: boolean;
   wishlist: boolean;
@@ -17,47 +30,51 @@ export interface ConsoleCounts {
 
 export interface ConsoleView {
   kind: 'console';
-  id: string;
+  id: EntryId;
+  shortId: string;
   name: string;
   manufacturer: string;
-  year: number;
-  variant?: string | null;
-  state: StatusState;
+  abbreviation: string;
+  generation: number;
+  state: EntryState;
   gameCounts: ConsoleCounts;
 }
 
 export interface GameView {
   kind: 'game';
-  id: string;
+  id: EntryId;
   title: string;
   year: number;
+  developer: string;
   publisher: string;
-  consoleId: string;
+  consoleId: EntryId;
   consoleName: string;
-  state: StatusState;
+  state: EntryState;
 }
 
-export interface LegoView {
-  kind: 'lego';
-  id: string;
+export interface CollectibleView {
+  kind: 'collectible';
+  id: EntryId;
+  collectionId: string;
+  collectionName: string;
   name: string;
   category: string;
+  group: string;
+  variant: string;
   year: number;
-  packId: string;
-  state: StatusState;
+  state: EntryState;
 }
 
-export interface SkylanderView {
-  kind: 'skylander';
+export interface CollectionView {
   id: string;
   name: string;
-  game: string;
-  baseColor: string;
-  category: string;
-  state: StatusState;
+  manufacturer: string;
+  kind: string;
+  total: number;
+  owned: number;
 }
 
-export type RowView = ConsoleView | GameView | LegoView | SkylanderView;
+export type RowView = ConsoleView | GameView | CollectibleView;
 
 export interface CollectionStats {
   totalConsoles: number;
@@ -68,25 +85,28 @@ export interface CollectionStats {
   ownedGames: number;
   favoriteGames: number;
   wishlistGames: number;
-  totalLegoDimensions: number;
-  ownedLegoDimensions: number;
-  totalSkylanders: number;
-  ownedSkylanders: number;
+  totalCollectibles: number;
+  ownedCollectibles: number;
+  favoriteCollectibles: number;
+  wishlistCollectibles: number;
 }
 
 export interface InitialState {
   stats: CollectionStats;
   consoles: ConsoleView[];
+  /** Consoles that have at least one game (Games tab console filter only). */
+  consolesWithGames: ConsoleView[];
+  collections: CollectionView[];
   totalGames: number;
-  totalLegoDimensions: number;
-  totalSkylanders: number;
+  totalCollectibles: number;
 }
 
 export interface QueryInput {
   search?: string;
-  sortBy?: string;
-  filterBy?: FilterId;
-  consoleId?: string;
+  sortBy?: SortKey;
+  filterBy?: FilterBy;
+  consoleId?: EntryId | 'all';
+  collectionId?: string | 'all';
   offset?: number;
   limit?: number;
 }
@@ -97,70 +117,38 @@ export interface QueryResult<T> {
 }
 
 export interface SetItemStatusInput {
-  kind: ItemKind;
-  id: string;
+  id: EntryId;
   owned?: boolean;
   favorite?: boolean;
   wishlist?: boolean;
 }
 
 export interface SetItemNotesInput {
-  kind: ItemKind;
-  id: string;
+  id: EntryId;
   notes: string;
 }
 
-export interface ConsoleState {
-  console_id: string;
-  owned: boolean;
-  favorite: boolean;
-  wishlist: boolean;
-  notes: string;
-}
-
-export interface GameState {
-  game_id: string;
-  owned: boolean;
-  favorite: boolean;
-  wishlist: boolean;
-  notes: string;
-}
-
-export interface LegoDimensionState {
-  figure_id: string;
-  owned: boolean;
-  favorite: boolean;
-  wishlist: boolean;
-  notes: string;
-}
-
-export interface SkylanderState {
-  skylander_id: string;
-  owned: boolean;
-  favorite: boolean;
-  wishlist: boolean;
-  notes: string;
+export interface MutationResult {
+  id: EntryId;
+  state: EntryState;
+  stats: CollectionStats;
 }
 
 export interface PersistedState {
-  console_states: Record<string, ConsoleState>;
-  game_states: Record<string, GameState>;
-  lego_dimensions_states: Record<string, LegoDimensionState>;
-  skylanders_states: Record<string, SkylanderState>;
+  entries: Record<EntryId, EntryState>;
 }
 
 export interface MemoryPakBackend {
   loadInitialState(): Promise<InitialState>;
   queryConsoles(input: QueryInput): Promise<QueryResult<ConsoleView>>;
   queryGames(input: QueryInput): Promise<QueryResult<GameView>>;
-  queryLego(input: QueryInput): Promise<QueryResult<LegoView>>;
-  querySkylanders(input: QueryInput): Promise<QueryResult<SkylanderView>>;
-  setItemStatus(input: SetItemStatusInput): Promise<PersistedState>;
-  setItemNotes(input: SetItemNotesInput): Promise<PersistedState>;
-  importJson(json: string): Promise<PersistedState>;
+  queryCollectibles(input: QueryInput): Promise<QueryResult<CollectibleView>>;
+  setItemStatus(input: SetItemStatusInput): Promise<MutationResult>;
+  setItemNotes(input: SetItemNotesInput): Promise<MutationResult>;
+  importJson(json: string): Promise<CollectionStats>;
   exportJson(): Promise<string>;
   getCollectionStats(): Promise<CollectionStats>;
-  importFromFile?(): Promise<PersistedState | undefined>;
+  importFromFile?(): Promise<CollectionStats | undefined>;
   exportToFile?(): Promise<void>;
 }
 
@@ -172,11 +160,6 @@ export function isGameView(row: RowView): row is GameView {
   return row.kind === 'game';
 }
 
-export function isLegoView(row: RowView): row is LegoView {
-  return row.kind === 'lego';
+export function isCollectibleView(row: RowView): row is CollectibleView {
+  return row.kind === 'collectible';
 }
-
-export function isSkylanderView(row: RowView): row is SkylanderView {
-  return row.kind === 'skylander';
-}
-

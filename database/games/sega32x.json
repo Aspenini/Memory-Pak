@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "console": {
+    "id": "sega32x",
+    "name": "Sega 32X",
+    "manufacturer": "Sega",
+    "family": "Sega",
+    "form_factor": "addon",
+    "generation": 4,
+    "abbreviation": "32X",
+    "launch_year": 1994
+  },
+  "source": {
+    "type": "wikipedia",
+    "files": [
+      "List of 32X games - Wikipedia.html"
+    ],
+    "extracted_at": "2026-05-12T20:29:27Z"
+  },
+  "counts": {
+    "total": 40,
+    "released": 40,
+    "unreleased": 0
+  },
+  "games": [
+    {
+      "title": "After Burner Complete",
+      "slug": "after-burner-complete",
+      "developer": "Rutubo Games",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": "1995-01-13",
+        "na": "1995-01",
+        "pal": "1995-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "BC Racers",
+      "slug": "bc-racers",
+      "developer": "Core Design",
+      "publisher": "Front Street Publishing",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-06",
+      "releases": {
+        "jp": null,
+        "na": "1995-06",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Blackthorne",
+      "slug": "blackthorne",
+      "developer": "Blizzard Entertainment",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-09",
+      "releases": {
+        "jp": null,
+        "na": "1995-09",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": "1996-01"
+      }
+    },
+    {
+      "title": "Brutal: Above the Claw",
+      "slug": "brutal-above-the-claw",
+      "developer": "GameTek",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-03",
+      "releases": {
+        "jp": null,
+        "na": "1995-03",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Corpse Killer",
+      "slug": "corpse-killer",
+      "developer": "Digital Pictures",
+      "publisher": "Digital Pictures",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cosmic Carnage",
+      "slug": "cosmic-carnage",
+      "developer": "Almanic Corporation",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-12",
+      "releases": {
+        "jp": "1995-01-27",
+        "na": "1994-12",
+        "pal": "1995-02",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Darxide",
+      "slug": "darxide",
+      "developer": "Frontier Developments",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1996-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doom",
+      "slug": "doom",
+      "developer": "id Software",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-21",
+      "releases": {
+        "jp": "1994-12-03",
+        "na": "1994-11-21",
+        "pal": "1995-01",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Fahrenheit",
+      "slug": "fahrenheit",
+      "developer": "Sega",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "FIFA Soccer 96",
+      "slug": "fifa-soccer-96",
+      "developer": "Extended Play Productions",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Golf Magazine: 36 Great Holes Starring Fred Couples",
+      "slug": "golf-magazine-36-great-holes-starring-fred-couples",
+      "developer": "Flashpoint Productions",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": "1995-02-24",
+        "na": "1995-01",
+        "pal": "1995-03",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Knuckles' Chaotix",
+      "slug": "knuckles-chaotix",
+      "developer": "Sega",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-04-21",
+        "na": "1995-04",
+        "pal": "1995-06-23",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Kolibri",
+      "slug": "kolibri",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10",
+      "releases": {
+        "jp": null,
+        "na": "1995-10",
+        "pal": "1995-11-17",
+        "eu": null,
+        "au": null,
+        "br": "1996-01"
+      }
+    },
+    {
+      "title": "Metal Head",
+      "slug": "metal-head",
+      "developer": "Sega",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-02-24",
+        "na": "1995-02",
+        "pal": "1995-04",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Mortal Kombat II",
+      "slug": "mortal-kombat-ii",
+      "developer": "Probe Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-05-19",
+        "na": "1995-03",
+        "pal": "1995-03",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Motocross Championship",
+      "slug": "motocross-championship",
+      "developer": "Artech Studios",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": null,
+        "na": "1995-01",
+        "pal": "1995-03",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "NBA Jam Tournament Edition",
+      "slug": "nba-jam-tournament-edition",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-09-01",
+        "na": "1995",
+        "pal": "1995-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Quarterback Club",
+      "slug": "nfl-quarterback-club",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-07-14",
+        "na": "1995",
+        "pal": "1995-07",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Night Trap",
+      "slug": "night-trap",
+      "developer": "Digital Pictures",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": null,
+        "na": "1995-01",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pitfall: The Mayan Adventure",
+      "slug": "pitfall-the-mayan-adventure",
+      "developer": "Activision",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10",
+      "releases": {
+        "jp": null,
+        "na": "1995-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Primal Rage",
+      "slug": "primal-rage",
+      "developer": "Probe Entertainment",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-14",
+      "releases": {
+        "jp": null,
+        "na": "1995-11-14",
+        "pal": "1996-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "R.B.I. Baseball '95",
+      "slug": "r-b-i-baseball-95",
+      "developer": "Time Warner Interactive",
+      "publisher": "Time Warner Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sangokushi IV",
+      "slug": "sangokushi-iv",
+      "developer": "Sega",
+      "publisher": "Koei",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-07-28",
+      "releases": {
+        "jp": "1995-07-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shadow Squadron",
+      "slug": "shadow-squadron",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-04-26",
+      "releases": {
+        "jp": "1995-04-26",
+        "na": "1995-06",
+        "pal": "1995-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Slam City with Scottie Pippen",
+      "slug": "slam-city-with-scottie-pippen",
+      "developer": "Digital Pictures",
+      "publisher": "Digital Pictures",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Space Harrier",
+      "slug": "space-harrier",
+      "developer": "Rutubo Games",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-12-03",
+      "releases": {
+        "jp": "1994-12-03",
+        "na": "1995-01",
+        "pal": "1995-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Trek: Starfleet Academy – Starship Bridge Simulator",
+      "slug": "star-trek-starfleet-academy-starship-bridge-simulator",
+      "developer": "Interplay",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Star Wars Arcade",
+      "slug": "star-wars-arcade",
+      "developer": "Sega InterActive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-21",
+      "releases": {
+        "jp": "1994-12-03",
+        "na": "1994-11-21",
+        "pal": "1995-01",
+        "eu": null,
+        "au": null,
+        "br": "1995-03"
+      }
+    },
+    {
+      "title": "Supreme Warrior",
+      "slug": "supreme-warrior",
+      "developer": "Digital Pictures",
+      "publisher": "Digital Pictures",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Surgical Strike",
+      "slug": "surgical-strike",
+      "developer": "The Code Monkeys",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "T-MEK",
+      "slug": "t-mek",
+      "developer": "Bits Corporation",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tempo",
+      "slug": "tempo",
+      "developer": "Sega",
+      "publisher": "Tec Toy",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-03-24",
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "The Amazing Spider-Man: Web of Fire",
+      "slug": "the-amazing-spider-man-web-of-fire",
+      "developer": "BlueSky Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-03",
+      "releases": {
+        "jp": null,
+        "na": "1996-03",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Toughman Contest",
+      "slug": "toughman-contest",
+      "developer": "Visual Concepts",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-05",
+      "releases": {
+        "jp": null,
+        "na": "1995-05",
+        "pal": "1995-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Virtua Fighter",
+      "slug": "virtua-fighter",
+      "developer": "Sega-AM2",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-10-20",
+        "na": "1995-10-10",
+        "pal": "1995-11-30",
+        "eu": null,
+        "au": null,
+        "br": "1995"
+      }
+    },
+    {
+      "title": "Virtua Racing Deluxe",
+      "slug": "virtua-racing-deluxe",
+      "developer": "Sega-AM2",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-21",
+      "releases": {
+        "jp": "1994-12-16",
+        "na": "1994-11-21",
+        "pal": "1995-01",
+        "eu": null,
+        "au": null,
+        "br": "1995-03"
+      }
+    },
+    {
+      "title": "World Series Baseball Starring Deion Sanders",
+      "slug": "world-series-baseball-starring-deion-sanders",
+      "developer": "Blue Sky Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-02",
+      "releases": {
+        "jp": null,
+        "na": "1996-02",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF Raw",
+      "slug": "wwf-raw",
+      "developer": "Sculptured Software",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-09-01",
+        "na": "1995",
+        "pal": "1995-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF WrestleMania: The Arcade Game",
+      "slug": "wwf-wrestlemania-the-arcade-game",
+      "developer": "Sculptured Software",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11",
+      "releases": {
+        "jp": null,
+        "na": "1995-11",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zaxxon's Motherbase 2000",
+      "slug": "zaxxon-s-motherbase-2000",
+      "developer": "CSK Research Institute",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-06",
+      "releases": {
+        "jp": "1995-07-14",
+        "na": "1995-06",
+        "pal": "1995-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    }
+  ]
+}

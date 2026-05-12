@@ -1,0 +1,854 @@
+{
+  "schema_version": 1,
+  "collection": {
+    "id": "legodimensions",
+    "name": "LEGO Dimensions",
+    "type": "toy-to-life",
+    "manufacturer": "TT Games / Warner Bros. Interactive"
+  },
+  "source": {
+    "type": "fandom",
+    "files": [
+      "List of Playable Characters _ LEGO Dimensions Wiki _ Fandom.html"
+    ],
+    "extracted_at": "2026-05-12T20:29:04Z"
+  },
+  "counts": {
+    "total": 119
+  },
+  "items": [
+    {
+      "name": "ACU Trooper",
+      "slug": "acu-trooper",
+      "category": "Jurassic World",
+      "year": 1,
+      "pack": "71205 Team Pack"
+    },
+    {
+      "name": "Aquaman",
+      "slug": "aquaman",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71237 Fun Pack"
+    },
+    {
+      "name": "Bad Cop",
+      "slug": "bad-cop",
+      "category": "The LEGO Movie",
+      "year": 1,
+      "pack": "71213 Fun Pack"
+    },
+    {
+      "name": "Bane",
+      "slug": "bane",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71240 Fun Pack"
+    },
+    {
+      "name": "Bart Simpson",
+      "slug": "bart-simpson",
+      "category": "The Simpsons",
+      "year": 1,
+      "pack": "71211 Fun Pack"
+    },
+    {
+      "name": "Batman",
+      "slug": "batman",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "Starter Pack"
+    },
+    {
+      "name": "Benny",
+      "slug": "benny",
+      "category": "The LEGO Movie",
+      "year": 1,
+      "pack": "71214 Fun Pack"
+    },
+    {
+      "name": "Chell",
+      "slug": "chell",
+      "category": "Portal 2",
+      "year": 1,
+      "pack": "71203 Level Pack"
+    },
+    {
+      "name": "Cole",
+      "slug": "cole",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71207 Team Pack"
+    },
+    {
+      "name": "Cragger",
+      "slug": "cragger",
+      "category": "Legends of Chima",
+      "year": 1,
+      "pack": "71223 Fun Pack"
+    },
+    {
+      "name": "Cyberman",
+      "slug": "cyberman",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": "71238 Fun Pack"
+    },
+    {
+      "name": "Cybermat",
+      "slug": "cybermat",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Cyborg",
+      "slug": "cyborg",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71210 Fun Pack"
+    },
+    {
+      "name": "Doc Brown",
+      "slug": "doc-brown",
+      "category": "Back to the Future",
+      "year": 1,
+      "pack": "71230 Fun Pack"
+    },
+    {
+      "name": "Egon Spengler",
+      "slug": "egon-spengler",
+      "category": "Ghostbusters",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Eighth Doctor",
+      "slug": "eighth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Eleventh Doctor",
+      "slug": "eleventh-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Emmet",
+      "slug": "emmet",
+      "category": "The LEGO Movie",
+      "year": 1,
+      "pack": "71212 Fun Pack"
+    },
+    {
+      "name": "Eris",
+      "slug": "eris",
+      "category": "Legends of Chima",
+      "year": 1,
+      "pack": "71232 Fun Pack"
+    },
+    {
+      "name": "Fifth Doctor",
+      "slug": "fifth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "First Doctor",
+      "slug": "first-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Fourth Doctor",
+      "slug": "fourth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Gamer Kid",
+      "slug": "gamer-kid",
+      "category": "Midway Arcade",
+      "year": 1,
+      "pack": "71235 Level Pack"
+    },
+    {
+      "name": "Gandalf the Grey",
+      "slug": "gandalf-the-grey",
+      "category": "The Lord of the Rings",
+      "year": 1,
+      "pack": "Starter Pack"
+    },
+    {
+      "name": "Gimli",
+      "slug": "gimli",
+      "category": "The Lord of the Rings",
+      "year": 1,
+      "pack": "71220 Fun Pack"
+    },
+    {
+      "name": "Gollum",
+      "slug": "gollum",
+      "category": "The Lord of the Rings",
+      "year": 1,
+      "pack": "71218 Fun Pack"
+    },
+    {
+      "name": "Harley Quinn",
+      "slug": "harley-quinn",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71229 Team Pack"
+    },
+    {
+      "name": "Homer Simpson",
+      "slug": "homer-simpson",
+      "category": "The Simpsons",
+      "year": 1,
+      "pack": "71202 Level Pack"
+    },
+    {
+      "name": "Jay",
+      "slug": "jay",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71215 Fun Pack"
+    },
+    {
+      "name": "Kai",
+      "slug": "kai",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71207 Team Pack"
+    },
+    {
+      "name": "Krusty the Clown",
+      "slug": "krusty-the-clown",
+      "category": "The Simpsons",
+      "year": 1,
+      "pack": "71227 Fun Pack"
+    },
+    {
+      "name": "Laval",
+      "slug": "laval",
+      "category": "Legends of Chima",
+      "year": 1,
+      "pack": "71222 Fun Pack"
+    },
+    {
+      "name": "Legolas",
+      "slug": "legolas",
+      "category": "The Lord of the Rings",
+      "year": 1,
+      "pack": "71219 Fun Pack"
+    },
+    {
+      "name": "Lloyd",
+      "slug": "lloyd",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71239 Fun Pack"
+    },
+    {
+      "name": "Marty McFly",
+      "slug": "marty-mcfly",
+      "category": "Back to the Future",
+      "year": 1,
+      "pack": "71201 Level Pack"
+    },
+    {
+      "name": "Mini Time Machine",
+      "slug": "mini-time-machine",
+      "category": "Back to the Future",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Ninth Doctor",
+      "slug": "ninth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Nya",
+      "slug": "nya",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71216 Fun Pack"
+    },
+    {
+      "name": "Owen Grady",
+      "slug": "owen-grady",
+      "category": "Jurassic World",
+      "year": 1,
+      "pack": "71205 Team Pack"
+    },
+    {
+      "name": "Peter Venkman",
+      "slug": "peter-venkman",
+      "category": "Ghostbusters",
+      "year": 1,
+      "pack": "71228 Level Pack"
+    },
+    {
+      "name": "Raymond Stantz",
+      "slug": "raymond-stantz",
+      "category": "Ghostbusters",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Scooby-Doo",
+      "slug": "scooby-doo",
+      "category": "Scooby-Doo!",
+      "year": 1,
+      "pack": "71206 Team Pack"
+    },
+    {
+      "name": "Second Doctor",
+      "slug": "second-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Sensei Wu",
+      "slug": "sensei-wu",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71234 Fun Pack"
+    },
+    {
+      "name": "Seventh Doctor",
+      "slug": "seventh-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Shaggy",
+      "slug": "shaggy",
+      "category": "Scooby-Doo!",
+      "year": 1,
+      "pack": "71206 Team Pack"
+    },
+    {
+      "name": "Sixth Doctor",
+      "slug": "sixth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Slimer",
+      "slug": "slimer",
+      "category": "Ghostbusters",
+      "year": 1,
+      "pack": "71241 Fun Pack"
+    },
+    {
+      "name": "Stay Puft",
+      "slug": "stay-puft",
+      "category": "Ghostbusters",
+      "year": 1,
+      "pack": "71233 Fun Pack"
+    },
+    {
+      "name": "Superman",
+      "slug": "superman",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71236 Fun Pack"
+    },
+    {
+      "name": "Tenth Doctor",
+      "slug": "tenth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "The Joker",
+      "slug": "the-joker",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71229 Team Pack"
+    },
+    {
+      "name": "Third Doctor",
+      "slug": "third-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Twelfth Doctor",
+      "slug": "twelfth-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": "71204 Level Pack"
+    },
+    {
+      "name": "Unikitty",
+      "slug": "unikitty",
+      "category": "The LEGO Movie",
+      "year": 1,
+      "pack": "71231 Fun Pack"
+    },
+    {
+      "name": "War Doctor",
+      "slug": "war-doctor",
+      "category": "Doctor Who",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Wicked Witch of the West",
+      "slug": "wicked-witch-of-the-west",
+      "category": "The Wizard of Oz",
+      "year": 1,
+      "pack": "71221 Fun Pack"
+    },
+    {
+      "name": "Winston Zeddemore",
+      "slug": "winston-zeddemore",
+      "category": "Ghostbusters",
+      "year": 1,
+      "pack": null
+    },
+    {
+      "name": "Wonder Woman",
+      "slug": "wonder-woman",
+      "category": "DC Comics",
+      "year": 1,
+      "pack": "71209 Fun Pack"
+    },
+    {
+      "name": "Wyldstyle",
+      "slug": "wyldstyle",
+      "category": "The LEGO Movie",
+      "year": 1,
+      "pack": "Starter Pack"
+    },
+    {
+      "name": "Zane",
+      "slug": "zane",
+      "category": "Ninjago",
+      "year": 1,
+      "pack": "71217 Fun Pack"
+    },
+    {
+      "name": "Abby Yates",
+      "slug": "abby-yates",
+      "category": "Ghostbusters (2016)",
+      "year": 2,
+      "pack": "71242 Story Pack"
+    },
+    {
+      "name": "Andy",
+      "slug": "andy",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "B.A. Baracus",
+      "slug": "b-a-baracus",
+      "category": "The A-Team",
+      "year": 2,
+      "pack": "71251 Fun Pack"
+    },
+    {
+      "name": "Batgirl",
+      "slug": "batgirl",
+      "category": "The LEGO Batman Movie",
+      "year": 2,
+      "pack": "71264 Story Pack"
+    },
+    {
+      "name": "Beast Boy",
+      "slug": "beast-boy",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": "71255 Team Pack"
+    },
+    {
+      "name": "Betelgeuse",
+      "slug": "betelgeuse",
+      "category": "Beetlejuice",
+      "year": 2,
+      "pack": "71349 Fun Pack"
+    },
+    {
+      "name": "Blossom",
+      "slug": "blossom",
+      "category": "The Powerpuff Girls",
+      "year": 2,
+      "pack": "71346 Team Pack"
+    },
+    {
+      "name": "Brand",
+      "slug": "brand",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Bubbles",
+      "slug": "bubbles",
+      "category": "The Powerpuff Girls",
+      "year": 2,
+      "pack": "71346 Team Pack"
+    },
+    {
+      "name": "Buttercup",
+      "slug": "buttercup",
+      "category": "The Powerpuff Girls",
+      "year": 2,
+      "pack": "71343 Fun Pack"
+    },
+    {
+      "name": "Chase McCain",
+      "slug": "chase-mccain",
+      "category": "LEGO City: Undercover",
+      "year": 2,
+      "pack": "71266 Fun Pack"
+    },
+    {
+      "name": "Chunk",
+      "slug": "chunk",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Data",
+      "slug": "data",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Demon",
+      "slug": "demon",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "E.T.",
+      "slug": "e-t",
+      "category": "E.T. The Extra-Terrestrial",
+      "year": 2,
+      "pack": "71258 Fun Pack"
+    },
+    {
+      "name": "Erin Gilbert",
+      "slug": "erin-gilbert",
+      "category": "Ghostbusters (2016)",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Ethan Hunt",
+      "slug": "ethan-hunt",
+      "category": "Mission: Impossible",
+      "year": 2,
+      "pack": "71248 Level Pack"
+    },
+    {
+      "name": "Excalibur Batman",
+      "slug": "excalibur-batman",
+      "category": "The LEGO Batman Movie",
+      "year": 2,
+      "pack": "71344 Fun Pack"
+    },
+    {
+      "name": "Fern",
+      "slug": "fern",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Finn the Human",
+      "slug": "finn-the-human",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": "71245 Level Pack"
+    },
+    {
+      "name": "Franz Krieger",
+      "slug": "franz-krieger",
+      "category": "Mission: Impossible",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Gizmo",
+      "slug": "gizmo",
+      "category": "Gremlins",
+      "year": 2,
+      "pack": "71256 Team Pack"
+    },
+    {
+      "name": "Green Arrow",
+      "slug": "green-arrow",
+      "category": "DC Comics",
+      "year": 2,
+      "pack": "71342 Polybag"
+    },
+    {
+      "name": "H.M. \"Howling Mad\" Murdock",
+      "slug": "h-m-howling-mad-murdock",
+      "category": "The A-Team",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Harry Potter",
+      "slug": "harry-potter",
+      "category": "Harry Potter",
+      "year": 2,
+      "pack": "71247 Team Pack"
+    },
+    {
+      "name": "Hermione Granger",
+      "slug": "hermione-granger",
+      "category": "Harry Potter",
+      "year": 2,
+      "pack": "71348 Fun Pack"
+    },
+    {
+      "name": "Jacob Kowalski",
+      "slug": "jacob-kowalski",
+      "category": "Fantastic Beasts and Where to Find Them",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Jake the Dog",
+      "slug": "jake-the-dog",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": "71246 Team Pack"
+    },
+    {
+      "name": "Jillian Holtzmann",
+      "slug": "jillian-holtzmann",
+      "category": "Ghostbusters (2016)",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "John \"Hannibal\" Smith",
+      "slug": "john-hannibal-smith",
+      "category": "The A-Team",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Lord Voldemort",
+      "slug": "lord-voldemort",
+      "category": "Harry Potter",
+      "year": 2,
+      "pack": "71247 Team Pack"
+    },
+    {
+      "name": "Lumpy Sea Whale",
+      "slug": "lumpy-sea-whale",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Lumpy Space Princess",
+      "slug": "lumpy-space-princess",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": "71246 Team Pack"
+    },
+    {
+      "name": "Marceline the Vampire Queen",
+      "slug": "marceline-the-vampire-queen",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": "71285 Fun Pack"
+    },
+    {
+      "name": "Michael Knight",
+      "slug": "michael-knight",
+      "category": "Knight Rider",
+      "year": 2,
+      "pack": "71286 Fun Pack"
+    },
+    {
+      "name": "Mikey",
+      "slug": "mikey",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Mini Helicopter",
+      "slug": "mini-helicopter",
+      "category": "Mission: Impossible",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Mini Police Plane",
+      "slug": "mini-police-plane",
+      "category": "LEGO City: Undercover",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Mini Soul Self",
+      "slug": "mini-soul-self",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Mini Sub",
+      "slug": "mini-sub",
+      "category": "Mission: Impossible",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Mouth",
+      "slug": "mouth",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Newt Scamander",
+      "slug": "newt-scamander",
+      "category": "Fantastic Beasts and Where to Find Them",
+      "year": 2,
+      "pack": "71253 Story Pack"
+    },
+    {
+      "name": "Patty Tolan",
+      "slug": "patty-tolan",
+      "category": "Ghostbusters (2016)",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Piranha",
+      "slug": "piranha",
+      "category": "Harry Potter",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Psychic Mini Sub",
+      "slug": "psychic-mini-sub",
+      "category": "Adventure Time",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Queenie Goldstein",
+      "slug": "queenie-goldstein",
+      "category": "Fantastic Beasts and Where to Find Them",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Raven",
+      "slug": "raven",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": "71255 Team Pack"
+    },
+    {
+      "name": "Robin",
+      "slug": "robin",
+      "category": "The LEGO Batman Movie",
+      "year": 2,
+      "pack": "71264 Story Pack"
+    },
+    {
+      "name": "Silkie",
+      "slug": "silkie",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Sloth",
+      "slug": "sloth",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": "71267 Level Pack"
+    },
+    {
+      "name": "Sonic the Hedgehog",
+      "slug": "sonic-the-hedgehog",
+      "category": "Sonic the Hedgehog",
+      "year": 2,
+      "pack": "71244 Level Pack"
+    },
+    {
+      "name": "Sparkleface",
+      "slug": "sparkleface",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Starfire",
+      "slug": "starfire",
+      "category": "Teen Titans Go!",
+      "year": 2,
+      "pack": "71287 Fun Pack"
+    },
+    {
+      "name": "Stef",
+      "slug": "stef",
+      "category": "The Goonies",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Stripe",
+      "slug": "stripe",
+      "category": "Gremlins",
+      "year": 2,
+      "pack": "71256 Team Pack"
+    },
+    {
+      "name": "Supergirl",
+      "slug": "supergirl",
+      "category": "DC Comics",
+      "year": 2,
+      "pack": "71340 Polybag"
+    },
+    {
+      "name": "Templeton \"Faceman\" Peck",
+      "slug": "templeton-faceman-peck",
+      "category": "The A-Team",
+      "year": 2,
+      "pack": null
+    },
+    {
+      "name": "Tina Goldstein",
+      "slug": "tina-goldstein",
+      "category": "Fantastic Beasts and Where to Find Them",
+      "year": 2,
+      "pack": "71257 Fun Pack"
+    }
+  ]
+}

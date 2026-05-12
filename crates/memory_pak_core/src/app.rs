@@ -1,32 +1,32 @@
-use crate::catalog::load_catalog;
-use crate::ids::{figure_id, generate_legacy_id, get_console_from_id, skylander_id};
-use crate::import_export::{export_json_from_state, ExportData};
-use crate::models::{
-    Catalog, CollectionStats, Console, ConsoleCounts, ConsoleState, ConsoleView, Game, GameState,
-    GameView, InitialState, ItemKind, LegoDimensionFigure, LegoDimensionState, LegoView,
-    PersistedState, Skylander, SkylanderState, SkylanderView, StatusState,
+use std::collections::{HashMap, HashSet};
+
+use serde::{Deserialize, Serialize};
+use thiserror::Error;
+
+use crate::catalog::catalog;
+use crate::ids::{EntryId, EntryKind};
+use crate::import_export::{apply_import, export_json_from_state, ExportData};
+use crate::model::{
+    Catalog, Collectible, CollectibleView, CollectionStats, CollectionView, Console, ConsoleCounts,
+    ConsoleView, Game, GameView, InitialState, ItemKind, MutationResult, PersistedState,
 };
 use crate::query::{
-    normalize_for_search, normalized_filter, normalized_query, paginate, status_matches,
-    status_score, QueryInput, QueryResult,
+    matches_filter, normalized_query, paginate, status_score, FilterBy, QueryInput, QueryResult,
+    SortKey,
 };
-use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
-use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum CoreError {
     #[error("invalid import JSON: {0}")]
     InvalidImport(#[from] serde_json::Error),
-    #[error("unknown item {kind:?}:{id}")]
-    UnknownItem { kind: ItemKind, id: String },
+    #[error("unknown entry: {0}")]
+    UnknownEntry(String),
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SetItemStatusInput {
-    pub kind: ItemKind,
-    pub id: String,
+    pub id: EntryId,
     #[serde(default)]
     pub owned: Option<bool>,
     #[serde(default)]
@@ -38,16 +38,15 @@ pub struct SetItemStatusInput {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SetItemNotesInput {
-    pub kind: ItemKind,
-    pub id: String,
+    pub id: EntryId,
     pub notes: String,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct MemoryPakApp {
-    catalog: Catalog,
+    catalog: &'static Catalog,
     state: PersistedState,
-    game_counts_by_console: HashMap<String, ConsoleCounts>,
+    game_counts_by_console: HashMap<EntryId, ConsoleCounts>,
 }
 
 impl Default for MemoryPakApp {
@@ -58,53 +57,67 @@ impl Default for MemoryPakApp {
 
 impl MemoryPakApp {
     pub fn from_persisted_state(state: PersistedState) -> Self {
-        let catalog = load_catalog();
         let mut app = Self {
-            catalog,
+            catalog: catalog(),
             state,
             game_counts_by_console: HashMap::new(),
         };
-        app.migrate_legacy_game_state_ids();
         app.refresh_game_counts();
         app
     }
 
-    pub fn persisted_state(&self) -> PersistedState {
-        self.state.clone()
+    pub fn persisted_state(&self) -> &PersistedState {
+        &self.state
+    }
+
+    pub fn catalog(&self) -> &Catalog {
+        self.catalog
     }
 
     pub fn initial_state(&self) -> InitialState {
+        let consoles = self.query_consoles(QueryInput::default()).items;
+        let with_games: HashSet<EntryId> = self
+            .catalog
+            .games
+            .values()
+            .map(|g| g.console_id.clone())
+            .collect();
+        let consoles_with_games = consoles
+            .iter()
+            .filter(|v| with_games.contains(&v.id))
+            .cloned()
+            .collect();
+
         InitialState {
             stats: self.collection_stats(),
-            consoles: self.query_consoles(QueryInput::default()).items,
+            consoles,
+            consoles_with_games,
+            collections: self.collection_views(),
             total_games: self.catalog.games.len(),
-            total_lego_dimensions: self.catalog.lego_dimensions_figures.len(),
-            total_skylanders: self.catalog.skylanders.len(),
+            total_collectibles: self.catalog.collectibles.len(),
         }
     }
 
     pub fn query_consoles(&self, input: QueryInput) -> QueryResult<ConsoleView> {
         let search = normalized_query(input.search.as_deref());
-        let filter = normalized_filter(input.filter_by.as_deref());
-        let sort = input.sort_by.unwrap_or_else(|| "title".to_string());
+        let filter = input.filter_by.unwrap_or(FilterBy::All);
+        let sort = input.sort_by.unwrap_or(SortKey::Name);
 
         let mut items: Vec<ConsoleView> = self
             .catalog
             .consoles
             .iter()
-            .filter(|console| {
-                search.as_ref().is_none_or(|query| {
-                    normalize_for_search(&console.name).contains(query)
-                        || normalize_for_search(&console.manufacturer).contains(query)
-                })
-            })
+            .filter(|console| matches_console_search(console, search.as_deref()))
             .map(|console| self.console_view(console))
-            .filter(|view| status_matches(&view.state, filter))
+            .filter(|view| matches_filter(&view.state, filter))
             .collect();
 
-        items.sort_by(|a, b| match sort.as_str() {
-            "year" => a.year.cmp(&b.year).then_with(|| a.name.cmp(&b.name)),
-            "status" => status_score(&b.state)
+        items.sort_by(|a, b| match sort {
+            SortKey::Manufacturer => a
+                .manufacturer
+                .cmp(&b.manufacturer)
+                .then_with(|| a.name.cmp(&b.name)),
+            SortKey::Status => status_score(&b.state)
                 .cmp(&status_score(&a.state))
                 .then_with(|| a.name.cmp(&b.name)),
             _ => a.name.cmp(&b.name),
@@ -115,33 +128,27 @@ impl MemoryPakApp {
 
     pub fn query_games(&self, input: QueryInput) -> QueryResult<GameView> {
         let search = normalized_query(input.search.as_deref());
-        let filter = normalized_filter(input.filter_by.as_deref());
-        let sort = input.sort_by.unwrap_or_else(|| "title".to_string());
-        let console_filter = input.console_id.as_deref().unwrap_or("all");
-        let console_names = self.console_names();
+        let filter = input.filter_by.unwrap_or(FilterBy::All);
+        let sort = input.sort_by.unwrap_or(SortKey::Title);
+        let console_filter = input.console_id.as_deref();
+        let console_names = self.console_names_by_id();
 
         let mut items: Vec<GameView> = self
             .catalog
             .games
             .values()
-            .filter(|game| console_filter == "all" || console_filter == game.console_id)
-            .filter(|game| {
-                search.as_ref().is_none_or(|query| {
-                    normalize_for_search(&game.title).contains(query)
-                        || normalize_for_search(&game.publisher).contains(query)
-                        || console_names
-                            .get(&game.console_id)
-                            .map(|name| normalize_for_search(name).contains(query))
-                            .unwrap_or(false)
-                })
+            .filter(|game| match console_filter {
+                None | Some("all") | Some("") => true,
+                Some(value) => game.console_id.as_str() == value,
             })
+            .filter(|game| matches_game_search(game, search.as_deref(), &console_names))
             .map(|game| self.game_view(game, &console_names))
-            .filter(|view| status_matches(&view.state, filter))
+            .filter(|view| matches_filter(&view.state, filter))
             .collect();
 
-        items.sort_by(|a, b| match sort.as_str() {
-            "year" => a.year.cmp(&b.year).then_with(|| a.title.cmp(&b.title)),
-            "status" => status_score(&b.state)
+        items.sort_by(|a, b| match sort {
+            SortKey::Year => a.year.cmp(&b.year).then_with(|| a.title.cmp(&b.title)),
+            SortKey::Status => status_score(&b.state)
                 .cmp(&status_score(&a.state))
                 .then_with(|| a.title.cmp(&b.title)),
             _ => a.title.cmp(&b.title),
@@ -150,74 +157,39 @@ impl MemoryPakApp {
         paginate(items, input.offset, input.limit)
     }
 
-    pub fn query_lego(&self, input: QueryInput) -> QueryResult<LegoView> {
+    pub fn query_collectibles(&self, input: QueryInput) -> QueryResult<CollectibleView> {
         let search = normalized_query(input.search.as_deref());
-        let filter = normalized_filter(input.filter_by.as_deref());
-        let sort = input.sort_by.unwrap_or_else(|| "name".to_string());
+        let filter = input.filter_by.unwrap_or(FilterBy::All);
+        let sort = input.sort_by.unwrap_or(SortKey::Name);
+        let collection_filter = input.collection_id.as_deref();
+        let collection_names = self.collection_names_by_id();
 
-        let mut items: Vec<LegoView> = self
+        let mut items: Vec<CollectibleView> = self
             .catalog
-            .lego_dimensions_figures
+            .collectibles
             .iter()
-            .filter(|figure| {
-                search.as_ref().is_none_or(|query| {
-                    normalize_for_search(&figure.name).contains(query)
-                        || normalize_for_search(&figure.category).contains(query)
-                        || normalize_for_search(&figure.pack_id).contains(query)
-                })
+            .filter(|item| match collection_filter {
+                None | Some("all") | Some("") => true,
+                Some(value) => item.collection_id == value,
             })
-            .map(|figure| self.lego_view(figure))
-            .filter(|view| status_matches(&view.state, filter))
+            .filter(|item| matches_collectible_search(item, search.as_deref(), &collection_names))
+            .map(|item| self.collectible_view(item, &collection_names))
+            .filter(|view| matches_filter(&view.state, filter))
             .collect();
 
-        items.sort_by(|a, b| match sort.as_str() {
-            "category" => a
+        items.sort_by(|a, b| match sort {
+            SortKey::Collection => a
+                .collection_name
+                .cmp(&b.collection_name)
+                .then_with(|| a.name.cmp(&b.name)),
+            SortKey::Category => a
                 .category
                 .cmp(&b.category)
                 .then_with(|| a.name.cmp(&b.name)),
-            "year" => a.year.cmp(&b.year).then_with(|| a.name.cmp(&b.name)),
-            "pack" | "packId" => a.pack_id.cmp(&b.pack_id).then_with(|| a.name.cmp(&b.name)),
-            "status" => status_score(&b.state)
-                .cmp(&status_score(&a.state))
-                .then_with(|| a.name.cmp(&b.name)),
-            _ => a.name.cmp(&b.name),
-        });
-
-        paginate(items, input.offset, input.limit)
-    }
-
-    pub fn query_skylanders(&self, input: QueryInput) -> QueryResult<SkylanderView> {
-        let search = normalized_query(input.search.as_deref());
-        let filter = normalized_filter(input.filter_by.as_deref());
-        let sort = input.sort_by.unwrap_or_else(|| "name".to_string());
-
-        let mut items: Vec<SkylanderView> = self
-            .catalog
-            .skylanders
-            .iter()
-            .filter(|skylander| {
-                search.as_ref().is_none_or(|query| {
-                    normalize_for_search(&skylander.name).contains(query)
-                        || normalize_for_search(&skylander.game).contains(query)
-                        || normalize_for_search(&skylander.base_color).contains(query)
-                        || normalize_for_search(&skylander.category).contains(query)
-                })
-            })
-            .map(|skylander| self.skylander_view(skylander))
-            .filter(|view| status_matches(&view.state, filter))
-            .collect();
-
-        items.sort_by(|a, b| match sort.as_str() {
-            "game" => a.game.cmp(&b.game).then_with(|| a.name.cmp(&b.name)),
-            "baseColor" | "base_color" => a
-                .base_color
-                .cmp(&b.base_color)
-                .then_with(|| a.name.cmp(&b.name)),
-            "category" => a
-                .category
-                .cmp(&b.category)
-                .then_with(|| a.name.cmp(&b.name)),
-            "status" => status_score(&b.state)
+            SortKey::Group => a.group.cmp(&b.group).then_with(|| a.name.cmp(&b.name)),
+            SortKey::Variant => a.variant.cmp(&b.variant).then_with(|| a.name.cmp(&b.name)),
+            SortKey::Year => a.year.cmp(&b.year).then_with(|| a.name.cmp(&b.name)),
+            SortKey::Status => status_score(&b.state)
                 .cmp(&status_score(&a.state))
                 .then_with(|| a.name.cmp(&b.name)),
             _ => a.name.cmp(&b.name),
@@ -229,148 +201,58 @@ impl MemoryPakApp {
     pub fn set_item_status(
         &mut self,
         input: SetItemStatusInput,
-    ) -> Result<PersistedState, CoreError> {
-        match input.kind {
-            ItemKind::Console => {
-                self.ensure_console(&input.id)?;
-                let state = self
-                    .state
-                    .console_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| ConsoleState {
-                        console_id: input.id,
-                        ..Default::default()
-                    });
-                apply_status_update(
-                    &mut state.owned,
-                    &mut state.favorite,
-                    &mut state.wishlist,
-                    input.owned,
-                    input.favorite,
-                    input.wishlist,
-                );
-            }
-            ItemKind::Game => {
-                self.ensure_game(&input.id)?;
-                let state = self
-                    .state
-                    .game_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| GameState {
-                        game_id: input.id,
-                        ..Default::default()
-                    });
-                apply_status_update(
-                    &mut state.owned,
-                    &mut state.favorite,
-                    &mut state.wishlist,
-                    input.owned,
-                    input.favorite,
-                    input.wishlist,
-                );
-                self.refresh_game_counts();
-            }
-            ItemKind::Lego => {
-                self.ensure_lego(&input.id)?;
-                let state = self
-                    .state
-                    .lego_dimensions_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| LegoDimensionState {
-                        figure_id: input.id,
-                        ..Default::default()
-                    });
-                apply_status_update(
-                    &mut state.owned,
-                    &mut state.favorite,
-                    &mut state.wishlist,
-                    input.owned,
-                    input.favorite,
-                    input.wishlist,
-                );
-            }
-            ItemKind::Skylander => {
-                self.ensure_skylander(&input.id)?;
-                let state = self
-                    .state
-                    .skylanders_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| SkylanderState {
-                        skylander_id: input.id,
-                        ..Default::default()
-                    });
-                apply_status_update(
-                    &mut state.owned,
-                    &mut state.favorite,
-                    &mut state.wishlist,
-                    input.owned,
-                    input.favorite,
-                    input.wishlist,
-                );
-            }
+    ) -> Result<MutationResult, CoreError> {
+        let kind = self.ensure_entry(&input.id)?;
+
+        let entry = self.state.entries.entry(input.id.clone()).or_default();
+        if let Some(value) = input.owned {
+            entry.owned = value;
+        }
+        if let Some(value) = input.favorite {
+            entry.favorite = value;
+        }
+        if let Some(value) = input.wishlist {
+            entry.wishlist = value;
+        }
+        let snapshot = entry.clone();
+
+        if kind == EntryKind::Game {
+            self.refresh_game_counts();
         }
 
-        Ok(self.persisted_state())
+        self.cleanup_empty(&input.id);
+
+        Ok(MutationResult {
+            id: input.id,
+            state: snapshot,
+            stats: self.collection_stats(),
+        })
     }
 
     pub fn set_item_notes(
         &mut self,
         input: SetItemNotesInput,
-    ) -> Result<PersistedState, CoreError> {
-        match input.kind {
-            ItemKind::Console => {
-                self.ensure_console(&input.id)?;
-                self.state
-                    .console_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| ConsoleState {
-                        console_id: input.id.clone(),
-                        ..Default::default()
-                    })
-                    .notes = input.notes;
-            }
-            ItemKind::Game => {
-                self.ensure_game(&input.id)?;
-                self.state
-                    .game_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| GameState {
-                        game_id: input.id.clone(),
-                        ..Default::default()
-                    })
-                    .notes = input.notes;
-            }
-            ItemKind::Lego => {
-                self.ensure_lego(&input.id)?;
-                self.state
-                    .lego_dimensions_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| LegoDimensionState {
-                        figure_id: input.id.clone(),
-                        ..Default::default()
-                    })
-                    .notes = input.notes;
-            }
-            ItemKind::Skylander => {
-                self.ensure_skylander(&input.id)?;
-                self.state
-                    .skylanders_states
-                    .entry(input.id.clone())
-                    .or_insert_with(|| SkylanderState {
-                        skylander_id: input.id.clone(),
-                        ..Default::default()
-                    })
-                    .notes = input.notes;
-            }
-        }
+    ) -> Result<MutationResult, CoreError> {
+        self.ensure_entry(&input.id)?;
 
-        Ok(self.persisted_state())
+        let entry = self.state.entries.entry(input.id.clone()).or_default();
+        entry.notes = input.notes;
+        let snapshot = entry.clone();
+        self.cleanup_empty(&input.id);
+
+        Ok(MutationResult {
+            id: input.id,
+            state: snapshot,
+            stats: self.collection_stats(),
+        })
     }
 
-    pub fn import_json(&mut self, json: &str) -> Result<PersistedState, CoreError> {
+    pub fn import_json(&mut self, json: &str) -> Result<CollectionStats, CoreError> {
         let import = serde_json::from_str::<ExportData>(json)?;
-        self.apply_import(import);
-        Ok(self.persisted_state())
+        apply_import(&mut self.state, import);
+        self.state.entries.retain(|_, state| !state.is_empty());
+        self.refresh_game_counts();
+        Ok(self.collection_stats())
     }
 
     pub fn export_json(&self) -> Result<String, serde_json::Error> {
@@ -378,217 +260,119 @@ impl MemoryPakApp {
     }
 
     pub fn collection_stats(&self) -> CollectionStats {
-        let owned_consoles = self
-            .state
-            .console_states
-            .values()
-            .filter(|state| state.owned)
-            .count();
-        let favorite_consoles = self
-            .state
-            .console_states
-            .values()
-            .filter(|state| state.favorite)
-            .count();
-        let wishlist_consoles = self
-            .state
-            .console_states
-            .values()
-            .filter(|state| state.wishlist)
-            .count();
-        let owned_games = self
-            .state
-            .game_states
-            .values()
-            .filter(|state| state.owned)
-            .count();
-        let favorite_games = self
-            .state
-            .game_states
-            .values()
-            .filter(|state| state.favorite)
-            .count();
-        let wishlist_games = self
-            .state
-            .game_states
-            .values()
-            .filter(|state| state.wishlist)
-            .count();
-        let owned_lego_dimensions = self
-            .state
-            .lego_dimensions_states
-            .values()
-            .filter(|state| state.owned)
-            .count();
-        let owned_skylanders = self
-            .state
-            .skylanders_states
-            .values()
-            .filter(|state| state.owned)
-            .count();
-
-        CollectionStats {
+        let mut stats = CollectionStats {
             total_consoles: self.catalog.consoles.len(),
-            owned_consoles,
-            favorite_consoles,
-            wishlist_consoles,
             total_games: self.catalog.games.len(),
-            owned_games,
-            favorite_games,
-            wishlist_games,
-            total_lego_dimensions: self.catalog.lego_dimensions_figures.len(),
-            owned_lego_dimensions,
-            total_skylanders: self.catalog.skylanders.len(),
-            owned_skylanders,
-        }
-    }
+            total_collectibles: self.catalog.collectibles.len(),
+            ..CollectionStats::default()
+        };
 
-    fn apply_import(&mut self, import: ExportData) {
-        for state in import.console_states {
-            self.state
-                .console_states
-                .insert(state.console_id.clone(), state);
-        }
-
-        for console_export in import.consoles {
-            for state in console_export.games {
-                self.state.game_states.insert(state.game_id.clone(), state);
+        for (id, state) in &self.state.entries {
+            match id.kind() {
+                Some(EntryKind::Console) => {
+                    if state.owned {
+                        stats.owned_consoles += 1;
+                    }
+                    if state.favorite {
+                        stats.favorite_consoles += 1;
+                    }
+                    if state.wishlist {
+                        stats.wishlist_consoles += 1;
+                    }
+                }
+                Some(EntryKind::Game) => {
+                    if state.owned {
+                        stats.owned_games += 1;
+                    }
+                    if state.favorite {
+                        stats.favorite_games += 1;
+                    }
+                    if state.wishlist {
+                        stats.wishlist_games += 1;
+                    }
+                }
+                Some(EntryKind::Collectible) => {
+                    if state.owned {
+                        stats.owned_collectibles += 1;
+                    }
+                    if state.favorite {
+                        stats.favorite_collectibles += 1;
+                    }
+                    if state.wishlist {
+                        stats.wishlist_collectibles += 1;
+                    }
+                }
+                None => {}
             }
         }
 
-        for state in import.lego_dimensions_states {
-            self.state
-                .lego_dimensions_states
-                .insert(state.figure_id.clone(), state);
-        }
-
-        for state in import.skylanders_states {
-            self.state
-                .skylanders_states
-                .insert(state.skylander_id.clone(), state);
-        }
-
-        self.migrate_legacy_game_state_ids();
-        self.refresh_game_counts();
+        stats
     }
 
-    fn console_view(&self, console: &Console) -> ConsoleView {
-        ConsoleView {
-            kind: ItemKind::Console,
-            id: console.id.clone(),
-            name: console.name.clone(),
-            manufacturer: console.manufacturer.clone(),
-            year: console.year,
-            variant: console.variant.clone(),
-            state: self
-                .state
-                .console_states
-                .get(&console.id)
-                .map(console_state_status)
-                .unwrap_or_default(),
-            game_counts: self
-                .game_counts_by_console
-                .get(&console.id)
-                .cloned()
-                .unwrap_or_default(),
+    fn collection_views(&self) -> Vec<CollectionView> {
+        let mut totals: HashMap<&str, (usize, usize)> = HashMap::new();
+        for collectible in &self.catalog.collectibles {
+            let entry = totals
+                .entry(collectible.collection_id.as_str())
+                .or_default();
+            entry.0 += 1;
+            if let Some(state) = self.state.entries.get(&collectible.id) {
+                if state.owned {
+                    entry.1 += 1;
+                }
+            }
         }
-    }
-
-    fn game_view(&self, game: &Game, console_names: &HashMap<String, String>) -> GameView {
-        GameView {
-            kind: ItemKind::Game,
-            id: game.id.clone(),
-            title: game.title.clone(),
-            year: game.year,
-            publisher: game.publisher.clone(),
-            console_id: game.console_id.clone(),
-            console_name: console_names
-                .get(&game.console_id)
-                .cloned()
-                .unwrap_or_else(|| game.console_id.clone()),
-            state: self
-                .state
-                .game_states
-                .get(&game.id)
-                .map(game_state_status)
-                .unwrap_or_default(),
-        }
-    }
-
-    fn lego_view(&self, figure: &LegoDimensionFigure) -> LegoView {
-        let id = figure_id(figure);
-        LegoView {
-            kind: ItemKind::Lego,
-            id: id.clone(),
-            name: figure.name.clone(),
-            category: figure.category.clone(),
-            year: figure.year,
-            pack_id: figure.pack_id.clone(),
-            state: self
-                .state
-                .lego_dimensions_states
-                .get(&id)
-                .map(lego_state_status)
-                .unwrap_or_default(),
-        }
-    }
-
-    fn skylander_view(&self, skylander: &Skylander) -> SkylanderView {
-        let id = skylander_id(skylander);
-        SkylanderView {
-            kind: ItemKind::Skylander,
-            id: id.clone(),
-            name: skylander.name.clone(),
-            game: skylander.game.clone(),
-            base_color: skylander.base_color.clone(),
-            category: skylander.category.clone(),
-            state: self
-                .state
-                .skylanders_states
-                .get(&id)
-                .map(skylander_state_status)
-                .unwrap_or_default(),
-        }
-    }
-
-    fn console_names(&self) -> HashMap<String, String> {
         self.catalog
-            .consoles
+            .collections
             .iter()
-            .map(|console| (console.id.clone(), console.name.clone()))
+            .map(|c| {
+                let (total, owned) = totals.get(c.id.as_str()).copied().unwrap_or((0, 0));
+                CollectionView {
+                    id: c.id.clone(),
+                    name: c.name.clone(),
+                    manufacturer: c.manufacturer.clone(),
+                    kind: c.kind.clone(),
+                    total,
+                    owned,
+                }
+            })
             .collect()
     }
 
-    fn migrate_legacy_game_state_ids(&mut self) {
-        let mut migrated_states = Vec::new();
-
-        for game in self.catalog.games.values() {
-            let legacy_id = generate_legacy_id(&game.console_id, &game.title);
-            if legacy_id == game.id {
-                continue;
-            }
-
-            if let Some(mut legacy_state) = self.state.game_states.remove(&legacy_id) {
-                legacy_state.game_id = game.id.clone();
-                migrated_states.push((game.id.clone(), legacy_state));
-            }
+    fn ensure_entry(&self, id: &EntryId) -> Result<EntryKind, CoreError> {
+        let kind = id
+            .kind()
+            .ok_or_else(|| CoreError::UnknownEntry(id.as_str().to_string()))?;
+        let exists = match kind {
+            EntryKind::Console => self.catalog.consoles.iter().any(|c| &c.id == id),
+            EntryKind::Game => self.catalog.games.contains_key(id),
+            EntryKind::Collectible => self.catalog.collectibles.iter().any(|c| &c.id == id),
+        };
+        if exists {
+            Ok(kind)
+        } else {
+            Err(CoreError::UnknownEntry(id.as_str().to_string()))
         }
+    }
 
-        for (game_id, state) in migrated_states {
-            self.state.game_states.entry(game_id).or_insert(state);
+    fn cleanup_empty(&mut self, id: &EntryId) {
+        if let Some(state) = self.state.entries.get(id) {
+            if state.is_empty() {
+                self.state.entries.remove(id);
+            }
         }
     }
 
     fn refresh_game_counts(&mut self) {
-        let mut counts: HashMap<String, ConsoleCounts> = HashMap::new();
-
-        for state in self.state.game_states.values() {
-            let console_id = get_console_from_id(&state.game_id);
-            if console_id.is_empty() {
+        let mut counts: HashMap<EntryId, ConsoleCounts> = HashMap::new();
+        for (id, state) in &self.state.entries {
+            if id.kind() != Some(EntryKind::Game) {
                 continue;
             }
-
-            let entry = counts.entry(console_id.to_string()).or_default();
+            let Some(game) = self.catalog.games.get(id) else {
+                continue;
+            };
+            let entry = counts.entry(game.console_id.clone()).or_default();
             if state.owned {
                 entry.owned += 1;
             }
@@ -599,109 +383,132 @@ impl MemoryPakApp {
                 entry.wishlist += 1;
             }
         }
-
         self.game_counts_by_console = counts;
     }
 
-    fn ensure_console(&self, id: &str) -> Result<(), CoreError> {
+    fn console_names_by_id(&self) -> HashMap<EntryId, String> {
         self.catalog
             .consoles
             .iter()
-            .any(|console| console.id == id)
-            .then_some(())
-            .ok_or_else(|| CoreError::UnknownItem {
-                kind: ItemKind::Console,
-                id: id.to_string(),
-            })
+            .map(|c| (c.id.clone(), c.name.clone()))
+            .collect()
     }
 
-    fn ensure_game(&self, id: &str) -> Result<(), CoreError> {
+    fn collection_names_by_id(&self) -> HashMap<String, String> {
         self.catalog
-            .games
-            .contains_key(id)
-            .then_some(())
-            .ok_or_else(|| CoreError::UnknownItem {
-                kind: ItemKind::Game,
-                id: id.to_string(),
-            })
-    }
-
-    fn ensure_lego(&self, id: &str) -> Result<(), CoreError> {
-        self.catalog
-            .lego_dimensions_figures
+            .collections
             .iter()
-            .any(|figure| figure_id(figure) == id)
-            .then_some(())
-            .ok_or_else(|| CoreError::UnknownItem {
-                kind: ItemKind::Lego,
-                id: id.to_string(),
-            })
+            .map(|c| (c.id.clone(), c.name.clone()))
+            .collect()
     }
 
-    fn ensure_skylander(&self, id: &str) -> Result<(), CoreError> {
-        self.catalog
-            .skylanders
-            .iter()
-            .any(|skylander| skylander_id(skylander) == id)
-            .then_some(())
-            .ok_or_else(|| CoreError::UnknownItem {
-                kind: ItemKind::Skylander,
-                id: id.to_string(),
-            })
+    fn console_view(&self, console: &Console) -> ConsoleView {
+        ConsoleView {
+            kind: ItemKind::Console,
+            id: console.id.clone(),
+            short_id: console.short_id.clone(),
+            name: console.name.clone(),
+            manufacturer: console.manufacturer.clone(),
+            abbreviation: console.abbreviation.clone(),
+            generation: console.generation,
+            state: self
+                .state
+                .entries
+                .get(&console.id)
+                .cloned()
+                .unwrap_or_default(),
+            game_counts: self
+                .game_counts_by_console
+                .get(&console.id)
+                .cloned()
+                .unwrap_or_default(),
+        }
+    }
+
+    fn game_view(&self, game: &Game, console_names: &HashMap<EntryId, String>) -> GameView {
+        GameView {
+            kind: ItemKind::Game,
+            id: game.id.clone(),
+            title: game.title.clone(),
+            year: game.year,
+            developer: game.developer.clone(),
+            publisher: game.publisher.clone(),
+            console_id: game.console_id.clone(),
+            console_name: console_names
+                .get(&game.console_id)
+                .cloned()
+                .unwrap_or_else(|| game.console_short_id.clone()),
+            state: self
+                .state
+                .entries
+                .get(&game.id)
+                .cloned()
+                .unwrap_or_default(),
+        }
+    }
+
+    fn collectible_view(
+        &self,
+        item: &Collectible,
+        collection_names: &HashMap<String, String>,
+    ) -> CollectibleView {
+        CollectibleView {
+            kind: ItemKind::Collectible,
+            id: item.id.clone(),
+            collection_id: item.collection_id.clone(),
+            collection_name: collection_names
+                .get(&item.collection_id)
+                .cloned()
+                .unwrap_or_else(|| item.collection_id.clone()),
+            name: item.name.clone(),
+            category: item.category.clone(),
+            group: item.group.clone(),
+            variant: item.variant.clone(),
+            year: item.year,
+            state: self
+                .state
+                .entries
+                .get(&item.id)
+                .cloned()
+                .unwrap_or_default(),
+        }
     }
 }
 
-fn apply_status_update(
-    owned: &mut bool,
-    favorite: &mut bool,
-    wishlist: &mut bool,
-    next_owned: Option<bool>,
-    next_favorite: Option<bool>,
-    next_wishlist: Option<bool>,
-) {
-    if let Some(value) = next_owned {
-        *owned = value;
-    }
-    if let Some(value) = next_favorite {
-        *favorite = value;
-    }
-    if let Some(value) = next_wishlist {
-        *wishlist = value;
-    }
+fn matches_console_search(console: &Console, query: Option<&str>) -> bool {
+    let Some(q) = query else { return true };
+    crate::ids::normalize_for_search(&console.name).contains(q)
+        || crate::ids::normalize_for_search(&console.manufacturer).contains(q)
+        || crate::ids::normalize_for_search(&console.abbreviation).contains(q)
 }
 
-fn console_state_status(state: &ConsoleState) -> StatusState {
-    StatusState {
-        owned: state.owned,
-        favorite: state.favorite,
-        wishlist: state.wishlist,
-        notes: state.notes.clone(),
-    }
+fn matches_game_search(
+    game: &Game,
+    query: Option<&str>,
+    console_names: &HashMap<EntryId, String>,
+) -> bool {
+    let Some(q) = query else { return true };
+    crate::ids::normalize_for_search(&game.title).contains(q)
+        || crate::ids::normalize_for_search(&game.publisher).contains(q)
+        || crate::ids::normalize_for_search(&game.developer).contains(q)
+        || console_names
+            .get(&game.console_id)
+            .map(|name| crate::ids::normalize_for_search(name).contains(q))
+            .unwrap_or(false)
 }
 
-fn game_state_status(state: &GameState) -> StatusState {
-    StatusState {
-        owned: state.owned,
-        favorite: state.favorite,
-        wishlist: state.wishlist,
-        notes: state.notes.clone(),
-    }
-}
-
-fn lego_state_status(state: &LegoDimensionState) -> StatusState {
-    StatusState {
-        owned: state.owned,
-        favorite: state.favorite,
-        wishlist: state.wishlist,
-        notes: state.notes.clone(),
-    }
-}
-
-fn skylander_state_status(state: &SkylanderState) -> StatusState {
-    StatusState {
-        owned: state.owned,
-        favorite: state.favorite,
-        wishlist: state.wishlist,
-        notes: state.notes.clone(),
-    }
+fn matches_collectible_search(
+    item: &Collectible,
+    query: Option<&str>,
+    collection_names: &HashMap<String, String>,
+) -> bool {
+    let Some(q) = query else { return true };
+    crate::ids::normalize_for_search(&item.name).contains(q)
+        || crate::ids::normalize_for_search(&item.category).contains(q)
+        || crate::ids::normalize_for_search(&item.group).contains(q)
+        || crate::ids::normalize_for_search(&item.variant).contains(q)
+        || collection_names
+            .get(&item.collection_id)
+            .map(|name| crate::ids::normalize_for_search(name).contains(q))
+            .unwrap_or(false)
 }

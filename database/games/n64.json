@@ -1,0 +1,6691 @@
+{
+  "schema_version": 1,
+  "console": {
+    "id": "n64",
+    "name": "Nintendo 64",
+    "manufacturer": "Nintendo",
+    "family": "Nintendo",
+    "form_factor": "home",
+    "generation": 5,
+    "abbreviation": "N64",
+    "launch_year": 1996
+  },
+  "source": {
+    "type": "wikipedia",
+    "files": [
+      "List of Nintendo 64 games - Wikipedia.html"
+    ],
+    "extracted_at": "2026-05-12T20:29:09Z"
+  },
+  "counts": {
+    "total": 392,
+    "released": 392,
+    "unreleased": 0
+  },
+  "games": [
+    {
+      "title": "1080° Snowboarding",
+      "slug": "1080-snowboarding",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-02-28",
+      "releases": {
+        "jp": "1998-02-28",
+        "na": "1998-04-01",
+        "pal": "1998-10-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "40 Winks",
+      "slug": "40-winks",
+      "developer": "Eurocom",
+      "publisher": "Piko Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2019-04-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "64 de Hakken!! Tamagotchi: Minna de Tamagotchi World",
+      "slug": "64-de-hakken-tamagotchi-minna-de-tamagotchi-world",
+      "developer": "Hudson Soft",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-19",
+      "releases": {
+        "jp": "1997-12-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "64 Hanafuda: Tenshi no Yakusoku",
+      "slug": "64-hanafuda-tenshi-no-yakusoku",
+      "developer": "Altron",
+      "publisher": "Altron",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-05",
+      "releases": {
+        "jp": "1999-11-05",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "64 Ōzumō",
+      "slug": "64-ozumo",
+      "developer": "Bottom Up",
+      "publisher": "Bottom Up",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-28",
+      "releases": {
+        "jp": "1997-11-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "64 Ōzumō 2",
+      "slug": "64-ozumo-2",
+      "developer": "Bottom Up",
+      "publisher": "Bottom Up",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-19",
+      "releases": {
+        "jp": "1999-03-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "64 Trump Collection: Alice no Waku Waku Trump World",
+      "slug": "64-trump-collection-alice-no-waku-waku-trump-world",
+      "developer": "Bottom Up",
+      "publisher": "Bottom Up",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-08-07",
+      "releases": {
+        "jp": "1998-08-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "A Bug's Life",
+      "slug": "a-bug-s-life",
+      "developer": "Traveller's Tales",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01-01",
+      "releases": {
+        "jp": null,
+        "na": "1999-06",
+        "pal": "1999-01-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Aero Fighters Assault",
+      "slug": "aero-fighters-assault",
+      "developer": "Paradigm Entertainment",
+      "publisher": "Video System",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-21",
+      "releases": {
+        "jp": "1998-03-19",
+        "na": "1997-11-21",
+        "pal": "1998-04-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "AeroGauge",
+      "slug": "aerogauge",
+      "developer": "Locomotive Corporation",
+      "publisher": "ASCII Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-19",
+      "releases": {
+        "jp": "1997-12-19",
+        "na": "1998-05-21",
+        "pal": "1998-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "AI Shogi 3",
+      "slug": "ai-shogi-3",
+      "developer": "i4 Corporation",
+      "publisher": "ASCII Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-18",
+      "releases": {
+        "jp": "1998-12-18",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Aidyn Chronicles: The First Mage",
+      "slug": "aidyn-chronicles-the-first-mage",
+      "developer": "H2O Entertainment",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-03-20",
+      "releases": {
+        "jp": null,
+        "na": "2001-03-20",
+        "pal": "2001-08-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Air Boarder 64",
+      "slug": "air-boarder-64",
+      "developer": "Human Entertainment",
+      "publisher": "Human Entertainment Gaga Interactive Media",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-03-27",
+      "releases": {
+        "jp": "1998-03-27",
+        "na": null,
+        "pal": "1998-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "All-Star Baseball 2000",
+      "slug": "all-star-baseball-2000",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-07",
+      "releases": {
+        "jp": null,
+        "na": "1999-04-07",
+        "pal": "1999-05-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "All-Star Baseball 2001",
+      "slug": "all-star-baseball-2001",
+      "developer": "High Voltage Software",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-31",
+      "releases": {
+        "jp": null,
+        "na": "2000-03-31",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "All-Star Baseball 99",
+      "slug": "all-star-baseball-99",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-27",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-27",
+        "pal": "1998-08-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "All Star Tennis '99",
+      "slug": "all-star-tennis-99",
+      "developer": "Smart Dog",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-31",
+        "pal": "1999-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Armorines: Project S.W.A.R.M.",
+      "slug": "armorines-project-s-w-a-r-m",
+      "developer": "Acclaim Studios London",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-09",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-09",
+        "pal": "1999-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Army Men: Air Combat",
+      "slug": "army-men-air-combat",
+      "developer": "The 3DO Company",
+      "publisher": "The 3DO Company",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-07-18",
+      "releases": {
+        "jp": null,
+        "na": "2000-07-18",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Army Men: Sarge's Heroes",
+      "slug": "army-men-sarge-s-heroes",
+      "developer": "The 3DO Company",
+      "publisher": "The 3DO Company",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-28",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-28",
+        "pal": "2000-04-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Army Men: Sarge's Heroes 2",
+      "slug": "army-men-sarge-s-heroes-2",
+      "developer": "The 3DO Company",
+      "publisher": "The 3DO Company",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-27",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-27",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Asteroids Hyper 64",
+      "slug": "asteroids-hyper-64",
+      "developer": "Syrox Developments",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-14",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-14",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Automobili Lamborghini",
+      "slug": "automobili-lamborghini",
+      "developer": "Titus France",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-22",
+      "releases": {
+        "jp": "1998-05-28",
+        "na": "1997-11-22",
+        "pal": "1997-12-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bakuretsu Muteki Bangaiō",
+      "slug": "bakuretsu-muteki-bangaio",
+      "developer": "Treasure",
+      "publisher": "ESP",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-03",
+      "releases": {
+        "jp": "1999-09-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bakushō Jinsei 64: Mezase! Resort Ō",
+      "slug": "bakusho-jinsei-64-mezase-resort-o",
+      "developer": "Taito",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-24",
+      "releases": {
+        "jp": "1998-12-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Banjo-Kazooie",
+      "slug": "banjo-kazooie",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-29",
+      "releases": {
+        "jp": "1998-12-06",
+        "na": "1998-06-29",
+        "pal": "1998-07-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Banjo-Tooie",
+      "slug": "banjo-tooie",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-20",
+      "releases": {
+        "jp": "2000-11-27",
+        "na": "2000-11-20",
+        "pal": "2001-04-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bass Masters 2000",
+      "slug": "bass-masters-2000",
+      "developer": "Mass Media",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-16",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-16",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bass Rush: ECOGEAR PowerWorm Championship",
+      "slug": "bass-rush-ecogear-powerworm-championship",
+      "developer": "Visco Corporation",
+      "publisher": "Visco Corporation",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-28",
+      "releases": {
+        "jp": "2000-04-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Batman Beyond: Return of the Joker",
+      "slug": "batman-beyond-return-of-the-joker",
+      "developer": "Kemco",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-13",
+      "releases": {
+        "jp": null,
+        "na": "2000-12-13",
+        "pal": "2000-12-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "BattleTanx",
+      "slug": "battletanx",
+      "developer": "The 3DO Company",
+      "publisher": "The 3DO Company",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-29",
+      "releases": {
+        "jp": null,
+        "na": "1998-12-29",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "BattleTanx: Global Assault",
+      "slug": "battletanx-global-assault",
+      "developer": "The 3DO Company",
+      "publisher": "The 3DO Company",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-12",
+      "releases": {
+        "jp": null,
+        "na": "1999-10-12",
+        "pal": "2000-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Battlezone: Rise of the Black Dogs",
+      "slug": "battlezone-rise-of-the-black-dogs",
+      "developer": "Climax Development",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-14",
+      "releases": {
+        "jp": null,
+        "na": "2000-04-14",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Beetle Adventure Racing!",
+      "slug": "beetle-adventure-racing",
+      "developer": "Paradigm Entertainment",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-23",
+      "releases": {
+        "jp": "1999-11-26",
+        "na": "1999-03-23",
+        "pal": "1999-09-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Big Mountain 2000",
+      "slug": "big-mountain-2000",
+      "developer": "Imagineer",
+      "publisher": "SouthPeak Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-26",
+      "releases": {
+        "jp": "1998-12-26",
+        "na": "2000-10-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bio F.R.E.A.K.S.",
+      "slug": "bio-f-r-e-a-k-s",
+      "developer": "Midway Studios San Diego",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-19",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-19",
+        "pal": "1998-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Blast Corps",
+      "slug": "blast-corps",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-21",
+      "releases": {
+        "jp": "1997-03-21",
+        "na": "1997-03-24",
+        "pal": "1997-12-22",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Blues Brothers 2000",
+      "slug": "blues-brothers-2000",
+      "developer": "Player 1",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-10-13",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-17",
+        "pal": "2000-10-13",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Body Harvest",
+      "slug": "body-harvest",
+      "developer": "DMA Design",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-10-20",
+      "releases": {
+        "jp": null,
+        "na": "1998-10-20",
+        "pal": "1998-11-13",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bomberman 64",
+      "slug": "bomberman-64",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-09-26",
+      "releases": {
+        "jp": "1997-09-26",
+        "na": "1997-12-03",
+        "pal": "1997-11-21",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bomberman 64: The Second Attack!",
+      "slug": "bomberman-64-the-second-attack",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft Vatical Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-03",
+      "releases": {
+        "jp": "1999-12-03",
+        "na": "2000-05-29",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bomberman Hero",
+      "slug": "bomberman-hero",
+      "developer": "A.I",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-04-30",
+      "releases": {
+        "jp": "1998-04-30",
+        "na": "1998-08-31",
+        "pal": "1998-10-23",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bottom of the 9th",
+      "slug": "bottom-of-the-9th",
+      "developer": "Konami Computer Entertainment Chicago",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-14",
+      "releases": {
+        "jp": null,
+        "na": "1999-04-14",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Brunswick Circuit Pro Bowling",
+      "slug": "brunswick-circuit-pro-bowling",
+      "developer": "Point of View",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-22",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-22",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Buck Bumble",
+      "slug": "buck-bumble",
+      "developer": "Argonaut Software",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-20",
+      "releases": {
+        "jp": "1998-12-18",
+        "na": "1998-11-20",
+        "pal": "1998-12-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bust-A-Move 2 Arcade Edition",
+      "slug": "bust-a-move-2-arcade-edition",
+      "developer": "Probe Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-20",
+        "pal": "1998",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bust-A-Move 3 DX",
+      "slug": "bust-a-move-3-dx",
+      "developer": "Distinctive Developments",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11",
+      "releases": {
+        "jp": "1999-03-05",
+        "na": "1999-04-05",
+        "pal": "1998-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "California Speed",
+      "slug": "california-speed",
+      "developer": "Atari Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-18",
+      "releases": {
+        "jp": null,
+        "na": "1999-03-18",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Carmageddon 64",
+      "slug": "carmageddon-64",
+      "developer": "Software Creations",
+      "publisher": "Sales Curve Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": "2000-07-26",
+        "pal": "1999",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Castlevania",
+      "slug": "castlevania",
+      "developer": "Konami Computer Entertainment Kobe",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01-26",
+      "releases": {
+        "jp": "1999-03-11",
+        "na": "1999-01-26",
+        "pal": "1999-05-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Castlevania: Legacy of Darkness",
+      "slug": "castlevania-legacy-of-darkness",
+      "developer": "Konami Computer Entertainment Kobe",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-08",
+      "releases": {
+        "jp": "1999-12-25",
+        "na": "1999-12-08",
+        "pal": "2000-03-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Centre Court Tennis",
+      "slug": "centre-court-tennis",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft Gaga Interactive Media",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-10-09",
+      "releases": {
+        "jp": "1998-10-09",
+        "na": null,
+        "pal": "1999",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chameleon Twist",
+      "slug": "chameleon-twist",
+      "developer": "Japan System Supply",
+      "publisher": "Sunsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12",
+      "releases": {
+        "jp": "1997-12-12",
+        "na": "1997-12-09",
+        "pal": "1997-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chameleon Twist 2",
+      "slug": "chameleon-twist-2",
+      "developer": "Japan System Supply",
+      "publisher": "Sunsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-25",
+      "releases": {
+        "jp": "1998-12-25",
+        "na": "1999-04-14",
+        "pal": "1999",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Charlie Blast's Territory",
+      "slug": "charlie-blast-s-territory",
+      "developer": "Realtime Associates",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-02",
+      "releases": {
+        "jp": null,
+        "na": "1999-04-02",
+        "pal": "1999-06-18",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chōkūkan Night: Pro Yakyū King",
+      "slug": "chokukan-night-pro-yakyu-king",
+      "developer": "Genki",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-20",
+      "releases": {
+        "jp": "1996-12-20",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chōkūkan Night: Pro Yakyū King 2",
+      "slug": "chokukan-night-pro-yakyu-king-2",
+      "developer": "Genki",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-19",
+      "releases": {
+        "jp": "1999-03-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chopper Attack",
+      "slug": "chopper-attack",
+      "developer": "SETA",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-28",
+      "releases": {
+        "jp": "1997-11-28",
+        "na": "1998-06-16",
+        "pal": "1998-09-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Choro Q 64 2: Hachamecha Grand Prix Race",
+      "slug": "choro-q-64-2-hachamecha-grand-prix-race",
+      "developer": "Locomotive Corporation",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-24",
+      "releases": {
+        "jp": "1999-12-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ClayFighter 63⅓",
+      "slug": "clayfighter-631-3",
+      "developer": "Interplay Productions",
+      "publisher": "Interplay Productions",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-10-23",
+      "releases": {
+        "jp": null,
+        "na": "1997-10-23",
+        "pal": "1997-11-19",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ClayFighter: Sculptor's Cut",
+      "slug": "clayfighter-sculptor-s-cut",
+      "developer": "Interplay Productions",
+      "publisher": "Interplay Productions",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-15",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-15",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Command & Conquer",
+      "slug": "command-conquer",
+      "developer": "Looking Glass Studios",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-29",
+      "releases": {
+        "jp": null,
+        "na": "1999-06-29",
+        "pal": "1999-07-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Conker's Bad Fur Day",
+      "slug": "conker-s-bad-fur-day",
+      "developer": "Rare",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-03-05",
+      "releases": {
+        "jp": null,
+        "na": "2001-03-05",
+        "pal": "2001-04-13",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cruis'n Exotica",
+      "slug": "cruis-n-exotica",
+      "developer": "Gratuitous Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-10-17",
+      "releases": {
+        "jp": null,
+        "na": "2000-10-17",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cruis'n USA",
+      "slug": "cruis-n-usa",
+      "developer": "Williams Entertainment",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-02",
+      "releases": {
+        "jp": null,
+        "na": "1996-12-02",
+        "pal": "1998-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cruis'n World",
+      "slug": "cruis-n-world",
+      "developer": "Eurocom",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-25",
+      "releases": {
+        "jp": null,
+        "na": "1998-09-28",
+        "pal": "1998-06-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Custom Robo",
+      "slug": "custom-robo",
+      "developer": "Noise",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-08",
+      "releases": {
+        "jp": "1999-12-08",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Custom Robo V2",
+      "slug": "custom-robo-v2",
+      "developer": "Noise",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-10",
+      "releases": {
+        "jp": "2000-11-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "CyberTiger",
+      "slug": "cybertiger",
+      "developer": "Saffire",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-08",
+      "releases": {
+        "jp": null,
+        "na": "2000-03-08",
+        "pal": "2000-05-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Daikatana",
+      "slug": "daikatana",
+      "developer": "Ion Storm",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-31",
+      "releases": {
+        "jp": "2000-03-31",
+        "na": "2000-08-01",
+        "pal": "2000-05-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dance Dance Revolution Disney Dancing Museum",
+      "slug": "dance-dance-revolution-disney-dancing-museum",
+      "developer": "Konami Computer Entertainment Kobe",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-30",
+      "releases": {
+        "jp": "2000-11-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dark Rift",
+      "slug": "dark-rift",
+      "developer": "Kronos Digital Entertainment",
+      "publisher": "Vic Tokai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-07-08",
+      "releases": {
+        "jp": "1998-03-27",
+        "na": "1997-07-08",
+        "pal": "1997-07-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Densha de Go! 64",
+      "slug": "densha-de-go-64",
+      "developer": "A.I",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-30",
+      "releases": {
+        "jp": "1999-07-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Derby Stallion 64",
+      "slug": "derby-stallion-64",
+      "developer": "ParityBit",
+      "publisher": "Media Factory",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-08-10",
+      "releases": {
+        "jp": "2001-08-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Destruction Derby 64",
+      "slug": "destruction-derby-64",
+      "developer": "Looking Glass Studios",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-30",
+        "pal": "1999-10-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dezaemon 3D",
+      "slug": "dezaemon-3d",
+      "developer": "Athena",
+      "publisher": "Athena",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-26",
+      "releases": {
+        "jp": "1998-06-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Diddy Kong Racing",
+      "slug": "diddy-kong-racing",
+      "developer": "Rare",
+      "publisher": "Rare",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-21",
+      "releases": {
+        "jp": "1997-11-21",
+        "na": "1997-11-24",
+        "pal": "1997-11-21",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dōbutsu no Mori",
+      "slug": "dobutsu-no-mori",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-04-14",
+      "releases": {
+        "jp": "2001-04-14",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Donald Duck: Quack Attack",
+      "slug": "donald-duck-quack-attack",
+      "developer": "Ubi Soft Casablanca",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-08",
+      "releases": {
+        "jp": null,
+        "na": "2000-12-20",
+        "pal": "2000-12-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Donkey Kong 64",
+      "slug": "donkey-kong-64",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-22",
+      "releases": {
+        "jp": "1999-12-10",
+        "na": "1999-11-22",
+        "pal": "1999-12-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doom 64",
+      "slug": "doom-64",
+      "developer": "Midway Studios San Diego",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-04-04",
+      "releases": {
+        "jp": "1997-08-01",
+        "na": "1997-04-04",
+        "pal": "1997-12-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon 2: Nobita to Hikari no Shinden",
+      "slug": "doraemon-2-nobita-to-hikari-no-shinden",
+      "developer": "Epoch Co.",
+      "publisher": "Epoch Co.",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-11",
+      "releases": {
+        "jp": "1998-12-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon 3: Nobita no Machi SOS!",
+      "slug": "doraemon-3-nobita-no-machi-sos",
+      "developer": "Epoch Co.",
+      "publisher": "Epoch Co.",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-07-28",
+      "releases": {
+        "jp": "2000-07-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Nobita to Mittsu no Seireiseki",
+      "slug": "doraemon-nobita-to-mittsu-no-seireiseki",
+      "developer": "Epoch Co.",
+      "publisher": "Epoch Co.",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-21",
+      "releases": {
+        "jp": "1997-03-21",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dr. Mario 64",
+      "slug": "dr-mario-64",
+      "developer": "Nintendo",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-04-09",
+      "releases": {
+        "jp": null,
+        "na": "2001-04-09",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dragon Sword",
+      "slug": "dragon-sword",
+      "developer": "Interactive Studios",
+      "publisher": "Piko Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dual Heroes",
+      "slug": "dual-heroes",
+      "developer": "Produce!",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-05",
+      "releases": {
+        "jp": "1997-12-05",
+        "na": "1998-11-05",
+        "pal": "1998-04-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Duck Dodgers Starring Daffy Duck",
+      "slug": "duck-dodgers-starring-daffy-duck",
+      "developer": "Paradigm Entertainment",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-08-15",
+      "releases": {
+        "jp": null,
+        "na": "2000-08-15",
+        "pal": "2000-10-27",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Duke Nukem 64",
+      "slug": "duke-nukem-64",
+      "developer": "Eurocom",
+      "publisher": "GT Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-14",
+      "releases": {
+        "jp": null,
+        "na": "1997-11-14",
+        "pal": "1997-11-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Duke Nukem: Zero Hour",
+      "slug": "duke-nukem-zero-hour",
+      "developer": "Eurocom",
+      "publisher": "GT Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-31",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-31",
+        "pal": "1999-09-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Earthworm Jim 3D",
+      "slug": "earthworm-jim-3d",
+      "developer": "VIS Interactive",
+      "publisher": "Rockstar Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-04",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-04",
+        "pal": "1999-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECW Hardcore Revolution",
+      "slug": "ecw-hardcore-revolution",
+      "developer": "Acclaim Studios Salt Lake City",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-17",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-17",
+        "pal": "2000-03-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Eiko no Saint Andrews",
+      "slug": "eiko-no-saint-andrews",
+      "developer": "SETA",
+      "publisher": "SETA",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-29",
+      "releases": {
+        "jp": "1996-11-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Elmo's Letter Adventure",
+      "slug": "elmo-s-letter-adventure",
+      "developer": "Realtime Associates",
+      "publisher": "NewKidCo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-15",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-15",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Elmo's Number Journey",
+      "slug": "elmo-s-number-journey",
+      "developer": "Realtime Associates",
+      "publisher": "NewKidCo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-30",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Excitebike 64",
+      "slug": "excitebike-64",
+      "developer": "Left Field Productions",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-05-02",
+      "releases": {
+        "jp": "2000-06-23",
+        "na": "2000-05-02",
+        "pal": "2001-06-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Extreme-G",
+      "slug": "extreme-g",
+      "developer": "Probe Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-10-27",
+      "releases": {
+        "jp": "1998-05-29",
+        "na": "1997-10-27",
+        "pal": "1997-12-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Extreme-G 2",
+      "slug": "extreme-g-2",
+      "developer": "Probe Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-17",
+      "releases": {
+        "jp": "1999-09-10",
+        "na": "1998-11-17",
+        "pal": "1998-12-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F-1 World Grand Prix",
+      "slug": "f-1-world-grand-prix",
+      "developer": "Paradigm Entertainment",
+      "publisher": "Video System",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-27",
+      "releases": {
+        "jp": "1998-12-18",
+        "na": "1998-07-27",
+        "pal": "1998-09-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F-1 World Grand Prix II",
+      "slug": "f-1-world-grand-prix-ii",
+      "developer": "Paradigm Entertainment",
+      "publisher": "Video System",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1999-07-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F-Zero X",
+      "slug": "f-zero-x",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-14",
+      "releases": {
+        "jp": "1998-07-14",
+        "na": "1998-10-27",
+        "pal": "1998-11-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F1 Pole Position 64",
+      "slug": "f1-pole-position-64",
+      "developer": "Human Entertainment",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-28",
+      "releases": {
+        "jp": "1997-03-28",
+        "na": "1997-10-15",
+        "pal": "1997-10-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F1 Racing Championship",
+      "slug": "f1-racing-championship",
+      "developer": "Ubi Soft",
+      "publisher": "Video System",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "2000-12-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Famista 64",
+      "slug": "famista-64",
+      "developer": "Namco",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-28",
+      "releases": {
+        "jp": "1997-11-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "FIFA 99",
+      "slug": "fifa-99",
+      "developer": "EA Canada",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12",
+      "releases": {
+        "jp": null,
+        "na": "1998-12",
+        "pal": "1998-12-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "FIFA: Road to World Cup 98",
+      "slug": "fifa-road-to-world-cup-98",
+      "developer": "EA Canada",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-20",
+      "releases": {
+        "jp": "1998-04-12",
+        "na": "1997-12-22",
+        "pal": "1997-12-20",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "FIFA Soccer 64",
+      "slug": "fifa-soccer-64",
+      "developer": "EA Canada",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-27",
+      "releases": {
+        "jp": null,
+        "na": "1997-03-27",
+        "pal": "1997-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fighter Destiny 2",
+      "slug": "fighter-destiny-2",
+      "developer": "Genki",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-27",
+      "releases": {
+        "jp": "1999-08-27",
+        "na": "2000-06-22",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fighters Destiny",
+      "slug": "fighters-destiny",
+      "developer": "Genki",
+      "publisher": "Ocean of America",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-01-26",
+      "releases": {
+        "jp": "1998-12-11",
+        "na": "1998-01-26",
+        "pal": "1998-03-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fighting Force 64",
+      "slug": "fighting-force-64",
+      "developer": "Core Design",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-01",
+      "releases": {
+        "jp": null,
+        "na": "1999-06-01",
+        "pal": "1999-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Flying Dragon",
+      "slug": "flying-dragon",
+      "developer": "Culture Brain",
+      "publisher": "Natsume Inc.",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-18",
+      "releases": {
+        "jp": "1997-12-18",
+        "na": "1998-10-14",
+        "pal": "1999-07-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Forsaken 64",
+      "slug": "forsaken-64",
+      "developer": "Iguana UK",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-22",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-26",
+        "pal": "1998-05-22",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fox Sports College Hoops '99",
+      "slug": "fox-sports-college-hoops-99",
+      "developer": "Z-Axis",
+      "publisher": "Fox Sports Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-23",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-23",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fushigi no Dungeon: Fūrai no Shiren 2: Oni Shūrai! Shiren-jō!",
+      "slug": "fushigi-no-dungeon-furai-no-shiren-2-oni-shurai-shiren-jo",
+      "developer": "Chunsoft",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-27",
+      "releases": {
+        "jp": "2000-09-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "G.A.S.P!! Fighters' NEXTream",
+      "slug": "g-a-s-p-fighters-nextream",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-03-26",
+      "releases": {
+        "jp": "1998-03-26",
+        "na": "1998-09-29",
+        "pal": "1998-09-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gauntlet Legends",
+      "slug": "gauntlet-legends",
+      "developer": "Atari Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-31",
+      "releases": {
+        "jp": "2000-04-07",
+        "na": "1999-08-31",
+        "pal": "1999-12-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Getter Love!!: Chō Renai Party Game Tanjō",
+      "slug": "getter-love-cho-renai-party-game-tanjo",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-04",
+      "releases": {
+        "jp": "1998-12-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gex 3: Deep Cover Gecko",
+      "slug": "gex-3-deep-cover-gecko",
+      "developer": "Gratuitous Games",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-28",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-28",
+        "pal": "2000-07-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gex 64: Enter the Gecko",
+      "slug": "gex-64-enter-the-gecko",
+      "developer": "Realtime Associates",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-08-26",
+      "releases": {
+        "jp": null,
+        "na": "1998-08-26",
+        "pal": "1999-02-26",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Glover",
+      "slug": "glover",
+      "developer": "Interactive Studios",
+      "publisher": "Hasbro Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-16",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-16",
+        "pal": "1998-11-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Glover 2",
+      "slug": "glover-2",
+      "developer": "Interactive Studios",
+      "publisher": "Piko Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Goemon Mononoke Sugoroku",
+      "slug": "goemon-mononoke-sugoroku",
+      "developer": "Konami Computer Entertainment Kobe",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-25",
+      "releases": {
+        "jp": "1999-12-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Golden Nugget 64",
+      "slug": "golden-nugget-64",
+      "developer": "Westwood Pacific",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-10",
+      "releases": {
+        "jp": null,
+        "na": "1998-12-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GoldenEye 007",
+      "slug": "goldeneye-007",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-23",
+      "releases": {
+        "jp": "1997-08-23",
+        "na": "1997-08-25",
+        "pal": "1997-11-07",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GT 64: Championship Edition",
+      "slug": "gt-64-championship-edition",
+      "developer": "Imagineer",
+      "publisher": "Ocean of America",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": "1998-10-30",
+        "na": "1998-09-09",
+        "pal": "1998",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hamster Monogatari 64",
+      "slug": "hamster-monogatari-64",
+      "developer": "Culture Brain",
+      "publisher": "Culture Brain",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-04-06",
+      "releases": {
+        "jp": "2001-04-06",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Harukanaru Augusta Masters '98",
+      "slug": "harukanaru-augusta-masters-98",
+      "developer": "T&E Soft",
+      "publisher": "T&E Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-26",
+      "releases": {
+        "jp": "1997-12-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Harvest Moon 64",
+      "slug": "harvest-moon-64",
+      "developer": "Victor Interactive Software",
+      "publisher": "Pack-In-Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-02-05",
+      "releases": {
+        "jp": "1999-02-05",
+        "na": "1999-12-22",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Heiwa Pachinko World 64",
+      "slug": "heiwa-pachinko-world-64",
+      "developer": "Shouei System",
+      "publisher": "Amtex",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-28",
+      "releases": {
+        "jp": "1997-11-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hercules: The Legendary Journeys",
+      "slug": "hercules-the-legendary-journeys",
+      "developer": "Player 1",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-08-18",
+      "releases": {
+        "jp": null,
+        "na": "2000-08-18",
+        "pal": "2000-10-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hexen",
+      "slug": "hexen",
+      "developer": "Software Creations",
+      "publisher": "id Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-06-25",
+      "releases": {
+        "jp": "1997-12-18",
+        "na": "1997-06-25",
+        "pal": "1997-12-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hey You, Pikachu!",
+      "slug": "hey-you-pikachu",
+      "developer": "Ambrella",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-12",
+      "releases": {
+        "jp": "1998-12-12",
+        "na": "2000-11-06",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hot Wheels Turbo Racing",
+      "slug": "hot-wheels-turbo-racing",
+      "developer": "Stormfront Studios",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-05-11",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-14",
+        "pal": "1999-05-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hybrid Heaven",
+      "slug": "hybrid-heaven",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-05",
+      "releases": {
+        "jp": "1999-08-05",
+        "na": "1999-08-31",
+        "pal": "1999-09-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hydro Thunder",
+      "slug": "hydro-thunder",
+      "developer": "Eurocom",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-06",
+      "releases": {
+        "jp": null,
+        "na": "2000-03-06",
+        "pal": "2000-05-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ide Yosuke no Mahjong Juku",
+      "slug": "ide-yosuke-no-mahjong-juku",
+      "developer": "SETA",
+      "publisher": "SETA",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-21",
+      "releases": {
+        "jp": "2000-04-21",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Iggy's Reckin' Balls",
+      "slug": "iggy-s-reckin-balls",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-08-24",
+      "releases": {
+        "jp": "1998-08-28",
+        "na": "1998-08-24",
+        "pal": "1998-08-28",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "In-Fisherman Bass Hunter 64",
+      "slug": "in-fisherman-bass-hunter-64",
+      "developer": "Gearhead Entertainment",
+      "publisher": "Take-Two Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-07-30",
+        "pal": "1999-10-22",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Indiana Jones and the Infernal Machine",
+      "slug": "indiana-jones-and-the-infernal-machine",
+      "developer": "Factor 5",
+      "publisher": "LucasArts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-15",
+      "releases": {
+        "jp": null,
+        "na": "2000-12-15",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Indy Racing 2000",
+      "slug": "indy-racing-2000",
+      "developer": "Paradigm Entertainment",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-06-07",
+      "releases": {
+        "jp": null,
+        "na": "2000-06-07",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "International Superstar Soccer 2000",
+      "slug": "international-superstar-soccer-2000",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-29",
+      "releases": {
+        "jp": "1999-07-29",
+        "na": "2000-08-03",
+        "pal": "2000-10-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "International Superstar Soccer 64",
+      "slug": "international-superstar-soccer-64",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-20",
+      "releases": {
+        "jp": "1996-12-20",
+        "na": "1997-08-22",
+        "pal": "1997-06-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "International Superstar Soccer 98",
+      "slug": "international-superstar-soccer-98",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-04",
+      "releases": {
+        "jp": "1998-06-04",
+        "na": "1998-08-21",
+        "pal": "1998-09-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "International Track & Field 2000",
+      "slug": "international-track-field-2000",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-05-28",
+      "releases": {
+        "jp": "2000-07-13",
+        "na": "2000-05-28",
+        "pal": "2000-09-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Itoi Shigesato no Bass Tsuri No. 1 Kettehan!",
+      "slug": "itoi-shigesato-no-bass-tsuri-no-1-kettehan",
+      "developer": "HAL Laboratory",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-31",
+      "releases": {
+        "jp": "2000-03-31",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "J-League Dynamite Soccer 64",
+      "slug": "j-league-dynamite-soccer-64",
+      "developer": "A-Max",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-09-05",
+      "releases": {
+        "jp": "1997-09-05",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "J-League Eleven Beat 1997",
+      "slug": "j-league-eleven-beat-1997",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-10-24",
+      "releases": {
+        "jp": "1997-10-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "J. League Live 64",
+      "slug": "j-league-live-64",
+      "developer": "Electronic Arts Victor",
+      "publisher": "Electronic Arts Victor",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-28",
+      "releases": {
+        "jp": "1997-03-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "J-League Tactics Soccer",
+      "slug": "j-league-tactics-soccer",
+      "developer": "ASCII Entertainment",
+      "publisher": "ASCII Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01-15",
+      "releases": {
+        "jp": "1999-01-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jango Simulation Mahjong-do 64",
+      "slug": "jango-simulation-mahjong-do-64",
+      "developer": "Art",
+      "publisher": "Video System",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-07-25",
+      "releases": {
+        "jp": "1997-07-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jeopardy!",
+      "slug": "jeopardy",
+      "developer": "GameTek",
+      "publisher": "Take-Two Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-02-25",
+      "releases": {
+        "jp": null,
+        "na": "1998-02-25",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jeremy McGrath Supercross 2000",
+      "slug": "jeremy-mcgrath-supercross-2000",
+      "developer": "Acclaim Studios Salt Lake City",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-28",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-28",
+        "pal": "2000-09-19",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jet Force Gemini",
+      "slug": "jet-force-gemini",
+      "developer": "Rare",
+      "publisher": "Rare",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-11",
+      "releases": {
+        "jp": "1999-12-01",
+        "na": "1999-10-11",
+        "pal": "1999-10-29",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō GI Stable",
+      "slug": "jikkyo-gi-stable",
+      "developer": "Konami Computer Entertainment Nagoya",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-28",
+      "releases": {
+        "jp": "1999-04-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō J-League Perfect Striker",
+      "slug": "jikkyo-j-league-perfect-striker",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-09-18",
+      "releases": {
+        "jp": "1997-09-18",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō Powerful Pro Yakyū 2000",
+      "slug": "jikkyo-powerful-pro-yakyu-2000",
+      "developer": "Diamond Head",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-29",
+      "releases": {
+        "jp": "2000-04-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō Powerful Pro Yakyū 4",
+      "slug": "jikkyo-powerful-pro-yakyu-4",
+      "developer": "Diamond Head",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-14",
+      "releases": {
+        "jp": "1997-03-14",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō Powerful Pro Yakyū 5",
+      "slug": "jikkyo-powerful-pro-yakyu-5",
+      "developer": "Diamond Head",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-03-26",
+      "releases": {
+        "jp": "1998-03-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō Powerful Pro Yakyū 6",
+      "slug": "jikkyo-powerful-pro-yakyu-6",
+      "developer": "Diamond Head",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-25",
+      "releases": {
+        "jp": "1999-03-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jikkyō Powerful Pro Yakyu Basic-ban 2001",
+      "slug": "jikkyo-powerful-pro-yakyu-basic-ban-2001",
+      "developer": "Diamond Head",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-03-29",
+      "releases": {
+        "jp": "2001-03-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jinsei Game 64",
+      "slug": "jinsei-game-64",
+      "developer": "Takara",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-19",
+      "releases": {
+        "jp": "1999-03-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ken Griffey Jr.'s Slugfest",
+      "slug": "ken-griffey-jr-s-slugfest",
+      "developer": "Angel Studios",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-05-10",
+      "releases": {
+        "jp": null,
+        "na": "1999-05-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Killer Instinct Gold",
+      "slug": "killer-instinct-gold",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-25",
+      "releases": {
+        "jp": null,
+        "na": "1996-11-25",
+        "pal": "1997-05-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kiratto Kaiketsu! 64 Tanteidan",
+      "slug": "kiratto-kaiketsu-64-tanteidan",
+      "developer": "Pandora Box",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-10-23",
+      "releases": {
+        "jp": "1998-10-23",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kirby 64: The Crystal Shards",
+      "slug": "kirby-64-the-crystal-shards",
+      "developer": "HAL Laboratory",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-24",
+      "releases": {
+        "jp": "2000-03-24",
+        "na": "2000-06-26",
+        "pal": "2001-06-22",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Knife Edge: Nose Gunner",
+      "slug": "knife-edge-nose-gunner",
+      "developer": "Kemco",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": "1998-11-27",
+        "na": "1998-11-10",
+        "pal": "1998",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Knockout Kings 2000",
+      "slug": "knockout-kings-2000",
+      "developer": "Black Ops Entertainment",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-10",
+      "releases": {
+        "jp": null,
+        "na": "1999-10-12",
+        "pal": "1999-10-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kobe Bryant in NBA Courtside",
+      "slug": "kobe-bryant-in-nba-courtside",
+      "developer": "Left Field Productions",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-04-27",
+      "releases": {
+        "jp": null,
+        "na": "1998-04-27",
+        "pal": "1998-06-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Last Legion UX",
+      "slug": "last-legion-ux",
+      "developer": "Yuke's",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-05-28",
+      "releases": {
+        "jp": "1999-05-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Lego Racers",
+      "slug": "lego-racers",
+      "developer": "High Voltage Software",
+      "publisher": "Lego Media",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-22",
+      "releases": {
+        "jp": null,
+        "na": "1999-10-22",
+        "pal": "1999-11-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Lode Runner 3-D",
+      "slug": "lode-runner-3-d",
+      "developer": "Big Bang",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": "1999-07-30",
+        "na": "1999-03-30",
+        "pal": "1999",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mace: The Dark Age",
+      "slug": "mace-the-dark-age",
+      "developer": "Midway Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-09-30",
+      "releases": {
+        "jp": null,
+        "na": "1997-09-30",
+        "pal": "1997-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden Football 64",
+      "slug": "madden-football-64",
+      "developer": "Tiburon Entertainment",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-10-24",
+      "releases": {
+        "jp": null,
+        "na": "1997-10-24",
+        "pal": "1997-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden NFL 2000",
+      "slug": "madden-nfl-2000",
+      "developer": "EA Tiburon",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-31",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-31",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden NFL 2001",
+      "slug": "madden-nfl-2001",
+      "developer": "EA Tiburon",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-07",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-07",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden NFL 2002",
+      "slug": "madden-nfl-2002",
+      "developer": "Budcat Creations",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-09-13",
+      "releases": {
+        "jp": null,
+        "na": "2001-09-13",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden NFL 99",
+      "slug": "madden-nfl-99",
+      "developer": "EA Tiburon",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-09-22",
+      "releases": {
+        "jp": null,
+        "na": "1998-09-22",
+        "pal": "1999-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Magical Tetris Challenge",
+      "slug": "magical-tetris-challenge",
+      "developer": "Capcom",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-20",
+      "releases": {
+        "jp": "1998-11-20",
+        "na": "1999-01-14",
+        "pal": "1999-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mahjong 64",
+      "slug": "mahjong-64",
+      "developer": "Chat Noir",
+      "publisher": "Koei",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-04-04",
+      "releases": {
+        "jp": "1997-04-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mahjong Horoki Classic",
+      "slug": "mahjong-horoki-classic",
+      "developer": "Alpha Unit",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-01",
+      "releases": {
+        "jp": "1997-08-01",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mahjong Master",
+      "slug": "mahjong-master",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-20",
+      "releases": {
+        "jp": "1996-12-20",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Major League Baseball Featuring Ken Griffey Jr.",
+      "slug": "major-league-baseball-featuring-ken-griffey-jr",
+      "developer": "Angel Studios",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-26",
+        "pal": "1998",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario Golf",
+      "slug": "mario-golf",
+      "developer": "Camelot Software Planning",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-11",
+      "releases": {
+        "jp": "1999-06-11",
+        "na": "1999-07-26",
+        "pal": "1999-09-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario Kart 64",
+      "slug": "mario-kart-64",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-14",
+      "releases": {
+        "jp": "1996-12-14",
+        "na": "1997-02-10",
+        "pal": "1997-06-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario no Photopi",
+      "slug": "mario-no-photopi",
+      "developer": "Fuji Photo Film",
+      "publisher": "Tokyo Electron",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-02",
+      "releases": {
+        "jp": "1998-12-02",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario Party",
+      "slug": "mario-party",
+      "developer": "Hudson Soft",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-18",
+      "releases": {
+        "jp": "1998-12-18",
+        "na": "1999-02-08",
+        "pal": "1999-03-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario Party 2",
+      "slug": "mario-party-2",
+      "developer": "Hudson Soft",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-17",
+      "releases": {
+        "jp": "1999-12-17",
+        "na": "2000-01-24",
+        "pal": "2000-10-13",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario Party 3",
+      "slug": "mario-party-3",
+      "developer": "Hudson Soft",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-07",
+      "releases": {
+        "jp": "2000-12-07",
+        "na": "2001-05-07",
+        "pal": "2001-09-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mario Tennis",
+      "slug": "mario-tennis",
+      "developer": "Camelot Software Planning",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-07-21",
+      "releases": {
+        "jp": "2000-07-21",
+        "na": "2000-08-28",
+        "pal": "2000-11-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mega Man 64",
+      "slug": "mega-man-64",
+      "developer": "Capcom Production Studio 2",
+      "publisher": "Capcom",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-22",
+      "releases": {
+        "jp": "2000-11-22",
+        "na": "2001-01-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mia Hamm Soccer 64",
+      "slug": "mia-hamm-soccer-64",
+      "developer": "Silicon Dreams Studio",
+      "publisher": "SouthPeak Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-09",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-09",
+        "pal": "2000-11-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mickey's Speedway USA",
+      "slug": "mickey-s-speedway-usa",
+      "developer": "Rare",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-13",
+      "releases": {
+        "jp": "2001-01-21",
+        "na": "2000-11-13",
+        "pal": "2000-12-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Micro Machines 64 Turbo",
+      "slug": "micro-machines-64-turbo",
+      "developer": "Codemasters",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-29",
+      "releases": {
+        "jp": null,
+        "na": "1999-03-29",
+        "pal": "1999-04-23",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Midway's Greatest Arcade Hits: Volume 1",
+      "slug": "midway-s-greatest-arcade-hits-volume-1",
+      "developer": "Digital Eclipse",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-14",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-14",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mike Piazza's Strike Zone",
+      "slug": "mike-piazza-s-strike-zone",
+      "developer": "Devil's Thumb Entertainment",
+      "publisher": "GT Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-18",
+      "releases": {
+        "jp": null,
+        "na": "1998-06-18",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Milo's Astro Lanes",
+      "slug": "milo-s-astro-lanes",
+      "developer": "Player 1",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-24",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-24",
+        "pal": "1999-07-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mischief Makers",
+      "slug": "mischief-makers",
+      "developer": "Treasure",
+      "publisher": "Enix",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-06-27",
+      "releases": {
+        "jp": "1997-06-27",
+        "na": "1997-10-01",
+        "pal": "1997-12-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mission Impossible",
+      "slug": "mission-impossible",
+      "developer": "Infogrames",
+      "publisher": "Ocean Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-16",
+      "releases": {
+        "jp": null,
+        "na": "1998-07-16",
+        "pal": "1998-09-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Monopoly",
+      "slug": "monopoly",
+      "developer": "Mind's Eye Productions",
+      "publisher": "Hasbro Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-18",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-18",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Monster Truck Madness 64",
+      "slug": "monster-truck-madness-64",
+      "developer": "Edge of Reality",
+      "publisher": "Rockstar Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-07-30",
+        "pal": "1999-10-29",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Morita Shogi 64",
+      "slug": "morita-shogi-64",
+      "developer": "SETA",
+      "publisher": "SETA",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-04-03",
+      "releases": {
+        "jp": "1998-04-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mortal Kombat 4",
+      "slug": "mortal-kombat-4",
+      "developer": "Eurocom",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-23",
+      "releases": {
+        "jp": null,
+        "na": "1998-06-23",
+        "pal": "1998-09-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mortal Kombat Mythologies: Sub-Zero",
+      "slug": "mortal-kombat-mythologies-sub-zero",
+      "developer": "Avalanche Software",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-11",
+      "releases": {
+        "jp": null,
+        "na": "1997-12-11",
+        "pal": "1998-02-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mortal Kombat Trilogy",
+      "slug": "mortal-kombat-trilogy",
+      "developer": "Williams Entertainment",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-12",
+      "releases": {
+        "jp": null,
+        "na": "1996-11-12",
+        "pal": "1997-03-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "MRC: Multi-Racing Championship",
+      "slug": "mrc-multi-racing-championship",
+      "developer": "Genki",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-07-18",
+      "releases": {
+        "jp": "1997-07-18",
+        "na": "1997-09-04",
+        "pal": "1997-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ms. Pac-Man Maze Madness",
+      "slug": "ms-pac-man-maze-madness",
+      "developer": "Mass Media",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-13",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-13",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mystical Ninja 2 Starring Goemon",
+      "slug": "mystical-ninja-2-starring-goemon",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-23",
+      "releases": {
+        "jp": "1998-12-23",
+        "na": "1999-09-15",
+        "pal": "1999-06-18",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mystical Ninja Starring Goemon",
+      "slug": "mystical-ninja-starring-goemon",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-07",
+      "releases": {
+        "jp": "1997-08-07",
+        "na": "1998-04-16",
+        "pal": "1998-04-18",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nagano Winter Olympics '98",
+      "slug": "nagano-winter-olympics-98",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-18",
+      "releases": {
+        "jp": "1997-12-18",
+        "na": "1998-01-29",
+        "pal": "1998-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Namco Museum 64",
+      "slug": "namco-museum-64",
+      "developer": "Mass Media",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-29",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-29",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NASCAR 2000",
+      "slug": "nascar-2000",
+      "developer": "Stormfront Studios",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-13",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-13",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NASCAR '99",
+      "slug": "nascar-99",
+      "developer": "Stormfront Studios",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-09-10",
+      "releases": {
+        "jp": null,
+        "na": "1998-09-10",
+        "pal": "1998-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Courtside 2 Featuring Kobe Bryant",
+      "slug": "nba-courtside-2-featuring-kobe-bryant",
+      "developer": "Left Field Productions",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-08",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-08",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Hangtime",
+      "slug": "nba-hangtime",
+      "developer": "Midway Studios San Diego",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-01-16",
+      "releases": {
+        "jp": null,
+        "na": "1997-01-16",
+        "pal": "1997-09-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA In The Zone 2000",
+      "slug": "nba-in-the-zone-2000",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-18",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-18",
+        "pal": "2000-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA In The Zone '98",
+      "slug": "nba-in-the-zone-98",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-01-29",
+      "releases": {
+        "jp": "1998-01-29",
+        "na": "1998-02-16",
+        "pal": "1998-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA In The Zone '99",
+      "slug": "nba-in-the-zone-99",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": "1999-06-03",
+        "na": "1999-04-08",
+        "pal": "1999",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Jam 2000",
+      "slug": "nba-jam-2000",
+      "developer": "Acclaim Studios Salt Lake City",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-30",
+        "pal": "2000-01-21",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Jam 99",
+      "slug": "nba-jam-99",
+      "developer": "Iguana West",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12",
+      "releases": {
+        "jp": null,
+        "na": "1998-12-03",
+        "pal": "1998-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Live 2000",
+      "slug": "nba-live-2000",
+      "developer": "NuFX",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-29",
+      "releases": {
+        "jp": null,
+        "na": "1999-10-29",
+        "pal": "1999-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Live 99",
+      "slug": "nba-live-99",
+      "developer": "NuFX",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-04",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-04",
+        "pal": "1998-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Showtime: NBA on NBC",
+      "slug": "nba-showtime-nba-on-nbc",
+      "developer": "Eurocom",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-16",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-16",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Neon Genesis Evangelion",
+      "slug": "neon-genesis-evangelion",
+      "developer": "BEC",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-25",
+      "releases": {
+        "jp": "1999-06-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Blitz",
+      "slug": "nfl-blitz",
+      "developer": "Midway Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-09-12",
+      "releases": {
+        "jp": null,
+        "na": "1998-09-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Blitz 2000",
+      "slug": "nfl-blitz-2000",
+      "developer": "Midway Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-18",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-18",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Blitz 2001",
+      "slug": "nfl-blitz-2001",
+      "developer": "Midway Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-12",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Blitz Special Edition",
+      "slug": "nfl-blitz-special-edition",
+      "developer": "Point of View",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-11-28",
+      "releases": {
+        "jp": null,
+        "na": "2001-11-28",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL QB Club 2001",
+      "slug": "nfl-qb-club-2001",
+      "developer": "High Voltage Software",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-08-24",
+      "releases": {
+        "jp": null,
+        "na": "2000-08-24",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Quarterback Club 2000",
+      "slug": "nfl-quarterback-club-2000",
+      "developer": "Acclaim Studios Austin",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-26",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-26",
+        "pal": "1999-09-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Quarterback Club 98",
+      "slug": "nfl-quarterback-club-98",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-10-24",
+      "releases": {
+        "jp": null,
+        "na": "1997-10-24",
+        "pal": "1997-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Quarterback Club 99",
+      "slug": "nfl-quarterback-club-99",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-10",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-10",
+        "pal": "1998-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHL 99",
+      "slug": "nhl-99",
+      "developer": "MBL Research",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-10-01",
+      "releases": {
+        "jp": null,
+        "na": "1998-10-01",
+        "pal": "1998-11-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHL Blades of Steel '99",
+      "slug": "nhl-blades-of-steel-99",
+      "developer": "Konami Computer Entertainment Osaka",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-05",
+      "releases": {
+        "jp": null,
+        "na": "1999-04-05",
+        "pal": "1999-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHL Breakaway 98",
+      "slug": "nhl-breakaway-98",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": "1998-02-25",
+        "pal": "1998",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHL Breakaway 99",
+      "slug": "nhl-breakaway-99",
+      "developer": "Iguana West",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-30",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-30",
+        "pal": "1998-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nightmare Creatures",
+      "slug": "nightmare-creatures",
+      "developer": "Kalisto Entertainment",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-30",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-30",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nintama Rantarō 64 Game Gallery",
+      "slug": "nintama-rantaro-64-game-gallery",
+      "developer": "Culture Brain",
+      "publisher": "Culture Brain",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-21",
+      "releases": {
+        "jp": "2000-04-21",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nuclear Strike 64",
+      "slug": "nuclear-strike-64",
+      "developer": "Pacific Coast Power & Light",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-30",
+        "pal": "2000-03-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nushi Tsuri 64",
+      "slug": "nushi-tsuri-64",
+      "developer": "Pack-In-Video",
+      "publisher": "Victor Interactive Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-27",
+      "releases": {
+        "jp": "1998-11-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nushi Tsuri 64: Shiokaze Ninotte",
+      "slug": "nushi-tsuri-64-shiokaze-ninotte",
+      "developer": "Victor Interactive Software",
+      "publisher": "Victor Interactive Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-05-26",
+      "releases": {
+        "jp": "2000-05-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Off Road Challenge",
+      "slug": "off-road-challenge",
+      "developer": "Avalanche Software",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-30",
+      "releases": {
+        "jp": null,
+        "na": "1998-06-30",
+        "pal": "1998-09-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ogre Battle 64: Person of Lordly Caliber",
+      "slug": "ogre-battle-64-person-of-lordly-caliber",
+      "developer": "Quest Corporation",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-14",
+      "releases": {
+        "jp": "1999-07-14",
+        "na": "2000-10-05",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Olympic Hockey '98",
+      "slug": "olympic-hockey-98",
+      "developer": "Treyarch Invention",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-02-23",
+      "releases": {
+        "jp": "1998-07-16",
+        "na": "1998-02-23",
+        "pal": "1998-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Onegai Monsters",
+      "slug": "onegai-monsters",
+      "developer": "Bottom Up",
+      "publisher": "Bottom Up",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-09",
+      "releases": {
+        "jp": "1999-04-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pachinko 365 Nichi",
+      "slug": "pachinko-365-nichi",
+      "developer": "SETA",
+      "publisher": "SETA",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-29",
+      "releases": {
+        "jp": "1998-05-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Paper Mario",
+      "slug": "paper-mario",
+      "developer": "Intelligent Systems",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-08-11",
+      "releases": {
+        "jp": "2000-08-11",
+        "na": "2001-02-05",
+        "pal": "2001-10-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Paperboy",
+      "slug": "paperboy",
+      "developer": "High Voltage Software",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-04",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-04",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Parlor! Pro 64: Pachinko Jikki Simulation",
+      "slug": "parlor-pro-64-pachinko-jikki-simulation",
+      "developer": "Irem Software Engineering",
+      "publisher": "Telenet Japan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01-29",
+      "releases": {
+        "jp": "1999-01-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "PD Ultraman Battle Collection 64",
+      "slug": "pd-ultraman-battle-collection-64",
+      "developer": "Bandai",
+      "publisher": "Bandai Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-16",
+      "releases": {
+        "jp": "1999-07-16",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Penny Racers",
+      "slug": "penny-racers",
+      "developer": "Locomotive Corporation",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06",
+      "releases": {
+        "jp": "1998-06",
+        "na": "1999-02-04",
+        "pal": "1999-03-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Perfect Dark",
+      "slug": "perfect-dark",
+      "developer": "Rare",
+      "publisher": "Rare",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-05-22",
+      "releases": {
+        "jp": "2000-10-21",
+        "na": "2000-05-22",
+        "pal": "2000-06-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "PGA European Tour Golf",
+      "slug": "pga-european-tour-golf",
+      "developer": "Infogrames Sheffield House",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-05",
+      "releases": {
+        "jp": null,
+        "na": "2000-06-15",
+        "pal": "2000-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pilotwings 64",
+      "slug": "pilotwings-64",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-06-23",
+      "releases": {
+        "jp": "1996-06-23",
+        "na": "1996-09-29",
+        "pal": "1997-03-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters Stadium",
+      "slug": "pocket-monsters-stadium",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-08-01",
+      "releases": {
+        "jp": "1998-08-01",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pokémon Puzzle League",
+      "slug": "pokemon-puzzle-league",
+      "developer": "Nintendo Software Technology",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-25",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-25",
+        "pal": "2001-03-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pokémon Snap",
+      "slug": "pokemon-snap",
+      "developer": "HAL Laboratory",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-21",
+      "releases": {
+        "jp": "1999-03-21",
+        "na": "1999-07-26",
+        "pal": "2000-03-23",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pokémon Stadium",
+      "slug": "pokemon-stadium",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-04-30",
+      "releases": {
+        "jp": "1999-04-30",
+        "na": "2000-03-06",
+        "pal": "2000-03-23",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pokémon Stadium 2",
+      "slug": "pokemon-stadium-2",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-14",
+      "releases": {
+        "jp": "2000-12-14",
+        "na": "2001-03-26",
+        "pal": "2001-04-07",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Polaris SnoCross",
+      "slug": "polaris-snocross",
+      "developer": "Vicarious Visions",
+      "publisher": "Vatical Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-27",
+      "releases": {
+        "jp": null,
+        "na": "2000-12-27",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Power League 64",
+      "slug": "power-league-64",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-08",
+      "releases": {
+        "jp": "1997-08-08",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Power Rangers Lightspeed Rescue",
+      "slug": "power-rangers-lightspeed-rescue",
+      "developer": "Mass Media",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-27",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-27",
+        "pal": "2000-12-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Premier Manager 64",
+      "slug": "premier-manager-64",
+      "developer": "Dinamic Multimedia",
+      "publisher": "Gremlin Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1999-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pro Mahjong Kiwame 64",
+      "slug": "pro-mahjong-kiwame-64",
+      "developer": "Athena",
+      "publisher": "Athena",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-21",
+      "releases": {
+        "jp": "1997-11-21",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pro Shinan Mahjong Tsuwamono 64: Jansō Battle ni Chōsen",
+      "slug": "pro-shinan-mahjong-tsuwamono-64-janso-battle-ni-chosen",
+      "developer": "Culture Brain",
+      "publisher": "Culture Brain",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-05",
+      "releases": {
+        "jp": "1999-11-05",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Puyo Puyo~n Party",
+      "slug": "puyo-puyo-n-party",
+      "developer": "Compile",
+      "publisher": "Compile",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-03",
+      "releases": {
+        "jp": "1999-12-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Puyo Puyo Sun 64",
+      "slug": "puyo-puyo-sun-64",
+      "developer": "Compile",
+      "publisher": "Compile",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-10",
+      "releases": {
+        "jp": "1997-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Quake 64",
+      "slug": "quake-64",
+      "developer": "Midway Studios San Diego",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-03-24",
+      "releases": {
+        "jp": null,
+        "na": "1998-03-24",
+        "pal": "1998-05-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Quake II",
+      "slug": "quake-ii",
+      "developer": "Raster Productions",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": "1999-07-07",
+        "pal": "1999",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Quest 64",
+      "slug": "quest-64",
+      "developer": "Imagineer",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-10",
+      "releases": {
+        "jp": "1999-07-09",
+        "na": "1998-06-10",
+        "pal": "1998-09-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "R64",
+      "slug": "r64",
+      "developer": "Rasky",
+      "publisher": "Remute",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2022-03-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Racing Simulation: Monaco Grand Prix",
+      "slug": "racing-simulation-monaco-grand-prix",
+      "developer": "Ubi Soft Paris",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06",
+      "releases": {
+        "jp": null,
+        "na": "1999-09",
+        "pal": "1999-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rakugakids",
+      "slug": "rakugakids",
+      "developer": "Konami Computer Entertainment Kobe",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-23",
+      "releases": {
+        "jp": "1998-07-23",
+        "na": null,
+        "pal": "1998-12-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rally Challenge 2000",
+      "slug": "rally-challenge-2000",
+      "developer": "Genki",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-06",
+      "releases": {
+        "jp": "1999-08-06",
+        "na": "2000-06-30",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rampage 2: Universal Tour",
+      "slug": "rampage-2-universal-tour",
+      "developer": "Avalanche Software",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-31",
+      "releases": {
+        "jp": null,
+        "na": "1999-03-31",
+        "pal": "1999-05-21",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rampage World Tour",
+      "slug": "rampage-world-tour",
+      "developer": "Saffire",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-03-30",
+      "releases": {
+        "jp": null,
+        "na": "1998-03-30",
+        "pal": "1998-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rat Attack!",
+      "slug": "rat-attack",
+      "developer": "Pure Entertainment",
+      "publisher": "Mindscape",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-21",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-12",
+        "pal": "2000-04-21",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rayman 2: The Great Escape",
+      "slug": "rayman-2-the-great-escape",
+      "developer": "Ubi Pictures",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-29",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-09",
+        "pal": "1999-10-29",
+        "eu": "1999-10-29",
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Razor Freestyle Scooter",
+      "slug": "razor-freestyle-scooter",
+      "developer": "Titanium Studios",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-11-27",
+      "releases": {
+        "jp": null,
+        "na": "2001-11-27",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Re-Volt",
+      "slug": "re-volt",
+      "developer": "Acclaim Studios London",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-18",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-18",
+        "pal": "1999-09-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ready 2 Rumble Boxing",
+      "slug": "ready-2-rumble-boxing",
+      "developer": "Point of View",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-16",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-16",
+        "pal": "1999-12-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ready 2 Rumble Boxing: Round 2",
+      "slug": "ready-2-rumble-boxing-round-2",
+      "developer": "Point of View",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-13",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-13",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Resident Evil 2",
+      "slug": "resident-evil-2",
+      "developer": "Angel Studios",
+      "publisher": "Capcom",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-16",
+      "releases": {
+        "jp": "2000-01-28",
+        "na": "1999-11-16",
+        "pal": "2000-02-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ridge Racer 64",
+      "slug": "ridge-racer-64",
+      "developer": "Nintendo Software Technology",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-14",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-14",
+        "pal": "2000-07-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Road Rash 64",
+      "slug": "road-rash-64",
+      "developer": "Pacific Coast Power & Light",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-22",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-22",
+        "pal": "1999-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Roadsters",
+      "slug": "roadsters",
+      "developer": "Titus Interactive",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-14",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-14",
+        "pal": "1999-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Robot Ponkottsu 64: Nanatsu no Umi no Caramel",
+      "slug": "robot-ponkottsu-64-nanatsu-no-umi-no-caramel",
+      "developer": "Red Company",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-24",
+      "releases": {
+        "jp": "1999-12-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Robotron 64",
+      "slug": "robotron-64",
+      "developer": "Player 1",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-01-05",
+      "releases": {
+        "jp": null,
+        "na": "1998-01-05",
+        "pal": "1998-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rocket: Robot on Wheels",
+      "slug": "rocket-robot-on-wheels",
+      "developer": "Sucker Punch Productions",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-17",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-17",
+        "pal": "1999-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rugrats in Paris - The Movie",
+      "slug": "rugrats-in-paris-the-movie",
+      "developer": "Avalanche Software",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-08",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-08",
+        "pal": "2001-03-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rugrats: Scavenger Hunt",
+      "slug": "rugrats-scavenger-hunt",
+      "developer": "Realtime Associates",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-28",
+      "releases": {
+        "jp": null,
+        "na": "1999-06-28",
+        "pal": "1999-08-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rush 2: Extreme Racing USA",
+      "slug": "rush-2-extreme-racing-usa",
+      "developer": "Atari Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-11",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-11",
+        "pal": "1999-02-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "S.C.A.R.S.",
+      "slug": "s-c-a-r-s",
+      "developer": "Vivid Image",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-03",
+      "releases": {
+        "jp": null,
+        "na": "1998-12-03",
+        "pal": "1999-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "S.D. Hiryū no Ken Twin",
+      "slug": "s-d-hiryu-no-ken-twin",
+      "developer": "Culture Brain",
+      "publisher": "Culture Brain",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01-29",
+      "releases": {
+        "jp": "1999-01-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Saikyō Habu Shōgi",
+      "slug": "saikyo-habu-shogi",
+      "developer": "SETA",
+      "publisher": "SETA",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-06-23",
+      "releases": {
+        "jp": "1996-06-23",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "San Francisco Rush 2049",
+      "slug": "san-francisco-rush-2049",
+      "developer": "Midway Games West",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-09-06",
+      "releases": {
+        "jp": null,
+        "na": "2000-09-06",
+        "pal": "2000-11-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "San Francisco Rush: Extreme Racing",
+      "slug": "san-francisco-rush-extreme-racing",
+      "developer": "Midway Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-11-07",
+      "releases": {
+        "jp": null,
+        "na": "1997-11-07",
+        "pal": "1997-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Scooby-Doo! Classic Creep Capers",
+      "slug": "scooby-doo-classic-creep-capers",
+      "developer": "Terraglyph Interactive Studios",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-29",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-29",
+        "pal": "2001-03-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shadow Man",
+      "slug": "shadow-man",
+      "developer": "Acclaim Studios Teesside",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-31",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-31",
+        "pal": "1999-09-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shadowgate 64: Trials of the Four Towers",
+      "slug": "shadowgate-64-trials-of-the-four-towers",
+      "developer": "Infinite Ventures",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-09",
+      "releases": {
+        "jp": "1999-08-13",
+        "na": "1999-06-09",
+        "pal": "1999-07-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shin Nippon Pro Wrestling: Toukon Road 2- Next Generation",
+      "slug": "shin-nippon-pro-wrestling-toukon-road-2-next-generation",
+      "developer": "Yuke's",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-26",
+      "releases": {
+        "jp": "1998-12-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shin Nippon Pro Wrestling: Toukon Road - Brave Spirits",
+      "slug": "shin-nippon-pro-wrestling-toukon-road-brave-spirits",
+      "developer": "Yuke's",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-01-04",
+      "releases": {
+        "jp": "1998-01-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sim City 2000",
+      "slug": "sim-city-2000",
+      "developer": "Maxis",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-01-30",
+      "releases": {
+        "jp": "1998-01-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sin and Punishment",
+      "slug": "sin-and-punishment",
+      "developer": "Treasure",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-21",
+      "releases": {
+        "jp": "2000-11-21",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Snowboard Kids",
+      "slug": "snowboard-kids",
+      "developer": "Racdym",
+      "publisher": "Atlus",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-12",
+      "releases": {
+        "jp": "1997-12-12",
+        "na": "1998-03-13",
+        "pal": "1998-03-16",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Snowboard Kids 2",
+      "slug": "snowboard-kids-2",
+      "developer": "Racdym",
+      "publisher": "Atlus",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-02-19",
+      "releases": {
+        "jp": "1999-02-19",
+        "na": "1999-03-01",
+        "pal": "1999-04-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "South Park",
+      "slug": "south-park",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-21",
+      "releases": {
+        "jp": null,
+        "na": "1998-12-21",
+        "pal": "1999-05-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "South Park: Chef's Luv Shack",
+      "slug": "south-park-chef-s-luv-shack",
+      "developer": "Acclaim Studios Austin",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-08",
+        "pal": "1999-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "South Park Rally",
+      "slug": "south-park-rally",
+      "developer": "Tantalus Interactive",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-28",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-28",
+        "pal": "2000-03-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Space Invaders",
+      "slug": "space-invaders",
+      "developer": "Z-Axis",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-30",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-30",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Space Station Silicon Valley",
+      "slug": "space-station-silicon-valley",
+      "developer": "DMA Design",
+      "publisher": "Take-Two Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-10-22",
+      "releases": {
+        "jp": null,
+        "na": "1998-10-22",
+        "pal": "1998-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Spider-Man",
+      "slug": "spider-man",
+      "developer": "Edge of Reality",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-21",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-21",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Fox 64",
+      "slug": "star-fox-64",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-04-27",
+      "releases": {
+        "jp": "1997-04-27",
+        "na": "1997-06-30",
+        "pal": "1997-10-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Soldier: Vanishing Earth",
+      "slug": "star-soldier-vanishing-earth",
+      "developer": "Hudson Soft",
+      "publisher": "Electro Brain",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-10",
+      "releases": {
+        "jp": "1998-07-10",
+        "na": "1998-12-15",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Wars Episode I: Battle for Naboo",
+      "slug": "star-wars-episode-i-battle-for-naboo",
+      "developer": "Factor 5",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-15",
+      "releases": {
+        "jp": null,
+        "na": "2000-12-15",
+        "pal": "2001-03-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Wars Episode I: Racer",
+      "slug": "star-wars-episode-i-racer",
+      "developer": "LucasArts",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-05-18",
+      "releases": {
+        "jp": "1999-07-21",
+        "na": "1999-05-18",
+        "pal": "1999-06-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Wars: Rogue Squadron",
+      "slug": "star-wars-rogue-squadron",
+      "developer": "Factor 5",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-08",
+      "releases": {
+        "jp": "1999-08-27",
+        "na": "1998-12-08",
+        "pal": "1999-01-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Wars: Shadows of the Empire",
+      "slug": "star-wars-shadows-of-the-empire",
+      "developer": "LucasArts",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-03",
+      "releases": {
+        "jp": "1997-06-14",
+        "na": "1996-12-03",
+        "pal": "1997-03-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "StarCraft 64",
+      "slug": "starcraft-64",
+      "developer": "Blizzard Entertainment",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-06-13",
+      "releases": {
+        "jp": null,
+        "na": "2000-06-13",
+        "pal": "2001-05-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Starshot: Space Circus Fever",
+      "slug": "starshot-space-circus-fever",
+      "developer": "Infogrames",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-04",
+      "releases": {
+        "jp": null,
+        "na": "1999-06-29",
+        "pal": "1998-12-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Stunt Racer 64",
+      "slug": "stunt-racer-64",
+      "developer": "Boss Game Studios",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-10-03",
+      "releases": {
+        "jp": null,
+        "na": "2000-10-03",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super B-Daman: Battle Phoenix 64",
+      "slug": "super-b-daman-battle-phoenix-64",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-24",
+      "releases": {
+        "jp": "1998-07-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Bowling",
+      "slug": "super-bowling",
+      "developer": "Athena",
+      "publisher": "UFO Interactive Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-26",
+      "releases": {
+        "jp": "1999-03-26",
+        "na": "2000-01-15",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Mario 64",
+      "slug": "super-mario-64",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-06-23",
+      "releases": {
+        "jp": "1996-06-23",
+        "na": "1996-09-29",
+        "pal": "1997-03-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Robot Spirits",
+      "slug": "super-robot-spirits",
+      "developer": "Banpresto",
+      "publisher": "Banpresto",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-17",
+      "releases": {
+        "jp": "1998-07-17",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Robot Taisen 64",
+      "slug": "super-robot-taisen-64",
+      "developer": "A.I",
+      "publisher": "Banpresto",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-29",
+      "releases": {
+        "jp": "1999-10-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Smash Bros.",
+      "slug": "super-smash-bros",
+      "developer": "HAL Laboratory",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-01-21",
+      "releases": {
+        "jp": "1999-01-21",
+        "na": "1999-04-26",
+        "pal": "1999-11-19",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Supercross 2000",
+      "slug": "supercross-2000",
+      "developer": "MBL Research",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-03",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-03",
+        "pal": "2000-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Superman: The New Superman Adventures",
+      "slug": "superman-the-new-superman-adventures",
+      "developer": "Titus Interactive",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-05-28",
+      "releases": {
+        "jp": null,
+        "na": "1999-05-28",
+        "pal": "1999-07-23",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Susume! Taisen Puzzle Dama: Tōkon! Marutama Chō",
+      "slug": "susume-taisen-puzzle-dama-tokon-marutama-cho",
+      "developer": "Konami Computer Entertainment Kobe",
+      "publisher": "Konami",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-03-26",
+      "releases": {
+        "jp": "1998-03-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tarzan",
+      "slug": "tarzan",
+      "developer": "Eurocom",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-15",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-15",
+        "pal": "2000-04-21",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taz Express",
+      "slug": "taz-express",
+      "developer": "Zed Two",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-08-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "2000-08-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tetris 64",
+      "slug": "tetris-64",
+      "developer": "Amtex",
+      "publisher": "SETA",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-13",
+      "releases": {
+        "jp": "1998-11-13",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tetrisphere",
+      "slug": "tetrisphere",
+      "developer": "H2O Entertainment",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-11",
+      "releases": {
+        "jp": null,
+        "na": "1997-08-11",
+        "pal": "1998-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Legend of Zelda: Majora's Mask",
+      "slug": "the-legend-of-zelda-majora-s-mask",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-04-27",
+      "releases": {
+        "jp": "2000-04-27",
+        "na": "2000-10-26",
+        "pal": "2000-11-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "slug": "the-legend-of-zelda-ocarina-of-time",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-21",
+      "releases": {
+        "jp": "1998-11-21",
+        "na": "1998-11-23",
+        "pal": "1998-12-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The New Tetris",
+      "slug": "the-new-tetris",
+      "developer": "Blue Planet Software",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-02",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-02",
+        "pal": "1999-10-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Powerpuff Girls: Chemical X-Traction",
+      "slug": "the-powerpuff-girls-chemical-x-traction",
+      "developer": "VIS Entertainment",
+      "publisher": "BAM! Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-11-19",
+      "releases": {
+        "jp": null,
+        "na": "2001-11-19",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The World Is Not Enough",
+      "slug": "the-world-is-not-enough",
+      "developer": "Eurocom",
+      "publisher": "EA Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-10-17",
+      "releases": {
+        "jp": null,
+        "na": "2000-10-17",
+        "pal": "2000-12-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tigger's Honey Hunt",
+      "slug": "tigger-s-honey-hunt",
+      "developer": "DokiDenki Studio",
+      "publisher": "NewKidCo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-10-27",
+      "releases": {
+        "jp": null,
+        "na": "2000-10-27",
+        "pal": "2001-04-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tom and Jerry in Fists of Furry",
+      "slug": "tom-and-jerry-in-fists-of-furry",
+      "developer": "VIS Entertainment",
+      "publisher": "NewKidCo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-08",
+        "pal": "2000",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tom Clancy's Rainbow Six",
+      "slug": "tom-clancy-s-rainbow-six",
+      "developer": "Saffire",
+      "publisher": "Red Storm Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-17",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-17",
+        "pal": "1999-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tonic Trouble",
+      "slug": "tonic-trouble",
+      "developer": "Ubi Soft Montreal",
+      "publisher": "Ubi Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-31",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-31",
+        "pal": "1999-08-31",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tony Hawk's Pro Skater",
+      "slug": "tony-hawk-s-pro-skater",
+      "developer": "Edge of Reality",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-03-15",
+      "releases": {
+        "jp": null,
+        "na": "2000-03-15",
+        "pal": "2000-03-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tony Hawk's Pro Skater 2",
+      "slug": "tony-hawk-s-pro-skater-2",
+      "developer": "Edge of Reality",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-08-21",
+      "releases": {
+        "jp": null,
+        "na": "2001-08-21",
+        "pal": "2001-10-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tony Hawk's Pro Skater 3",
+      "slug": "tony-hawk-s-pro-skater-3",
+      "developer": "Edge of Reality",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-08-20",
+      "releases": {
+        "jp": null,
+        "na": "2002-08-20",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Top Gear Hyper-Bike",
+      "slug": "top-gear-hyper-bike",
+      "developer": "Snowblind Studios",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": "2000-03-17",
+        "na": "2000-03-27",
+        "pal": "2000",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Top Gear Overdrive",
+      "slug": "top-gear-overdrive",
+      "developer": "Snowblind Studios",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-23",
+      "releases": {
+        "jp": "1999-03-19",
+        "na": "1998-11-23",
+        "pal": "1998-11-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Top Gear Rally",
+      "slug": "top-gear-rally",
+      "developer": "Boss Game Studios",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-09-30",
+      "releases": {
+        "jp": "1997-12-05",
+        "na": "1997-09-30",
+        "pal": "1997-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Top Gear Rally 2",
+      "slug": "top-gear-rally-2",
+      "developer": "Saffire",
+      "publisher": "Kemco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-03",
+      "releases": {
+        "jp": "2000-02-04",
+        "na": "1999-12-03",
+        "pal": "2000-02-28",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Toy Story 2: Buzz Lightyear to the Rescue!",
+      "slug": "toy-story-2-buzz-lightyear-to-the-rescue",
+      "developer": "Traveller's Tales",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-16",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-16",
+        "pal": "2000-02-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Transformers: Beast Wars Transmetals",
+      "slug": "transformers-beast-wars-transmetals",
+      "developer": "Locomotive Corporation",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-01",
+      "releases": {
+        "jp": "1999-10-01",
+        "na": "2000-07-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Triple Play 2000",
+      "slug": "triple-play-2000",
+      "developer": "Treyarch Invention",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-24",
+      "releases": {
+        "jp": null,
+        "na": "1999-03-24",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Turok 2: Seeds of Evil",
+      "slug": "turok-2-seeds-of-evil",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-10",
+      "releases": {
+        "jp": "1999-06-18",
+        "na": "1998-12-10",
+        "pal": "1998-12-18",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Turok 3: Shadow of Oblivion",
+      "slug": "turok-3-shadow-of-oblivion",
+      "developer": "Acclaim Studios Austin",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-08-31",
+      "releases": {
+        "jp": null,
+        "na": "2000-08-31",
+        "pal": "2000-09-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Turok: Dinosaur Hunter",
+      "slug": "turok-dinosaur-hunter",
+      "developer": "Iguana Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-04",
+      "releases": {
+        "jp": "1997-05-30",
+        "na": "1997-03-04",
+        "pal": "1997-03-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Turok: Rage Wars",
+      "slug": "turok-rage-wars",
+      "developer": "Acclaim Studios Austin",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-23",
+      "releases": {
+        "jp": null,
+        "na": "1999-11-23",
+        "pal": "1999-12-26",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Twisted Edge Extreme Snowboarding",
+      "slug": "twisted-edge-extreme-snowboarding",
+      "developer": "Boss Game Studios",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-11",
+      "releases": {
+        "jp": "1998-12-18",
+        "na": "1998-11-11",
+        "pal": "1999-03-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ucchan Nanchan no Hono no Challenge: Denryu Ira Ira Bo",
+      "slug": "ucchan-nanchan-no-hono-no-challenge-denryu-ira-ira-bo",
+      "developer": "Yuke's",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-19",
+      "releases": {
+        "jp": "1997-12-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "V-Rally: Edition '99",
+      "slug": "v-rally-edition-99",
+      "developer": "Eden Studios",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-11",
+      "releases": {
+        "jp": "1999-10-14",
+        "na": "1999-09-15",
+        "pal": "1998-12-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Vigilante 8",
+      "slug": "vigilante-8",
+      "developer": "Luxoflux",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03",
+      "releases": {
+        "jp": null,
+        "na": "1999-03-17",
+        "pal": "1999-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Vigilante 8: 2nd Offense",
+      "slug": "vigilante-8-2nd-offense",
+      "developer": "Luxoflux",
+      "publisher": "Activision",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-02-01",
+      "releases": {
+        "jp": null,
+        "na": "2000-02-01",
+        "pal": "2000-02-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Virtual Chess 64",
+      "slug": "virtual-chess-64",
+      "developer": "Titus France",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-10",
+      "releases": {
+        "jp": null,
+        "na": "1998-06-10",
+        "pal": "1998-07",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Virtual Pool 64",
+      "slug": "virtual-pool-64",
+      "developer": "Celeris",
+      "publisher": "Crave Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-12-17",
+      "releases": {
+        "jp": null,
+        "na": "1998-12-17",
+        "pal": "1999-02-26",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Virtual Pro Wrestling 2: Ōdō Keishō",
+      "slug": "virtual-pro-wrestling-2-odo-keisho",
+      "developer": "Asmik Ace Entertainment",
+      "publisher": "Asmik Ace Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-01-28",
+      "releases": {
+        "jp": "2000-01-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Virtual Pro Wrestling 64",
+      "slug": "virtual-pro-wrestling-64",
+      "developer": "Asmik Ace Entertainment",
+      "publisher": "Asmik Ace Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-19",
+      "releases": {
+        "jp": "1997-12-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Waialae Country Club: True Golf Classics",
+      "slug": "waialae-country-club-true-golf-classics",
+      "developer": "T&E Soft",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-07-27",
+      "releases": {
+        "jp": null,
+        "na": "1998-07-27",
+        "pal": "1998-08-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "War Gods",
+      "slug": "war-gods",
+      "developer": "Eurocom",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-05-20",
+      "releases": {
+        "jp": null,
+        "na": "1997-05-20",
+        "pal": "1997-11-28",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wave Race 64",
+      "slug": "wave-race-64",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-09-27",
+      "releases": {
+        "jp": "1996-09-27",
+        "na": "1996-11-04",
+        "pal": "1997-04-29",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wayne Gretzky's 3D Hockey",
+      "slug": "wayne-gretzky-s-3d-hockey",
+      "developer": "Atari Games",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-15",
+      "releases": {
+        "jp": "1998-02-28",
+        "na": "1996-11-15",
+        "pal": "1997-03-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wayne Gretzky's 3D Hockey '98",
+      "slug": "wayne-gretzky-s-3d-hockey-98",
+      "developer": "Software Creations",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-03",
+      "releases": {
+        "jp": null,
+        "na": "1997-12-03",
+        "pal": "1998-06-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WCW Backstage Assault",
+      "slug": "wcw-backstage-assault",
+      "developer": "Kodiak Interactive",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-12-12",
+      "releases": {
+        "jp": null,
+        "na": "2000-12-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WCW Mayhem",
+      "slug": "wcw-mayhem",
+      "developer": "Kodiak Interactive",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-23",
+      "releases": {
+        "jp": null,
+        "na": "1999-09-23",
+        "pal": "1999-09-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WCW Nitro",
+      "slug": "wcw-nitro",
+      "developer": "Inland Productions",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-02-09",
+      "releases": {
+        "jp": null,
+        "na": "1999-02-09",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WCW/nWo Revenge",
+      "slug": "wcw-nwo-revenge",
+      "developer": "Asmik Ace Entertainment",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-10-26",
+      "releases": {
+        "jp": null,
+        "na": "1998-10-26",
+        "pal": "1998-11-30",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WCW vs. nWo: World Tour",
+      "slug": "wcw-vs-nwo-world-tour",
+      "developer": "Asmik Ace Entertainment",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-02",
+      "releases": {
+        "jp": null,
+        "na": "1997-12-02",
+        "pal": "1998-02-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wetrix",
+      "slug": "wetrix",
+      "developer": "Zed Two",
+      "publisher": "Ocean Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-06-12",
+      "releases": {
+        "jp": "1998-11-27",
+        "na": "1998-06-12",
+        "pal": "1998-06-19",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wheel of Fortune",
+      "slug": "wheel-of-fortune",
+      "developer": "GameTek",
+      "publisher": "Take-Two Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-02",
+      "releases": {
+        "jp": null,
+        "na": "1997-12-02",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WinBack: Covert Operations",
+      "slug": "winback-covert-operations",
+      "developer": "Omega Force",
+      "publisher": "Koei",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-23",
+      "releases": {
+        "jp": "1999-09-23",
+        "na": "1999-10-19",
+        "pal": "2000-07-07",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wipeout 64",
+      "slug": "wipeout-64",
+      "developer": "Psygnosis",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-04",
+      "releases": {
+        "jp": null,
+        "na": "1998-11-04",
+        "pal": "1999-02-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wonder Project J2: Koruro no Mori no Josette",
+      "slug": "wonder-project-j2-koruro-no-mori-no-josette",
+      "developer": "Givro Corporation",
+      "publisher": "Enix",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-22",
+      "releases": {
+        "jp": "1996-11-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Cup 98",
+      "slug": "world-cup-98",
+      "developer": "Software Creations",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-19",
+      "releases": {
+        "jp": null,
+        "na": "1998-05-19",
+        "pal": "1998-05-22",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Driver Championship",
+      "slug": "world-driver-championship",
+      "developer": "Boss Game Studios",
+      "publisher": "Midway",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-15",
+      "releases": {
+        "jp": null,
+        "na": "1999-06-15",
+        "pal": "1999-11-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Worms Armageddon",
+      "slug": "worms-armageddon",
+      "developer": "Infogrames Lyon House",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-11",
+      "releases": {
+        "jp": null,
+        "na": "2000-03-23",
+        "pal": "1999-12-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF Attitude",
+      "slug": "wwf-attitude",
+      "developer": "Acclaim Studios Salt Lake City",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-09",
+      "releases": {
+        "jp": null,
+        "na": "1999-08-31",
+        "pal": "1999-08-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF No Mercy",
+      "slug": "wwf-no-mercy",
+      "developer": "Asmik Ace Entertainment",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000-11-14",
+      "releases": {
+        "jp": null,
+        "na": "2000-11-14",
+        "pal": "2000-12-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF War Zone",
+      "slug": "wwf-war-zone",
+      "developer": "Iguana West",
+      "publisher": "Acclaim Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-08-11",
+      "releases": {
+        "jp": null,
+        "na": "1998-08-11",
+        "pal": "1998-08-28",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF WrestleMania 2000",
+      "slug": "wwf-wrestlemania-2000",
+      "developer": "AKI Corporation",
+      "publisher": "THQ",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-18",
+      "releases": {
+        "jp": "2000-09-15",
+        "na": "1999-11-18",
+        "pal": "1999-12-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Xena: Warrior Princess: The Talisman of Fate",
+      "slug": "xena-warrior-princess-the-talisman-of-fate",
+      "developer": "Saffire",
+      "publisher": "Titus Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-06",
+      "releases": {
+        "jp": null,
+        "na": "1999-12-06",
+        "pal": "1999-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Xeno Crisis",
+      "slug": "xeno-crisis",
+      "developer": "Bitmap Bureau",
+      "publisher": "Bitmap Bureau",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2023-04",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yakochu II: Satsujin Koro",
+      "slug": "yakochu-ii-satsujin-koro",
+      "developer": "Athena",
+      "publisher": "Athena",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-10-22",
+      "releases": {
+        "jp": "1999-10-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yoshi's Story",
+      "slug": "yoshi-s-story",
+      "developer": "Nintendo EAD",
+      "publisher": "Nintendo",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-12-21",
+      "releases": {
+        "jp": "1997-12-21",
+        "na": "1998-03-10",
+        "pal": "1998-05-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zool: Majū Tsukai Densetsu",
+      "slug": "zool-maju-tsukai-densetsu",
+      "developer": "Pandora Box",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-11",
+      "releases": {
+        "jp": "1999-06-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    }
+  ]
+}

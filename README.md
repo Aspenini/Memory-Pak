@@ -4,21 +4,19 @@
 [![Deploy Website](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/Aspenini/Memory-Pak?label=release)](https://github.com/Aspenini/Memory-Pak/releases/latest)
 [![GitHub Release Downloads](https://img.shields.io/github/downloads/Aspenini/Memory-Pak/total?label=release%20downloads)](https://github.com/Aspenini/Memory-Pak/releases)
-[![crates.io](https://img.shields.io/crates/v/Memory-Pak?label=crates.io)](https://crates.io/crates/Memory-Pak)
-[![crates.io Downloads](https://img.shields.io/crates/d/Memory-Pak?label=crates.io%20downloads)](https://crates.io/crates/Memory-Pak)
 [![License](https://img.shields.io/github/license/Aspenini/Memory-Pak)](LICENSE)
 
-A cross-platform game collection tracker built with Rust, Tauri 2, Svelte, and WebAssembly. Memory Pak tracks consoles, games, LEGO Dimensions figures, and Skylanders across owned, favorite, wishlist, and notes states.
+A cross-platform game collection tracker built with Rust, Tauri 2, Svelte, and WebAssembly. Memory Pak tracks consoles, games, and toy-to-life collectibles (LEGO Dimensions, Skylanders, and more) across owned, favorite, wishlist, and notes states.
 
 ## Features
 
 - Desktop and mobile app shells through Tauri 2
 - Static web/PWA build using the same Svelte frontend and Rust core compiled to WASM
-- Embedded game and collector databases
-- Stable content-based game IDs so database updates do not break saved states
+- Embedded catalog precompiled at build time into a single binary blob (`postcard`)
+- Deterministic slug-based entry IDs (`game:nes/super-mario-bros`, `collectible:legodimensions/batman`, etc.)
+- Unified Collectibles tab spanning every toy-to-life line in `database/collectibles/`
 - Cross-console search, sorting, filtering, and virtualized long lists
-- Compatible JSON import/export format, still versioned as `1.0`
-- Saved-data compatibility with the previous Memory Pak state files and web localStorage keys
+- JSON import/export at schema version `2.0`
 
 ## Project Structure
 
@@ -29,19 +27,18 @@ Memory-Pak/
 │   └── memory_pak_wasm/   # wasm-bindgen adapter for the browser/PWA target
 ├── frontend/              # Svelte 5 + TypeScript + Vite app
 ├── src-tauri/             # Tauri 2 desktop/mobile shell and commands
-├── database/              # embedded JSON databases
+├── database/              # `consoles.json`, `games/*.json`, `collectibles/*.json`
 ├── icons/                 # platform icons reused by Tauri and PWA
 └── site/                  # GitHub Pages landing page; deploy copies frontend/dist to site/app
 ```
 
 ## Requirements
 
-- Rust stable
+- Rust stable (pinned via `rust-toolchain.toml`)
 - Bun 1.3+
 - Tauri platform prerequisites for desktop/mobile builds (Xcode CLT on macOS, WebView2 on Windows, `webkit2gtk` etc. on Linux)
 
-Install the rest of the tooling (`wasm-pack`, `tauri-cli`, the WASM target,
-and frontend deps) in one shot:
+Install the rest of the tooling (`wasm-pack`, `tauri-cli`, the WASM target, and frontend deps) in one shot:
 
 ```bash
 bun run install-tools
@@ -49,21 +46,19 @@ bun run install-tools
 
 ## Development
 
-All commands are exposed as Bun scripts in the root `package.json`. Run
-`bun run --list` to see every available script.
+All commands are exposed as Bun scripts in the root `package.json`. Inspect that file to see every available script.
 
 ```bash
 bun run test               # cargo test --workspace
 bun run check:wasm         # check WASM adapter against wasm32-unknown-unknown
 bun run frontend:dev       # Svelte/Vite PWA development server
 bun run frontend:build     # production PWA build
+bun run frontend:e2e       # Playwright end-to-end tests
 bun run tauri:dev          # Tauri desktop app
 bun run all-checks         # fmt + clippy + test + check:wasm + frontend test/build
 ```
 
-Icons under `icons/web/` are the canonical PWA icon source. Vite serves
-them under `/icons/...` in dev and emits them to `dist/icons/...` at
-build time, so there is no separate copy to keep in sync.
+Icons under `icons/web/` are the canonical PWA icon source. Vite serves them under `/icons/...` in dev and emits them to `dist/icons/...` at build time, so there is no separate copy to keep in sync.
 
 Tauri mobile entrypoints are scaffolded through the standard Tauri CLI:
 
@@ -79,54 +74,30 @@ bun run ios:build
 
 ## User Data Storage
 
-Desktop and mobile use the existing Memory Pak data directory and state files:
-
-- `consoles.json`
-- `{console_id}.json`
-- `lego_dimensions.json`
-- `skylanders.json`
-
-The web/PWA target migrates and preserves the previous localStorage keys:
-
-- `memory_pak_console_states`
-- `memory_pak_state_{console_id}`
-- `memory_pak_lego_dimensions_states`
-- `memory_pak_skylanders_states`
-
-It also writes a versioned snapshot key, `memory_pak_state_v2`, for faster startup.
+- **Desktop / mobile**: a single `state.json` under the OS data directory (`ProjectDirs::data_dir()/state.json`), written atomically via a temp file + rename.
+- **Web / PWA**: a single IndexedDB record in the `memory-pak` database, written debounced to coalesce rapid toggles.
 
 ## Export Format
 
-The export schema remains compatible with previous releases:
-
 ```json
 {
-  "version": "1.0",
-  "export_date": "2024-01-01T00:00:00Z",
-  "console_states": [
+  "version": "2.0",
+  "exportedAt": "2024-01-01T00:00:00Z",
+  "entries": [
     {
-      "console_id": "nes",
+      "id": "console:nes",
       "owned": true,
       "favorite": false,
       "wishlist": false,
       "notes": "My original NES"
-    }
-  ],
-  "consoles": [
+    },
     {
-      "console_id": "nes",
-      "games": [
-        {
-          "game_id": "nes-a1b2c3d4e5f6...",
-          "owned": true,
-          "favorite": false,
-          "wishlist": false,
-          "notes": ""
-        }
-      ]
+      "id": "game:nes/super-mario-bros",
+      "owned": true,
+      "favorite": true,
+      "wishlist": false,
+      "notes": ""
     }
-  ],
-  "lego_dimensions_states": [],
-  "skylanders_states": []
+  ]
 }
 ```

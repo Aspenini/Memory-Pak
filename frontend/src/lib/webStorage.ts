@@ -1,99 +1,58 @@
-import type {
-  ConsoleState,
-  GameState,
-  LegoDimensionState,
-  PersistedState,
-  SkylanderState
-} from './types';
+import type { PersistedState } from './types';
 
-const SNAPSHOT_KEY = 'memory_pak_state_v2';
-const CONSOLES_KEY = 'memory_pak_console_states';
-const LEGO_KEY = 'memory_pak_lego_dimensions_states';
-const SKYLANDERS_KEY = 'memory_pak_skylanders_states';
-const GAME_PREFIX = 'memory_pak_state_';
+const DB_NAME = 'memory-pak';
+const DB_VERSION = 1;
+const STORE = 'state';
+const KEY = 'persisted';
 
-export function loadPersistedState(): PersistedState {
-  const snapshot = readJson<PersistedState>(SNAPSHOT_KEY);
-  if (snapshot) return withDefaults(snapshot);
+let dbPromise: Promise<IDBDatabase> | null = null;
 
-  return {
-    console_states: fromArray(readJson<ConsoleState[]>(CONSOLES_KEY), 'console_id'),
-    game_states: loadLegacyGameStates(),
-    lego_dimensions_states: fromArray(readJson<LegoDimensionState[]>(LEGO_KEY), 'figure_id'),
-    skylanders_states: fromArray(readJson<SkylanderState[]>(SKYLANDERS_KEY), 'skylander_id')
-  };
+function openDb(): Promise<IDBDatabase> {
+  if (dbPromise) return dbPromise;
+  dbPromise = new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains(STORE)) {
+        db.createObjectStore(STORE);
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+  return dbPromise;
 }
 
-export function savePersistedState(state: PersistedState): void {
-  const snapshot = withDefaults(state);
-  localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(snapshot));
-  localStorage.setItem(CONSOLES_KEY, JSON.stringify(Object.values(snapshot.console_states)));
-  localStorage.setItem(LEGO_KEY, JSON.stringify(Object.values(snapshot.lego_dimensions_states)));
-  localStorage.setItem(SKYLANDERS_KEY, JSON.stringify(Object.values(snapshot.skylanders_states)));
-
-  const gamesByConsole = new Map<string, GameState[]>();
-  for (const state of Object.values(snapshot.game_states)) {
-    const consoleId = getConsoleFromGameId(state.game_id);
-    if (!consoleId) continue;
-    const bucket = gamesByConsole.get(consoleId) ?? [];
-    bucket.push(state);
-    gamesByConsole.set(consoleId, bucket);
-  }
-
-  for (const [consoleId, states] of gamesByConsole) {
-    states.sort((a, b) => a.game_id.localeCompare(b.game_id));
-    localStorage.setItem(`${GAME_PREFIX}${consoleId}`, JSON.stringify(states));
-  }
+async function withStore<T>(
+  mode: IDBTransactionMode,
+  fn: (store: IDBObjectStore) => IDBRequest<T>
+): Promise<T> {
+  const db = await openDb();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, mode);
+    const store = tx.objectStore(STORE);
+    const request = fn(store);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
 }
 
-function loadLegacyGameStates(): Record<string, GameState> {
-  const states: Record<string, GameState> = {};
-
-  for (let index = 0; index < localStorage.length; index += 1) {
-    const key = localStorage.key(index);
-    if (!key?.startsWith(GAME_PREFIX)) continue;
-    const games = readJson<GameState[]>(key) ?? [];
-    for (const state of games) {
-      states[state.game_id] = state;
-    }
-  }
-
-  return states;
-}
-
-function fromArray<T extends Record<K, string>, K extends keyof T>(
-  values: T[] | null,
-  key: K
-): Record<string, T> {
-  const out: Record<string, T> = {};
-  for (const value of values ?? []) {
-    out[value[key]] = value;
-  }
-  return out;
-}
-
-function readJson<T>(key: string): T | null {
-  const raw = localStorage.getItem(key);
-  if (!raw) return null;
+export async function loadPersistedState(): Promise<PersistedState> {
   try {
-    return JSON.parse(raw) as T;
+    const value = await withStore('readonly', (store) => store.get(KEY) as IDBRequest<unknown>);
+    if (!value || typeof value !== 'object') return { entries: {} };
+    const candidate = value as Partial<PersistedState>;
+    return { entries: candidate.entries ?? {} };
   } catch (error) {
-    console.warn(`Ignoring invalid Memory Pak localStorage value ${key}`, error);
-    return null;
+    console.warn('Memory Pak: failed to read persisted state', error);
+    return { entries: {} };
   }
 }
 
-function withDefaults(state: PersistedState): PersistedState {
-  return {
-    console_states: state.console_states ?? {},
-    game_states: state.game_states ?? {},
-    lego_dimensions_states: state.lego_dimensions_states ?? {},
-    skylanders_states: state.skylanders_states ?? {}
-  };
+export async function savePersistedState(state: PersistedState): Promise<void> {
+  try {
+    await withStore('readwrite', (store) => store.put(state, KEY));
+  } catch (error) {
+    console.warn('Memory Pak: failed to write persisted state', error);
+  }
 }
-
-function getConsoleFromGameId(gameId: string): string {
-  const splitAt = gameId.lastIndexOf('-');
-  return splitAt > 0 ? gameId.slice(0, splitAt) : '';
-}
-

@@ -7,12 +7,17 @@ license.workspace = true
 repository.workspace = true
 homepage.workspace = true
 description = "Shared Memory Pak domain logic and data model"
+build = "build.rs"
 
 [dependencies]
 chrono.workspace = true
-include_dir.workspace = true
+postcard.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
 unicode-normalization.workspace = true
 
+[build-dependencies]
+postcard = { workspace = true, features = ["alloc"] }
+serde = { workspace = true }
+serde_json.workspace = true

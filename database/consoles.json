@@ -1,555 +1,1383 @@
-[
-  {
-    "id": "nes",
-    "name": "Nintendo Entertainment System",
-    "manufacturer": "Nintendo",
-    "year": 1985
-  },
-  {
-    "id": "nes-toploader",
-    "name": "Nintendo Entertainment System Top Loader",
-    "manufacturer": "Nintendo",
-    "year": 1993
-  },
-  {
-    "id": "snes",
-    "name": "Super Nintendo Entertainment System",
-    "manufacturer": "Nintendo",
-    "year": 1990
-  },
-  {
-    "id": "snes-jr",
-    "name": "Super Nintendo Entertainment System SNES Jr.",
-    "manufacturer": "Nintendo",
-    "year": 1997
-  },
-  {
-    "id": "n64",
-    "name": "Nintendo 64",
-    "manufacturer": "Nintendo",
-    "year": 1996
-  },
-  {
-    "id": "gamecube",
-    "name": "Nintendo GameCube",
-    "manufacturer": "Nintendo",
-    "year": 2001
-  },
-  {
-    "id": "wii",
-    "name": "Nintendo Wii",
-    "manufacturer": "Nintendo",
-    "year": 2006
-  },
-  {
-    "id": "wii-mini",
-    "name": "Nintendo Wii Mini",
-    "manufacturer": "Nintendo",
-    "year": 2012
-  },
-  {
-    "id": "wiiu",
-    "name": "Nintendo Wii U",
-    "manufacturer": "Nintendo",
-    "year": 2012
-  },
-  {
-    "id": "switch",
-    "name": "Nintendo Switch",
-    "manufacturer": "Nintendo",
-    "year": 2017
-  },
-  {
-    "id": "switch-lite",
-    "name": "Nintendo Switch Lite",
-    "manufacturer": "Nintendo",
-    "year": 2019
-  },
-  {
-    "id": "switch-oled",
-    "name": "Nintendo Switch OLED Model",
-    "manufacturer": "Nintendo",
-    "year": 2021
-  },
-  {
-    "id": "gb",
-    "name": "Game Boy",
-    "manufacturer": "Nintendo",
-    "year": 1989
-  },
-  {
-    "id": "gb-pocket",
-    "name": "Game Boy Pocket",
-    "manufacturer": "Nintendo",
-    "year": 1996
-  },
-  {
-    "id": "gb-light",
-    "name": "Game Boy Light",
-    "manufacturer": "Nintendo",
-    "year": 1998
-  },
-  {
-    "id": "gbc",
-    "name": "Game Boy Color",
-    "manufacturer": "Nintendo",
-    "year": 1998
-  },
-  {
-    "id": "gba",
-    "name": "Game Boy Advance",
-    "manufacturer": "Nintendo",
-    "year": 2001
-  },
-  {
-    "id": "gba-sp",
-    "name": "Game Boy Advance SP",
-    "manufacturer": "Nintendo",
-    "year": 2003
-  },
-  {
-    "id": "gba-micro",
-    "name": "Game Boy Advance Micro",
-    "manufacturer": "Nintendo",
-    "year": 2005
-  },
-  {
-    "id": "ds",
-    "name": "Nintendo DS",
-    "manufacturer": "Nintendo",
-    "year": 2004
-  },
-  {
-    "id": "ds-lite",
-    "name": "Nintendo DS Lite",
-    "manufacturer": "Nintendo",
-    "year": 2006
-  },
-  {
-    "id": "dsi",
-    "name": "Nintendo DSi",
-    "manufacturer": "Nintendo",
-    "year": 2008
-  },
-  {
-    "id": "3ds",
-    "name": "Nintendo 3DS",
-    "manufacturer": "Nintendo",
-    "year": 2011
-  },
-  {
-    "id": "3ds-xl",
-    "name": "Nintendo 3DS XL",
-    "manufacturer": "Nintendo",
-    "year": 2012
-  },
-  {
-    "id": "new-3ds",
-    "name": "Nintendo New 3DS",
-    "manufacturer": "Nintendo",
-    "year": 2014
-  },
-  {
-    "id": "new-3ds-xl",
-    "name": "Nintendo New 3DS XL",
-    "manufacturer": "Nintendo",
-    "year": 2014
-  },
-  {
-    "id": "2ds",
-    "name": "Nintendo 2DS",
-    "manufacturer": "Nintendo",
-    "year": 2013
-  },
-  {
-    "id": "new-2ds-xl",
-    "name": "Nintendo New 2DS XL",
-    "manufacturer": "Nintendo",
-    "year": 2017
-  },
-  {
-    "id": "sg1000",
-    "name": "SG-1000",
-    "manufacturer": "Sega",
-    "year": 1983
-  },
-  {
-    "id": "mastersystem",
-    "name": "Sega Master System",
-    "manufacturer": "Sega",
-    "year": 1985
-  },
-  {
-    "id": "genesis",
-    "name": "Sega Genesis",
-    "manufacturer": "Sega",
-    "year": 1988
-  },
-  {
-    "id": "genesis-model2",
-    "name": "Sega Genesis Model 2",
-    "manufacturer": "Sega",
-    "year": 1993
-  },
-  {
-    "id": "genesis-model3",
-    "name": "Sega Genesis Model 3",
-    "manufacturer": "Sega",
-    "year": 1997
-  },
-  {
-    "id": "segacd",
-    "name": "Sega CD",
-    "manufacturer": "Sega",
-    "year": 1991
-  },
-  {
-    "id": "sega32x",
-    "name": "Sega 32X",
-    "manufacturer": "Sega",
-    "year": 1994
-  },
-  {
-    "id": "gamegear",
-    "name": "Game Gear",
-    "manufacturer": "Sega",
-    "year": 1990
-  },
-  {
-    "id": "pico",
-    "name": "Sega Pico",
-    "manufacturer": "Sega",
-    "year": 1993
-  },
-  {
-    "id": "saturn",
-    "name": "Sega Saturn",
-    "manufacturer": "Sega",
-    "year": 1994
-  },
-  {
-    "id": "saturn-model2",
-    "name": "Sega Saturn Model 2",
-    "manufacturer": "Sega",
-    "year": 1996
-  },
-  {
-    "id": "dreamcast",
-    "name": "Sega Dreamcast",
-    "manufacturer": "Sega",
-    "year": 1998
-  },
-  {
-    "id": "ps1",
-    "name": "PlayStation",
-    "manufacturer": "Sony",
-    "year": 1994
-  },
-  {
-    "id": "psone",
-    "name": "PlayStation PSone",
-    "manufacturer": "Sony",
-    "year": 2000
-  },
-  {
-    "id": "ps2",
-    "name": "PlayStation 2",
-    "manufacturer": "Sony",
-    "year": 2000
-  },
-  {
-    "id": "ps2-slim",
-    "name": "PlayStation 2 Slim",
-    "manufacturer": "Sony",
-    "year": 2004
-  },
-  {
-    "id": "ps3",
-    "name": "PlayStation 3",
-    "manufacturer": "Sony",
-    "year": 2006
-  },
-  {
-    "id": "ps3-slim",
-    "name": "PlayStation 3 Slim",
-    "manufacturer": "Sony",
-    "year": 2009
-  },
-  {
-    "id": "ps3-super-slim",
-    "name": "PlayStation 3 Super Slim",
-    "manufacturer": "Sony",
-    "year": 2012
-  },
-  {
-    "id": "ps4",
-    "name": "PlayStation 4",
-    "manufacturer": "Sony",
-    "year": 2013
-  },
-  {
-    "id": "ps4-slim",
-    "name": "PlayStation 4 Slim",
-    "manufacturer": "Sony",
-    "year": 2016
-  },
-  {
-    "id": "ps4-pro",
-    "name": "PlayStation 4 Pro",
-    "manufacturer": "Sony",
-    "year": 2016
-  },
-  {
-    "id": "ps5",
-    "name": "PlayStation 5",
-    "manufacturer": "Sony",
-    "year": 2020
-  },
-  {
-    "id": "ps5-slim",
-    "name": "PlayStation 5 Slim",
-    "manufacturer": "Sony",
-    "year": 2023
-  },
-  {
-    "id": "psp",
-    "name": "PlayStation Portable",
-    "manufacturer": "Sony",
-    "year": 2004
-  },
-  {
-    "id": "psp-2000",
-    "name": "PlayStation Portable Slim & Lite (2000)",
-    "manufacturer": "Sony",
-    "year": 2007
-  },
-  {
-    "id": "psp-3000",
-    "name": "PlayStation Portable 3000",
-    "manufacturer": "Sony",
-    "year": 2008
-  },
-  {
-    "id": "psp-go",
-    "name": "PlayStation Portable Go",
-    "manufacturer": "Sony",
-    "year": 2009
-  },
-  {
-    "id": "psvita",
-    "name": "PlayStation Vita",
-    "manufacturer": "Sony",
-    "year": 2011
-  },
-  {
-    "id": "psvita-slim",
-    "name": "PlayStation Vita Slim (PCH-2000)",
-    "manufacturer": "Sony",
-    "year": 2013
-  },
-  {
-    "id": "xbox",
-    "name": "Xbox",
-    "manufacturer": "Microsoft",
-    "year": 2001
-  },
-  {
-    "id": "xbox360",
-    "name": "Xbox 360",
-    "manufacturer": "Microsoft",
-    "year": 2005
-  },
-  {
-    "id": "xbox360-s",
-    "name": "Xbox 360 S (Slim)",
-    "manufacturer": "Microsoft",
-    "year": 2010
-  },
-  {
-    "id": "xbox360-e",
-    "name": "Xbox 360 E",
-    "manufacturer": "Microsoft",
-    "year": 2013
-  },
-  {
-    "id": "xboxone",
-    "name": "Xbox One",
-    "manufacturer": "Microsoft",
-    "year": 2013
-  },
-  {
-    "id": "xboxone-s",
-    "name": "Xbox One S",
-    "manufacturer": "Microsoft",
-    "year": 2016
-  },
-  {
-    "id": "xboxone-x",
-    "name": "Xbox One X",
-    "manufacturer": "Microsoft",
-    "year": 2017
-  },
-  {
-    "id": "xboxseries-x",
-    "name": "Xbox Series X",
-    "manufacturer": "Microsoft",
-    "year": 2020
-  },
-  {
-    "id": "xboxseries-s",
-    "name": "Xbox Series S",
-    "manufacturer": "Microsoft",
-    "year": 2020
-  },
-  {
-    "id": "oculus-quest-1",
-    "name": "Oculus Quest",
-    "manufacturer": "Oculus",
-    "year": 2019
-  },
-  {
-    "id": "oculus-quest-2",
-    "name": "Oculus Quest 2",
-    "manufacturer": "Oculus",
-    "year": 2020
-  },
-  {
-    "id": "meta-quest-2",
-    "name": "Meta Quest 2",
-    "manufacturer": "Meta",
-    "year": 2020
-  },
-  {
-    "id": "meta-quest-3",
-    "name": "Meta Quest 3",
-    "manufacturer": "Meta",
-    "year": 2023
-  },
-  {
-    "id": "meta-quest-3s",
-    "name": "Meta Quest 3S",
-    "manufacturer": "Meta",
-    "year": 2024
-  },
-  {
-    "id": "ps5-pro",
-    "name": "PlayStation 5 Pro",
-    "manufacturer": "Sony",
-    "year": 2024
-  },
-  {
-    "id": "atari2600",
-    "name": "Atari 2600",
-    "manufacturer": "Atari",
-    "year": 1977
-  },
-  {
-    "id": "atari5200",
-    "name": "Atari 5200",
-    "manufacturer": "Atari",
-    "year": 1982
-  },
-  {
-    "id": "atari7800",
-    "name": "Atari 7800",
-    "manufacturer": "Atari",
-    "year": 1986
-  },
-  {
-    "id": "atari-lynx",
-    "name": "Atari Lynx",
-    "manufacturer": "Atari",
-    "year": 1989
-  },
-  {
-    "id": "atari-jaguar",
-    "name": "Atari Jaguar",
-    "manufacturer": "Atari",
-    "year": 1993
-  },
-  {
-    "id": "virtual-boy",
-    "name": "Virtual Boy",
-    "manufacturer": "Nintendo",
-    "year": 1995
-  },
-  {
-    "id": "turbografx-16",
-    "name": "TurboGrafx-16",
-    "manufacturer": "NEC",
-    "year": 1989
-  },
-  {
-    "id": "pc-engine",
-    "name": "PC Engine",
-    "manufacturer": "NEC",
-    "year": 1987
-  },
-  {
-    "id": "neo-geo",
-    "name": "Neo Geo",
-    "manufacturer": "SNK",
-    "year": 1990
-  },
-  {
-    "id": "neo-geo-pocket",
-    "name": "Neo Geo Pocket",
-    "manufacturer": "SNK",
-    "year": 1998
-  },
-  {
-    "id": "neo-geo-pocket-color",
-    "name": "Neo Geo Pocket Color",
-    "manufacturer": "SNK",
-    "year": 1999
-  },
-  {
-    "id": "steam-deck",
-    "name": "Steam Deck",
-    "manufacturer": "Valve",
-    "year": 2022
-  },
-  {
-    "id": "steam-deck-oled",
-    "name": "Steam Deck OLED",
-    "manufacturer": "Valve",
-    "year": 2023
-  },
-  {
-    "id": "steam-machine",
-    "name": "Steam Machine",
-    "manufacturer": "Valve",
-    "year": 2026
-  },
-  {
-    "id": "steam-frame",
-    "name": "Steam Frame",
-    "manufacturer": "Valve",
-    "year": 2026
-  },
-  {
-    "id": "valve-index",
-    "name": "Valve Index",
-    "manufacturer": "Valve",
-    "year": 2019
-  },
-  {
-    "id": "wonder-swan",
-    "name": "WonderSwan",
-    "manufacturer": "Bandai",
-    "year": 1999
-  },
-  {
-    "id": "wonder-swan-color",
-    "name": "WonderSwan Color",
-    "manufacturer": "Bandai",
-    "year": 2000
-  },
-  {
-    "id": "game-watch",
-    "name": "Game & Watch",
-    "manufacturer": "Nintendo",
-    "year": 1980
-  }
-]
-
+{
+  "schema_version": 1,
+  "source_file": "sources/consoles.txt",
+  "consoles": [
+    {
+      "id": "snes",
+      "name": "Super Nintendo Entertainment System",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": 4,
+      "abbreviation": "SNES",
+      "launch_year": 1990,
+      "routes_html": true,
+      "aliases": [
+        "super nintendo entertainment system",
+        "super nintendo",
+        "super famicom",
+        "snes"
+      ]
+    },
+    {
+      "id": "playstationvita",
+      "name": "PlayStation Vita",
+      "manufacturer": "Sony",
+      "family": "PlayStation",
+      "form_factor": "handheld",
+      "generation": 8,
+      "abbreviation": "PS Vita",
+      "launch_year": 2011,
+      "routes_html": true,
+      "aliases": [
+        "playstation vita",
+        "ps vita",
+        "psvita",
+        "vita"
+      ]
+    },
+    {
+      "id": "psp",
+      "name": "PlayStation Portable",
+      "manufacturer": "Sony",
+      "family": "PlayStation",
+      "form_factor": "handheld",
+      "generation": 7,
+      "abbreviation": "PSP",
+      "launch_year": 2004,
+      "routes_html": true,
+      "aliases": [
+        "playstation portable",
+        "psp"
+      ]
+    },
+    {
+      "id": "playstation3",
+      "name": "PlayStation 3",
+      "manufacturer": "Sony",
+      "family": "PlayStation",
+      "form_factor": "home",
+      "generation": 7,
+      "abbreviation": "PS3",
+      "launch_year": 2006,
+      "routes_html": true,
+      "aliases": [
+        "playstation 3",
+        "ps3"
+      ]
+    },
+    {
+      "id": "playstation2",
+      "name": "PlayStation 2",
+      "manufacturer": "Sony",
+      "family": "PlayStation",
+      "form_factor": "home",
+      "generation": 6,
+      "abbreviation": "PS2",
+      "launch_year": 2000,
+      "routes_html": true,
+      "aliases": [
+        "playstation 2",
+        "ps2"
+      ]
+    },
+    {
+      "id": "playstation",
+      "name": "PlayStation",
+      "manufacturer": "Sony",
+      "family": "PlayStation",
+      "form_factor": "home",
+      "generation": 5,
+      "abbreviation": "PS1",
+      "launch_year": 1994,
+      "routes_html": true,
+      "aliases": [
+        "playstation (console)",
+        "playstation",
+        "ps1",
+        "psx"
+      ]
+    },
+    {
+      "id": "gameboyadvance",
+      "name": "Game Boy Advance",
+      "manufacturer": "Nintendo",
+      "family": "Game Boy",
+      "form_factor": "handheld",
+      "generation": 6,
+      "abbreviation": "GBA",
+      "launch_year": 2001,
+      "routes_html": true,
+      "aliases": [
+        "game boy advance",
+        "gameboyadvance",
+        "gba"
+      ]
+    },
+    {
+      "id": "gameboycolor",
+      "name": "Game Boy Color",
+      "manufacturer": "Nintendo",
+      "family": "Game Boy",
+      "form_factor": "handheld",
+      "generation": 5,
+      "abbreviation": "GBC",
+      "launch_year": 1998,
+      "routes_html": true,
+      "aliases": [
+        "game boy color",
+        "gameboycolor",
+        "gbc"
+      ]
+    },
+    {
+      "id": "gameboy",
+      "name": "Game Boy",
+      "manufacturer": "Nintendo",
+      "family": "Game Boy",
+      "form_factor": "handheld",
+      "generation": 4,
+      "abbreviation": "GB",
+      "launch_year": 1989,
+      "routes_html": true,
+      "aliases": [
+        "game boy",
+        "gameboy"
+      ]
+    },
+    {
+      "id": "wiiu",
+      "name": "Wii U",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "hybrid",
+      "generation": 8,
+      "abbreviation": "Wii U",
+      "launch_year": 2012,
+      "routes_html": true,
+      "aliases": [
+        "wii u",
+        "wiiu"
+      ]
+    },
+    {
+      "id": "wii",
+      "name": "Wii",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": 7,
+      "abbreviation": "Wii",
+      "launch_year": 2006,
+      "routes_html": true,
+      "aliases": [
+        "wii"
+      ]
+    },
+    {
+      "id": "nintendo3ds",
+      "name": "Nintendo 3DS",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": 8,
+      "abbreviation": "3DS",
+      "launch_year": 2011,
+      "routes_html": true,
+      "aliases": [
+        "nintendo 3ds",
+        "3ds"
+      ]
+    },
+    {
+      "id": "nintendods",
+      "name": "Nintendo DS",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": 7,
+      "abbreviation": "DS",
+      "launch_year": 2004,
+      "routes_html": true,
+      "aliases": [
+        "nintendo ds",
+        "nds"
+      ]
+    },
+    {
+      "id": "n64",
+      "name": "Nintendo 64",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": 5,
+      "abbreviation": "N64",
+      "launch_year": 1996,
+      "routes_html": true,
+      "aliases": [
+        "nintendo 64",
+        "n64"
+      ]
+    },
+    {
+      "id": "gamecube",
+      "name": "GameCube",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": 6,
+      "abbreviation": "GCN",
+      "launch_year": 2001,
+      "routes_html": true,
+      "aliases": [
+        "gamecube",
+        "nintendo gamecube"
+      ]
+    },
+    {
+      "id": "nes",
+      "name": "Nintendo Entertainment System",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": 3,
+      "abbreviation": "NES",
+      "launch_year": 1985,
+      "routes_html": true,
+      "aliases": [
+        "nintendo entertainment system",
+        "famicom",
+        "nes"
+      ]
+    },
+    {
+      "id": "genesis",
+      "name": "Sega Genesis / Mega Drive",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": 4,
+      "abbreviation": "Genesis",
+      "launch_year": 1988,
+      "routes_html": true,
+      "aliases": [
+        "sega genesis",
+        "sega mega drive",
+        "mega drive",
+        "genesis"
+      ]
+    },
+    {
+      "id": "saturn",
+      "name": "Sega Saturn",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": 5,
+      "abbreviation": "Saturn",
+      "launch_year": 1994,
+      "routes_html": true,
+      "aliases": [
+        "sega saturn",
+        "saturn"
+      ]
+    },
+    {
+      "id": "segacd",
+      "name": "Sega CD / Mega-CD",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "addon",
+      "generation": 4,
+      "abbreviation": "Sega CD",
+      "launch_year": 1991,
+      "routes_html": true,
+      "aliases": [
+        "sega cd",
+        "mega cd",
+        "mega-cd",
+        "segacd"
+      ]
+    },
+    {
+      "id": "sega32x",
+      "name": "Sega 32X",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "addon",
+      "generation": 4,
+      "abbreviation": "32X",
+      "launch_year": 1994,
+      "routes_html": true,
+      "aliases": [
+        "sega 32x",
+        "32x"
+      ]
+    },
+    {
+      "id": "dreamcast",
+      "name": "Dreamcast",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": 6,
+      "abbreviation": "DC",
+      "launch_year": 1998,
+      "routes_html": true,
+      "aliases": [
+        "sega dreamcast",
+        "dreamcast"
+      ]
+    },
+    {
+      "id": "gamegear",
+      "name": "Sega Game Gear",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "handheld",
+      "generation": 4,
+      "abbreviation": "GG",
+      "launch_year": 1990,
+      "routes_html": true,
+      "aliases": [
+        "sega game gear",
+        "game gear"
+      ]
+    },
+    {
+      "id": "mastersystem",
+      "name": "Sega Master System",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": 3,
+      "abbreviation": "SMS",
+      "launch_year": 1985,
+      "routes_html": true,
+      "aliases": [
+        "sega master system",
+        "master system"
+      ]
+    },
+    {
+      "id": "pico",
+      "name": "Sega Pico",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "Pico",
+      "launch_year": 1993,
+      "routes_html": true,
+      "aliases": [
+        "sega pico",
+        "pico"
+      ]
+    },
+    {
+      "id": "sg1000",
+      "name": "SG-1000",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": 2,
+      "abbreviation": "SG-1000",
+      "launch_year": 1983,
+      "routes_html": true,
+      "aliases": [
+        "sg-1000",
+        "sg1000"
+      ]
+    },
+    {
+      "id": "xbox360",
+      "name": "Xbox 360",
+      "manufacturer": "Microsoft",
+      "family": "Xbox",
+      "form_factor": "home",
+      "generation": 7,
+      "abbreviation": "X360",
+      "launch_year": 2005,
+      "routes_html": true,
+      "aliases": [
+        "xbox 360",
+        "xbox360"
+      ]
+    },
+    {
+      "id": "xbox",
+      "name": "Xbox",
+      "manufacturer": "Microsoft",
+      "family": "Xbox",
+      "form_factor": "home",
+      "generation": 6,
+      "abbreviation": "Xbox",
+      "launch_year": 2001,
+      "routes_html": true,
+      "aliases": [
+        "xbox"
+      ]
+    },
+    {
+      "id": "nes-toploader",
+      "name": "Nintendo Entertainment System Top Loader",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "NES TOPLOADER",
+      "launch_year": 1993,
+      "routes_html": false,
+      "aliases": [
+        "nes toploader",
+        "nintendo entertainment system top loader"
+      ]
+    },
+    {
+      "id": "snes-jr",
+      "name": "Super Nintendo Entertainment System SNES Jr.",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "SNES JR",
+      "launch_year": 1997,
+      "routes_html": false,
+      "aliases": [
+        "snes jr",
+        "super nintendo entertainment system snes jr."
+      ]
+    },
+    {
+      "id": "wii-mini",
+      "name": "Nintendo Wii Mini",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "WII MINI",
+      "launch_year": 2012,
+      "routes_html": false,
+      "aliases": [
+        "wii mini",
+        "nintendo wii mini"
+      ]
+    },
+    {
+      "id": "switch",
+      "name": "Nintendo Switch",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "hybrid",
+      "generation": null,
+      "abbreviation": "SWITCH",
+      "launch_year": 2017,
+      "routes_html": false,
+      "aliases": [
+        "switch",
+        "nintendo switch"
+      ]
+    },
+    {
+      "id": "switch-lite",
+      "name": "Nintendo Switch Lite",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "SWITCH LITE",
+      "launch_year": 2019,
+      "routes_html": false,
+      "aliases": [
+        "switch lite",
+        "nintendo switch lite"
+      ]
+    },
+    {
+      "id": "switch-oled",
+      "name": "Nintendo Switch OLED Model",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "hybrid",
+      "generation": null,
+      "abbreviation": "SWITCH OLED",
+      "launch_year": 2021,
+      "routes_html": false,
+      "aliases": [
+        "switch oled",
+        "nintendo switch oled model"
+      ]
+    },
+    {
+      "id": "gb-pocket",
+      "name": "Game Boy Pocket",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "GB POCKET",
+      "launch_year": 1996,
+      "routes_html": false,
+      "aliases": [
+        "gb pocket",
+        "game boy pocket"
+      ]
+    },
+    {
+      "id": "gb-light",
+      "name": "Game Boy Light",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "GB LIGHT",
+      "launch_year": 1998,
+      "routes_html": false,
+      "aliases": [
+        "gb light",
+        "game boy light"
+      ]
+    },
+    {
+      "id": "gba-sp",
+      "name": "Game Boy Advance SP",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "GBA SP",
+      "launch_year": 2003,
+      "routes_html": false,
+      "aliases": [
+        "gba sp",
+        "game boy advance sp"
+      ]
+    },
+    {
+      "id": "gba-micro",
+      "name": "Game Boy Advance Micro",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "GBA MICRO",
+      "launch_year": 2005,
+      "routes_html": false,
+      "aliases": [
+        "gba micro",
+        "game boy advance micro"
+      ]
+    },
+    {
+      "id": "ds-lite",
+      "name": "Nintendo DS Lite",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "DS LITE",
+      "launch_year": 2006,
+      "routes_html": false,
+      "aliases": [
+        "ds lite",
+        "nintendo ds lite"
+      ]
+    },
+    {
+      "id": "dsi",
+      "name": "Nintendo DSi",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "DSI",
+      "launch_year": 2008,
+      "routes_html": false,
+      "aliases": [
+        "dsi",
+        "nintendo dsi"
+      ]
+    },
+    {
+      "id": "3ds-xl",
+      "name": "Nintendo 3DS XL",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "3DS XL",
+      "launch_year": 2012,
+      "routes_html": false,
+      "aliases": [
+        "3ds xl",
+        "nintendo 3ds xl"
+      ]
+    },
+    {
+      "id": "new-3ds",
+      "name": "Nintendo New 3DS",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "NEW 3DS",
+      "launch_year": 2014,
+      "routes_html": false,
+      "aliases": [
+        "new 3ds",
+        "nintendo new 3ds"
+      ]
+    },
+    {
+      "id": "new-3ds-xl",
+      "name": "Nintendo New 3DS XL",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "NEW 3DS XL",
+      "launch_year": 2014,
+      "routes_html": false,
+      "aliases": [
+        "new 3ds xl",
+        "nintendo new 3ds xl"
+      ]
+    },
+    {
+      "id": "2ds",
+      "name": "Nintendo 2DS",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "2DS",
+      "launch_year": 2013,
+      "routes_html": false,
+      "aliases": [
+        "2ds",
+        "nintendo 2ds"
+      ]
+    },
+    {
+      "id": "new-2ds-xl",
+      "name": "Nintendo New 2DS XL",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "NEW 2DS XL",
+      "launch_year": 2017,
+      "routes_html": false,
+      "aliases": [
+        "new 2ds xl",
+        "nintendo new 2ds xl"
+      ]
+    },
+    {
+      "id": "genesis-model2",
+      "name": "Sega Genesis Model 2",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "GENESIS MODEL2",
+      "launch_year": 1993,
+      "routes_html": false,
+      "aliases": [
+        "genesis model2",
+        "sega genesis model 2"
+      ]
+    },
+    {
+      "id": "genesis-model3",
+      "name": "Sega Genesis Model 3",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "GENESIS MODEL3",
+      "launch_year": 1997,
+      "routes_html": false,
+      "aliases": [
+        "genesis model3",
+        "sega genesis model 3"
+      ]
+    },
+    {
+      "id": "saturn-model2",
+      "name": "Sega Saturn Model 2",
+      "manufacturer": "Sega",
+      "family": "Sega",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "SATURN MODEL2",
+      "launch_year": 1996,
+      "routes_html": false,
+      "aliases": [
+        "saturn model2",
+        "sega saturn model 2"
+      ]
+    },
+    {
+      "id": "psone",
+      "name": "PlayStation PSone",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PSONE",
+      "launch_year": 2000,
+      "routes_html": false,
+      "aliases": [
+        "psone",
+        "playstation psone"
+      ]
+    },
+    {
+      "id": "ps2-slim",
+      "name": "PlayStation 2 Slim",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS2 SLIM",
+      "launch_year": 2004,
+      "routes_html": false,
+      "aliases": [
+        "ps2 slim",
+        "playstation 2 slim"
+      ]
+    },
+    {
+      "id": "ps3-slim",
+      "name": "PlayStation 3 Slim",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS3 SLIM",
+      "launch_year": 2009,
+      "routes_html": false,
+      "aliases": [
+        "ps3 slim",
+        "playstation 3 slim"
+      ]
+    },
+    {
+      "id": "ps3-super-slim",
+      "name": "PlayStation 3 Super Slim",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS3 SUPER SLIM",
+      "launch_year": 2012,
+      "routes_html": false,
+      "aliases": [
+        "ps3 super slim",
+        "playstation 3 super slim"
+      ]
+    },
+    {
+      "id": "ps4",
+      "name": "PlayStation 4",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS4",
+      "launch_year": 2013,
+      "routes_html": false,
+      "aliases": [
+        "ps4",
+        "playstation 4"
+      ]
+    },
+    {
+      "id": "ps4-slim",
+      "name": "PlayStation 4 Slim",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS4 SLIM",
+      "launch_year": 2016,
+      "routes_html": false,
+      "aliases": [
+        "ps4 slim",
+        "playstation 4 slim"
+      ]
+    },
+    {
+      "id": "ps4-pro",
+      "name": "PlayStation 4 Pro",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS4 PRO",
+      "launch_year": 2016,
+      "routes_html": false,
+      "aliases": [
+        "ps4 pro",
+        "playstation 4 pro"
+      ]
+    },
+    {
+      "id": "ps5",
+      "name": "PlayStation 5",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS5",
+      "launch_year": 2020,
+      "routes_html": false,
+      "aliases": [
+        "ps5",
+        "playstation 5"
+      ]
+    },
+    {
+      "id": "ps5-slim",
+      "name": "PlayStation 5 Slim",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS5 SLIM",
+      "launch_year": 2023,
+      "routes_html": false,
+      "aliases": [
+        "ps5 slim",
+        "playstation 5 slim"
+      ]
+    },
+    {
+      "id": "psp-2000",
+      "name": "PlayStation Portable Slim & Lite (2000)",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "PSP 2000",
+      "launch_year": 2007,
+      "routes_html": false,
+      "aliases": [
+        "psp 2000",
+        "playstation portable slim & lite (2000)"
+      ]
+    },
+    {
+      "id": "psp-3000",
+      "name": "PlayStation Portable 3000",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "PSP 3000",
+      "launch_year": 2008,
+      "routes_html": false,
+      "aliases": [
+        "psp 3000",
+        "playstation portable 3000"
+      ]
+    },
+    {
+      "id": "psp-go",
+      "name": "PlayStation Portable Go",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "PSP GO",
+      "launch_year": 2009,
+      "routes_html": false,
+      "aliases": [
+        "psp go",
+        "playstation portable go"
+      ]
+    },
+    {
+      "id": "psvita-slim",
+      "name": "PlayStation Vita Slim (PCH-2000)",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "PSVITA SLIM",
+      "launch_year": 2013,
+      "routes_html": false,
+      "aliases": [
+        "psvita slim",
+        "playstation vita slim (pch-2000)"
+      ]
+    },
+    {
+      "id": "xbox360-s",
+      "name": "Xbox 360 S (Slim)",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOX360 S",
+      "launch_year": 2010,
+      "routes_html": false,
+      "aliases": [
+        "xbox360 s",
+        "xbox 360 s (slim)"
+      ]
+    },
+    {
+      "id": "xbox360-e",
+      "name": "Xbox 360 E",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOX360 E",
+      "launch_year": 2013,
+      "routes_html": false,
+      "aliases": [
+        "xbox360 e",
+        "xbox 360 e"
+      ]
+    },
+    {
+      "id": "xboxone",
+      "name": "Xbox One",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOXONE",
+      "launch_year": 2013,
+      "routes_html": false,
+      "aliases": [
+        "xboxone",
+        "xbox one"
+      ]
+    },
+    {
+      "id": "xboxone-s",
+      "name": "Xbox One S",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOXONE S",
+      "launch_year": 2016,
+      "routes_html": false,
+      "aliases": [
+        "xboxone s",
+        "xbox one s"
+      ]
+    },
+    {
+      "id": "xboxone-x",
+      "name": "Xbox One X",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOXONE X",
+      "launch_year": 2017,
+      "routes_html": false,
+      "aliases": [
+        "xboxone x",
+        "xbox one x"
+      ]
+    },
+    {
+      "id": "xboxseries-x",
+      "name": "Xbox Series X",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOXSERIES X",
+      "launch_year": 2020,
+      "routes_html": false,
+      "aliases": [
+        "xboxseries x",
+        "xbox series x"
+      ]
+    },
+    {
+      "id": "xboxseries-s",
+      "name": "Xbox Series S",
+      "manufacturer": "Microsoft",
+      "family": "Microsoft",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "XBOXSERIES S",
+      "launch_year": 2020,
+      "routes_html": false,
+      "aliases": [
+        "xboxseries s",
+        "xbox series s"
+      ]
+    },
+    {
+      "id": "oculus-quest-1",
+      "name": "Oculus Quest",
+      "manufacturer": "Oculus",
+      "family": "Oculus",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "OCULUS QUEST 1",
+      "launch_year": 2019,
+      "routes_html": false,
+      "aliases": [
+        "oculus quest 1",
+        "oculus quest"
+      ]
+    },
+    {
+      "id": "oculus-quest-2",
+      "name": "Oculus Quest 2",
+      "manufacturer": "Oculus",
+      "family": "Oculus",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "OCULUS QUEST 2",
+      "launch_year": 2020,
+      "routes_html": false,
+      "aliases": [
+        "oculus quest 2"
+      ]
+    },
+    {
+      "id": "meta-quest-2",
+      "name": "Meta Quest 2",
+      "manufacturer": "Meta",
+      "family": "Meta",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "META QUEST 2",
+      "launch_year": 2020,
+      "routes_html": false,
+      "aliases": [
+        "meta quest 2"
+      ]
+    },
+    {
+      "id": "meta-quest-3",
+      "name": "Meta Quest 3",
+      "manufacturer": "Meta",
+      "family": "Meta",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "META QUEST 3",
+      "launch_year": 2023,
+      "routes_html": false,
+      "aliases": [
+        "meta quest 3"
+      ]
+    },
+    {
+      "id": "meta-quest-3s",
+      "name": "Meta Quest 3S",
+      "manufacturer": "Meta",
+      "family": "Meta",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "META QUEST 3S",
+      "launch_year": 2024,
+      "routes_html": false,
+      "aliases": [
+        "meta quest 3s"
+      ]
+    },
+    {
+      "id": "ps5-pro",
+      "name": "PlayStation 5 Pro",
+      "manufacturer": "Sony",
+      "family": "Sony",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PS5 PRO",
+      "launch_year": 2024,
+      "routes_html": false,
+      "aliases": [
+        "ps5 pro",
+        "playstation 5 pro"
+      ]
+    },
+    {
+      "id": "atari2600",
+      "name": "Atari 2600",
+      "manufacturer": "Atari",
+      "family": "Atari",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "ATARI2600",
+      "launch_year": 1977,
+      "routes_html": false,
+      "aliases": [
+        "atari2600",
+        "atari 2600"
+      ]
+    },
+    {
+      "id": "atari5200",
+      "name": "Atari 5200",
+      "manufacturer": "Atari",
+      "family": "Atari",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "ATARI5200",
+      "launch_year": 1982,
+      "routes_html": false,
+      "aliases": [
+        "atari5200",
+        "atari 5200"
+      ]
+    },
+    {
+      "id": "atari7800",
+      "name": "Atari 7800",
+      "manufacturer": "Atari",
+      "family": "Atari",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "ATARI7800",
+      "launch_year": 1986,
+      "routes_html": false,
+      "aliases": [
+        "atari7800",
+        "atari 7800"
+      ]
+    },
+    {
+      "id": "atari-lynx",
+      "name": "Atari Lynx",
+      "manufacturer": "Atari",
+      "family": "Atari",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "ATARI LYNX",
+      "launch_year": 1989,
+      "routes_html": false,
+      "aliases": [
+        "atari lynx"
+      ]
+    },
+    {
+      "id": "atari-jaguar",
+      "name": "Atari Jaguar",
+      "manufacturer": "Atari",
+      "family": "Atari",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "ATARI JAGUAR",
+      "launch_year": 1993,
+      "routes_html": false,
+      "aliases": [
+        "atari jaguar"
+      ]
+    },
+    {
+      "id": "virtual-boy",
+      "name": "Virtual Boy",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "VIRTUAL BOY",
+      "launch_year": 1995,
+      "routes_html": false,
+      "aliases": [
+        "virtual boy"
+      ]
+    },
+    {
+      "id": "turbografx-16",
+      "name": "TurboGrafx-16",
+      "manufacturer": "NEC",
+      "family": "NEC",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "TURBOGRAFX 16",
+      "launch_year": 1989,
+      "routes_html": false,
+      "aliases": [
+        "turbografx 16",
+        "turbografx-16"
+      ]
+    },
+    {
+      "id": "pc-engine",
+      "name": "PC Engine",
+      "manufacturer": "NEC",
+      "family": "NEC",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "PC ENGINE",
+      "launch_year": 1987,
+      "routes_html": false,
+      "aliases": [
+        "pc engine"
+      ]
+    },
+    {
+      "id": "neo-geo",
+      "name": "Neo Geo",
+      "manufacturer": "SNK",
+      "family": "SNK",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "NEO GEO",
+      "launch_year": 1990,
+      "routes_html": false,
+      "aliases": [
+        "neo geo"
+      ]
+    },
+    {
+      "id": "neo-geo-pocket",
+      "name": "Neo Geo Pocket",
+      "manufacturer": "SNK",
+      "family": "SNK",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "NEO GEO POCKET",
+      "launch_year": 1998,
+      "routes_html": false,
+      "aliases": [
+        "neo geo pocket"
+      ]
+    },
+    {
+      "id": "neo-geo-pocket-color",
+      "name": "Neo Geo Pocket Color",
+      "manufacturer": "SNK",
+      "family": "SNK",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "NEO GEO POCKET COLOR",
+      "launch_year": 1999,
+      "routes_html": false,
+      "aliases": [
+        "neo geo pocket color"
+      ]
+    },
+    {
+      "id": "steam-deck",
+      "name": "Steam Deck",
+      "manufacturer": "Valve",
+      "family": "Valve",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "STEAM DECK",
+      "launch_year": 2022,
+      "routes_html": false,
+      "aliases": [
+        "steam deck"
+      ]
+    },
+    {
+      "id": "steam-deck-oled",
+      "name": "Steam Deck OLED",
+      "manufacturer": "Valve",
+      "family": "Valve",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "STEAM DECK OLED",
+      "launch_year": 2023,
+      "routes_html": false,
+      "aliases": [
+        "steam deck oled"
+      ]
+    },
+    {
+      "id": "steam-machine",
+      "name": "Steam Machine",
+      "manufacturer": "Valve",
+      "family": "Valve",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "STEAM MACHINE",
+      "launch_year": 2026,
+      "routes_html": false,
+      "aliases": [
+        "steam machine"
+      ]
+    },
+    {
+      "id": "steam-frame",
+      "name": "Steam Frame",
+      "manufacturer": "Valve",
+      "family": "Valve",
+      "form_factor": "home",
+      "generation": null,
+      "abbreviation": "STEAM FRAME",
+      "launch_year": 2026,
+      "routes_html": false,
+      "aliases": [
+        "steam frame"
+      ]
+    },
+    {
+      "id": "valve-index",
+      "name": "Valve Index",
+      "manufacturer": "Valve",
+      "family": "Valve",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "VALVE INDEX",
+      "launch_year": 2019,
+      "routes_html": false,
+      "aliases": [
+        "valve index"
+      ]
+    },
+    {
+      "id": "wonder-swan",
+      "name": "WonderSwan",
+      "manufacturer": "Bandai",
+      "family": "Bandai",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "WONDER SWAN",
+      "launch_year": 1999,
+      "routes_html": false,
+      "aliases": [
+        "wonder swan",
+        "wonderswan"
+      ]
+    },
+    {
+      "id": "wonder-swan-color",
+      "name": "WonderSwan Color",
+      "manufacturer": "Bandai",
+      "family": "Bandai",
+      "form_factor": "handheld",
+      "generation": null,
+      "abbreviation": "WONDER SWAN COLOR",
+      "launch_year": 2000,
+      "routes_html": false,
+      "aliases": [
+        "wonder swan color",
+        "wonderswan color"
+      ]
+    },
+    {
+      "id": "game-watch",
+      "name": "Game & Watch",
+      "manufacturer": "Nintendo",
+      "family": "Nintendo",
+      "form_factor": "other",
+      "generation": null,
+      "abbreviation": "GAME WATCH",
+      "launch_year": 1980,
+      "routes_html": false,
+      "aliases": [
+        "game watch",
+        "game & watch"
+      ]
+    }
+  ],
+  "routing_count": 27,
+  "catalog_count": 65
+}

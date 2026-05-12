@@ -1,0 +1,5467 @@
+{
+  "schema_version": 1,
+  "console": {
+    "id": "pico",
+    "name": "Sega Pico",
+    "manufacturer": "Sega",
+    "family": "Sega",
+    "form_factor": "home",
+    "generation": null,
+    "abbreviation": "Pico",
+    "launch_year": 1993
+  },
+  "source": {
+    "type": "wikipedia",
+    "files": [
+      "List of Sega Pico games - Wikipedia.html"
+    ],
+    "extracted_at": "2026-05-12T20:29:17Z"
+  },
+  "counts": {
+    "total": 320,
+    "released": 320,
+    "unreleased": 0
+  },
+  "games": [
+    {
+      "title": "1-nichi 10-pun de E ga Jouzu ni Kakeru Beena",
+      "slug": "1-nichi-10-pun-de-e-ga-jouzu-ni-kakeru-beena",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008-02-28",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "101 Dalmatians",
+      "slug": "101-dalmatians",
+      "developer": "Appaloosa Interactive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "6000-nin no Sensei-tachi ga Tsukutta Tanoshii Shougakkou Tanken 1",
+      "slug": "6000-nin-no-sensei-tachi-ga-tsukutta-tanoshii-shougakkou-tanken-1",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-09-30",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "6000-nin no Sensei-tachi ga Tsukutta Tanoshii Shougakkou Tanken 2",
+      "slug": "6000-nin-no-sensei-tachi-ga-tsukutta-tanoshii-shougakkou-tanken-2",
+      "developer": "Sega Toys",
+      "publisher": "Sega Toys",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-06-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "A Bug's Life",
+      "slug": "a-bug-s-life",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Adventures in Letterland with Jack & Jill",
+      "slug": "adventures-in-letterland-with-jack-jill",
+      "developer": "Thinking Cap",
+      "publisher": "Thinking Cap",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-09-10",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Aendiwa Billieui Suhaktamheom",
+      "slug": "aendiwa-billieui-suhaktamheom",
+      "developer": "Samsung",
+      "publisher": "Samsung",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-03-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ai to Yume no Kuni Sanrio Puroland Chanto Dekirukana Minna to Tanoshii o-Yuugikai",
+      "slug": "ai-to-yume-no-kuni-sanrio-puroland-chanto-dekirukana-minna-to-tanoshii-o-yuugikai",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-05-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ai to Yume to Bouken Sanrio Puroland!",
+      "slug": "ai-to-yume-to-bouken-sanrio-puroland",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-10-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Allowa Pongka",
+      "slug": "allowa-pongka",
+      "developer": "",
+      "publisher": "Samsung",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-11-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Anpanman no Hajimete Mouse Pico: Anpanman to PC Renshuu!",
+      "slug": "anpanman-no-hajimete-mouse-pico-anpanman-to-pc-renshuu",
+      "developer": "Fupac",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-01-24",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Anpanman no Waku Waku Game Oekaki",
+      "slug": "anpanman-no-waku-waku-game-oekaki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-07-17",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Anpanman o Sagase!",
+      "slug": "anpanman-o-sagase",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2009-02-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Anpanman Pico: Waku Waku Pan Koujou",
+      "slug": "anpanman-pico-waku-waku-pan-koujou",
+      "developer": "Fupac",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Anpanman to Chinou Up!",
+      "slug": "anpanman-to-chinou-up",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ariel",
+      "slug": "ariel",
+      "developer": "Sega Toys",
+      "publisher": "Sega Toys",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004-04-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ashita no Nadja",
+      "slug": "ashita-no-nadja",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-03-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "B-Fighter Kabuto",
+      "slug": "b-fighter-kabuto",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-05-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "B-Robo Kabutack",
+      "slug": "b-robo-kabutack",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-07-10",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bakuryuu Sentai Abaranger",
+      "slug": "bakuryuu-sentai-abaranger",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-04-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Beena Town e Youkoso",
+      "slug": "beena-town-e-youkoso",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005-08-05",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bioneun Nal",
+      "slug": "bioneun-nal",
+      "developer": "Samsung",
+      "publisher": "Samsung",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bishoujo Senshi Sailor Moon S",
+      "slug": "bishoujo-senshi-sailor-moon-s",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-07-20",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bishoujou Senshi Sailor Moon Sailor Stars: Tokimeki Party",
+      "slug": "bishoujou-senshi-sailor-moon-sailor-stars-tokimeki-party",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-08-09",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cars 2 Racing Beena: Mezase! World Champion!",
+      "slug": "cars-2-racing-beena-mezase-world-champion",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2011-07-28",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chibi Maruko-chan",
+      "slug": "chibi-maruko-chan",
+      "developer": "",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-07-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chiiku Drill Oshare Majo Love and Berry: Moji Kazu Chie Asobi",
+      "slug": "chiiku-drill-oshare-majo-love-and-berry-moji-kazu-chie-asobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-02-17",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chiiku Drill Pocket Monsters Diamond & Pearl: Moji Kazu Chie Asobi",
+      "slug": "chiiku-drill-pocket-monsters-diamond-pearl-moji-kazu-chie-asobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Choukou Senshi Changerion",
+      "slug": "choukou-senshi-changerion",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-05-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Christopher Robin",
+      "slug": "christopher-robin",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cinnamoroll: Cafe Cinnamon de o-Tetsudai",
+      "slug": "cinnamoroll-cafe-cinnamon-de-o-tetsudai",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cooking Beena: o-Ryouri Dekichatta!",
+      "slug": "cooking-beena-o-ryouri-dekichatta",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-08-11",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cooking Pico: Minna to Issho ni Hajimete Cooking!",
+      "slug": "cooking-pico-minna-to-issho-ni-hajimete-cooking",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Copera no Chikyuu Daisuki",
+      "slug": "copera-no-chikyuu-daisuki",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998-11-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Copera no Koto Otona Ani",
+      "slug": "copera-no-koto-otona-ani",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-05-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Copera no Time Machine",
+      "slug": "copera-no-time-machine",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-10-03",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Crayola",
+      "slug": "crayola",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-08-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Crayon Shin-chan",
+      "slug": "crayon-shin-chan",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-03-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Crayon Shin-chan no Oekaki Note",
+      "slug": "crayon-shin-chan-no-oekaki-note",
+      "developer": "Bandai",
+      "publisher": "Bandi",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Curious Kids",
+      "slug": "curious-kids",
+      "developer": "Novatrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cutey Honey Flash",
+      "slug": "cutey-honey-flash",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-06-19",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dance Pico: Hashitte Odotte Chou Happy!",
+      "slug": "dance-pico-hashitte-odotte-chou-happy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Denji Sentai Megaranger",
+      "slug": "denji-sentai-megaranger",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-07-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Densha Daishuugou",
+      "slug": "densha-daishuugou",
+      "developer": "Sega",
+      "publisher": "Sega Yonezawa",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-01-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Densha Daishuugou! Card de Asobou",
+      "slug": "densha-daishuugou-card-de-asobou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006-12-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Disney Princess",
+      "slug": "disney-princess",
+      "developer": "Sega Toys",
+      "publisher": "Sega Toys",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004-10-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Disney Princesses: Princess ni Naritai!",
+      "slug": "disney-princesses-princess-ni-naritai",
+      "developer": "Sega Toys",
+      "publisher": "Sega Toys",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-12-09",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Disney Tanoshii o-Benkyou Series: Mic de Kantan ABC",
+      "slug": "disney-tanoshii-o-benkyou-series-mic-de-kantan-abc",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Disney Tanoshii Oekaki: o-Mise-ya-san o Tsukutchaou!",
+      "slug": "disney-tanoshii-oekaki-o-mise-ya-san-o-tsukutchaou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-11-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Do Re Mi Fa Densetsu",
+      "slug": "do-re-mi-fa-densetsu",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Donald",
+      "slug": "donald",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-07-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Donald no TV Show",
+      "slug": "donald-no-tv-show",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-12-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon",
+      "slug": "doraemon",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-07-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon Chinou Daikaihatsu! Waku Waku Game Land",
+      "slug": "doraemon-chinou-daikaihatsu-waku-waku-game-land",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Eigo de Asobou ABC",
+      "slug": "doraemon-eigo-de-asobou-abc",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-07-10",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Ensoku-Imohori-Undoukai",
+      "slug": "doraemon-ensoku-imohori-undoukai",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-09-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Kazoete-Kanzan Kazu Tokei",
+      "slug": "doraemon-kazoete-kanzan-kazu-tokei",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-09-14",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon no Utatte Pico: Issho ni Utaou! Doraemon Waku Waku Karaoke",
+      "slug": "doraemon-no-utatte-pico-issho-ni-utaou-doraemon-waku-waku-karaoke",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Nobita no Machinaka Doki Doki Tanken!",
+      "slug": "doraemon-nobita-no-machinaka-doki-doki-tanken",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-05-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Nobita to Maigo no Kyouryuu",
+      "slug": "doraemon-nobita-to-maigo-no-kyouryuu",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-03-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon Tanoshii En Seikatsu Youchien Hoikuen",
+      "slug": "doraemon-tanoshii-en-seikatsu-youchien-hoikuen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon Tanoshiku o-Keiko Hiragana Katakana",
+      "slug": "doraemon-tanoshiku-o-keiko-hiragana-katakana",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Time Machine de Daibouken!",
+      "slug": "doraemon-time-machine-de-daibouken",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-27",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon Waku Waku Sekai Isshuu Game: Asonde Oboeru Chizu Kokki",
+      "slug": "doraemon-waku-waku-sekai-isshuu-game-asonde-oboeru-chizu-kokki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2010-04-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Yometa yo-Kaketa yo Hiragana Katakana",
+      "slug": "doraemon-yometa-yo-kaketa-yo-hiragana-katakana",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-08-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Youchien wa Tanoshii na",
+      "slug": "doraemon-youchien-wa-tanoshii-na",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-05-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doubutsu Pico: Hamster Land",
+      "slug": "doubutsu-pico-hamster-land",
+      "developer": "Bandai",
+      "publisher": "Arc System Works",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-03-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Drive Pico: Go Go! Car Navi Touring!",
+      "slug": "drive-pico-go-go-car-navi-touring",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-06-20",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECC Junior no Hajimete Eigo Vol. 1 Patty-chan Family",
+      "slug": "ecc-junior-no-hajimete-eigo-vol-1-patty-chan-family",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-03-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECC Junior no Hajimete Eigo Vol. 2 Patty-chan no Picnic",
+      "slug": "ecc-junior-no-hajimete-eigo-vol-2-patty-chan-no-picnic",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-03-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECC Junior no Hajimete Eigo Vol. 3 Patty-chan no o-Tanjoubi",
+      "slug": "ecc-junior-no-hajimete-eigo-vol-3-patty-chan-no-o-tanjoubi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-03-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECC Junior no Hajimete Eigo Vol. 4 Doubutsu Daisuki, Patty-chan",
+      "slug": "ecc-junior-no-hajimete-eigo-vol-4-doubutsu-daisuki-patty-chan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-03-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECC Junior no Hajimete Eigo Vol. 5 Merry Christmas, Patty-chan",
+      "slug": "ecc-junior-no-hajimete-eigo-vol-5-merry-christmas-patty-chan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-03-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "ECC Junior no Hajimete Eigo Vol. 6 Patty-chan Yuuenchi ni Iku",
+      "slug": "ecc-junior-no-hajimete-eigo-vol-6-patty-chan-yuuenchi-ni-iku",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-03-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ecco Jr.",
+      "slug": "ecco-jr",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Engine Sentai Go-onger Mach de Oboeru! Aiueo!!",
+      "slug": "engine-sentai-go-onger-mach-de-oboeru-aiueo",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008-04-24",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Exciting! Hataraku Norimono-tachi!!",
+      "slug": "exciting-hataraku-norimono-tachi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fishing Pico: Donald no Adventure Fishing",
+      "slug": "fishing-pico-donald-no-adventure-fishing",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Futari wa Pretty Cure",
+      "slug": "futari-wa-pretty-cure",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Futari wa Pretty Cure Max Heart",
+      "slug": "futari-wa-pretty-cure-max-heart",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Futari wa Pretty Cure Splash Star",
+      "slug": "futari-wa-pretty-cure-splash-star",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gabutcho Challenge Fishing",
+      "slug": "gabutcho-challenge-fishing",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken Hajimete no Moji-Kotoba",
+      "slug": "gakken-hajimete-no-moji-kotoba",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken no o-Benkyou Soft Eigo ABC",
+      "slug": "gakken-no-o-benkyou-soft-eigo-abc",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken no o-Benkyou Soft Hiragana",
+      "slug": "gakken-no-o-benkyou-soft-hiragana",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken no o-Benkyou Soft Kakezan Kuku",
+      "slug": "gakken-no-o-benkyou-soft-kakezan-kuku",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken no o-Benkyou Soft Kanji",
+      "slug": "gakken-no-o-benkyou-soft-kanji",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken no o-Benkyou Soft Kazu-Suuji",
+      "slug": "gakken-no-o-benkyou-soft-kazu-suuji",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken no o-Benkyou Soft Tashizan Hikizan",
+      "slug": "gakken-no-o-benkyou-soft-tashizan-hikizan",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken Pico de Gakushuu 1-nensei",
+      "slug": "gakken-pico-de-gakushuu-1-nensei",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gakken Pico de Kagaku 1 Hakken Mushi no Himitsu",
+      "slug": "gakken-pico-de-kagaku-1-hakken-mushi-no-himitsu",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Game ga Ippai Kikansha Thomas",
+      "slug": "game-ga-ippai-kikansha-thomas",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ganbare! Bokura no Compati Heroes",
+      "slug": "ganbare-bokura-no-compati-heroes",
+      "developer": "Banpresto",
+      "publisher": "Banpresto",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gegege no Kitarou",
+      "slug": "gegege-no-kitarou",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gekisou Sentai Carranger",
+      "slug": "gekisou-sentai-carranger",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-04-03",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Geneki Toudai-sei ga Tsukutta! 'Dekiru Ko ni Naru Seikatsu Shuukan Dragon Sakura Youji-hen'",
+      "slug": "geneki-toudai-sei-ga-tsukutta-dekiru-ko-ni-naru-seikatsu-shuukan-dragon-sakura-youji-hen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-03-03",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Geumdokki Eundokki",
+      "slug": "geumdokki-eundokki",
+      "developer": "",
+      "publisher": "",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Go! Go! Advance Drive: Muttsu no Machine ni Chousen da!'",
+      "slug": "go-go-advance-drive-muttsu-no-machine-ni-chousen-da",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Go! Go! Konii-chan! Doki Doki World",
+      "slug": "go-go-konii-chan-doki-doki-world",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Godzilla",
+      "slug": "godzilla",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-07-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GoGo Sentai Boukenger Kazu to Katachi o Oboeyou!",
+      "slug": "gogo-sentai-boukenger-kazu-to-katachi-o-oboeyou",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006-04-22",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gu~chokorantan Minna de Oekaki ! Tanoshii Asobi mo ippai!",
+      "slug": "gu-chokorantan-minna-de-oekaki-tanoshii-asobi-mo-ippai",
+      "developer": "NHK",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hajimete Asobu Pico Soft: Anpanman no Iro-Kazu-Katachi",
+      "slug": "hajimete-asobu-pico-soft-anpanman-no-iro-kazu-katachi",
+      "developer": "Fupac",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hataraku Kuruma Diapet Daishuugou",
+      "slug": "hataraku-kuruma-diapet-daishuugou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-09-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Heisei Kyouiku Iinkai Jr. Mezase Yuutousei",
+      "slug": "heisei-kyouiku-iinkai-jr-mezase-yuutousei",
+      "developer": "SPS",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Heisei Tensai Bakabon Minna de Family Restaurant ni Iku no da!",
+      "slug": "heisei-tensai-bakabon-minna-de-family-restaurant-ni-iku-no-da",
+      "developer": "General Entertainment",
+      "publisher": "General Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hello Kitty",
+      "slug": "hello-kitty",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hello Kitty no Hiragana Katakana o-Namae Kaitemiyou!'",
+      "slug": "hello-kitty-no-hiragana-katakana-o-namae-kaitemiyou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008-04-03",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hello Kitty no Tanoshii Butoukai",
+      "slug": "hello-kitty-no-tanoshii-butoukai",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-06-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hello Kitty no Tanoshii o-Mise-ya-san",
+      "slug": "hello-kitty-no-tanoshii-o-mise-ya-san",
+      "developer": "Atlus",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hirake! Ponkikki Party o Hirakou!",
+      "slug": "hirake-ponkikki-party-o-hirakou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Issho ni Henshin Fresh Pretty Cure",
+      "slug": "issho-ni-henshin-fresh-pretty-cure",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2009-05-28",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Issho ni Pico: Itsudemo Issho Doraemon",
+      "slug": "issho-ni-pico-itsudemo-issho-doraemon",
+      "developer": "Fupac",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-12-23",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jeulgeoun Deuraibeu",
+      "slug": "jeulgeoun-deuraibeu",
+      "developer": "",
+      "publisher": "",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jidou Eiken Taiou Soft Moomin to Eigo Tanjoubi no Okurimono",
+      "slug": "jidou-eiken-taiou-soft-moomin-to-eigo-tanjoubi-no-okurimono",
+      "developer": "Obunsha",
+      "publisher": "Obunsha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-06-24",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Juuken Sentai Gekiranger: Niki Niki! Kazu Katachi ni Challenge!",
+      "slug": "juuken-sentai-gekiranger-niki-niki-kazu-katachi-ni-challenge",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-07-19",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kamen Rider 555",
+      "slug": "kamen-rider-555",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-05-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kamen Rider Agito & Kuuga Wild Battle",
+      "slug": "kamen-rider-agito-kuuga-wild-battle",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-04-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kamen Rider Kiva Hiragana Suuji Chie Battle!!",
+      "slug": "kamen-rider-kiva-hiragana-suuji-chie-battle",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008-08-07",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kangofu-san Pico: Yasashiku o-Teate Pico Clinic!",
+      "slug": "kangofu-san-pico-yasashiku-o-teate-pico-clinic",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kawaii Nakama o Sodateyou-tsu no Shippo",
+      "slug": "kawaii-nakama-o-sodateyou-tsu-no-shippo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kazoku Minna no Nouryoku Trainer",
+      "slug": "kazoku-minna-no-nouryoku-trainer",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005-11-04",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kerokero Keroppi no Harikiri Undoukai",
+      "slug": "kerokero-keroppi-no-harikiri-undoukai",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Keyboard Pico 2: Sawattemiyou! Yoiko no Hajimete Keyboard",
+      "slug": "keyboard-pico-2-sawattemiyou-yoiko-no-hajimete-keyboard",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Keyboard Pico: Kantan Waku Waku Keyboard",
+      "slug": "keyboard-pico-kantan-waku-waku-keyboard",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kikansha Thomas",
+      "slug": "kikansha-thomas",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kikansha Thomas ni Notte",
+      "slug": "kikansha-thomas-ni-notte",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kiki & Rara: Hoshi no Kazu Asobi",
+      "slug": "kiki-rara-hoshi-no-kazu-asobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-09-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kiteretsu Daihyakka Edo ni Itte Kiteretsu Sai-sama ni Au Nari",
+      "slug": "kiteretsu-daihyakka-edo-ni-itte-kiteretsu-sai-sama-ni-au-nari",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kitty to Minna no Keyboard Pico: Kitty to Minna no Hajimete Keyboard",
+      "slug": "kitty-to-minna-no-keyboard-pico-kitty-to-minna-no-hajimete-keyboard",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kodai Ouja Kyouryuu King D-Kids Adventure: Dino Slash! Kyouryuu Battle!!",
+      "slug": "kodai-ouja-kyouryuu-king-d-kids-adventure-dino-slash-kyouryuu-battle",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-10-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Konbini de o-Kaimono!",
+      "slug": "konbini-de-o-kaimono",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kosume Pico Motto Kawaiku Naritai na",
+      "slug": "kosume-pico-motto-kawaiku-naritai-na",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kouchuu Ouja Mushiking: Atsumete Asobou Kouchuu Zukan",
+      "slug": "kouchuu-ouja-mushiking-atsumete-asobou-kouchuu-zukan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kouchuu Ouja Mushiking: Mori no Tami no Densetsu - Minna de Tanken! Kouchuu no Mori",
+      "slug": "kouchuu-ouja-mushiking-mori-no-tami-no-densetsu-minna-de-tanken-kouchuu-no-mori",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kouchuu Ouja Mushiking: Nebu-Hakase to Kazu Katachi ni Challenge!",
+      "slug": "kouchuu-ouja-mushiking-nebu-hakase-to-kazu-katachi-ni-challenge",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006-09-09",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kuma no Pooh-san Tanoshii Tashizan Hikizan",
+      "slug": "kuma-no-pooh-san-tanoshii-tashizan-hikizan",
+      "developer": "Gakken",
+      "publisher": "Gakken",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004-03-11",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kumon no Sukusuku Lesson 1-kara 30-made no Suuji",
+      "slug": "kumon-no-sukusuku-lesson-1-kara-30-made-no-suuji",
+      "developer": "Pre Stage",
+      "publisher": "KUMON",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kumon no Sukusuku Lesson Hajimete no Hiragana",
+      "slug": "kumon-no-sukusuku-lesson-hajimete-no-hiragana",
+      "developer": "Pre Stage",
+      "publisher": "KUMON",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-01-24",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Lego Fun to Build",
+      "slug": "lego-fun-to-build",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Licca-chan ni Naritai!",
+      "slug": "licca-chan-ni-naritai",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Magic Crayons",
+      "slug": "magic-crayons",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-06-19",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Magic Knight Rayearth",
+      "slug": "magic-knight-rayearth",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-27",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "McDonald",
+      "slug": "mcdonald",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "McDonald's",
+      "slug": "mcdonald-s",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-07-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Meet Bub: Bub to Eigo Tanken",
+      "slug": "meet-bub-bub-to-eigo-tanken",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-10-21",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Meitantei Conan: Kanzen Suiri! Kazu to Zukei no Nazo",
+      "slug": "meitantei-conan-kanzen-suiri-kazu-to-zukei-no-nazo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006-02-11",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Melody Land",
+      "slug": "melody-land",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mezase Pro Yakyuu",
+      "slug": "mezase-pro-yakyuu",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mickey",
+      "slug": "mickey",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mickey no Yukai na Bouken",
+      "slug": "mickey-no-yukai-na-bouken",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-06-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mickey's Blast Into the Past",
+      "slug": "mickey-s-blast-into-the-past",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-08-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mickey to Ooki na Furudokei",
+      "slug": "mickey-to-ooki-na-furudokei",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Miimi to Taata no Waiwai Oekaki Doubutsuen",
+      "slug": "miimi-to-taata-no-waiwai-oekaki-doubutsuen",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Milky Way",
+      "slug": "milky-way",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "MiniMoni. Eigo de Asobundapyon!",
+      "slug": "minimoni-eigo-de-asobundapyon",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "MiniMoni. Shougakkou e Ikundapyon!",
+      "slug": "minimoni-shougakkou-e-ikundapyon",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "MiniMoni. TV ni Derundapyon!",
+      "slug": "minimoni-tv-ni-derundapyon",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-06-13",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Minna de Odorou: Oz no Mahoutsukai",
+      "slug": "minna-de-odorou-oz-no-mahoutsukai",
+      "developer": "Westone",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Minnie",
+      "slug": "minnie",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mo~tto! Ojamajo Doremi",
+      "slug": "mo-tto-ojamajo-doremi",
+      "developer": "Fupac",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Moero! Robokon: Oekaki Robokon!!",
+      "slug": "moero-robokon-oekaki-robokon",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Moshi Moshi Pico: Dare ga Deru kana Moshi Moshi Pico de TV to o-Shaberi!",
+      "slug": "moshi-moshi-pico-dare-ga-deru-kana-moshi-moshi-pico-de-tv-to-o-shaberi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Musical Zoo",
+      "slug": "musical-zoo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "My Grandfather's Farm",
+      "slug": "my-grandfather-s-farm",
+      "developer": "Climax",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Narumiya Mezzo Piano Oshare & Lesson",
+      "slug": "narumiya-mezzo-piano-oshare-lesson",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHK o-Kaasan to Issho Do Re Mi Fa Do~nuts! Asobi Ippai Uta Ippai!",
+      "slug": "nhk-o-kaasan-to-issho-do-re-mi-fa-do-nuts-asobi-ippai-uta-ippai",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHK o-Kaasan to Issho Do Re Mi Fa Do~nuts! Oekaki Daaisuki! Omoshiro Oekaki Daishuugou!",
+      "slug": "nhk-o-kaasan-to-issho-do-re-mi-fa-do-nuts-oekaki-daaisuki-omoshiro-oekaki-daishuugou",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHK o-Kaasan to Issho Genki na Ko Atsumare!",
+      "slug": "nhk-o-kaasan-to-issho-genki-na-ko-atsumare",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nihongo de Asobo",
+      "slug": "nihongo-de-asobo",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninja Sentai Hurricanger & Hyakujuu Sentai Gaoranger Chou Sentai Super Battle",
+      "slug": "ninja-sentai-hurricanger-hyakujuu-sentai-gaoranger-chou-sentai-super-battle",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-02-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninja Sentai Kakuranger",
+      "slug": "ninja-sentai-kakuranger",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninpuu Sentai Hurricanger & Hyakujuu Sentai Gaoranger Chou Sentai Super Battle",
+      "slug": "ninpuu-sentai-hurricanger-hyakujuu-sentai-gaoranger-chou-sentai-super-battle",
+      "developer": "Arc System Works",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nintama Rantarou",
+      "slug": "nintama-rantarou",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Norimono Studio Go Go! Noristar Asobi Macho!",
+      "slug": "norimono-studio-go-go-noristar-asobi-macho",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nurie Daisuki! Dumbo no Waku Waku Circus!",
+      "slug": "nurie-daisuki-dumbo-no-waku-waku-circus",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "O-Ryouri Daisuki! Kitchen Pico",
+      "slug": "o-ryouri-daisuki-kitchen-pico",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-07-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "O-Sewa Shimasho! Akachan Pico",
+      "slug": "o-sewa-shimasho-akachan-pico",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-07-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Oden-kun: Oden Mura no Tanoshii Nakama-tachi",
+      "slug": "oden-kun-oden-mura-no-tanoshii-nakama-tachi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ojamajo Doremi #",
+      "slug": "ojamajo-doremi",
+      "developer": "Fupac",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ojamajo Doremi Dokka~n!",
+      "slug": "ojamajo-doremi-dokka-n",
+      "developer": "Fupac",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ojarumaru",
+      "slug": "ojarumaru",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Omoiyari o Hagukumu Katarikake Ehon Miffy to Asobou Utaou",
+      "slug": "omoiyari-o-hagukumu-katarikake-ehon-miffy-to-asobou-utaou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007-07-19",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ongaku Daisuki Snoopy",
+      "slug": "ongaku-daisuki-snoopy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Oshare Beena: o-Mise de Kisekae Make Haircut",
+      "slug": "oshare-beena-o-mise-de-kisekae-make-haircut",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008-07-17",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Oshare Majo Love and Berry: Cute ni Oshare",
+      "slug": "oshare-majo-love-and-berry-cute-ni-oshare",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Oshare ni Henshin HeartCatch PreCure!",
+      "slug": "oshare-ni-henshin-heartcatch-precure",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2010-07-22",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Oshare no Kuni no Alice",
+      "slug": "oshare-no-kuni-no-alice",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Oshare Pico: Suteki ni Henshin! Runa-chan no Oshare Hair Salon",
+      "slug": "oshare-pico-suteki-ni-henshin-runa-chan-no-oshare-hair-salon",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Otto Katachitchi",
+      "slug": "otto-katachitchi",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ougon Yuusha Goldran Himitsu Daihyakka",
+      "slug": "ougon-yuusha-goldran-himitsu-daihyakka",
+      "developer": "Takara",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-08-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Outa no Canvas",
+      "slug": "outa-no-canvas",
+      "developer": "Yamaha",
+      "publisher": "Yamaha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Packet 2: Yukai na Nakama to Game de Kazuasobi",
+      "slug": "packet-2-yukai-na-nakama-to-game-de-kazuasobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Paddington",
+      "slug": "paddington",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Partner In TV! o-Uchi ni Wan-chan ga Yattekita",
+      "slug": "partner-in-tv-o-uchi-ni-wan-chan-ga-yattekita",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005-08-06",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pashah to Henshin Beauty Academy",
+      "slug": "pashah-to-henshin-beauty-academy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006-11-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "PC Setsuzoku Kit Pico Town ni Dekakeyou!",
+      "slug": "pc-setsuzoku-kit-pico-town-ni-dekakeyou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-06-01",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pekora no Daibouken Maboroshi no Ice Cream o Sagase!",
+      "slug": "pekora-no-daibouken-maboroshi-no-ice-cream-o-sagase",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pepe's Puzzles",
+      "slug": "pepe-s-puzzles",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pet to Issho ni Tanoshiku Asobo♪ PC Pico",
+      "slug": "pet-to-issho-ni-tanoshiku-asobo-pc-pico",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Petapeta Chokkin Asoberu Zukan ~Doubutsu~",
+      "slug": "petapeta-chokkin-asoberu-zukan-doubutsu",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Peter Pan",
+      "slug": "peter-pan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pico Soccer Mezase Soccer Senshu",
+      "slug": "pico-soccer-mezase-soccer-senshu",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Plarail Pico: Plarail de Asobou!",
+      "slug": "plarail-pico-plarail-de-asobou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001-09-21",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocahantas Riverbend Adventures",
+      "slug": "pocahantas-riverbend-adventures",
+      "developer": "Realtime Associates, Disney Interactive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters Advanced Generation: Hiragana Katakana Kakechatta!",
+      "slug": "pocket-monsters-advanced-generation-hiragana-katakana-kakechatta",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-11-17",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters Advanced Generation Minna de Pico Pokémon Waiwai Battle!",
+      "slug": "pocket-monsters-advanced-generation-minna-de-pico-pokemon-waiwai-battle",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004-07-13",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters Advanced Generation Pokémon Suuji Battle!!",
+      "slug": "pocket-monsters-advanced-generation-pokemon-suuji-battle",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters Best Wishes! Chinou Ikusei Pokémon Daiundoukai",
+      "slug": "pocket-monsters-best-wishes-chinou-ikusei-pokemon-daiundoukai",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2010-12-04",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters Diamond & Pearl Pokémon o Sagase! Meiro de Daibouken!",
+      "slug": "pocket-monsters-diamond-pearl-pokemon-o-sagase-meiro-de-daibouken",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2009-09-17",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Monsters: Suuji o Tsukamaeyou!",
+      "slug": "pocket-monsters-suuji-o-tsukamaeyou",
+      "developer": "Sega Toys",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002-07-23",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Point Gakushuu 10-masu Keisan",
+      "slug": "point-gakushuu-10-masu-keisan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Point Gakushuu Kakijun",
+      "slug": "point-gakushuu-kakijun",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Point Gakushuu Tokei",
+      "slug": "point-gakushuu-tokei",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pooh",
+      "slug": "pooh",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-07-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pooh-san no Hajimete no Eigo",
+      "slug": "pooh-san-no-hajimete-no-eigo",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pooh-san no Ichinichi",
+      "slug": "pooh-san-no-ichinichi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Professor Pico and the Paintbox Puzzle",
+      "slug": "professor-pico-and-the-paintbox-puzzle",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999-03-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pururun! Shizuku-chan: Asonde Tanoshiku Nouryoku Up",
+      "slug": "pururun-shizuku-chan-asonde-tanoshiku-nouryoku-up",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Quiz ni Challenge! Doraemon",
+      "slug": "quiz-ni-challenge-doraemon",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Race ni Deyou yo! Ken-chan to Pepe: Boku no Kuruma de Daibouken",
+      "slug": "race-ni-deyou-yo-ken-chan-to-pepe-boku-no-kuruma-de-daibouken",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rhythm Pico: Pippi-chan to Rhythm Asobi",
+      "slug": "rhythm-pico-pippi-chan-to-rhythm-asobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Richard Scarry",
+      "slug": "richard-scarry",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Saa Shuppatsu da! Ken-chan to Pepe no Wanpaku Drive",
+      "slug": "saa-shuppatsu-da-ken-chan-to-pepe-no-wanpaku-drive",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sailor Moon SuperS",
+      "slug": "sailor-moon-supers",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-19",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Saint Tail",
+      "slug": "saint-tail",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Samurai Sentai Shinkenger Battle ga Ippai! Iza Mairu!!",
+      "slug": "samurai-sentai-shinkenger-battle-ga-ippai-iza-mairu",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2009-04-23",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanchoume no Tama: Momo-chan wa Doko!",
+      "slug": "sanchoume-no-tama-momo-chan-wa-doko",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-07-10",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanou Kaihatsu Series 1 Zukei Ninshiki",
+      "slug": "sanou-kaihatsu-series-1-zukei-ninshiki",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-08-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanou Kaihatsu Series 2 Suuryou - Keisan",
+      "slug": "sanou-kaihatsu-series-2-suuryou-keisan",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanou Kaihatsu Series 3 Hikaku - Bunrui",
+      "slug": "sanou-kaihatsu-series-3-hikaku-bunrui",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanou Kaihatsu Series 4 Suiri - Kousei",
+      "slug": "sanou-kaihatsu-series-4-suiri-kousei",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-12-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanou Kaihatsu Series 5 Meiro - Kioku",
+      "slug": "sanou-kaihatsu-series-5-meiro-kioku",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanou Kaihatsu Series 6 Ouyou Mondai",
+      "slug": "sanou-kaihatsu-series-6-ouyou-mondai",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanrio",
+      "slug": "sanrio",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanrio Festival Tanoshii Card-dzukuri",
+      "slug": "sanrio-festival-tanoshii-card-dzukuri",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-30",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sanrio Puroland de Dance Carnival: Minna de o-Ryouri o-Saihou",
+      "slug": "sanrio-puroland-de-dance-carnival-minna-de-o-ryouri-o-saihou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-27",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Satonaka Machiko no Tanoshii Origami",
+      "slug": "satonaka-machiko-no-tanoshii-origami",
+      "developer": "Nayuta Studio",
+      "publisher": "Nayuta Studio",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Scholastic's The Magic School Bus Going Places",
+      "slug": "scholastic-s-the-magic-school-bus-going-places",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-02-24",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sekai Meisaku Gekijou",
+      "slug": "sekai-meisaku-gekijou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-07-25",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sesame Street",
+      "slug": "sesame-street",
+      "developer": "Appaloosa Interactive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shichida Makoto Kanshuu Unou Image Training Hiragana Katakana Casino de Moja Vegas Dream!",
+      "slug": "shichida-makoto-kanshuu-unou-image-training-hiragana-katakana-casino-de-moja-vegas-dream",
+      "developer": "Pony Canyon",
+      "publisher": "Pony Canyon",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shichida Makoto Kanshuu Unou Image Training: Sansuu Eigo de Mojars ni Chousen",
+      "slug": "shichida-makoto-kanshuu-unou-image-training-sansuu-eigo-de-mojars-ni-chousen",
+      "developer": "Pony Canon",
+      "publisher": "Pony Canon",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shimajirou no Eigo Activity Ehon: ABC Park de Asobou!",
+      "slug": "shimajirou-no-eigo-activity-ehon-abc-park-de-asobou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shimajirou to Yume no Kuni e Daibouken!",
+      "slug": "shimajirou-to-yume-no-kuni-e-daibouken",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shimashimatora no Shimajirou Tanoshii Ichinichi",
+      "slug": "shimashimatora-no-shimajirou-tanoshii-ichinichi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shin Ultra Hero",
+      "slug": "shin-ultra-hero",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shin Ultraman Pico Ultra Fighting Base",
+      "slug": "shin-ultraman-pico-ultra-fighting-base",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shinseiki Ultraman Densetsu",
+      "slug": "shinseiki-ultraman-densetsu",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shirayuki-hime",
+      "slug": "shirayuki-hime",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shoku Iku Series 1 Soreike! Anpanman: Sukikirai Nai Ko Genki na Ko!",
+      "slug": "shoku-iku-series-1-soreike-anpanman-sukikirai-nai-ko-genki-na-ko",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shooting Beena Toy Story 3: Woody to Buzz no Daibouken!",
+      "slug": "shooting-beena-toy-story-3-woody-to-buzz-no-daibouken",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2010-08-06",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Snoopy",
+      "slug": "snoopy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-27",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sodatete Manabu Doubutsu Oukoku!",
+      "slug": "sodatete-manabu-doubutsu-oukoku",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic the Hedgehog's Gameworld",
+      "slug": "sonic-the-hedgehog-s-gameworld",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-08-02",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman",
+      "slug": "soreike-anpanman",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman: Anpanman no Chie no World",
+      "slug": "soreike-anpanman-anpanman-no-chie-no-world",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2003-07-18",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman: Anpanman no Hitori de Dekichatta!",
+      "slug": "soreike-anpanman-anpanman-no-hitori-de-dekichatta",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005-02-05",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman: Anpanman to Denwa de Asobou!",
+      "slug": "soreike-anpanman-anpanman-to-denwa-de-asobou",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman: Anpanman to Kotoba Asobi",
+      "slug": "soreike-anpanman-anpanman-to-kotoba-asobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman: Anpanman to Suuji Asobi",
+      "slug": "soreike-anpanman-anpanman-to-suuji-asobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman: Anpanman to Tanoshii Drive!",
+      "slug": "soreike-anpanman-anpanman-to-tanoshii-drive",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman Card de Tanoshiku ABC",
+      "slug": "soreike-anpanman-card-de-tanoshiku-abc",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman Doki Doki! Rescue Drive: Car Navi-tsuki",
+      "slug": "soreike-anpanman-doki-doki-rescue-drive-car-navi-tsuki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman Eigo to Nakayoshi Youchien de ABC",
+      "slug": "soreike-anpanman-eigo-to-nakayoshi-youchien-de-abc",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman Hajimete Kaketa yo! Oboeta yo! Hiragana Katakana: Gojuuon Board Kinou-tsuki",
+      "slug": "soreike-anpanman-hajimete-kaketa-yo-oboeta-yo-hiragana-katakana-gojuuon-board-kinou-tsuki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2005-08-08",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman no Game de Asobou Anpanman",
+      "slug": "soreike-anpanman-no-game-de-asobou-anpanman",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman no Medalympic World",
+      "slug": "soreike-anpanman-no-medalympic-world",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-17",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman no Medalympic World 2",
+      "slug": "soreike-anpanman-no-medalympic-world-2",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1999",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman no Minna de Kyousou Anpanman!",
+      "slug": "soreike-anpanman-no-minna-de-kyousou-anpanman",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman no o-Hanashi Daisuki Anpanman",
+      "slug": "soreike-anpanman-no-o-hanashi-daisuki-anpanman",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman o-Mise ga Ippai! TV de o-Ryouri Tsukutchao",
+      "slug": "soreike-anpanman-o-mise-ga-ippai-tv-de-o-ryouri-tsukutchao",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2009-11-12",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soreike! Anpanman Waku Waku Eigo Game!",
+      "slug": "soreike-anpanman-waku-waku-eigo-game",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2011-03-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Space Pico: Uchuu Bouken Space Shuttle Pilot",
+      "slug": "space-pico-uchuu-bouken-space-shuttle-pilot",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Suite PreCure: Happy Oshare Harmony",
+      "slug": "suite-precure-happy-oshare-harmony",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2011-05-26",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Susie-chan to Marvy: o-Tetsudai Da~isuki!",
+      "slug": "susie-chan-to-marvy-o-tetsudai-da-isuki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sylvanian Families Mori no Nakama to Tanoshii o-Tanjoubikai",
+      "slug": "sylvanian-families-mori-no-nakama-to-tanoshii-o-tanjoubikai",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taiko no Tatsujin Ongaku Lesson",
+      "slug": "taiko-no-tatsujin-ongaku-lesson",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tails and the Music Maker",
+      "slug": "tails-and-the-music-maker",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-10-04",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshiku Asonde Nouryoku Up! Tanoshii Youchien",
+      "slug": "tanoshiku-asonde-nouryoku-up-tanoshii-youchien",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-15",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tanoshiku Asonde Nouryoku Up! Tanoshii Youchien '95-nendoban",
+      "slug": "tanoshiku-asonde-nouryoku-up-tanoshii-youchien-95-nendoban",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-04-03",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tensou Sentai Goseiger Super Battle Daishuugou!",
+      "slug": "tensou-sentai-goseiger-super-battle-daishuugou",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2010-04-29",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Berenstain Bears",
+      "slug": "the-berenstain-bears",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-02-20",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Great Counting Caper with The 3 Blind Mice",
+      "slug": "the-great-counting-caper-with-the-3-blind-mice",
+      "developer": "Realtime Associates",
+      "publisher": "Thinking Cap Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Lion King",
+      "slug": "the-lion-king",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-05-13",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Muppets",
+      "slug": "the-muppets",
+      "developer": "Climax",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tinga-wa Haenggo-eui Toongtang Toongtang Doshi",
+      "slug": "tinga-wa-haenggo-eui-toongtang-toongtang-doshi",
+      "developer": "",
+      "publisher": "",
+      "status": "released",
+      "category": "licensed",
+      "first_release": null,
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tokusou Sentai Dekaranger",
+      "slug": "tokusou-sentai-dekaranger",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004-06-23",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tokyo Disneyland",
+      "slug": "tokyo-disneyland",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tokyo DisneySea",
+      "slug": "tokyo-disneysea",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tomica de Asobou!",
+      "slug": "tomica-de-asobou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2006",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tomica Pico: Bokura no Machi Tomica Town de Asobou!",
+      "slug": "tomica-pico-bokura-no-machi-tomica-town-de-asobou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tomica Pico: Rescue Parking",
+      "slug": "tomica-pico-rescue-parking",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Toon Town",
+      "slug": "toon-town",
+      "developer": "Kodansha",
+      "publisher": "Kodansha",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tottoko Hamtarou Haru Natsu Aki Fuyu Tottoko Nakayoshi! Ham-chans!",
+      "slug": "tottoko-hamtarou-haru-natsu-aki-fuyu-tottoko-nakayoshi-ham-chans",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tottoko Hamtarou: Oekaki Ippai! Ham-chans!",
+      "slug": "tottoko-hamtarou-oekaki-ippai-ham-chans",
+      "developer": "Shogakukan",
+      "publisher": "Shogakukan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2002",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tottoko Hamtarou: Tottoko Tanoshiku Aiueo: Maboroshi no Hikaru Tane o Mitsukeru no Dah!",
+      "slug": "tottoko-hamtarou-tottoko-tanoshiku-aiueo-maboroshi-no-hikaru-tane-o-mitsukeru-no-dah",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2004-05-14",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Toy Story 2",
+      "slug": "toy-story-2",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Uchuu de Asobou! Baabapapa no Uchuu Ryokou",
+      "slug": "uchuu-de-asobou-baabapapa-no-uchuu-ryokou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultra Hero",
+      "slug": "ultra-hero",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultraman Dyna",
+      "slug": "ultraman-dyna",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultraman Kids Tobidase! Space Picnic",
+      "slug": "ultraman-kids-tobidase-space-picnic",
+      "developer": "General Entertainment",
+      "publisher": "General Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultraman Pico Ultra Fighting Base",
+      "slug": "ultraman-pico-ultra-fighting-base",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultraman Tiga",
+      "slug": "ultraman-tiga",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultraman vs. Kaijuu Gundan!!",
+      "slug": "ultraman-vs-kaijuu-gundan",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 10 Nontan to Issho Waiwai Nippon",
+      "slug": "unou-kaihatsu-series-10-nontan-to-issho-waiwai-nippon",
+      "developer": "SPS",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 11 Heisei Kyouiku Iinkai Jr.",
+      "slug": "unou-kaihatsu-series-11-heisei-kyouiku-iinkai-jr",
+      "developer": "Iamgineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 3 Hello Kitty no Machi e o-Dekake",
+      "slug": "unou-kaihatsu-series-3-hello-kitty-no-machi-e-o-dekake",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-31",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 4 Kerokero Keroppi no Iro Katachi",
+      "slug": "unou-kaihatsu-series-4-kerokero-keroppi-no-iro-katachi",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 5 Hello Kitty no Suteki na Takaramono",
+      "slug": "unou-kaihatsu-series-5-hello-kitty-no-suteki-na-takaramono",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 6 Ahiru no Pekkuru no Kazoetemiyou",
+      "slug": "unou-kaihatsu-series-6-ahiru-no-pekkuru-no-kazoetemiyou",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 8 Dracky no Oekaki House",
+      "slug": "unou-kaihatsu-series-8-dracky-no-oekaki-house",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unou Kaihatsu Series 9 Nihon Mukashibanashi",
+      "slug": "unou-kaihatsu-series-9-nihon-mukashibanashi",
+      "developer": "Imagineer",
+      "publisher": "Imagineer",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-12-05",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Unten Thomas Deluxe Set",
+      "slug": "unten-thomas-deluxe-set",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2000",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Utatte Pico: Minna de Karaoke! Issho ni Utaou Suki na Uta!",
+      "slug": "utatte-pico-minna-de-karaoke-issho-ni-utaou-suki-na-uta",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yes! PreCure 5: Asonde Oboeyou Hiragana!",
+      "slug": "yes-precure-5-asonde-oboeyou-hiragana",
+      "developer": "Fupac",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2007",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yes! PreCure 5 GoGo!: LoveLove Hiragana Lesson",
+      "slug": "yes-precure-5-gogo-lovelove-hiragana-lesson",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2008-04-24",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yobeba Kotaeru Doraemon: Nobita to Himitsu Dougu o Mitsukeyou!",
+      "slug": "yobeba-kotaeru-doraemon-nobita-to-himitsu-dougu-o-mitsukeyou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yukai na Mori no Packet",
+      "slug": "yukai-na-mori-no-packet",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yume no Crayon Oukoku",
+      "slug": "yume-no-crayon-oukoku",
+      "developer": "Bandai",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1998",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    }
+  ]
+}

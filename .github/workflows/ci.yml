@@ -10,14 +10,22 @@ permissions:
   contents: read
 
 jobs:
-  rust-and-frontend:
-    name: Rust + Frontend
+  fmt:
+    name: Rust fmt
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+      - run: cargo fmt --all -- --check
 
-      - name: Install Linux dependencies for Tauri
+  clippy:
+    name: Rust clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Linux Tauri dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -25,44 +33,102 @@ jobs:
             libappindicator3-dev \
             librsvg2-dev \
             patchelf
-
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          components: rustfmt, clippy
+          components: clippy
           targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: clippy
+      - run: cargo clippy --workspace --all-targets -- -D warnings
 
-      - name: Cache cargo registry and build
-        uses: Swatinem/rust-cache@v2
+  rust-test:
+    name: Rust tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Linux Tauri dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: rust-test
+      - run: cargo test --workspace
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+  wasm-check:
+    name: Wasm target check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: wasm-check
+      - run: cargo check -p memory_pak_wasm --target wasm32-unknown-unknown
+
+  frontend-build:
+    name: Frontend build + tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: frontend
+      - uses: jetli/wasm-pack-action@v0.4.0
+        with:
+          version: 'latest'
+      - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.3.13
-
-      - name: Install wasm-pack
-        run: cargo install wasm-pack --locked
-
       - name: Install frontend dependencies
         run: bun install --cwd frontend --frozen-lockfile
-
-      - name: Format check
-        run: bun run fmt:check
-
-      - name: Clippy check
-        run: bun run clippy
-
-      - name: Run Rust tests
-        run: bun run test
-
-      - name: Wasm target check
-        run: bun run check:wasm
-
-      - name: Frontend tests
+      - name: Type check + unit tests
         run: bun run frontend:test
-
-      - name: Frontend production build
+      - name: Production build
         run: bun run frontend:build
+
+  e2e:
+    name: Playwright e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: e2e
+      - uses: jetli/wasm-pack-action@v0.4.0
+        with:
+          version: 'latest'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
+      - name: Install frontend dependencies
+        run: bun install --cwd frontend --frozen-lockfile
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('frontend/bun.lock', 'frontend/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+      - name: Install Playwright browsers
+        working-directory: frontend
+        run: bunx playwright install --with-deps chromium
+      - name: Run e2e tests
+        run: bun run frontend:e2e
 
   tauri-desktop:
     name: Tauri desktop smoke build (${{ matrix.os }})
@@ -72,10 +138,8 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Linux dependencies for Tauri
+      - uses: actions/checkout@v4
+      - name: Install Linux Tauri dependencies
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
@@ -84,32 +148,21 @@ jobs:
             libappindicator3-dev \
             librsvg2-dev \
             patchelf
-
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@stable
         with:
           targets: wasm32-unknown-unknown
-
-      - name: Cache cargo registry and build
-        uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: |
-            .
           key: tauri-${{ matrix.os }}
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+      - uses: jetli/wasm-pack-action@v0.4.0
+        with:
+          version: 'latest'
+      - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.3.13
-
-      - name: Install wasm-pack
-        run: cargo install wasm-pack --locked
-
       - name: Install frontend dependencies
         run: bun install --cwd frontend --frozen-lockfile
-
       - name: Build frontend (consumed by Tauri)
         run: bun run frontend:build
-
       - name: Build Tauri desktop binary
         run: cargo build -p memory-pak-tauri --bin memory-pak --release

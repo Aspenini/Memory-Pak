@@ -1,0 +1,6232 @@
+{
+  "schema_version": 1,
+  "console": {
+    "id": "gamegear",
+    "name": "Sega Game Gear",
+    "manufacturer": "Sega",
+    "family": "Sega",
+    "form_factor": "handheld",
+    "generation": 4,
+    "abbreviation": "GG",
+    "launch_year": 1990
+  },
+  "source": {
+    "type": "wikipedia",
+    "files": [
+      "List of Game Gear games - Wikipedia.html"
+    ],
+    "extracted_at": "2026-05-12T20:29:07Z"
+  },
+  "counts": {
+    "total": 365,
+    "released": 365,
+    "unreleased": 0
+  },
+  "games": [
+    {
+      "title": "5 in 1 Funpak",
+      "slug": "5-in-1-funpak",
+      "developer": "Beam Software",
+      "publisher": "Interplay Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Aah! Harimanada",
+      "slug": "aah-harimanada",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-07-02",
+      "releases": {
+        "jp": "1993-07-02",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Aerial Assault",
+      "slug": "aerial-assault",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-06-05",
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Aladdin",
+      "slug": "aladdin",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-02",
+      "releases": {
+        "jp": "1994-03-25",
+        "na": "1994-05",
+        "pal": "1994-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Alien 3",
+      "slug": "alien-3",
+      "developer": "Probe Software",
+      "publisher": "Arena Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1994-05-27",
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Alien Syndrome",
+      "slug": "alien-syndrome",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-03-19",
+      "releases": {
+        "jp": "1992-03-19",
+        "na": null,
+        "pal": "1992-12-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Andre Agassi Tennis",
+      "slug": "andre-agassi-tennis",
+      "developer": "Spidersoft",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Arcade Classics",
+      "slug": "arcade-classics",
+      "developer": "Al Baker & Associates",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": "1996",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Arch Rivals",
+      "slug": "arch-rivals",
+      "developer": "Arc Developments",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12",
+      "releases": {
+        "jp": null,
+        "na": "1992-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Arena: Maze of Death",
+      "slug": "arena-maze-of-death",
+      "developer": "Eden Entertainment Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": "1996",
+        "pal": "1996",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ariel the Little Mermaid",
+      "slug": "ariel-the-little-mermaid",
+      "developer": "BlueSky Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Asterix and the Great Rescue",
+      "slug": "asterix-and-the-great-rescue",
+      "developer": "Core Design",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Asterix and the Secret Mission",
+      "slug": "asterix-and-the-secret-mission",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ax Battler: A Legend of Golden Axe",
+      "slug": "ax-battler-a-legend-of-golden-axe",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-11-01",
+      "releases": {
+        "jp": "1991-11-01",
+        "na": "1992-03",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ayrton Senna's Super Monaco GP II",
+      "slug": "ayrton-senna-s-super-monaco-gp-ii",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-08",
+      "releases": {
+        "jp": "1992-08-28",
+        "na": "1992-09",
+        "pal": "1992-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Baku Baku Animal",
+      "slug": "baku-baku-animal",
+      "developer": "Sega AM3",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": "1996-01-26",
+        "na": "1996",
+        "pal": "1996",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Batman Forever",
+      "slug": "batman-forever",
+      "developer": "Probe Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-09-07",
+      "releases": {
+        "jp": "1995-10-27",
+        "na": "1995-09-07",
+        "pal": "1995-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Batman Returns",
+      "slug": "batman-returns",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-10-23",
+        "na": "1992-09",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Batter Up",
+      "slug": "batter-up",
+      "developer": "Namco",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-04-05",
+      "releases": {
+        "jp": "1991-04-05",
+        "na": "1992",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Battleship: The Classic Naval Combat Game",
+      "slug": "battleship-the-classic-naval-combat-game",
+      "developer": "NGM Productions",
+      "publisher": "Mindscape",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Battletoads",
+      "slug": "battletoads",
+      "developer": "Arc System Works",
+      "publisher": "Tradewest",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1994-01-14",
+        "na": "1993-12",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Beavis and Butt-Head",
+      "slug": "beavis-and-butt-head",
+      "developer": "NuFX",
+      "publisher": "Viacom New Media",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Berlin no Kabe",
+      "slug": "berlin-no-kabe",
+      "developer": "Inter State",
+      "publisher": "Kaneko",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-11-29",
+      "releases": {
+        "jp": "1991-11-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bishoujo Senshi Sailor Moon S",
+      "slug": "bishoujo-senshi-sailor-moon-s",
+      "developer": "Shimada Kikaku",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01-27",
+      "releases": {
+        "jp": "1995-01-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bonkers: Wax Up!",
+      "slug": "bonkers-wax-up",
+      "developer": "Al Baker & Associates",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995-02",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bram Stoker's Dracula",
+      "slug": "bram-stoker-s-dracula",
+      "developer": "Probe Software",
+      "publisher": "Sony Imagesoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-08",
+      "releases": {
+        "jp": null,
+        "na": "1993-08",
+        "pal": "1993-11-19",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bubble Bobble",
+      "slug": "bubble-bobble",
+      "developer": "Open Corp.",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11",
+      "releases": {
+        "jp": null,
+        "na": "1994-11",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bugs Bunny in Double Trouble",
+      "slug": "bugs-bunny-in-double-trouble",
+      "developer": "Atod",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": "1996",
+        "pal": "1996-08-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Bust-A-Move",
+      "slug": "bust-a-move",
+      "developer": "Santos",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": "1996-08-02",
+        "na": "1996",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Buster Ball",
+      "slug": "buster-ball",
+      "developer": "Riverhillsoft",
+      "publisher": "Riverhillsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-03-20",
+      "releases": {
+        "jp": "1992-03-20",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Buster Fight",
+      "slug": "buster-fight",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-02-11",
+      "releases": {
+        "jp": "1994-02-11",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Caesars Palace",
+      "slug": "caesars-palace",
+      "developer": "Teeny Weeny Games",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Captain America and The Avengers",
+      "slug": "captain-america-and-the-avengers",
+      "developer": "Realtime Associates",
+      "publisher": "Mindscape",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Car License",
+      "slug": "car-license",
+      "developer": "System Vision",
+      "publisher": "Mitsubishi",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Casino FunPak",
+      "slug": "casino-funpak",
+      "developer": "Beam Software",
+      "publisher": "Interplay Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Castle of Illusion Starring Mickey Mouse",
+      "slug": "castle-of-illusion-starring-mickey-mouse",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-03-21",
+      "releases": {
+        "jp": "1991-03-21",
+        "na": "1991-06",
+        "pal": "1991-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chakan",
+      "slug": "chakan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992-12-08",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Championship Hockey",
+      "slug": "championship-hockey",
+      "developer": "Electronic Arts",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chase H.Q.",
+      "slug": "chase-h-q",
+      "developer": "Taito",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-03-08",
+      "releases": {
+        "jp": "1991-03-08",
+        "na": "1992-02",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cheese Cat-Astrophe Starring Speedy Gonzales",
+      "slug": "cheese-cat-astrophe-starring-speedy-gonzales",
+      "developer": "Cryo Interactive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995-02-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chicago Syndicate",
+      "slug": "chicago-syndicate",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Choplifter III",
+      "slug": "choplifter-iii",
+      "developer": "Teeny Weeny Games",
+      "publisher": "Extreme Entertainment Group",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuck Rock",
+      "slug": "chuck-rock",
+      "developer": "Core Design",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-09",
+      "releases": {
+        "jp": "1992-10-30",
+        "na": "1992-09",
+        "pal": "1992-10-15",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Chuck Rock II: Son of Chuck",
+      "slug": "chuck-rock-ii-son-of-chuck",
+      "developer": "Core Design",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "CJ Elephant Fugitive",
+      "slug": "cj-elephant-fugitive",
+      "developer": "Big Red Software",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cliffhanger",
+      "slug": "cliffhanger",
+      "developer": "Spidersoft",
+      "publisher": "Sony Imagesoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Clutch Hitter",
+      "slug": "clutch-hitter",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": "1991",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Coca-Cola Kid",
+      "slug": "coca-cola-kid",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-08-05",
+      "releases": {
+        "jp": "1994-08-05",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Columns",
+      "slug": "columns",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-10-06",
+      "releases": {
+        "jp": "1990-10-06",
+        "na": "1991-04-26",
+        "pal": "1991-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cool Spot",
+      "slug": "cool-spot",
+      "developer": "Virgin Interactive Entertainment",
+      "publisher": "Virgin Interactive Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-06-19",
+      "releases": {
+        "jp": null,
+        "na": "1994-10",
+        "pal": "1994-06-19",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cosmic Spacehead",
+      "slug": "cosmic-spacehead",
+      "developer": "Supersonic Software",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993-11",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Crayon Shin-chan: Taiketsu! Kantam Panic!!",
+      "slug": "crayon-shin-chan-taiketsu-kantam-panic",
+      "developer": "Minato Giken",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-02-24",
+      "releases": {
+        "jp": "1995-02-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Crystal Warriors",
+      "slug": "crystal-warriors",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-12-13",
+      "releases": {
+        "jp": "1991-12-13",
+        "na": "1992-04",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Cutthroat Island",
+      "slug": "cutthroat-island",
+      "developer": "Software Creations",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Daffy Duck in Hollywood",
+      "slug": "daffy-duck-in-hollywood",
+      "developer": "Probe Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Deep Duck Trouble Starring Donald Duck",
+      "slug": "deep-duck-trouble-starring-donald-duck",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-12-17",
+        "na": "1993",
+        "pal": "1994-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Defenders of Oasis",
+      "slug": "defenders-of-oasis",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-09-18",
+        "na": "1992-12",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Desert Speedtrap Starring Road Runner and Wile E. Coyote",
+      "slug": "desert-speedtrap-starring-road-runner-and-wile-e-coyote",
+      "developer": "Probe Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Desert Strike: Return to the Gulf",
+      "slug": "desert-strike-return-to-the-gulf",
+      "developer": "Tiertex",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Devilish",
+      "slug": "devilish",
+      "developer": "Opera House",
+      "publisher": "Genki",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-03-29",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Donald no Magical World",
+      "slug": "donald-no-magical-world",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-03-04",
+      "releases": {
+        "jp": "1994-03-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Nora no Suke no Yabou",
+      "slug": "doraemon-nora-no-suke-no-yabou",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-04-29",
+      "releases": {
+        "jp": "1993-04-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Doraemon: Wakuwaku Pocket Paradise",
+      "slug": "doraemon-wakuwaku-pocket-paradise",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-04-26",
+      "releases": {
+        "jp": "1996-04-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Double Dragon",
+      "slug": "double-dragon",
+      "developer": "Virgin Games",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dr. Robotnik's Mean Bean Machine",
+      "slug": "dr-robotnik-s-mean-bean-machine",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-03-19",
+      "releases": {
+        "jp": "1993-03-19",
+        "na": "1993-12",
+        "pal": "1994-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dragon Crystal",
+      "slug": "dragon-crystal",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-12-22",
+      "releases": {
+        "jp": "1990-12-22",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dragon: The Bruce Lee Story",
+      "slug": "dragon-the-bruce-lee-story",
+      "developer": "Virgin Interactive Entertainment",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-09",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1994-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dropzone",
+      "slug": "dropzone",
+      "developer": "Codemasters",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dunk Kids",
+      "slug": "dunk-kids",
+      "developer": "I.T.L",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-09-16",
+      "releases": {
+        "jp": "1994-09-16",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Dynamite Headdy",
+      "slug": "dynamite-headdy",
+      "developer": "Minato Giken",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-08-05",
+      "releases": {
+        "jp": "1994-08-05",
+        "na": "1994-09",
+        "pal": "1994-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Earthworm Jim",
+      "slug": "earthworm-jim",
+      "developer": "Eurocom",
+      "publisher": "Playmates Interactive Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995-07",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ecco the Dolphin",
+      "slug": "ecco-the-dolphin",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-10",
+      "releases": {
+        "jp": "1994-03-11",
+        "na": "1993-11",
+        "pal": "1993-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ecco: The Tides of Time",
+      "slug": "ecco-the-tides-of-time",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11",
+      "releases": {
+        "jp": "1995-02-03",
+        "na": "1994-11",
+        "pal": "1994-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ernie Els Golf",
+      "slug": "ernie-els-golf",
+      "developer": "Codemasters",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Eternal Legend",
+      "slug": "eternal-legend",
+      "developer": "JAM",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-08-09",
+      "releases": {
+        "jp": "1991-08-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Evander Holyfield's Real Deal Boxing",
+      "slug": "evander-holyfield-s-real-deal-boxing",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F-15 Strike Eagle",
+      "slug": "f-15-strike-eagle",
+      "developer": "NMS Software",
+      "publisher": "MicroProse",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F1",
+      "slug": "f1",
+      "developer": "Teque London",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "F1 World Championship Edition",
+      "slug": "f1-world-championship-edition",
+      "developer": "Peakstar Software",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Faceball 2000",
+      "slug": "faceball-2000",
+      "developer": "Xanth Software F/X",
+      "publisher": "Riverhillsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-12-17",
+      "releases": {
+        "jp": "1993-12-17",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Factory Panic",
+      "slug": "factory-panic",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-06-21",
+        "na": null,
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fantastic Dizzy",
+      "slug": "fantastic-dizzy",
+      "developer": "Codemasters",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fantasy Zone Gear",
+      "slug": "fantasy-zone-gear",
+      "developer": "Sanritsu",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-07-19",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fatal Fury Special",
+      "slug": "fatal-fury-special",
+      "developer": "Aspect",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-11-25",
+        "na": "1994",
+        "pal": "1995-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "FIFA International Soccer",
+      "slug": "fifa-international-soccer",
+      "developer": "Extended Play Productions",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1995-09-14",
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "FIFA Soccer 96",
+      "slug": "fifa-soccer-96",
+      "developer": "Probe Entertainment",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Foreman For Real",
+      "slug": "foreman-for-real",
+      "developer": "Software Creations",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-10-27",
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Frank Thomas Big Hurt Baseball",
+      "slug": "frank-thomas-big-hurt-baseball",
+      "developer": "Realtime Associates",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10",
+      "releases": {
+        "jp": null,
+        "na": "1995-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fray: Shuugyouhen",
+      "slug": "fray-shuugyouhen",
+      "developer": "Micro Cabin",
+      "publisher": "Micro Cabin",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-12-27",
+      "releases": {
+        "jp": "1991-12-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Fred Couples Golf",
+      "slug": "fred-couples-golf",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-12-23",
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "From TV Animation: Slam Dunk: Shouri he no Starting 5",
+      "slug": "from-tv-animation-slam-dunk-shouri-he-no-starting-5",
+      "developer": "SIMS",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-12-16",
+      "releases": {
+        "jp": "1994-12-16",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "G-LOC: Air Battle",
+      "slug": "g-loc-air-battle",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-12-15",
+      "releases": {
+        "jp": "1990-12-15",
+        "na": "1991-04",
+        "pal": "1991-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Galaga '91",
+      "slug": "galaga-91",
+      "developer": "Now Production",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-10-25",
+      "releases": {
+        "jp": "1991-10-25",
+        "na": null,
+        "pal": "1993-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gamble Panic",
+      "slug": "gamble-panic",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01-27",
+      "releases": {
+        "jp": "1995-01-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gambler Jiko Chuushinha",
+      "slug": "gambler-jiko-chuushinha",
+      "developer": "Yellow Horn",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-06-12",
+      "releases": {
+        "jp": "1992-06-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Garfield: Caught in the Act",
+      "slug": "garfield-caught-in-the-act",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11",
+      "releases": {
+        "jp": null,
+        "na": "1995-11",
+        "pal": "1995-12-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gear Stadium Heiseiban",
+      "slug": "gear-stadium-heiseiban",
+      "developer": "Namco",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-20",
+      "releases": {
+        "jp": "1995-10-20",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gear Works",
+      "slug": "gear-works",
+      "developer": "Teque London",
+      "publisher": "Sony Imagesoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "George Foreman's KO Boxing",
+      "slug": "george-foreman-s-ko-boxing",
+      "developer": "SIMS",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-12-27",
+      "releases": {
+        "jp": "1991-12-27",
+        "na": "1992-05-19",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GG Aleste",
+      "slug": "gg-aleste",
+      "developer": "Compile",
+      "publisher": "Compile",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-12-29",
+      "releases": {
+        "jp": "1991-12-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GG Portrait: Pai Chan",
+      "slug": "gg-portrait-pai-chan",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-22",
+      "releases": {
+        "jp": "1996-11-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GG Portrait: Yuuki Akira",
+      "slug": "gg-portrait-yuuki-akira",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-01",
+      "releases": {
+        "jp": "1996-11-01",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Global Gladiators",
+      "slug": "global-gladiators",
+      "developer": "Virgin Games USA",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Godzilla: Kaijuu no Daishingeki",
+      "slug": "godzilla-kaijuu-no-daishingeki",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-12-08",
+      "releases": {
+        "jp": "1995-12-08",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "GP Rider",
+      "slug": "gp-rider",
+      "developer": "Sega AM2",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-04-22",
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Greendog: The Beached Surfer Dude!",
+      "slug": "greendog-the-beached-surfer-dude",
+      "developer": "Interactive Designs",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Griffin",
+      "slug": "griffin",
+      "developer": "Telenet Japan",
+      "publisher": "Renovation Game",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-07-26",
+      "releases": {
+        "jp": "1991-07-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Gunstar Heroes",
+      "slug": "gunstar-heroes",
+      "developer": "M2",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-03-24",
+      "releases": {
+        "jp": "1995-03-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Halley Wars",
+      "slug": "halley-wars",
+      "developer": "I.T.L",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-06-21",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Head Buster",
+      "slug": "head-buster",
+      "developer": "NCS Winds",
+      "publisher": "Masaya",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-03-15",
+      "releases": {
+        "jp": "1991-03-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Home Alone",
+      "slug": "home-alone",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12",
+      "releases": {
+        "jp": null,
+        "na": "1992-12",
+        "pal": "1992-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Honō no Tōkyūji: Dodge Danpei",
+      "slug": "hono-no-tokyuji-dodge-danpei",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-08-07",
+      "releases": {
+        "jp": "1992-08-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hook",
+      "slug": "hook",
+      "developer": "Spidersoft",
+      "publisher": "Sony Imagesoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1993-07",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "House of Tarot",
+      "slug": "house-of-tarot",
+      "developer": "Japan System Supply",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-03-08",
+      "releases": {
+        "jp": "1991-03-08",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hurricanes",
+      "slug": "hurricanes",
+      "developer": "Arc Developments",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hyokkori Hyoutanjima: Hyoutanjima no Daikoukai",
+      "slug": "hyokkori-hyoutanjima-hyoutanjima-no-daikoukai",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-05-22",
+      "releases": {
+        "jp": "1992-05-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Hyper Pro Yakyuu '92",
+      "slug": "hyper-pro-yakyuu-92",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-04-24",
+      "releases": {
+        "jp": "1992-04-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Indiana Jones and the Last Crusade",
+      "slug": "indiana-jones-and-the-last-crusade",
+      "developer": "Tiertex",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": "1991",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Iron Man/X-O Manowar in Heavy Metal",
+      "slug": "iron-man-x-o-manowar-in-heavy-metal",
+      "developer": "Realtime Associates",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-14",
+      "releases": {
+        "jp": null,
+        "na": "1996-11-14",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "J.League GG Pro Striker '94",
+      "slug": "j-league-gg-pro-striker-94",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-07-22",
+      "releases": {
+        "jp": "1994-07-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "J.League Soccer: Dream Eleven",
+      "slug": "j-league-soccer-dream-eleven",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-24",
+      "releases": {
+        "jp": "1995-11-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "James Bond 007: The Duel",
+      "slug": "james-bond-007-the-duel",
+      "developer": "The Kremlin",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-08-14",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993-08-14",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "James Pond 2: Codename: Robocod",
+      "slug": "james-pond-2-codename-robocod",
+      "developer": "Vectordean",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "James Pond 3: Operation Starfish",
+      "slug": "james-pond-3-operation-starfish",
+      "developer": "Vectordean",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jeopardy!",
+      "slug": "jeopardy",
+      "developer": "GameTek",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jeopardy! Sports Edition",
+      "slug": "jeopardy-sports-edition",
+      "developer": "GameTek",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Joe Montana Football",
+      "slug": "joe-montana-football",
+      "developer": "BlueSky Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-05-22",
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Journey from Darkness: Strider Returns",
+      "slug": "journey-from-darkness-strider-returns",
+      "developer": "Tiertex",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Judge Dredd",
+      "slug": "judge-dredd",
+      "developer": "Probe Software",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995-06-16",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Junction",
+      "slug": "junction",
+      "developer": "Micronet",
+      "publisher": "Micronet",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-02-24",
+        "na": "1991",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jungle Strike",
+      "slug": "jungle-strike",
+      "developer": "Unexpected Development",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Jurassic Park",
+      "slug": "jurassic-park",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-07-30",
+      "releases": {
+        "jp": "1993-07-30",
+        "na": "1993-10",
+        "pal": "1993-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kaitō Saint Tail",
+      "slug": "kaito-saint-tail",
+      "developer": "Minato Giken",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-03-29",
+      "releases": {
+        "jp": "1996-03-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kawasaki Superbike Challenge",
+      "slug": "kawasaki-superbike-challenge",
+      "developer": "Teque London",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kenyuu Densetsu Yaiba",
+      "slug": "kenyuu-densetsu-yaiba",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-09-09",
+      "releases": {
+        "jp": "1994-09-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kinetic Connection",
+      "slug": "kinetic-connection",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-03-29",
+      "releases": {
+        "jp": "1991-03-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kishin Douji Zenki",
+      "slug": "kishin-douji-zenki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-09-01",
+      "releases": {
+        "jp": "1995-09-01",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Klax",
+      "slug": "klax",
+      "developer": "Atari Games",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": "1991",
+        "pal": "1992-12-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Krusty's Fun House",
+      "slug": "krusty-s-fun-house",
+      "developer": "Audiogenic",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-05",
+      "releases": {
+        "jp": null,
+        "na": "1992-05",
+        "pal": "1993-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kuni-Chan no Game Tengoku",
+      "slug": "kuni-chan-no-game-tengoku",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-11-22",
+      "releases": {
+        "jp": "1991-11-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Kuni-Chan no Game Tengoku Part 2",
+      "slug": "kuni-chan-no-game-tengoku-part-2",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12-18",
+      "releases": {
+        "jp": "1992-12-18",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Land of Illusion Starring Mickey Mouse",
+      "slug": "land-of-illusion-starring-mickey-mouse",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-03-26",
+        "na": "1993-05",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Last Action Hero",
+      "slug": "last-action-hero",
+      "developer": "Bits Studios",
+      "publisher": "Sony Imagesoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Legend of Illusion Starring Mickey Mouse",
+      "slug": "legend-of-illusion-starring-mickey-mouse",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": "1995-01-13",
+        "na": "1995-01",
+        "pal": "1995-02",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Lemmings",
+      "slug": "lemmings",
+      "developer": "Probe Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1993-02-05",
+        "na": "1992",
+        "pal": "1992-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Lunar: Sanposuru Gakuen",
+      "slug": "lunar-sanposuru-gakuen",
+      "developer": "Studio Alex",
+      "publisher": "Game Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-01-12",
+      "releases": {
+        "jp": "1996-01-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden 96",
+      "slug": "madden-96",
+      "developer": "Tiertex",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": "1996",
+        "pal": "1996",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madden NFL '95",
+      "slug": "madden-nfl-95",
+      "developer": "Tiertex",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madō Monogatari A: Dokidoki Vacation",
+      "slug": "mado-monogatari-a-dokidoki-vacation",
+      "developer": "Compile",
+      "publisher": "Compile",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-24",
+      "releases": {
+        "jp": "1995-11-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madō Monogatari I: Mittsu no Madō-kyū",
+      "slug": "mado-monogatari-i-mittsu-no-mado-kyu",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-12-03",
+      "releases": {
+        "jp": "1993-12-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madō Monogatari II: Arle 16-Sai",
+      "slug": "mado-monogatari-ii-arle-16-sai",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-05-20",
+      "releases": {
+        "jp": "1994-05-20",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Madō Monogatari III: Kyūkyoku Joō-sama",
+      "slug": "mado-monogatari-iii-kyukyoku-joo-sama",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-25",
+      "releases": {
+        "jp": "1994-11-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Magical Taruruto-kun",
+      "slug": "magical-taruruto-kun",
+      "developer": "",
+      "publisher": "Tsukuda Ideal",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-07-05",
+      "releases": {
+        "jp": "1991-07-05",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mahou Kishi Rayearth",
+      "slug": "mahou-kishi-rayearth",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-12-16",
+      "releases": {
+        "jp": "1994-12-16",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mahou Kishi Rayearth 2: Making of Magic Knight",
+      "slug": "mahou-kishi-rayearth-2-making-of-magic-knight",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-08-04",
+      "releases": {
+        "jp": "1995-08-04",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Man Overboard!",
+      "slug": "man-overboard",
+      "developer": "Zeppelin Games",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mappy",
+      "slug": "mappy",
+      "developer": "Nova Co., Ltd",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-05-24",
+      "releases": {
+        "jp": "1991-05-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Marble Madness",
+      "slug": "marble-madness",
+      "developer": "Atari Games",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-09",
+      "releases": {
+        "jp": null,
+        "na": "1992-09",
+        "pal": "1992-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Marko's Magic Football",
+      "slug": "marko-s-magic-football",
+      "developer": "The Cartoon Mavericks",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Master of Darkness",
+      "slug": "master-of-darkness",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-10-23",
+      "releases": {
+        "jp": "1992-10-23",
+        "na": "1993-06",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mega Man",
+      "slug": "mega-man",
+      "developer": "Freestyle",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10",
+      "releases": {
+        "jp": null,
+        "na": "1995-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Megami Tensei Gaiden: Last Bible",
+      "slug": "megami-tensei-gaiden-last-bible",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-04-22",
+      "releases": {
+        "jp": "1994-04-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Megami Tensei Gaiden: Last Bible S",
+      "slug": "megami-tensei-gaiden-last-bible-s",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-03-24",
+      "releases": {
+        "jp": "1995-03-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mickey's Ultimate Challenge",
+      "slug": "mickey-s-ultimate-challenge",
+      "developer": "Designer Software",
+      "publisher": "Hi Tech Expressions",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Micro Machines",
+      "slug": "micro-machines",
+      "developer": "Codemasters",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-03",
+      "releases": {
+        "jp": null,
+        "na": "1994-03",
+        "pal": "1994-03",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Micro Machines 2: Turbo Tournament",
+      "slug": "micro-machines-2-turbo-tournament",
+      "developer": "Codemasters",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mighty Morphin Power Rangers",
+      "slug": "mighty-morphin-power-rangers",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mighty Morphin Power Rangers: The Movie",
+      "slug": "mighty-morphin-power-rangers-the-movie",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "MLBPA Baseball",
+      "slug": "mlbpa-baseball",
+      "developer": "Beam Software",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Moldorian: Hikari to Yami no Sister",
+      "slug": "moldorian-hikari-to-yami-no-sister",
+      "developer": "Rit's",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-10-30",
+      "releases": {
+        "jp": "1994-10-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Monster Truck Wars",
+      "slug": "monster-truck-wars",
+      "developer": "Gremlin Graphics",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mortal Kombat",
+      "slug": "mortal-kombat",
+      "developer": "Probe Software",
+      "publisher": "Arena Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-09-13",
+      "releases": {
+        "jp": "1993-12-17",
+        "na": "1993-09-13",
+        "pal": "1993-09-13",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mortal Kombat 3",
+      "slug": "mortal-kombat-3",
+      "developer": "Software Creations",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Mortal Kombat II",
+      "slug": "mortal-kombat-ii",
+      "developer": "Probe Software",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-09-09",
+      "releases": {
+        "jp": "1994-09-09",
+        "na": "1994-09-09",
+        "pal": "1994-09-09",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ms. Pac-Man",
+      "slug": "ms-pac-man",
+      "developer": "Now Production",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nazo Puyo",
+      "slug": "nazo-puyo",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-07-23",
+      "releases": {
+        "jp": "1993-07-23",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nazo Puyo 2",
+      "slug": "nazo-puyo-2",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-12-10",
+      "releases": {
+        "jp": "1993-12-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Nazo Puyo Arle no Roux",
+      "slug": "nazo-puyo-arle-no-roux",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-07-29",
+      "releases": {
+        "jp": "1994-07-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Action Starring David Robinson",
+      "slug": "nba-action-starring-david-robinson",
+      "developer": "Sega InterActive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Jam",
+      "slug": "nba-jam",
+      "developer": "Iguana UK",
+      "publisher": "Arena Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-04-29",
+        "na": "1994-03-04",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NBA Jam Tournament Edition",
+      "slug": "nba-jam-tournament-edition",
+      "developer": "Iguana UK",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-02-24",
+        "na": "1995-02-23",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL '95",
+      "slug": "nfl-95",
+      "developer": "BlueSky Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-15",
+      "releases": {
+        "jp": null,
+        "na": "1994-11-15",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Quarterback Club",
+      "slug": "nfl-quarterback-club",
+      "developer": "Condor",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1995-02-24",
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NFL Quarterback Club 96",
+      "slug": "nfl-quarterback-club-96",
+      "developer": "Condor",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-10-27",
+      "releases": {
+        "jp": null,
+        "na": "1995-10-27",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHL All-Star Hockey",
+      "slug": "nhl-all-star-hockey",
+      "developer": "Gray Matter",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "NHL Hockey",
+      "slug": "nhl-hockey",
+      "developer": "Realtime Associates",
+      "publisher": "EA Sports",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninja Gaiden",
+      "slug": "ninja-gaiden",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-11-01",
+        "na": "1991-12",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninku",
+      "slug": "ninku",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-07-21",
+      "releases": {
+        "jp": "1995-07-21",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninku 2: Tenkuryu-e no Michi",
+      "slug": "ninku-2-tenkuryu-e-no-michi",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-12-22",
+      "releases": {
+        "jp": "1995-12-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ninku Gaiden: Hiroyuki Daikatsugeki",
+      "slug": "ninku-gaiden-hiroyuki-daikatsugeki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11-03",
+      "releases": {
+        "jp": "1995-11-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Olympic Gold: Barcelona '92",
+      "slug": "olympic-gold-barcelona-92",
+      "developer": "Tiertex",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-07-24",
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Out Run",
+      "slug": "out-run",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-08-09",
+        "na": null,
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Out Run Europa",
+      "slug": "out-run-europa",
+      "developer": "Probe Software",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pac-Attack",
+      "slug": "pac-attack",
+      "developer": "Now Production",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-06",
+      "releases": {
+        "jp": null,
+        "na": "1994-06",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pac-Man",
+      "slug": "pac-man",
+      "developer": "Namco",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-01-29",
+        "na": "1991",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Panzer Dragoon Mini",
+      "slug": "panzer-dragoon-mini",
+      "developer": "Rit's",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11-22",
+      "releases": {
+        "jp": "1996-11-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Paperboy",
+      "slug": "paperboy",
+      "developer": "Tiertex",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": "1991",
+        "pal": "1992-09-24",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Paperboy 2",
+      "slug": "paperboy-2",
+      "developer": "Manley & Associates",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-12",
+      "releases": {
+        "jp": null,
+        "na": "1993-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pengo",
+      "slug": "pengo",
+      "developer": "Arc System Works",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-10-06",
+      "releases": {
+        "jp": "1990-10-06",
+        "na": null,
+        "pal": "1991-12-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pet Club: Inu Daisuki!",
+      "slug": "pet-club-inu-daisuki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-12-06",
+      "releases": {
+        "jp": "1996-12-06",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pet Club: Neko Daisuki!",
+      "slug": "pet-club-neko-daisuki",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-07-19",
+      "releases": {
+        "jp": "1996-07-19",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pete Sampras Tennis",
+      "slug": "pete-sampras-tennis",
+      "developer": "Big Red Software",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "PGA Tour 96",
+      "slug": "pga-tour-96",
+      "developer": "Ceris Software",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": "1996",
+        "pal": "1996-01-26",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "PGA Tour Golf",
+      "slug": "pga-tour-golf",
+      "developer": "Polygames",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "PGA Tour Golf II",
+      "slug": "pga-tour-golf-ii",
+      "developer": "Polygames",
+      "publisher": "Time Warner Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Phantasy Star Adventure",
+      "slug": "phantasy-star-adventure",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-03-13",
+      "releases": {
+        "jp": "1992-03-13",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Phantasy Star Gaiden",
+      "slug": "phantasy-star-gaiden",
+      "developer": "Japan System Supply",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-10-16",
+      "releases": {
+        "jp": "1992-10-16",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Phantom 2040",
+      "slug": "phantom-2040",
+      "developer": "Unexpected Development",
+      "publisher": "Viacom New Media",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995-06",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pinball Dreams",
+      "slug": "pinball-dreams",
+      "developer": "Spidersoft",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pocket Jansou",
+      "slug": "pocket-jansou",
+      "developer": "Namco",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-02-07",
+      "releases": {
+        "jp": "1992-02-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Poker Face Paul's Blackjack",
+      "slug": "poker-face-paul-s-blackjack",
+      "developer": "Spidersoft",
+      "publisher": "Adrenalin",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Poker Face Paul's Gin",
+      "slug": "poker-face-paul-s-gin",
+      "developer": "Adrenalin",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Poker Face Paul's Poker",
+      "slug": "poker-face-paul-s-poker",
+      "developer": "Adrenalin",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Poker Face Paul's Solitaire",
+      "slug": "poker-face-paul-s-solitaire",
+      "developer": "Spidersoft",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pop Breaker",
+      "slug": "pop-breaker",
+      "developer": "Microcabin",
+      "publisher": "Microcabin",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-02-23",
+      "releases": {
+        "jp": "1991-02-23",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Popeye Beach Volleyball",
+      "slug": "popeye-beach-volleyball",
+      "developer": "Technōs Japan",
+      "publisher": "Technōs Japan",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-08-12",
+      "releases": {
+        "jp": "1994-08-12",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Popils",
+      "slug": "popils",
+      "developer": "Tengen",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-07-12",
+      "releases": {
+        "jp": "1991-07-12",
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Power Drive",
+      "slug": "power-drive",
+      "developer": "Rage Software",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-06",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Power Strike II",
+      "slug": "power-strike-ii",
+      "developer": "Compile",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-10-01",
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Predator 2",
+      "slug": "predator-2",
+      "developer": "Teeny Weeny Games",
+      "publisher": "Arena Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Primal Rage",
+      "slug": "primal-rage",
+      "developer": "Probe Entertainment",
+      "publisher": "Time Warner Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Prince of Persia",
+      "slug": "prince-of-persia",
+      "developer": "Domark",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pro Yakyuu GG League",
+      "slug": "pro-yakyuu-gg-league",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-04-29",
+      "releases": {
+        "jp": "1993-04-29",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Pro Yakyuu GG League '94",
+      "slug": "pro-yakyuu-gg-league-94",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-09-30",
+      "releases": {
+        "jp": "1994-09-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Psychic World",
+      "slug": "psychic-world",
+      "developer": "Sanritsu",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-02-02",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Putt & Putter",
+      "slug": "putt-putter",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-09-27",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Puyo Puyo 2",
+      "slug": "puyo-puyo-2",
+      "developer": "Compile",
+      "publisher": "Compile",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-12-16",
+      "releases": {
+        "jp": "1994-12-16",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Puzzle & Action: Ichidant-R GG",
+      "slug": "puzzle-action-ichidant-r-gg",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-25",
+      "releases": {
+        "jp": "1994-11-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Puzzle & Action: Tant-R",
+      "slug": "puzzle-action-tant-r",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-04-22",
+      "releases": {
+        "jp": "1994-04-22",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Quest for the Shaven Yak Starring Ren Hoëk & Stimpy",
+      "slug": "quest-for-the-shaven-yak-starring-ren-hoek-stimpy",
+      "developer": "Realtime Associates",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-11",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1993-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "R.B.I. Baseball '94",
+      "slug": "r-b-i-baseball-94",
+      "developer": "Al Baker & Associates",
+      "publisher": "Time Warner Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "R.C. Grand Prix",
+      "slug": "r-c-grand-prix",
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rastan Saga",
+      "slug": "rastan-saga",
+      "developer": "Taito",
+      "publisher": "Taito",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-08-09",
+      "releases": {
+        "jp": "1991-08-09",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Riddick Bowe Boxing",
+      "slug": "riddick-bowe-boxing",
+      "developer": "Micronet",
+      "publisher": "Micronet Extreme Entertainment Group",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-01-21",
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Rise of the Robots",
+      "slug": "rise-of-the-robots",
+      "developer": "Data Design Interactive",
+      "publisher": "Time Warner Interactive",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ristar",
+      "slug": "ristar",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01",
+      "releases": {
+        "jp": "1995-02-17",
+        "na": "1995-02-16",
+        "pal": "1995-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Road Rash",
+      "slug": "road-rash",
+      "developer": "Probe Software",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1994-03",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "RoboCop 3",
+      "slug": "robocop-3",
+      "developer": "Eden Entertainment Software",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-07",
+      "releases": {
+        "jp": "1994-06-24",
+        "na": "1993-07",
+        "pal": "1993-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "RoboCop Versus The Terminator",
+      "slug": "robocop-versus-the-terminator",
+      "developer": "NMS Software",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Royal Stone: Hirakareshi Toki no Tobira",
+      "slug": "royal-stone-hirakareshi-toki-no-tobira",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-02-24",
+      "releases": {
+        "jp": "1995-02-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Samurai Shodown",
+      "slug": "samurai-shodown",
+      "developer": "Takara",
+      "publisher": "Takara",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-12-09",
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Scratch Golf",
+      "slug": "scratch-golf",
+      "developer": "SIMS",
+      "publisher": "Vic Tokai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1994-03-25",
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "SD Gundam: Winner's History",
+      "slug": "sd-gundam-winner-s-history",
+      "developer": "I.T.L",
+      "publisher": "Bandai",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-03-24",
+      "releases": {
+        "jp": "1995-03-24",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sega Game Pack 4 in 1",
+      "slug": "sega-game-pack-4-in-1",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sensible Soccer",
+      "slug": "sensible-soccer",
+      "developer": "Sensible Software",
+      "publisher": "Sony Imagesoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-11",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shanghai II",
+      "slug": "shanghai-ii",
+      "developer": "Falcon",
+      "publisher": "Sunsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-12-27",
+      "releases": {
+        "jp": "1990-12-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shaq Fu",
+      "slug": "shaq-fu",
+      "developer": "Tiertex",
+      "publisher": "Electronic Arts",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shikinjou",
+      "slug": "shikinjou",
+      "developer": "Sunsoft",
+      "publisher": "Sunsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-04-26",
+      "releases": {
+        "jp": "1991-04-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shining Force Gaiden: Ensei – Jashin no Kuni he",
+      "slug": "shining-force-gaiden-ensei-jashin-no-kuni-he",
+      "developer": "Sonic! Software Planning",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12-25",
+      "releases": {
+        "jp": "1992-12-25",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shining Force Gaiden: Final Conflict",
+      "slug": "shining-force-gaiden-final-conflict",
+      "developer": "Sonic! Software Planning",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-06-30",
+      "releases": {
+        "jp": "1995-06-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Shining Force: The Sword of Hajya",
+      "slug": "shining-force-the-sword-of-hajya",
+      "developer": "Sonic! Software Planning",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-06-25",
+      "releases": {
+        "jp": "1993-06-25",
+        "na": "1994-10",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Side Pocket",
+      "slug": "side-pocket",
+      "developer": "Data East",
+      "publisher": "Data East",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Slider",
+      "slug": "slider",
+      "developer": "Loriciel",
+      "publisher": "Victor",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-04-26",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Solitaire FunPak",
+      "slug": "solitaire-funpak",
+      "developer": "Beam Software",
+      "publisher": "Interplay",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Solitaire Poker",
+      "slug": "solitaire-poker",
+      "developer": "Face",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-05-31",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic 2 in 1",
+      "slug": "sonic-2-in-1",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic Blast",
+      "slug": "sonic-blast",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996-11",
+      "releases": {
+        "jp": "1996-12-13",
+        "na": "1996-11-14",
+        "pal": "1996-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic Chaos",
+      "slug": "sonic-chaos",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-11-19",
+      "releases": {
+        "jp": "1993-11-19",
+        "na": "1993-11-23",
+        "pal": "1993-11-23",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic Drift",
+      "slug": "sonic-drift",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-03-18",
+      "releases": {
+        "jp": "1994-03-18",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic Drift 2",
+      "slug": "sonic-drift-2",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-03-17",
+      "releases": {
+        "jp": "1995-03-17",
+        "na": "1995-11",
+        "pal": "1995-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic Labyrinth",
+      "slug": "sonic-labyrinth",
+      "developer": "Minato Giken",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-11",
+      "releases": {
+        "jp": "1995-11-17",
+        "na": "1995-11",
+        "pal": "1995-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic the Hedgehog",
+      "slug": "sonic-the-hedgehog",
+      "developer": "Ancient",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-11-18",
+      "releases": {
+        "jp": "1991-12-28",
+        "na": "1991-12-28",
+        "pal": "1991-11-18",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic the Hedgehog 2",
+      "slug": "sonic-the-hedgehog-2",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-11",
+      "releases": {
+        "jp": "1992-11-21",
+        "na": "1992-12",
+        "pal": "1992-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic the Hedgehog Spinball",
+      "slug": "sonic-the-hedgehog-spinball",
+      "developer": "Sega InterActive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-08",
+      "releases": {
+        "jp": null,
+        "na": "1994-09",
+        "pal": "1994-08",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sonic the Hedgehog: Triple Trouble",
+      "slug": "sonic-the-hedgehog-triple-trouble",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11",
+      "releases": {
+        "jp": "1994-11-11",
+        "na": "1994-11",
+        "pal": "1994-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Soukoban",
+      "slug": "soukoban",
+      "developer": "Thinking Rabbit",
+      "publisher": "Riverhillsoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-12-15",
+      "releases": {
+        "jp": "1990-12-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Space Harrier",
+      "slug": "space-harrier",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-11",
+      "releases": {
+        "jp": "1991-12-28",
+        "na": "1991-11",
+        "pal": "1991-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Spider-Man and the X-Men in Arcade's Revenge",
+      "slug": "spider-man-and-the-x-men-in-arcade-s-revenge",
+      "developer": "Software Creations",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-03",
+      "releases": {
+        "jp": null,
+        "na": "1994-03",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Spider-Man: Return of the Sinister Six",
+      "slug": "spider-man-return-of-the-sinister-six",
+      "developer": "Bits Studios",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Spider-Man vs. The Kingpin",
+      "slug": "spider-man-vs-the-kingpin",
+      "developer": "Sega",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-04",
+      "releases": {
+        "jp": null,
+        "na": "1992-05-19",
+        "pal": "1992-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sports Illustrated: Championship Football & Baseball",
+      "slug": "sports-illustrated-championship-football-baseball",
+      "developer": "Unexpected Development",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sports Trivia",
+      "slug": "sports-trivia",
+      "developer": "Adrenalin",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sports Trivia: Championship Edition",
+      "slug": "sports-trivia-championship-edition",
+      "developer": "Adrenalin",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Trek Generations: Beyond the Nexus",
+      "slug": "star-trek-generations-beyond-the-nexus",
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Trek: The Next Generation – The Advanced Holodeck Tutorial",
+      "slug": "star-trek-the-next-generation-the-advanced-holodeck-tutorial",
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Star Wars",
+      "slug": "star-wars",
+      "developer": "Tiertex",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Stargate",
+      "slug": "stargate",
+      "developer": "Probe Software",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1995-05-26",
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Streets of Rage",
+      "slug": "streets-of-rage",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-10-18",
+      "releases": {
+        "jp": "1992-11-27",
+        "na": "1992-12-31",
+        "pal": "1992-10-18",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Streets of Rage 2",
+      "slug": "streets-of-rage-2",
+      "developer": "Japan System House",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-07-23",
+        "na": "1993-08",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Striker",
+      "slug": "striker",
+      "developer": "Rage Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Battletank",
+      "slug": "super-battletank",
+      "developer": "Absolute Entertainment",
+      "publisher": "Majesco Sales",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "2001",
+      "releases": {
+        "jp": null,
+        "na": "2001",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Columns",
+      "slug": "super-columns",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-05-26",
+        "na": "1995-06-05",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Golf",
+      "slug": "super-golf",
+      "developer": "Sigma Enterprises",
+      "publisher": "Sigma Enterprises Sage's Creation",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-04-19",
+        "na": "1991",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Kick Off",
+      "slug": "super-kick-off",
+      "developer": "Tiertex",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Momotarou Dentetsu III",
+      "slug": "super-momotarou-dentetsu-iii",
+      "developer": "Hudson Soft",
+      "publisher": "Hudson Soft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-12-15",
+      "releases": {
+        "jp": "1995-12-15",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Monaco GP",
+      "slug": "super-monaco-gp",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-10-06",
+      "releases": {
+        "jp": "1990-10-06",
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Off Road",
+      "slug": "super-off-road",
+      "developer": "Graftgold",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12-12",
+      "releases": {
+        "jp": null,
+        "na": "1993-01",
+        "pal": "1992-12-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Smash TV",
+      "slug": "super-smash-tv",
+      "developer": "Probe Software",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-09",
+      "releases": {
+        "jp": "1994-07-29",
+        "na": "1992-09",
+        "pal": "1992-12-17",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Space Invaders",
+      "slug": "super-space-invaders",
+      "developer": "Tiertex",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Super Star Wars: Return of the Jedi",
+      "slug": "super-star-wars-return-of-the-jedi",
+      "developer": "Realtime Associates",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Superman: The Man of Steel",
+      "slug": "superman-the-man-of-steel",
+      "developer": "Graftgold",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Surf Ninjas",
+      "slug": "surf-ninjas",
+      "developer": "NuFX",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Sylvan Tale",
+      "slug": "sylvan-tale",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-01-27",
+      "releases": {
+        "jp": "1995-01-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "T2: The Arcade Game",
+      "slug": "t2-the-arcade-game",
+      "developer": "Probe Software",
+      "publisher": "Arena Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-09",
+      "releases": {
+        "jp": "1994-02-25",
+        "na": "1993-09",
+        "pal": "1994-01",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tails Adventure",
+      "slug": "tails-adventure",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-09-22",
+      "releases": {
+        "jp": "1995-09-22",
+        "na": "1995-11",
+        "pal": "1995-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tails' Skypatrol",
+      "slug": "tails-skypatrol",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-04-28",
+      "releases": {
+        "jp": "1995-04-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taisen-gata: Daisenryaku G",
+      "slug": "taisen-gata-daisenryaku-g",
+      "developer": "SystemSoft",
+      "publisher": "SystemSoft",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-09-28",
+      "releases": {
+        "jp": "1991-09-28",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taisen Mahjong HaoPai",
+      "slug": "taisen-mahjong-haopai",
+      "developer": "Arc",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-11-10",
+      "releases": {
+        "jp": "1990-11-10",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taisen Mahjong HaoPai 2",
+      "slug": "taisen-mahjong-haopai-2",
+      "developer": "Arc System Works",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-12-17",
+      "releases": {
+        "jp": "1993-12-17",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "TaleSpin",
+      "slug": "talespin",
+      "developer": "Sega InterActive",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993-03",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tama & Friends: 3 Choume Kouen Tamalympic",
+      "slug": "tama-friends-3-choume-kouen-tamalympic",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-03-03",
+      "releases": {
+        "jp": "1995-03-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tarzan: Lord of the Jungle",
+      "slug": "tarzan-lord-of-the-jungle",
+      "developer": "Eurocom",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-10",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994-11-10",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tatakae! Pro Yakyuu Twin League",
+      "slug": "tatakae-pro-yakyuu-twin-league",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-07-14",
+      "releases": {
+        "jp": "1995-07-14",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taz in Escape from Mars",
+      "slug": "taz-in-escape-from-mars",
+      "developer": "Al Baker & Associates",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994-10",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Taz-Mania",
+      "slug": "taz-mania",
+      "developer": "NuFX",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-10",
+      "releases": {
+        "jp": null,
+        "na": "1992-10",
+        "pal": "1992-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tempo Jr.",
+      "slug": "tempo-jr",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-04-28",
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tengen World Cup Soccer",
+      "slug": "tengen-world-cup-soccer",
+      "developer": "SIMS",
+      "publisher": "Tengen",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-05-28",
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Terminator 2: Judgment Day",
+      "slug": "terminator-2-judgment-day",
+      "developer": "Software Creations",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1994-09-30",
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tesserae",
+      "slug": "tesserae",
+      "developer": "Eurocom",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-11",
+      "releases": {
+        "jp": null,
+        "na": "1993-11",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Addams Family",
+      "slug": "the-addams-family",
+      "developer": "Arc Developments",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1994-06-24",
+        "na": "1993",
+        "pal": "1993-12",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Adventures of Batman & Robin",
+      "slug": "the-adventures-of-batman-robin",
+      "developer": "Novotrade",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995-06",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Berenstain Bears' Camping Adventure",
+      "slug": "the-berenstain-bears-camping-adventure",
+      "developer": "Realtime Associates",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Chessmaster",
+      "slug": "the-chessmaster",
+      "developer": "NovaLogic",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-12",
+      "releases": {
+        "jp": null,
+        "na": "1991-12",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Excellent Dizzy Collection",
+      "slug": "the-excellent-dizzy-collection",
+      "developer": "Codemasters",
+      "publisher": "Codemasters",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-04",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The G.G. Shinobi",
+      "slug": "the-g-g-shinobi",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-04-26",
+        "na": "1991-06",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The G.G. Shinobi II: The Silent Fury",
+      "slug": "the-g-g-shinobi-ii-the-silent-fury",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-12-11",
+        "na": "1992-12",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Incredible Crash Dummies",
+      "slug": "the-incredible-crash-dummies",
+      "developer": "Teeny Weeny Games",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1994-09-30",
+        "na": "1992",
+        "pal": "1993-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Incredible Hulk",
+      "slug": "the-incredible-hulk",
+      "developer": "Probe Software",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-06",
+      "releases": {
+        "jp": null,
+        "na": "1994-07",
+        "pal": "1994-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Itchy & Scratchy Game",
+      "slug": "the-itchy-scratchy-game",
+      "developer": "Bits Studios",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Jungle Book",
+      "slug": "the-jungle-book",
+      "developer": "Syrox Developments",
+      "publisher": "Virgin Interactive Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-01",
+      "releases": {
+        "jp": null,
+        "na": "1994-01",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Lion King",
+      "slug": "the-lion-king",
+      "developer": "Syrox Developments",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-11-04",
+      "releases": {
+        "jp": "1995-01-13",
+        "na": "1994-11-09",
+        "pal": "1994-11-04",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Lost World: Jurassic Park",
+      "slug": "the-lost-world-jurassic-park",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1997-08-26",
+      "releases": {
+        "jp": null,
+        "na": "1997-08-26",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Lucky Dime Caper Starring Donald Duck",
+      "slug": "the-lucky-dime-caper-starring-donald-duck",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-10",
+      "releases": {
+        "jp": "1991-12-20",
+        "na": "1991-10",
+        "pal": "1991-11",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Majors: Pro Baseball",
+      "slug": "the-majors-pro-baseball",
+      "developer": "I.T.L",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12",
+      "releases": {
+        "jp": null,
+        "na": "1992-12",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Ottifants",
+      "slug": "the-ottifants",
+      "developer": "Graftgold",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Pro Yakyuu '91",
+      "slug": "the-pro-yakyuu-91",
+      "developer": "Santos",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-01-26",
+      "releases": {
+        "jp": "1991-01-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Quiz Gear Fight!!",
+      "slug": "the-quiz-gear-fight",
+      "developer": "Minato Giken",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995-04-07",
+      "releases": {
+        "jp": "1995-04-07",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Simpsons: Bart vs. the Space Mutants",
+      "slug": "the-simpsons-bart-vs-the-space-mutants",
+      "developer": "Arc Developments",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992-12",
+      "releases": {
+        "jp": null,
+        "na": "1992-12",
+        "pal": "1993-01-05",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Simpsons: Bart vs. the World",
+      "slug": "the-simpsons-bart-vs-the-world",
+      "developer": "Arc Developments",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-05-25",
+      "releases": {
+        "jp": "1994-07-29",
+        "na": "1993-10",
+        "pal": "1993-05-25",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Simpsons: Bartman Meets Radioactive Man",
+      "slug": "the-simpsons-bartman-meets-radioactive-man",
+      "developer": "Teeny Weeny Games",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-02",
+      "releases": {
+        "jp": null,
+        "na": "1994-02",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Smurfs",
+      "slug": "the-smurfs",
+      "developer": "Bit Managers",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Smurfs Travel the World",
+      "slug": "the-smurfs-travel-the-world",
+      "developer": "Infogrames",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "The Terminator",
+      "slug": "the-terminator",
+      "developer": "Probe Software",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": null,
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tintin in Tibet",
+      "slug": "tintin-in-tibet",
+      "developer": "Bit Managers",
+      "publisher": "Infogrames",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Tom and Jerry: The Movie",
+      "slug": "tom-and-jerry-the-movie",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-06-25",
+        "na": "1993-07-14",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Torarete Tamaruka!?",
+      "slug": "torarete-tamaruka",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-06-03",
+      "releases": {
+        "jp": "1994-06-03",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "True Lies",
+      "slug": "true-lies",
+      "developer": "Beam Software",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": "1995-05-12",
+        "na": "1995-02",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Ultimate Soccer",
+      "slug": "ultimate-soccer",
+      "developer": "Rage Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1993-10-29",
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Urban Strike",
+      "slug": "urban-strike",
+      "developer": "Foley Hi-Tech",
+      "publisher": "Black Pearl Software",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Virtua Fighter Animation",
+      "slug": "virtua-fighter-animation",
+      "developer": "Aspect",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": "1996-03-29",
+        "na": "1996-08-30",
+        "pal": "1996",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "VR Troopers",
+      "slug": "vr-troopers",
+      "developer": "Syrox Developments",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wagan Land",
+      "slug": "wagan-land",
+      "developer": "Now Production",
+      "publisher": "Namco",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991-07-26",
+      "releases": {
+        "jp": "1991-07-26",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wheel of Fortune",
+      "slug": "wheel-of-fortune",
+      "developer": "Imagitec Design",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wimbledon",
+      "slug": "wimbledon",
+      "developer": "SIMS",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1993-02-26",
+        "na": "1992",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Winter Olympics: Lillehammer '94",
+      "slug": "winter-olympics-lillehammer-94",
+      "developer": "Tiertex",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-12",
+      "releases": {
+        "jp": "1994-02-11",
+        "na": "1993-12",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wizard Pinball",
+      "slug": "wizard-pinball",
+      "developer": "Teque London",
+      "publisher": "Domark",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wolfchild",
+      "slug": "wolfchild",
+      "developer": "Core Design",
+      "publisher": "Virgin Games",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": null,
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wonder Boy",
+      "slug": "wonder-boy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-12-08",
+      "releases": {
+        "jp": "1990-12-08",
+        "na": "1991-06",
+        "pal": "1991-06",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Wonder Boy: The Dragon's Trap",
+      "slug": "wonder-boy-the-dragon-s-trap",
+      "developer": "Westone",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1992",
+      "releases": {
+        "jp": "1992-03-27",
+        "na": null,
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Woody Pop",
+      "slug": "woody-pop",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": "1991-03-01",
+        "na": "1991",
+        "pal": "1992",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Class Leader Board",
+      "slug": "world-class-leader-board",
+      "developer": "Tiertex",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1991",
+      "releases": {
+        "jp": null,
+        "na": "1991",
+        "pal": "1991",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Cup USA '94",
+      "slug": "world-cup-usa-94",
+      "developer": "Tiertex",
+      "publisher": "U.S. Gold",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Derby",
+      "slug": "world-derby",
+      "developer": "CRI",
+      "publisher": "CRI",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-05-27",
+      "releases": {
+        "jp": "1994-05-27",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Series Baseball",
+      "slug": "world-series-baseball",
+      "developer": "I.T.L",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993-11",
+      "releases": {
+        "jp": null,
+        "na": "1993-11",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "World Series Baseball '95",
+      "slug": "world-series-baseball-95",
+      "developer": "BlueSky Software",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": "1995-12-01",
+        "na": "1994",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF Raw",
+      "slug": "wwf-raw",
+      "developer": "Realtime Associates",
+      "publisher": "Acclaim Entertainment",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994",
+      "releases": {
+        "jp": null,
+        "na": "1994-11",
+        "pal": "1994",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "WWF WrestleMania: Steel Cage Challenge",
+      "slug": "wwf-wrestlemania-steel-cage-challenge",
+      "developer": "Teeny Weeny Games",
+      "publisher": "Flying Edge",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": null,
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "X-Men",
+      "slug": "x-men",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-01",
+      "releases": {
+        "jp": null,
+        "na": "1994-01",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "X-Men: Gamesmaster's Legacy",
+      "slug": "x-men-gamesmaster-s-legacy",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995-02-16",
+        "pal": "1995",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "X-Men: Mojo World",
+      "slug": "x-men-mojo-world",
+      "developer": "Sega",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1996",
+      "releases": {
+        "jp": null,
+        "na": "1996",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yu Yu Hakusho: Horobishi Mono no Gyakushuu",
+      "slug": "yu-yu-hakusho-horobishi-mono-no-gyakushuu",
+      "developer": "Minato Giken",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-03-18",
+      "releases": {
+        "jp": "1994-03-18",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Yu Yu Hakusho II: Gekitou! Nanakyou no Tatakai",
+      "slug": "yu-yu-hakusho-ii-gekitou-nanakyou-no-tatakai",
+      "developer": "Minato Giken",
+      "publisher": "Sega",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1994-09-30",
+      "releases": {
+        "jp": "1994-09-30",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zan Gear",
+      "slug": "zan-gear",
+      "developer": "Wolf Team",
+      "publisher": "Wolf Team",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1990-10-23",
+      "releases": {
+        "jp": "1990-10-23",
+        "na": null,
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zool: Ninja of the \"Nth\" Dimension",
+      "slug": "zool-ninja-of-the-nth-dimension",
+      "developer": "Gremlin Graphics",
+      "publisher": "GameTek",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1993",
+      "releases": {
+        "jp": "1994-07-29",
+        "na": "1993",
+        "pal": "1993",
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    },
+    {
+      "title": "Zoop",
+      "slug": "zoop",
+      "developer": "Hookstone",
+      "publisher": "Viacom New Media",
+      "status": "released",
+      "category": "licensed",
+      "first_release": "1995",
+      "releases": {
+        "jp": null,
+        "na": "1995",
+        "pal": null,
+        "eu": null,
+        "au": null,
+        "br": null
+      }
+    }
+  ]
+}

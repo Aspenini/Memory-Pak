@@ -42,45 +42,39 @@ impl WasmMemoryPak {
         to_js(self.app.query_games(input))
     }
 
-    #[wasm_bindgen(js_name = queryLego)]
-    pub fn query_lego(&self, input: JsValue) -> Result<JsValue, JsValue> {
+    #[wasm_bindgen(js_name = queryCollectibles)]
+    pub fn query_collectibles(&self, input: JsValue) -> Result<JsValue, JsValue> {
         let input = from_js::<QueryInput>(input)?;
-        to_js(self.app.query_lego(input))
-    }
-
-    #[wasm_bindgen(js_name = querySkylanders)]
-    pub fn query_skylanders(&self, input: JsValue) -> Result<JsValue, JsValue> {
-        let input = from_js::<QueryInput>(input)?;
-        to_js(self.app.query_skylanders(input))
+        to_js(self.app.query_collectibles(input))
     }
 
     #[wasm_bindgen(js_name = setItemStatus)]
     pub fn set_item_status(&mut self, input: JsValue) -> Result<JsValue, JsValue> {
         let input = from_js::<SetItemStatusInput>(input)?;
-        let state = self
+        let result = self
             .app
             .set_item_status(input)
             .map_err(|err| js_error(err.to_string()))?;
-        to_js(state)
+        to_js(result)
     }
 
     #[wasm_bindgen(js_name = setItemNotes)]
     pub fn set_item_notes(&mut self, input: JsValue) -> Result<JsValue, JsValue> {
         let input = from_js::<SetItemNotesInput>(input)?;
-        let state = self
+        let result = self
             .app
             .set_item_notes(input)
             .map_err(|err| js_error(err.to_string()))?;
-        to_js(state)
+        to_js(result)
     }
 
     #[wasm_bindgen(js_name = importJson)]
     pub fn import_json(&mut self, json: String) -> Result<JsValue, JsValue> {
-        let state = self
+        let stats = self
             .app
             .import_json(&json)
             .map_err(|err| js_error(err.to_string()))?;
-        to_js(state)
+        to_js(stats)
     }
 
     #[wasm_bindgen(js_name = exportJson)]
@@ -97,7 +91,7 @@ impl WasmMemoryPak {
 
     #[wasm_bindgen(js_name = snapshotStateJson)]
     pub fn snapshot_state_json(&self) -> Result<String, JsValue> {
-        serde_json::to_string(&self.app.persisted_state())
+        serde_json::to_string(self.app.persisted_state())
             .map_err(|err| js_error(format!("Failed to serialize state: {err}")))
     }
 }
