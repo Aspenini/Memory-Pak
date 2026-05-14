@@ -1,6 +1,7 @@
 <script lang="ts">
   import { X } from 'lucide-svelte';
-  import { fade } from 'svelte/transition';
+  import { fade, fly } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
   import { createEventDispatcher } from 'svelte';
   import type { SortKey } from '../types';
   import type { SortOption } from '../sortOptions';
@@ -19,6 +20,8 @@
   export let groupAllLabel: string = 'All';
 
   const dropdownFade = { duration: 90 };
+  const sheetIn = { y: 36, duration: 190, easing: cubicOut, opacity: 0.98 };
+  const sheetOut = { y: 20, duration: 130, easing: cubicOut, opacity: 0.98 };
   const dispatch = createEventDispatcher<{
     close: void;
     selectSort: SortKey;
@@ -32,7 +35,13 @@
   on:click={() => dispatch('close')}
   transition:fade={dropdownFade}
 ></button>
-<dialog class="bottom-sheet option-sheet" open aria-labelledby="option-sheet-title">
+<dialog
+  class="bottom-sheet option-sheet"
+  open
+  aria-labelledby="option-sheet-title"
+  in:fly={sheetIn}
+  out:fly={sheetOut}
+>
   <span class="sheet-handle"></span>
   <header class="sheet-header">
     <h2 id="option-sheet-title">{title}</h2>
