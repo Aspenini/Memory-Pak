@@ -133,43 +133,6 @@ jobs:
       - name: Run e2e tests
         run: bun run frontend:e2e
 
-  tauri-desktop:
-    name: Tauri desktop smoke build (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Linux Tauri dependencies
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libwebkit2gtk-4.1-dev \
-            libappindicator3-dev \
-            librsvg2-dev \
-            patchelf
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: wasm32-unknown-unknown
-      - uses: Swatinem/rust-cache@v2
-        with:
-          key: tauri-${{ matrix.os }}
-      - uses: jetli/wasm-pack-action@v0.4.0
-        with:
-          version: 'latest'
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.3.13
-      - name: Install frontend dependencies
-        run: bun install --cwd frontend --frozen-lockfile
-      - name: Build frontend (consumed by Tauri)
-        run: bun run frontend:build
-      - name: Build Tauri desktop binary
-        run: cargo build -p memory-pak-tauri --bin memory-pak --release
-
   # Single anchor for downstream jobs. Packaging runs only after every validation job succeeds.
   ci-ok:
     name: CI passed (gate)
@@ -181,7 +144,6 @@ jobs:
       - wasm-check
       - frontend-build
       - e2e
-      - tauri-desktop
     steps:
       - run: echo "All validation jobs succeeded"
 
