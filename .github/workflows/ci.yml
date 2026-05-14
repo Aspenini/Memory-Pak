@@ -6,8 +6,11 @@ on:
       - "**"
   pull_request:
 
+# contents: read — checkout and clone
+# actions: write — actions/upload-artifact (bundles)
 permissions:
   contents: read
+  actions: write
 
 jobs:
   fmt:
@@ -166,3 +169,121 @@ jobs:
         run: bun run frontend:build
       - name: Build Tauri desktop binary
         run: cargo build -p memory-pak-tauri --bin memory-pak --release
+
+  # Single anchor for downstream jobs. Packaging runs only after every validation job succeeds.
+  ci-ok:
+    name: CI passed (gate)
+    runs-on: ubuntu-latest
+    needs:
+      - fmt
+      - clippy
+      - rust-test
+      - wasm-check
+      - frontend-build
+      - e2e
+      - tauri-desktop
+    steps:
+      - run: echo "All validation jobs succeeded"
+
+  # Runs on every push/PR once validation is green. To save runner minutes, add:
+  # if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+  # (or tags-only) to this job.
+  package:
+    name: Package (${{ matrix.platform }})
+    needs: [ci-ok]
+    # Fork PRs cannot upload artifacts with the default token; validation still runs upstream.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows
+            runs-on: windows-latest
+            bundles: "nsis,msi"
+          - platform: macos
+            runs-on: macos-latest
+            bundles: "dmg"
+          - platform: linux
+            runs-on: ubuntu-22.04
+            bundles: "appimage,deb"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Linux Tauri dependencies
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            libfuse2 \
+            squashfs-tools \
+            desktop-file-utils
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: package-${{ matrix.platform }}
+
+      - uses: jetli/wasm-pack-action@v0.4.0
+        with:
+          version: "latest"
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.13
+
+      - name: Install frontend dependencies
+        run: bun install --cwd frontend --frozen-lockfile
+
+      - name: Install Tauri CLI
+        run: cargo install tauri-cli --locked
+
+      - name: Build Tauri bundles
+        run: cargo tauri build --bundles ${{ matrix.bundles }}
+
+      - name: Create portable zip (Windows)
+        if: matrix.platform == 'windows'
+        shell: pwsh
+        run: |
+          $release = Join-Path $env:GITHUB_WORKSPACE "src-tauri/target/release"
+          $out = Join-Path $env:GITHUB_WORKSPACE "Memory-Pak-windows-portable.zip"
+          $exe = Join-Path $release "memory-pak.exe"
+          if (-not (Test-Path $exe)) { throw "memory-pak.exe not found at $exe" }
+          $paths = @($exe)
+          Get-ChildItem -Path $release -Filter *.dll -File | ForEach-Object { $paths += $_.FullName }
+          if ($paths.Count -lt 1) { throw "No files to archive" }
+          if (Test-Path $out) { Remove-Item $out -Force }
+          Compress-Archive -Path $paths -DestinationPath $out
+
+      - name: Upload Windows bundles
+        if: matrix.platform == 'windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: memory-pak-windows
+          path: |
+            src-tauri/target/release/bundle/nsis/**
+            src-tauri/target/release/bundle/msi/**
+            Memory-Pak-windows-portable.zip
+
+      - name: Upload macOS bundles
+        if: matrix.platform == 'macos'
+        uses: actions/upload-artifact@v4
+        with:
+          name: memory-pak-macos
+          path: src-tauri/target/release/bundle/dmg/**
+
+      - name: Upload Linux bundles
+        if: matrix.platform == 'linux'
+        uses: actions/upload-artifact@v4
+        with:
+          name: memory-pak-linux
+          path: |
+            src-tauri/target/release/bundle/appimage/**
+            src-tauri/target/release/bundle/deb/**

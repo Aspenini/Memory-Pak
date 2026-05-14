@@ -22,6 +22,9 @@
 
     "tauri:dev": "cargo tauri dev",
     "tauri:build": "cargo tauri build",
+    "tauri:build:win": "cargo tauri build --bundles nsis,msi",
+    "tauri:build:mac": "cargo tauri build --bundles dmg",
+    "tauri:build:linux": "cargo tauri build --bundles appimage,deb",
 
     "android:init": "cargo tauri android init",
     "android:dev": "cargo tauri android dev",

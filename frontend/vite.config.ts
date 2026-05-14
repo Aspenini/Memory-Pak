@@ -122,12 +122,19 @@ export default defineConfig({
   server: {
     port: 5173,
     strictPort: true,
+    // Allow non-localhost Host headers (Docker, odd proxies). LAN IPv4 is already allowed by Vite’s host check.
+    allowedHosts: true,
+    // Plain `vite`: localhost only. `vite --host 0.0.0.0` (dev:tauri) listens on all interfaces for phones/emulators.
     host: host || false,
+    // Tauri Android/iOS sets TAURI_DEV_HOST so the device can reach your PC. HMR must use the **same port**
+    // as the HTTP server: a separate port (e.g. 1421) is blocked by CSP (different origin than :5173) and
+    // often has no listener unless port-forwarding is set up — which can leave the WebView stuck on a white screen.
     hmr: host
       ? {
           protocol: 'ws',
           host,
-          port: 1421
+          port: 5173,
+          clientPort: 5173
         }
       : undefined,
     watch: {
