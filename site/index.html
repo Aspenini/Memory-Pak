@@ -49,7 +49,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Memory Pak",
-        "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. Track which consoles and games you own, have favorited, or want on your wishlist.",
+        "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. The web build is a rolling release from the latest deploy; desktop installers follow GitHub releases.",
         "url": "https://aspenini.github.io/Memory-Pak/",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": ["Windows", "macOS", "Linux"],
@@ -124,35 +124,40 @@
                 <section class="downloads">
                     <h2 class="section-title">Download</h2>
                     <p class="description" id="release-version">Latest version: loading...</p>
+                    <p class="description release-channel-note">
+                        The <a href="app/">web app</a> is a <strong>rolling release</strong> (latest successful deploy from the default branch).
+                        Desktop installers below match the <a href="https://github.com/Aspenini/Memory-Pak/releases/latest">latest GitHub release</a> and may trail the web build.
+                    </p>
                     <div class="download-grid">
                         <div class="download-card" data-platform="windows">
                             <img src="img/os-windows-11.png" alt="Windows" class="platform-icon">
                             <span class="platform-name">Windows</span>
                             <div class="download-buttons">
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge" 
-                                   data-release-match="windows,.msi"
-                                   download="Memory-Pak-windows-x86_64.msi">MSI Installer</a>
+                                   class="download-badge"
+                                   data-release-match="setup,.exe"
+                                   data-release-empty-label="Setup .exe not in release"
+                                   download="Memory-Pak-setup.exe">Setup (.exe)</a>
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge" 
-                                   data-release-match="windows,portable,.exe"
-                                   download="Memory-Pak-windows-x86_64-portable.exe">Portable EXE</a>
+                                   class="download-badge"
+                                   data-release-match=",.msi"
+                                   data-release-empty-label="MSI not in release"
+                                   download="Memory-Pak.msi">MSI installer</a>
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                   class="download-badge"
+                                   data-release-match="portable,.zip"
+                                   data-release-empty-label="Portable zip not in release"
+                                   download="Memory-Pak-windows-portable.zip">Portable (.zip)</a>
                             </div>
                         </div>
                         <div class="download-card" data-platform="macos">
                             <img src="img/os-macos.png" alt="macOS" class="platform-icon">
                             <span class="platform-name">macOS</span>
                             <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="macos,.app,arm64"
-                                   data-release-label="App (Apple Silicon)"
-                                   data-release-empty-label="App coming soon"
-                                   download="Memory-Pak-macos-arm64.app.zip">.app (Silicon)</a>
                                 <span class="download-badge coming-soon"
-                                      data-release-match="macos,.dmg,arm64"
-                                      data-release-label="DMG (Apple Silicon)"
-                                      data-release-empty-label="DMG coming soon">DMG coming soon</span>
+                                      data-release-match=",.dmg"
+                                      data-release-label="DMG"
+                                      data-release-empty-label="DMG not in release">DMG</span>
                             </div>
                         </div>
                         <div class="download-card" data-platform="linux">
@@ -161,9 +166,16 @@
                             <div class="download-buttons">
                                 <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
                                    class="download-badge"
-                                   data-release-match="linux,.tar.gz"
-                                   data-release-label="Linux archive (.tar.gz)"
-                                   download="memory-pak-linux.tar.gz">Binary (.tar.gz)</a>
+                                   data-release-match="appimage"
+                                   data-release-label="AppImage"
+                                   data-release-empty-label="AppImage not in release"
+                                   download="Memory-Pak.AppImage">AppImage</a>
+                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                   class="download-badge"
+                                   data-release-match="memory-pak,.deb"
+                                   data-release-label=".deb (Debian/Ubuntu)"
+                                   data-release-empty-label=".deb not in release"
+                                   download="memory-pak.deb">.deb</a>
                                 <span class="download-badge coming-soon">Flatpak coming soon</span>
                             </div>
                         </div>
@@ -176,8 +188,10 @@
                             <img src="img/os-web.png" alt="Web" class="platform-icon">
                             <span class="platform-name">Web</span>
                             <a href="app/"
-                               class="download-badge" 
-                               target="_blank">Launch Web App</a>
+                               class="download-badge"
+                               target="_blank"
+                               rel="noopener noreferrer">Launch web app</a>
+                            <p class="platform-note">Rolling release</p>
                         </div>
                         <div class="download-card" data-platform="ios">
                             <img src="img/os-ios.png" alt="iOS" class="platform-icon">
@@ -193,16 +207,6 @@
                                    data-release-match="android,.apk"
                                    data-release-label="APK">APK</a>
                                 <span class="download-badge coming-soon">F-Droid coming soon</span>
-                            </div>
-                        </div>
-                        <div class="download-card cargo-card" data-platform="cargo">
-                            <img src="img/cargo.png" alt="crates.io" class="platform-icon cargo-icon">
-                            <span class="platform-name">crates.io</span>
-                            <div class="cargo-install">
-                                <code class="cargo-command">cargo install Memory-Pak</code>
-                                <button class="copy-btn" id="cargo-copy-btn">
-                                    <span class="copy-text">Copy</span>
-                                </button>
                             </div>
                         </div>
                     </div>

@@ -248,11 +248,12 @@ jobs:
       - name: Build Tauri bundles
         run: cargo tauri build --bundles ${{ matrix.bundles }}
 
+      # Cargo workspace: release output lives at repo root `target/`, not `src-tauri/target/`.
       - name: Create portable zip (Windows)
         if: matrix.platform == 'windows'
         shell: pwsh
         run: |
-          $release = Join-Path $env:GITHUB_WORKSPACE "src-tauri/target/release"
+          $release = Join-Path $env:GITHUB_WORKSPACE "target/release"
           $out = Join-Path $env:GITHUB_WORKSPACE "Memory-Pak-windows-portable.zip"
           $exe = Join-Path $release "memory-pak.exe"
           if (-not (Test-Path $exe)) { throw "memory-pak.exe not found at $exe" }
@@ -268,8 +269,8 @@ jobs:
         with:
           name: memory-pak-windows
           path: |
-            src-tauri/target/release/bundle/nsis/**
-            src-tauri/target/release/bundle/msi/**
+            target/release/bundle/nsis/**
+            target/release/bundle/msi/**
             Memory-Pak-windows-portable.zip
 
       - name: Upload macOS bundles
@@ -277,7 +278,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: memory-pak-macos
-          path: src-tauri/target/release/bundle/dmg/**
+          path: target/release/bundle/dmg/**
 
       - name: Upload Linux bundles
         if: matrix.platform == 'linux'
@@ -285,5 +286,5 @@ jobs:
         with:
           name: memory-pak-linux
           path: |
-            src-tauri/target/release/bundle/appimage/**
-            src-tauri/target/release/bundle/deb/**
+            target/release/bundle/appimage/**
+            target/release/bundle/deb/**
