@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Check, Download, Heart, Menu, MoreVertical, Star, Upload } from 'lucide-svelte';
+  import { Check, Download, Heart, Menu, MoreVertical, RefreshCw, Star, Upload } from 'lucide-svelte';
   import { fade } from 'svelte/transition';
   import { createEventDispatcher } from 'svelte';
 
@@ -17,6 +17,7 @@
     openNav: void;
     backup: void;
     restore: void;
+    checkUpdates: void;
     toggleMobileMenu: void;
   }>();
 </script>
@@ -34,9 +35,9 @@
     <p>
       {shownCount.toLocaleString()} shown
       <span class="mobile-inline-stats">
-        · {summary.owned.toLocaleString()} owned
+        &middot; {summary.owned.toLocaleString()} owned
         {#if showFavoriteSummary}
-          · {summary.favorite.toLocaleString()} favorite
+          &middot; {summary.favorite.toLocaleString()} favorite
         {/if}
       </span>
       {#if refreshing}<span class="dim"> // syncing</span>{/if}
@@ -71,6 +72,10 @@
     {/if}
   </div>
   <div class="top-actions">
+    <button class="ghost-button" on:click={() => dispatch('checkUpdates')}>
+      <RefreshCw size={18} />
+      <span>Updates</span>
+    </button>
     <button class="ghost-button" on:click={() => dispatch('backup')}>
       <Download size={18} />
       <span>Backup</span>
@@ -93,6 +98,7 @@
 
     {#if mobileMenuOpen}
       <div class="mobile-action-menu" role="menu" transition:fade={dropdownFade}>
+        <button type="button" role="menuitem" on:click={() => dispatch('checkUpdates')}>Updates</button>
         <button type="button" role="menuitem" on:click={() => dispatch('backup')}>Backup</button>
         <button type="button" role="menuitem" on:click={() => dispatch('restore')}>Restore</button>
       </div>

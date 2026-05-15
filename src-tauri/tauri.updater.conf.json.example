@@ -1,0 +1,16 @@
+{
+  "bundle": {
+    "createUpdaterArtifacts": true
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "PASTE_TAURI_UPDATER_PUBLIC_KEY_CONTENT_HERE",
+      "endpoints": [
+        "https://github.com/Aspenini/Memory-Pak/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

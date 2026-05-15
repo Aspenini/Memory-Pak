@@ -3,15 +3,27 @@
   import { fade } from 'svelte/transition';
   import { onMount, tick } from 'svelte';
   import { createBackend } from './lib/backend';
+  import {
+    activeTotalCount,
+    buildGroupConfig,
+    buildQueryInput,
+    buildQueryKey,
+    computeTabCounts,
+    estimatedRowHeight,
+    filters,
+    normalizeSortForTab,
+    notesValueFor as resolveNotesValue,
+    rowMatchesFilter,
+    summaryForActiveTab
+  } from './lib/collectionController';
   import { debounce } from './lib/debounce';
   import { getSortOptions, sortLabel as resolveSortLabel } from './lib/sortOptions';
+  import { createUpdateService, type UpdateService, type UpdateStatus } from './lib/updates';
   import type {
     CollectionStats,
-    EntryState,
     FilterBy,
     InitialState,
     MemoryPakBackend,
-    QueryInput,
     RowView,
     SortKey,
     TabId
@@ -23,6 +35,7 @@
   import Sidebar from './lib/components/Sidebar.svelte';
   import TopBar from './lib/components/TopBar.svelte';
   import Toolbar from './lib/components/Toolbar.svelte';
+  import UpdateBanner from './lib/components/UpdateBanner.svelte';
 
   const tabs = [
     { id: 'consoles' as TabId, label: 'Consoles', mobileLabel: 'Consoles', icon: Monitor },
@@ -35,15 +48,9 @@
     }
   ];
 
-  const filters: Array<{ id: FilterBy; label: string; mobileLabel: string }> = [
-    { id: 'all', label: 'All', mobileLabel: 'All' },
-    { id: 'owned', label: 'Owned', mobileLabel: 'Owned' },
-    { id: 'favorites', label: 'Favorites', mobileLabel: 'Fav' },
-    { id: 'wishlist', label: 'Wishlist', mobileLabel: 'Wish' },
-    { id: 'notOwned', label: 'Not owned', mobileLabel: 'Missing' }
-  ];
-
   let backend: MemoryPakBackend | null = null;
+  let updateService: UpdateService | null = null;
+  let updateStatus: UpdateStatus | null = null;
   let initial: InitialState | null = null;
   let stats: CollectionStats | null = null;
   let rows: RowView[] = [];
@@ -56,6 +63,8 @@
   let selectedCollection = 'all';
   let loading = true;
   let refreshing = false;
+  let checkingUpdate = false;
+  let installingUpdate = false;
   let error = '';
   let navOpen = false;
   let mobileMenuOpen = false;
@@ -84,10 +93,10 @@
     }
   }
 
+  $: sortBy = normalizeSortForTab(activeTab, sortBy);
   $: sortOptions = getSortOptions(activeTab);
-  $: if (!sortOptions.some((option) => option.id === sortBy)) sortBy = sortOptions[0].id;
   $: rowHeight = estimatedRowHeight(activeTab, isMobile, isShort);
-  $: queryKey = JSON.stringify({
+  $: queryKey = buildQueryKey({
     activeTab,
     search,
     filterBy,
@@ -144,6 +153,10 @@
     document.addEventListener('click', closeSelects);
     document.addEventListener('keydown', closeSelectsOnEscape);
 
+    updateService = createUpdateService((status) => {
+      updateStatus = status;
+    });
+    void checkForUpdates(false);
     void initBackend();
 
     return () => {
@@ -175,13 +188,14 @@
     refreshing = true;
 
     try {
-      const input: QueryInput = {
+      const input = buildQueryInput(
+        activeTab,
         search,
         filterBy,
         sortBy,
-        consoleId: activeTab === 'games' ? selectedConsole : undefined,
-        collectionId: activeTab === 'collectibles' ? selectedCollection : undefined
-      };
+        selectedConsole,
+        selectedCollection
+      );
       let nextRows: RowView[];
 
       if (activeTab === 'consoles') {
@@ -271,14 +285,6 @@
     }
   }
 
-  function rowMatchesFilter(state: EntryState, filter: FilterBy): boolean {
-    if (filter === 'all') return true;
-    if (filter === 'owned') return state.owned;
-    if (filter === 'favorites') return state.favorite;
-    if (filter === 'wishlist') return state.wishlist;
-    return !state.owned;
-  }
-
   function onNotesInput(rowId: string, value: string): void {
     pendingNotes = { ...pendingNotes, [rowId]: value };
   }
@@ -322,6 +328,38 @@
     if (backend) await backend.exportJson();
   }
 
+  async function checkForUpdates(manual = true): Promise<void> {
+    mobileMenuOpen = false;
+    if (!updateService) return;
+    checkingUpdate = true;
+    try {
+      updateStatus = await updateService.checkForUpdate({ manual });
+    } finally {
+      checkingUpdate = false;
+    }
+  }
+
+  async function installUpdate(): Promise<void> {
+    if (!updateService) return;
+    installingUpdate = true;
+    try {
+      await updateService.installUpdate();
+    } catch (cause) {
+      updateStatus = {
+        ...(updateStatus ?? { platform: 'web', available: false, canInstallInApp: false }),
+        available: false,
+        error: cause instanceof Error ? cause.message : String(cause)
+      };
+    } finally {
+      installingUpdate = false;
+    }
+  }
+
+  function dismissUpdate(version: string): void {
+    updateService?.dismissUpdate(version);
+    updateStatus = null;
+  }
+
   function openDetails(row: RowView): void {
     if (!isMobile) return;
     mobileMenuOpen = false;
@@ -346,103 +384,6 @@
   function resetFilters(): void {
     onSearchChange('');
     filterBy = 'all';
-  }
-
-  function notesValueFor(row: RowView): string {
-    return pendingNotes[row.id] ?? row.state.notes;
-  }
-
-  function estimatedRowHeight(tab: TabId, mobile: boolean, short: boolean): number {
-    if (mobile && short) return 100;
-    if (mobile) return 118;
-    return tab === 'consoles' ? 208 : 188;
-  }
-
-  type TabSummary = { owned: number; favorite: number; wishlist: number; total: number };
-
-  function summaryForActiveTab(tab: TabId, currentStats: CollectionStats | null): TabSummary {
-    if (!currentStats) return { owned: 0, favorite: 0, wishlist: 0, total: 0 };
-    if (tab === 'consoles') {
-      return {
-        owned: currentStats.ownedConsoles,
-        favorite: currentStats.favoriteConsoles,
-        wishlist: currentStats.wishlistConsoles,
-        total: currentStats.totalConsoles
-      };
-    }
-    if (tab === 'games') {
-      return {
-        owned: currentStats.ownedGames,
-        favorite: currentStats.favoriteGames,
-        wishlist: currentStats.wishlistGames,
-        total: currentStats.totalGames
-      };
-    }
-    return {
-      owned: currentStats.ownedCollectibles,
-      favorite: currentStats.favoriteCollectibles,
-      wishlist: currentStats.wishlistCollectibles,
-      total: currentStats.totalCollectibles
-    };
-  }
-
-  function activeTotalCount(tab: TabId, init: InitialState | null): number {
-    if (!init) return 0;
-    if (tab === 'consoles') return init.consoles.length;
-    if (tab === 'games') return init.totalGames;
-    return init.totalCollectibles;
-  }
-
-  function computeTabCounts(init: InitialState | null): Record<TabId, number> {
-    return {
-      consoles: init?.consoles.length ?? 0,
-      games: init?.totalGames ?? 0,
-      collectibles: init?.totalCollectibles ?? 0
-    };
-  }
-
-  function buildGroupConfig(
-    tab: TabId,
-    init: InitialState | null,
-    consoleId: string,
-    collectionId: string
-  ): {
-    label: string;
-    allLabel: string;
-    items: Array<{ id: string; label: string }>;
-    selected: string;
-    selectedLabel: string;
-  } | null {
-    if (!init) return null;
-    if (tab === 'games') {
-      const items = init.consolesWithGames.map((c) => ({ id: c.id, label: c.name }));
-      const selectedLabel =
-        consoleId === 'all'
-          ? 'All consoles'
-          : (items.find((c) => c.id === consoleId)?.label ?? 'All consoles');
-      return {
-        label: 'Console',
-        allLabel: 'All consoles',
-        items,
-        selected: consoleId,
-        selectedLabel
-      };
-    }
-    if (tab === 'collectibles') {
-      const items = init.collections.map((c) => ({ id: c.id, label: c.name }));
-      const selectedLabel =
-        collectionId === 'all'
-          ? 'All collections'
-          : (items.find((c) => c.id === collectionId)?.label ?? 'All collections');
-      return {
-        label: 'Collection',
-        allLabel: 'All collections',
-        items,
-        selected: collectionId,
-        selectedLabel
-      };
-    }
-    return null;
   }
 </script>
 
@@ -488,6 +429,7 @@
         on:openNav={() => (navOpen = true)}
         on:backup={backupCollection}
         on:restore={restoreCollection}
+        on:checkUpdates={() => checkForUpdates(true)}
         on:toggleMobileMenu={toggleMobileMenu}
       />
 
@@ -553,12 +495,21 @@
     {#if detailRow}
       <DetailSheet
         row={detailRow}
-        notesValue={notesValueFor(detailRow)}
+        notesValue={resolveNotesValue(detailRow, pendingNotes)}
         on:close={() => closeDetails()}
         on:save={saveDetails}
         on:toggle={(event) => toggleStatus(event.detail.row, event.detail.field)}
         on:notesInput={(event) => onNotesInput(event.detail.rowId, event.detail.value)}
       />
     {/if}
+
+    <UpdateBanner
+      status={updateStatus}
+      checking={checkingUpdate}
+      installing={installingUpdate}
+      on:check={() => checkForUpdates(true)}
+      on:install={installUpdate}
+      on:dismiss={(event) => dismissUpdate(event.detail)}
+    />
   </div>
 {/if}

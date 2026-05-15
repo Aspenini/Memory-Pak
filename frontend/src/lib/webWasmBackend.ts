@@ -30,7 +30,7 @@ interface WasmInstance {
 }
 
 export async function createWebWasmBackend(): Promise<MemoryPakBackend> {
-  const module = await import('../wasm/memory_pak_wasm.js');
+  const module = await import('@wasm/memory_pak_wasm.js');
   await module.default();
   const persisted = await loadPersistedState();
   const app = new module.WasmMemoryPak(JSON.stringify(persisted)) as WasmInstance;

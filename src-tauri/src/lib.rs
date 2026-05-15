@@ -8,10 +8,24 @@ use memory_pak_core::{
 };
 use parking_lot::RwLock;
 use persistence::{load_persisted_state, save_persisted_state};
+use serde::Serialize;
 use tauri::State;
 
 struct AppState {
     app: RwLock<MemoryPakApp>,
+}
+
+const ANDROID_STORE_URL: &str =
+    "https://play.google.com/store/apps/details?id=com.Aspenini.MemoryPak";
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct AndroidUpdateStatus {
+    available: bool,
+    version: Option<String>,
+    notes: Option<String>,
+    can_install_in_app: bool,
+    external_url: String,
 }
 
 #[tauri::command]
@@ -93,6 +107,27 @@ fn export_to_path(path: String, state: State<'_, AppState>) -> Result<(), String
     std::fs::write(PathBuf::from(path), json).map_err(|err| err.to_string())
 }
 
+#[tauri::command]
+fn android_check_store_update() -> AndroidUpdateStatus {
+    AndroidUpdateStatus {
+        available: false,
+        version: None,
+        notes: Some("Google Play checks for store updates on Android.".to_string()),
+        can_install_in_app: false,
+        external_url: ANDROID_STORE_URL.to_string(),
+    }
+}
+
+#[tauri::command]
+fn android_start_store_update() -> AndroidUpdateStatus {
+    android_check_store_update()
+}
+
+#[tauri::command]
+fn android_open_update_target() -> String {
+    ANDROID_STORE_URL.to_string()
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     let state = load_persisted_state().unwrap_or_default();
@@ -103,6 +138,22 @@ pub fn run() {
             app: RwLock::new(app),
         })
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_process::init())
+        .setup(|_app| {
+            #[cfg(desktop)]
+            if _app
+                .config()
+                .plugins
+                .0
+                .get("updater")
+                .is_some_and(|config| !config.is_null())
+            {
+                _app.handle()
+                    .plugin(tauri_plugin_updater::Builder::new().build())?;
+            }
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             load_initial_state,
             query_consoles,
@@ -114,7 +165,10 @@ pub fn run() {
             export_json,
             get_collection_stats,
             import_from_path,
-            export_to_path
+            export_to_path,
+            android_check_store_update,
+            android_start_store_update,
+            android_open_update_target
         ])
         .run(tauri::generate_context!())
         .expect("error while running Memory Pak");

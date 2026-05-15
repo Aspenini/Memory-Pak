@@ -29,7 +29,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@1.94.0
         with:
           targets: wasm32-unknown-unknown
 
@@ -41,7 +41,7 @@ jobs:
       - name: Install wasm-pack
         uses: jetli/wasm-pack-action@v0.4.0
         with:
-          version: 'latest'
+          version: '0.14.0'
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -52,7 +52,7 @@ jobs:
         run: bun install --cwd frontend --frozen-lockfile
 
       - name: Build PWA
-        run: bun run frontend:build
+        run: bun run build:web
 
       - name: Copy web app into site
         run: |

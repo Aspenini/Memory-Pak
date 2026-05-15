@@ -7,6 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 const host = process.env.TAURI_DEV_HOST;
 const isTauriBuild = Boolean(process.env.TAURI_ENV_PLATFORM);
 
+const GENERATED_WASM_DIR = resolve(__dirname, 'generated/wasm');
 const ICONS_DIR = resolve(__dirname, '../icons/web');
 const ICON_URL_PREFIXES = ['/icons', '/app/icons', '/Memory-Pak/app/icons'];
 
@@ -52,8 +53,8 @@ function sharedIconsPlugin(): Plugin {
 const pwa = VitePWA({
   // Tauri ships its own webview shell -- never inject a SW into the desktop build.
   disable: isTauriBuild,
-  registerType: 'autoUpdate',
-  injectRegister: 'auto',
+  registerType: 'prompt',
+  injectRegister: null,
   includeAssets: ['icons/favicon.ico', 'icons/apple-touch-icon.png'],
   manifest: {
     name: 'Memory Pak',
@@ -115,6 +116,11 @@ export default defineConfig({
   clearScreen: false,
   base: './',
   envPrefix: ['VITE_', 'TAURI_ENV_*'],
+  resolve: {
+    alias: {
+      '@wasm': GENERATED_WASM_DIR
+    }
+  },
   // lucide-svelte ships .svelte sources; esbuild (optimizeDeps) has no Svelte loader.
   optimizeDeps: {
     exclude: ['lucide-svelte']

@@ -9,8 +9,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@wasm/*": ["./generated/wasm/*"]
+    }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte"],
-  "exclude": ["src/wasm/*.js"]
+  "exclude": ["generated/wasm/*.js"]
 }

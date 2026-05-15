@@ -8,12 +8,15 @@
 /frontend/node_modules
 /frontend/playwright-report
 /frontend/test-results
-/frontend/src/wasm/*
-!/frontend/src/wasm/.gitkeep
+/frontend/generated
+/frontend/src/wasm
 /site/app
 
 # Tauri generated files (output of tauri-build)
-/src-tauri/gen
+/src-tauri/gen/schemas
+/src-tauri/gen/android/.gradle
+/src-tauri/gen/android/build
+/src-tauri/gen/android/app/build
 /src-tauri/target
 
 # Android / signing artifacts
