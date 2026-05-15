@@ -1,0 +1,27 @@
+name: Setup wasm-pack
+description: Install a pinned wasm-pack version without relying on release asset download actions.
+inputs:
+  version:
+    description: wasm-pack version to install.
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Install wasm-pack
+      shell: pwsh
+      run: |
+        $ErrorActionPreference = "Stop"
+
+        $version = "${{ inputs.version }}"
+        "$HOME/.cargo/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+        if (Get-Command wasm-pack -ErrorAction SilentlyContinue) {
+          $currentVersion = (& wasm-pack --version).Trim()
+          if ($currentVersion -eq "wasm-pack $version") {
+            wasm-pack --version
+            exit 0
+          }
+        }
+
+        cargo install wasm-pack --version $version --locked --force
+        wasm-pack --version
