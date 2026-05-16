@@ -58,6 +58,9 @@ bun run build:web          # production PWA build
 bun run build:desktop      # desktop integration build without installers
 bun run build:android      # Android package build
 bun run package:desktop    # desktop installer/package build
+bun run package:win        # Windows NSIS/MSI bundles
+bun run package:mac        # macOS DMG bundle
+bun run package:linux      # Linux AppImage/deb bundles
 bun run check:fast         # fmt + clippy + Rust tests + WASM + frontend checks/build
 bun run check:ci           # check:fast + Playwright + desktop smoke build
 ```
@@ -66,16 +69,16 @@ Icons under `icons/web/` are the canonical PWA icon source. Vite serves them und
 
 Generated WASM bindings are written to `frontend/generated/wasm/` and ignored by git. Frontend check/build/dev scripts generate them before TypeScript or Vite runs.
 
+Frontend-only scripts live in `frontend/package.json`; run them directly with `bun run --cwd frontend <script>` when needed.
+
 Tauri mobile entrypoints are scaffolded through the standard Tauri CLI:
 
 ```bash
 bun run android:init
-bun run android:dev
-bun run android:build
+bun run dev:android
+bun run build:android
 
 bun run ios:init
-bun run ios:dev
-bun run ios:build
 ```
 
 ## User Data Storage

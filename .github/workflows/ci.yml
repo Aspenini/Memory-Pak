@@ -57,9 +57,9 @@ jobs:
         with:
           bun-version: ${{ env.BUN_VERSION }}
       - run: bun install --cwd frontend --frozen-lockfile
-      - run: bun run frontend:test
-      - run: bun run frontend:check
-      - run: bun run frontend:build
+      - run: bun run --cwd frontend test
+      - run: bun run --cwd frontend check
+      - run: bun run --cwd frontend build
 
   e2e:
     name: Playwright e2e
@@ -89,7 +89,7 @@ jobs:
       - name: Install Playwright browsers
         working-directory: frontend
         run: bunx playwright install --with-deps chromium
-      - run: bun run frontend:e2e
+      - run: bun run --cwd frontend e2e
 
   desktop-smoke:
     name: Desktop smoke (${{ matrix.platform }})
