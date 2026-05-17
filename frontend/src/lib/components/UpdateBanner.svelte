@@ -1,5 +1,6 @@
 <script lang="ts">
   import AlertCircle from 'lucide-svelte/icons/alert-circle';
+  import CircleCheck from 'lucide-svelte/icons/circle-check';
   import Download from 'lucide-svelte/icons/download';
   import ExternalLink from 'lucide-svelte/icons/external-link';
   import RefreshCw from 'lucide-svelte/icons/refresh-cw';
@@ -18,7 +19,7 @@
     install: void;
   }>();
 
-  $: visible = Boolean(status?.available || status?.error || checking || installing);
+  $: visible = Boolean(status?.available || status?.checked || status?.error || checking || installing);
   $: version = status?.version ?? 'latest';
   $: actionLabel =
     status?.platform === 'web'
@@ -53,6 +54,12 @@
           <strong>Installing update</strong>
           <span>This may take a moment</span>
         </div>
+      {:else if status?.checked}
+        <CircleCheck size={18} />
+        <div>
+          <strong>No update available</strong>
+          <span>{status.notes ?? 'Memory Pak is up to date'}</span>
+        </div>
       {:else}
         <Download size={18} />
         <div>
@@ -85,7 +92,7 @@
           <RefreshCw size={16} />
           <span>Check</span>
         </button>
-        {#if status?.error}
+        {#if status?.error || status?.checked}
           <button
             class="icon-button"
             aria-label="Dismiss update message"

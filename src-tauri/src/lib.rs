@@ -204,6 +204,24 @@ fn runtime_platform() -> &'static str {
     }
 }
 
+#[tauri::command]
+fn desktop_updater_available(_app_handle: AppHandle<Wry>) -> bool {
+    #[cfg(desktop)]
+    {
+        _app_handle
+            .config()
+            .plugins
+            .0
+            .get("updater")
+            .is_some_and(|config| !config.is_null())
+    }
+
+    #[cfg(not(desktop))]
+    {
+        false
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -245,7 +263,8 @@ pub fn run() {
             android_check_store_update,
             android_start_store_update,
             android_open_update_target,
-            runtime_platform
+            runtime_platform,
+            desktop_updater_available
         ])
         .run(tauri::generate_context!())
         .expect("error while running Memory Pak");

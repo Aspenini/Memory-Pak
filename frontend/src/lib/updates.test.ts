@@ -8,6 +8,7 @@ function adapters(overrides: Partial<UpdateServiceAdapters> = {}): UpdateService
     isTauri: () => false,
     isAndroid: () => false,
     runtimePlatform: vi.fn(async () => null),
+    desktopUpdaterAvailable: vi.fn(async () => true),
     desktopCheck: vi.fn(async () => null),
     relaunch: vi.fn(async () => undefined),
     invoke,
@@ -48,6 +49,24 @@ describe('update service', () => {
     expect(relaunch).toHaveBeenCalledOnce();
   });
 
+  it('reports updater-disabled desktop builds without surfacing plugin errors', async () => {
+    const service = createUpdateService(undefined, adapters({
+      isTauri: () => true,
+      desktopUpdaterAvailable: vi.fn(async () => false),
+      desktopCheck: vi.fn(async () => {
+        throw new Error('plugin updater not found');
+      })
+    }));
+
+    const status = await service.checkForUpdate({ manual: true });
+    expect(status).toMatchObject({
+      platform: 'desktop',
+      available: false,
+      checked: true
+    });
+    expect(status.error).toBeUndefined();
+  });
+
   it('suppresses dismissed non-manual updates', async () => {
     const fake = adapters({
       isTauri: () => true,
@@ -86,6 +105,22 @@ describe('update service', () => {
       platform: 'web',
       available: true,
       canInstallInApp: true
+    });
+  });
+
+  it('keeps manual web no-update checks visible', async () => {
+    const service = createUpdateService(undefined, adapters({
+      registerWebUpdater: vi.fn(async () => ({
+        update: vi.fn(async () => undefined),
+        check: vi.fn(async () => undefined)
+      }))
+    }));
+
+    await expect(service.checkForUpdate({ manual: true })).resolves.toMatchObject({
+      platform: 'web',
+      available: false,
+      checked: true,
+      notes: 'Memory Pak is up to date.'
     });
   });
 

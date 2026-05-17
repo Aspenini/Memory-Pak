@@ -5,6 +5,7 @@ export type UpdatePlatform = 'desktop' | 'android' | 'web';
 export interface UpdateStatus {
   platform: UpdatePlatform;
   available: boolean;
+  checked?: boolean;
   version?: string;
   notes?: string;
   canInstallInApp: boolean;
@@ -35,6 +36,7 @@ export interface UpdateServiceAdapters {
   isTauri(): boolean;
   isAndroid(): boolean;
   runtimePlatform(): Promise<UpdatePlatform | null>;
+  desktopUpdaterAvailable(): Promise<boolean>;
   desktopCheck(): Promise<DesktopUpdate | null>;
   relaunch(): Promise<void>;
   invoke<T>(command: string): Promise<T>;
@@ -81,9 +83,22 @@ export function createUpdateService(
       resolvedPlatform = platform;
       try {
         if (platform === 'desktop') {
+          if (!(await adapters.desktopUpdaterAvailable())) {
+            return publish(
+              checkedStatus(
+                'desktop',
+                manual,
+                'Desktop update checks are enabled only in signed updater builds.'
+              ),
+              manual
+            );
+          }
           pendingDesktopUpdate = await adapters.desktopCheck();
           if (!pendingDesktopUpdate) {
-            return publish(baseStatus('desktop'), manual);
+            return publish(
+              checkedStatus('desktop', manual, 'Memory Pak is up to date.', true),
+              manual
+            );
           }
           return publish(
             {
@@ -132,13 +147,28 @@ export function createUpdateService(
           {
             platform: 'web',
             available: webUpdateReady,
+            checked: manual && !webUpdateReady,
             version: webUpdateReady ? 'web' : undefined,
-            notes: webUpdateReady ? 'A new web build is ready.' : undefined,
+            notes: webUpdateReady
+              ? 'A new web build is ready.'
+              : webUpdate
+                ? 'Memory Pak is up to date.'
+                : 'Web updates are handled by the browser cache.',
             canInstallInApp: Boolean(webUpdate)
           },
           manual
         );
       } catch (cause) {
+        if (platform === 'desktop' && isUpdaterPluginMissing(cause)) {
+          return publish(
+            checkedStatus(
+              'desktop',
+              manual,
+              'Desktop update checks are enabled only in signed updater builds.'
+            ),
+            manual
+          );
+        }
         if (!manual) {
           return publish(baseStatus(platform), manual);
         }
@@ -196,6 +226,26 @@ function baseStatus(platform: UpdatePlatform): UpdateStatus {
   return { platform, available: false, canInstallInApp: false };
 }
 
+function checkedStatus(
+  platform: UpdatePlatform,
+  manual: boolean,
+  notes: string,
+  canInstallInApp = false
+): UpdateStatus {
+  return {
+    platform,
+    available: false,
+    checked: manual,
+    notes,
+    canInstallInApp
+  };
+}
+
+function isUpdaterPluginMissing(cause: unknown): boolean {
+  const message = cause instanceof Error ? cause.message : String(cause);
+  return /plugin updater not found/i.test(message);
+}
+
 async function resolvePlatform(
   adapters: UpdateServiceAdapters,
   current: UpdatePlatform | null
@@ -214,6 +264,10 @@ function defaultAdapters(): UpdateServiceAdapters {
     runtimePlatform: async () => {
       const platform = await invoke<string>('runtime_platform');
       return platform === 'android' || platform === 'desktop' ? platform : null;
+    },
+    desktopUpdaterAvailable: async () => {
+      if (typeof window === 'undefined' || !window.__TAURI_INTERNALS__) return false;
+      return invoke<boolean>('desktop_updater_available').catch(() => false);
     },
     desktopCheck: async () => {
       const { check } = await import('@tauri-apps/plugin-updater');

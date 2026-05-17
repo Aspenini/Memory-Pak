@@ -83,7 +83,7 @@ bun run ios:init
 
 ## User Data Storage
 
-- **Desktop / mobile**: a single `state.json` under the OS data directory (`ProjectDirs::data_dir()/state.json`), written atomically via a temp file + rename.
+- **Desktop / mobile**: a single `state.json` under Tauri's app data directory, written atomically via a temp file + rename. Older desktop data under the previous `ProjectDirs` path is migrated on first load.
 - **Web / PWA**: a single IndexedDB record in the `memory-pak` database, written debounced to coalesce rapid toggles.
 
 ## Releases and Updates
@@ -98,7 +98,7 @@ TAURI_SIGNING_PRIVATE_KEY_PASSWORD   # optional if your key has no password
 TAURI_UPDATER_PUBKEY
 ```
 
-The generated `latest.json` is intended to be attached to the same GitHub release as the bundles. Linux auto-update targets AppImage installs; `.deb` remains a manual installer. The web app prompts when the PWA service worker sees a newer build. Android uses Google Play's in-app update flow when installed from a Play track and falls back to the store listing otherwise.
+The generated `latest.json` is intended to be attached to the same GitHub release as the bundles. Linux auto-update targets AppImage installs; `.deb` remains a manual installer. Desktop update checks are available only in signed updater-enabled bundles, not ordinary dev builds. The web app prompts when the PWA service worker sees a newer build. Android updates are handled by the app store outside Memory Pak.
 
 ## Export Format
 
