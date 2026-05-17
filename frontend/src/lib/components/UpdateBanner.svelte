@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { AlertCircle, Download, ExternalLink, RefreshCw, X } from 'lucide-svelte';
+  import AlertCircle from 'lucide-svelte/icons/alert-circle';
+  import Download from 'lucide-svelte/icons/download';
+  import ExternalLink from 'lucide-svelte/icons/external-link';
+  import RefreshCw from 'lucide-svelte/icons/refresh-cw';
+  import X from 'lucide-svelte/icons/x';
   import { fade } from 'svelte/transition';
   import { createEventDispatcher } from 'svelte';
   import type { UpdateStatus } from '../updates';

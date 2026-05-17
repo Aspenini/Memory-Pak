@@ -22,6 +22,37 @@ async function isInViewport(locator: Locator, w: number, h: number): Promise<boo
   return box.x >= 0 && box.y >= 0 && box.x + box.width <= w && box.y + box.height <= h;
 }
 
+async function shellFrame(page: Page): Promise<Record<string, { x: number; y: number; width: number; height: number }>> {
+  return page.evaluate(() => {
+    const frameFor = (selector: string) => {
+      const rect = document.querySelector(selector)?.getBoundingClientRect();
+      if (!rect) throw new Error(`${selector} not found`);
+      return { x: rect.x, y: rect.y, width: rect.width, height: rect.height };
+    };
+    return {
+      topbar: frameFor('.topbar'),
+      toolbar: frameFor('.toolbar'),
+      viewport: frameFor('.list-viewport')
+    };
+  });
+}
+
+async function expectNoHorizontalOverflow(locator: Locator): Promise<void> {
+  const overflow = await locator.evaluate((element) => element.scrollWidth - element.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
+}
+
+function expectStableFrame(
+  expected: Record<string, { x: number; y: number; width: number; height: number }>,
+  actual: Record<string, { x: number; y: number; width: number; height: number }>
+): void {
+  for (const region of Object.keys(expected)) {
+    for (const key of ['x', 'y', 'width', 'height'] as const) {
+      expect(Math.abs(actual[region][key] - expected[region][key])).toBeLessThanOrEqual(1);
+    }
+  }
+}
+
 test('renders primary collection tabs', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Consoles' })).toBeVisible();
@@ -36,3 +67,31 @@ test('filters games without losing the app shell', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Games' })).toBeVisible();
 });
 
+test('keeps the desktop shell stable while filtering and sorting', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop');
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Consoles' })).toBeVisible();
+  await page.waitForTimeout(250);
+  await expect(page.locator('.sidebar-actions')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Updates' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Backup' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Restore' })).toBeVisible();
+  await expectNoHorizontalOverflow(page.locator('.topbar'));
+  for (const action of await page.locator('.sidebar-actions button').all()) {
+    await expectNoHorizontalOverflow(action);
+  }
+
+  const initial = await shellFrame(page);
+  await page.getByRole('tab', { name: 'Owned', exact: true }).click();
+  await page.waitForTimeout(300);
+  expectStableFrame(initial, await shellFrame(page));
+
+  await page.getByRole('button', { name: /Sort/ }).click();
+  await page.getByRole('option', { name: 'Status' }).click();
+  await page.waitForTimeout(300);
+  expectStableFrame(initial, await shellFrame(page));
+
+  await clickInViewportGames(page);
+  await page.waitForTimeout(300);
+  expectStableFrame(initial, await shellFrame(page));
+});

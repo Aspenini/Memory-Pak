@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { X } from 'lucide-svelte';
+  import X from 'lucide-svelte/icons/x';
   import { fade, fly } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
   import { createEventDispatcher } from 'svelte';

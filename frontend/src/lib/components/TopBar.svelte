@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { Check, Download, Heart, Menu, MoreVertical, RefreshCw, Star, Upload } from 'lucide-svelte';
+  import Check from 'lucide-svelte/icons/check';
+  import Heart from 'lucide-svelte/icons/heart';
+  import Menu from 'lucide-svelte/icons/menu';
+  import MoreVertical from 'lucide-svelte/icons/more-vertical';
+  import Star from 'lucide-svelte/icons/star';
   import { fade } from 'svelte/transition';
   import { createEventDispatcher } from 'svelte';
 
@@ -40,7 +44,7 @@
           &middot; {summary.favorite.toLocaleString()} favorite
         {/if}
       </span>
-      {#if refreshing}<span class="dim"> // syncing</span>{/if}
+      <span class:visible={refreshing} class="sync-status"> // syncing</span>
     </p>
     <div
       class="ownership-meter"
@@ -70,20 +74,6 @@
         <span>wishlist</span>
       </div>
     {/if}
-  </div>
-  <div class="top-actions">
-    <button class="ghost-button" on:click={() => dispatch('checkUpdates')}>
-      <RefreshCw size={18} />
-      <span>Updates</span>
-    </button>
-    <button class="ghost-button" on:click={() => dispatch('backup')}>
-      <Download size={18} />
-      <span>Backup</span>
-    </button>
-    <button class="ghost-button" on:click={() => dispatch('restore')}>
-      <Upload size={18} />
-      <span>Restore</span>
-    </button>
   </div>
   <div class="mobile-menu-wrap">
     <button

@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "bun run wasm:build && vite",
     "dev:tauri": "bun run wasm:build && vite --host 0.0.0.0",
+    "dev:android": "bun run wasm:build && vite build --mode development && vite preview --host 0.0.0.0 --port 5173 --strictPort",
     "dev:e2e": "bun run wasm:build && vite --host 127.0.0.1",
     "build": "bun run wasm:build && svelte-check --tsconfig ./tsconfig.json && vite build",
     "preview": "vite preview",

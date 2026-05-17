@@ -3,6 +3,7 @@
   "identifier": "default",
   "description": "Main window permissions for Memory Pak.",
   "windows": ["main"],
+  "platforms": ["macOS", "windows", "linux"],
   "permissions": [
     "core:default",
     "dialog:allow-open",

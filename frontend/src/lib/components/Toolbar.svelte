@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { ChevronDown, Search, X } from 'lucide-svelte';
+  import ChevronDown from 'lucide-svelte/icons/chevron-down';
+  import Search from 'lucide-svelte/icons/search';
+  import X from 'lucide-svelte/icons/x';
   import { fade } from 'svelte/transition';
   import { createEventDispatcher, tick } from 'svelte';
   import type { FilterBy, SortKey } from '../types';

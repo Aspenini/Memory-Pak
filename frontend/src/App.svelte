@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { Database, Gamepad2, Monitor, Package, X } from 'lucide-svelte';
+  import Database from 'lucide-svelte/icons/database';
+  import Gamepad2 from 'lucide-svelte/icons/gamepad-2';
+  import Monitor from 'lucide-svelte/icons/monitor';
+  import Package from 'lucide-svelte/icons/package';
+  import X from 'lucide-svelte/icons/x';
   import { fade } from 'svelte/transition';
   import { onMount, tick } from 'svelte';
   import { createBackend } from './lib/backend';
@@ -55,6 +59,7 @@
   let stats: CollectionStats | null = null;
   let rows: RowView[] = [];
   let activeTab: TabId = 'consoles';
+  let renderedTab: TabId = 'consoles';
   let searchInput = '';
   let search = '';
   let filterBy: FilterBy = 'all';
@@ -93,9 +98,12 @@
     }
   }
 
-  $: sortBy = normalizeSortForTab(activeTab, sortBy);
+  $: {
+    const normalizedSort = normalizeSortForTab(activeTab, sortBy);
+    if (sortBy !== normalizedSort) sortBy = normalizedSort;
+  }
   $: sortOptions = getSortOptions(activeTab);
-  $: rowHeight = estimatedRowHeight(activeTab, isMobile, isShort);
+  $: rowHeight = estimatedRowHeight(renderedTab, isMobile, isShort);
   $: queryKey = buildQueryKey({
     activeTab,
     search,
@@ -104,7 +112,7 @@
     selectedConsole,
     selectedCollection
   });
-  $: if (backend && initial && queryKey) {
+  $: if (!loading && backend && initial && queryKey) {
     void refreshRows();
   }
 
@@ -173,51 +181,61 @@
       backend = await createBackend();
       initial = await backend.loadInitialState();
       stats = initial.stats;
+      await refreshRows({ force: true });
       loading = false;
-      await refreshRows();
     } catch (cause) {
       error = cause instanceof Error ? cause.message : String(cause);
       loading = false;
     }
   }
 
-  async function refreshRows(options: { preserveScroll?: boolean } = {}): Promise<void> {
+  async function refreshRows(options: { preserveScroll?: boolean; force?: boolean } = {}): Promise<void> {
     if (!backend) return;
+    const requested = {
+      activeTab,
+      search,
+      filterBy,
+      sortBy,
+      selectedConsole,
+      selectedCollection
+    };
+    const requestedQueryKey = buildQueryKey(requested);
+    if (!options.force && requestedQueryKey === lastQueryKey) return;
+
     const serial = ++refreshSerial;
-    const scrollTop = options.preserveScroll ? scrollElement?.scrollTop : undefined;
-    refreshing = true;
+    const tabChanged = requested.activeTab !== renderedTab;
+    const scrollTop = options.preserveScroll || !tabChanged ? scrollElement?.scrollTop : undefined;
+    if (!loading) refreshing = true;
+    if (tabChanged && scrollElement) scrollElement.scrollTo({ top: 0 });
 
     try {
       const input = buildQueryInput(
-        activeTab,
-        search,
-        filterBy,
-        sortBy,
-        selectedConsole,
-        selectedCollection
+        requested.activeTab,
+        requested.search,
+        requested.filterBy,
+        requested.sortBy,
+        requested.selectedConsole,
+        requested.selectedCollection
       );
       let nextRows: RowView[];
 
-      if (activeTab === 'consoles') {
+      if (requested.activeTab === 'consoles') {
         nextRows = (await backend.queryConsoles(input)).items;
-      } else if (activeTab === 'games') {
+      } else if (requested.activeTab === 'games') {
         nextRows = (await backend.queryGames(input)).items;
       } else {
         nextRows = (await backend.queryCollectibles(input)).items;
       }
 
       if (serial !== refreshSerial) return;
+      renderedTab = requested.activeTab;
       rows = nextRows;
       rowCount = nextRows.length;
       pendingNotes = {};
-      const queryChanged = queryKey !== lastQueryKey;
-      if (queryChanged) lastQueryKey = queryKey;
-      if (options.preserveScroll && scrollTop !== undefined) {
+      lastQueryKey = requestedQueryKey;
+      if (scrollTop !== undefined) {
         await tick();
         scrollElement?.scrollTo({ top: scrollTop });
-      } else if (queryChanged) {
-        await tick();
-        scrollElement?.scrollTo({ top: 0 });
       }
     } catch (cause) {
       error = cause instanceof Error ? cause.message : String(cause);
@@ -275,7 +293,7 @@
       rows = rows;
       if (detailRow?.id === row.id) detailRow = row;
       if (filterBy !== 'all' && !rowMatchesFilter(result.state, filterBy)) {
-        await refreshRows({ preserveScroll: true });
+        await refreshRows({ preserveScroll: true, force: true });
       }
     } catch (cause) {
       row.state[field] = !next;
@@ -316,7 +334,7 @@
     const importedStats = await backend.importFromFile();
     if (!importedStats) return;
     stats = importedStats;
-    await refreshRows();
+    await refreshRows({ force: true });
   }
 
   async function backupCollection(): Promise<void> {
@@ -405,6 +423,9 @@
       counts={tabCounts}
       version="0.3"
       open={navOpen}
+      on:backup={backupCollection}
+      on:restore={restoreCollection}
+      on:checkUpdates={() => checkForUpdates(true)}
       on:select={(event) => setTab(event.detail)}
     />
 
@@ -462,7 +483,7 @@
         {rowCount}
         {rowHeight}
         {isMobile}
-        {activeTab}
+        activeTab={renderedTab}
         {filterBy}
         searchValue={searchInput}
         {pendingNotes}

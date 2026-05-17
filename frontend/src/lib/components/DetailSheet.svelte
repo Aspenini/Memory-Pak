@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { Check, Heart, Star, X } from 'lucide-svelte';
+  import Check from 'lucide-svelte/icons/check';
+  import Heart from 'lucide-svelte/icons/heart';
+  import Star from 'lucide-svelte/icons/star';
+  import X from 'lucide-svelte/icons/x';
   import { fade, fly } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
   import { createEventDispatcher } from 'svelte';

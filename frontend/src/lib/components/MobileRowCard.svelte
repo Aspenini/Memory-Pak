@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { Check, Heart, Star } from 'lucide-svelte';
+  import Check from 'lucide-svelte/icons/check';
+  import Heart from 'lucide-svelte/icons/heart';
+  import Star from 'lucide-svelte/icons/star';
   import { createEventDispatcher } from 'svelte';
   import type { RowView } from '../types';
   import { rowMobileMeta, rowMobileSubtitle, rowTitle } from '../rowFormat';

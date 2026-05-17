@@ -7,6 +7,7 @@ function adapters(overrides: Partial<UpdateServiceAdapters> = {}): UpdateService
   return {
     isTauri: () => false,
     isAndroid: () => false,
+    runtimePlatform: vi.fn(async () => null),
     desktopCheck: vi.fn(async () => null),
     relaunch: vi.fn(async () => undefined),
     invoke,
@@ -118,5 +119,32 @@ describe('update service', () => {
     expect(invokeCalls).toContain('android_open_update_target');
     expect(invokeCalls).toContain('android_start_store_update');
     expect(openExternal).toHaveBeenCalledWith(storeUrl);
+  });
+
+  it('uses the native runtime platform when the Android user agent is missing', async () => {
+    const invokeCalls: string[] = [];
+    const storeUrl = 'https://play.google.com/store/apps/details?id=com.Aspenini.MemoryPak';
+    const service = createUpdateService(undefined, adapters({
+      isTauri: () => true,
+      isAndroid: () => false,
+      runtimePlatform: vi.fn(async () => 'android' as const),
+      desktopCheck: vi.fn(async () => {
+        throw new Error('desktop updater should not run on Android');
+      }),
+      invoke: async <T>(command: string) => {
+        invokeCalls.push(command);
+        return {
+          available: false,
+          canInstallInApp: false,
+          externalUrl: storeUrl
+        } as T;
+      }
+    }));
+
+    await expect(service.checkForUpdate({ manual: true })).resolves.toMatchObject({
+      platform: 'android',
+      externalUrl: storeUrl
+    });
+    expect(invokeCalls).toEqual(['android_check_store_update']);
   });
 });

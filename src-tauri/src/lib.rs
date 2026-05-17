@@ -128,6 +128,19 @@ fn android_open_update_target() -> String {
     ANDROID_STORE_URL.to_string()
 }
 
+#[tauri::command]
+fn runtime_platform() -> &'static str {
+    #[cfg(target_os = "android")]
+    {
+        "android"
+    }
+
+    #[cfg(not(target_os = "android"))]
+    {
+        "desktop"
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     let state = load_persisted_state().unwrap_or_default();
@@ -168,7 +181,8 @@ pub fn run() {
             export_to_path,
             android_check_store_update,
             android_start_store_update,
-            android_open_update_target
+            android_open_update_target,
+            runtime_platform
         ])
         .run(tauri::generate_context!())
         .expect("error while running Memory Pak");

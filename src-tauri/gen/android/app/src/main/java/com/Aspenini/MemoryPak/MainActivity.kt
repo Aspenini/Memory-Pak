@@ -1,6 +1,7 @@
 package com.Aspenini.MemoryPak
 
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.snackbar.Snackbar
@@ -26,6 +27,9 @@ class MainActivity : TauriActivity() {
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
+    if (BuildConfig.DEBUG) {
+      WebView.setWebContentsDebuggingEnabled(true)
+    }
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
     appUpdateManager = AppUpdateManagerFactory.create(this)

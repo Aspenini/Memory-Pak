@@ -34,6 +34,7 @@ interface DesktopUpdate {
 export interface UpdateServiceAdapters {
   isTauri(): boolean;
   isAndroid(): boolean;
+  runtimePlatform(): Promise<UpdatePlatform | null>;
   desktopCheck(): Promise<DesktopUpdate | null>;
   relaunch(): Promise<void>;
   invoke<T>(command: string): Promise<T>;
@@ -61,7 +62,7 @@ export function createUpdateService(
   onStatus?: (status: UpdateStatus) => void,
   adapters: UpdateServiceAdapters = defaultAdapters()
 ): UpdateService {
-  const platform = resolvePlatform(adapters);
+  let resolvedPlatform: UpdatePlatform | null = null;
   let pendingDesktopUpdate: DesktopUpdate | null = null;
   let webUpdate: WebUpdateHandle | null = null;
   let webUpdateReady = false;
@@ -76,6 +77,8 @@ export function createUpdateService(
   const service: UpdateService = {
     async checkForUpdate(options: CheckForUpdateOptions = {}) {
       const manual = Boolean(options.manual);
+      const platform = await resolvePlatform(adapters, resolvedPlatform);
+      resolvedPlatform = platform;
       try {
         if (platform === 'desktop') {
           pendingDesktopUpdate = await adapters.desktopCheck();
@@ -150,6 +153,9 @@ export function createUpdateService(
     },
 
     async installUpdate() {
+      const platform = await resolvePlatform(adapters, resolvedPlatform);
+      resolvedPlatform = platform;
+
       if (platform === 'desktop') {
         if (!pendingDesktopUpdate) {
           pendingDesktopUpdate = await adapters.desktopCheck();
@@ -184,9 +190,14 @@ function baseStatus(platform: UpdatePlatform): UpdateStatus {
   return { platform, available: false, canInstallInApp: false };
 }
 
-function resolvePlatform(adapters: UpdateServiceAdapters): UpdatePlatform {
+async function resolvePlatform(
+  adapters: UpdateServiceAdapters,
+  current: UpdatePlatform | null
+): Promise<UpdatePlatform> {
+  if (current) return current;
   if (!adapters.isTauri()) return 'web';
-  return adapters.isAndroid() ? 'android' : 'desktop';
+  if (adapters.isAndroid()) return 'android';
+  return (await adapters.runtimePlatform().catch(() => null)) ?? 'desktop';
 }
 
 function defaultAdapters(): UpdateServiceAdapters {
@@ -194,6 +205,10 @@ function defaultAdapters(): UpdateServiceAdapters {
     isTauri: () => typeof window !== 'undefined' && Boolean(window.__TAURI_INTERNALS__),
     isAndroid: () =>
       typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent || ''),
+    runtimePlatform: async () => {
+      const platform = await invoke<string>('runtime_platform');
+      return platform === 'android' || platform === 'desktop' ? platform : null;
+    },
     desktopCheck: async () => {
       const { check } = await import('@tauri-apps/plugin-updater');
       return (await check()) as DesktopUpdate | null;
