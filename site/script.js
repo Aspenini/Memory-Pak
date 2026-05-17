@@ -204,7 +204,7 @@
         }
     });
 
-    // Resolve GitHub release assets: real downloads become links; missing slots show a short label.
+    // Resolve GitHub release assets: links when present; optional hide for Portable (.exe); else muted label.
     function initReleaseDownloads() {
         const owner = 'Aspenini';
         const repo = 'Memory-Pak';
@@ -247,6 +247,10 @@
 
         function markAllReleaseSlotsUnavailable(message) {
             document.querySelectorAll('a.download-badge[data-release-match]').forEach((el) => {
+                if (el.hasAttribute('data-release-hide-if-missing')) {
+                    el.remove();
+                    return;
+                }
                 markUnavailable(el, message);
             });
         }
@@ -304,6 +308,10 @@
                     });
 
                     if (!matchedAsset || !matchedAsset.browser_download_url) {
+                        if (target.hasAttribute('data-release-hide-if-missing')) {
+                            target.remove();
+                            return;
+                        }
                         markUnavailable(target);
                         return;
                     }
