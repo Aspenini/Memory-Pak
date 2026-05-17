@@ -1,5 +1,8 @@
 mod persistence;
 
+#[cfg(target_os = "android")]
+use std::io::{Read, Write};
+#[cfg(not(target_os = "android"))]
 use std::path::PathBuf;
 
 use memory_pak_core::{
@@ -9,7 +12,9 @@ use memory_pak_core::{
 use parking_lot::RwLock;
 use persistence::{load_persisted_state, save_persisted_state};
 use serde::Serialize;
-use tauri::State;
+use tauri::{AppHandle, Manager, State, Wry};
+#[cfg(target_os = "android")]
+use tauri_plugin_fs::{FilePath, FsExt, OpenOptions};
 
 struct AppState {
     app: RwLock<MemoryPakApp>,
@@ -55,10 +60,11 @@ fn query_collectibles(
 fn set_item_status(
     input: SetItemStatusInput,
     state: State<'_, AppState>,
+    app_handle: AppHandle<Wry>,
 ) -> Result<MutationResult, String> {
     let mut app = state.app.write();
     let result = app.set_item_status(input).map_err(|err| err.to_string())?;
-    save_persisted_state(app.persisted_state()).map_err(|err| err.to_string())?;
+    save_persisted_state(&app_handle, app.persisted_state()).map_err(|err| err.to_string())?;
     Ok(result)
 }
 
@@ -66,18 +72,23 @@ fn set_item_status(
 fn set_item_notes(
     input: SetItemNotesInput,
     state: State<'_, AppState>,
+    app_handle: AppHandle<Wry>,
 ) -> Result<MutationResult, String> {
     let mut app = state.app.write();
     let result = app.set_item_notes(input).map_err(|err| err.to_string())?;
-    save_persisted_state(app.persisted_state()).map_err(|err| err.to_string())?;
+    save_persisted_state(&app_handle, app.persisted_state()).map_err(|err| err.to_string())?;
     Ok(result)
 }
 
 #[tauri::command]
-fn import_json(json: String, state: State<'_, AppState>) -> Result<CollectionStats, String> {
+fn import_json(
+    json: String,
+    state: State<'_, AppState>,
+    app_handle: AppHandle<Wry>,
+) -> Result<CollectionStats, String> {
     let mut app = state.app.write();
     let stats = app.import_json(&json).map_err(|err| err.to_string())?;
-    save_persisted_state(app.persisted_state()).map_err(|err| err.to_string())?;
+    save_persisted_state(&app_handle, app.persisted_state()).map_err(|err| err.to_string())?;
     Ok(stats)
 }
 
@@ -96,15 +107,67 @@ fn get_collection_stats(state: State<'_, AppState>) -> CollectionStats {
 }
 
 #[tauri::command]
-fn import_from_path(path: String, state: State<'_, AppState>) -> Result<CollectionStats, String> {
-    let json = std::fs::read_to_string(PathBuf::from(path)).map_err(|err| err.to_string())?;
-    import_json(json, state)
+fn import_from_path(
+    path: String,
+    state: State<'_, AppState>,
+    app_handle: AppHandle<Wry>,
+) -> Result<CollectionStats, String> {
+    let json = read_user_file(&app_handle, &path)?;
+    import_json(json, state, app_handle)
 }
 
 #[tauri::command]
-fn export_to_path(path: String, state: State<'_, AppState>) -> Result<(), String> {
+fn export_to_path(
+    path: String,
+    state: State<'_, AppState>,
+    app_handle: AppHandle<Wry>,
+) -> Result<(), String> {
     let json = export_json(state)?;
-    std::fs::write(PathBuf::from(path), json).map_err(|err| err.to_string())
+    write_user_file(&app_handle, &path, json.as_bytes())
+}
+
+#[cfg(target_os = "android")]
+fn read_user_file(app: &AppHandle<Wry>, path: &str) -> Result<String, String> {
+    let file_path = match path.parse::<FilePath>() {
+        Ok(file_path) => file_path,
+        Err(err) => match err {},
+    };
+    let mut options = OpenOptions::new();
+    options.read(true);
+    let mut file = app
+        .fs()
+        .open(file_path, options)
+        .map_err(|err| err.to_string())?;
+    let mut json = String::new();
+    file.read_to_string(&mut json)
+        .map_err(|err| err.to_string())?;
+    Ok(json)
+}
+
+#[cfg(not(target_os = "android"))]
+fn read_user_file(_app: &AppHandle<Wry>, path: &str) -> Result<String, String> {
+    std::fs::read_to_string(PathBuf::from(path)).map_err(|err| err.to_string())
+}
+
+#[cfg(target_os = "android")]
+fn write_user_file(app: &AppHandle<Wry>, path: &str, bytes: &[u8]) -> Result<(), String> {
+    let file_path = match path.parse::<FilePath>() {
+        Ok(file_path) => file_path,
+        Err(err) => match err {},
+    };
+    let mut options = OpenOptions::new();
+    options.write(true).create(true).truncate(true);
+    let mut file = app
+        .fs()
+        .open(file_path, options)
+        .map_err(|err| err.to_string())?;
+    file.write_all(bytes).map_err(|err| err.to_string())?;
+    file.flush().map_err(|err| err.to_string())
+}
+
+#[cfg(not(target_os = "android"))]
+fn write_user_file(_app: &AppHandle<Wry>, path: &str, bytes: &[u8]) -> Result<(), String> {
+    std::fs::write(PathBuf::from(path), bytes).map_err(|err| err.to_string())
 }
 
 #[tauri::command]
@@ -143,26 +206,26 @@ fn runtime_platform() -> &'static str {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    let state = load_persisted_state().unwrap_or_default();
-    let app = MemoryPakApp::from_persisted_state(state);
-
     tauri::Builder::default()
-        .manage(AppState {
-            app: RwLock::new(app),
-        })
+        .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_process::init())
-        .setup(|_app| {
+        .setup(|app| {
+            let state = load_persisted_state(app.handle()).unwrap_or_default();
+            app.manage(AppState {
+                app: RwLock::new(MemoryPakApp::from_persisted_state(state)),
+            });
+
             #[cfg(desktop)]
-            if _app
+            if app
                 .config()
                 .plugins
                 .0
                 .get("updater")
                 .is_some_and(|config| !config.is_null())
             {
-                _app.handle()
+                app.handle()
                     .plugin(tauri_plugin_updater::Builder::new().build())?;
             }
             Ok(())

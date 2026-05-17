@@ -10,6 +10,7 @@
   export let counts: Record<TabId, number>;
   export let version: string;
   export let open = false;
+  export let showUpdates = true;
 
   const dispatch = createEventDispatcher<{
     backup: void;
@@ -38,10 +39,12 @@
   </nav>
 
   <section class="sidebar-actions" aria-label="Collection actions">
-    <button type="button" on:click={() => dispatch('checkUpdates')}>
-      <RefreshCw size={17} />
-      <span>Updates</span>
-    </button>
+    {#if showUpdates}
+      <button type="button" on:click={() => dispatch('checkUpdates')}>
+        <RefreshCw size={17} />
+        <span>Updates</span>
+      </button>
+    {/if}
     <button type="button" on:click={() => dispatch('backup')}>
       <Download size={17} />
       <span>Backup</span>

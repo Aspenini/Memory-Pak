@@ -22,7 +22,13 @@
   } from './lib/collectionController';
   import { debounce } from './lib/debounce';
   import { getSortOptions, sortLabel as resolveSortLabel } from './lib/sortOptions';
-  import { createUpdateService, type UpdateService, type UpdateStatus } from './lib/updates';
+  import {
+    createUpdateService,
+    detectUpdatePlatform,
+    type UpdatePlatform,
+    type UpdateService,
+    type UpdateStatus
+  } from './lib/updates';
   import type {
     CollectionStats,
     FilterBy,
@@ -55,6 +61,8 @@
   let backend: MemoryPakBackend | null = null;
   let updateService: UpdateService | null = null;
   let updateStatus: UpdateStatus | null = null;
+  let updatePlatform: UpdatePlatform =
+    typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent) ? 'android' : 'web';
   let initial: InitialState | null = null;
   let stats: CollectionStats | null = null;
   let rows: RowView[] = [];
@@ -124,6 +132,7 @@
   $: sortLabelText = resolveSortLabel(sortOptions, sortBy);
   $: tabCounts = computeTabCounts(initial);
   $: activeTitle = tabs.find((tab) => tab.id === activeTab)?.label ?? '';
+  $: showUpdateControls = updatePlatform !== 'android';
 
   $: groupConfig = buildGroupConfig(activeTab, initial, selectedConsole, selectedCollection);
 
@@ -164,7 +173,7 @@
     updateService = createUpdateService((status) => {
       updateStatus = status;
     });
-    void checkForUpdates(false);
+    void initUpdates();
     void initBackend();
 
     return () => {
@@ -186,6 +195,13 @@
     } catch (cause) {
       error = cause instanceof Error ? cause.message : String(cause);
       loading = false;
+    }
+  }
+
+  async function initUpdates(): Promise<void> {
+    updatePlatform = await detectUpdatePlatform();
+    if (updatePlatform !== 'android') {
+      await checkForUpdates(false);
     }
   }
 
@@ -423,6 +439,7 @@
       counts={tabCounts}
       version="0.3"
       open={navOpen}
+      showUpdates={showUpdateControls}
       on:backup={backupCollection}
       on:restore={restoreCollection}
       on:checkUpdates={() => checkForUpdates(true)}
@@ -447,6 +464,7 @@
         {refreshing}
         {ownershipPercent}
         {mobileMenuOpen}
+        showUpdates={showUpdateControls}
         on:openNav={() => (navOpen = true)}
         on:backup={backupCollection}
         on:restore={restoreCollection}

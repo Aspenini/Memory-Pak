@@ -186,6 +186,12 @@ export function createUpdateService(
   return service;
 }
 
+export async function detectUpdatePlatform(
+  adapters: UpdateServiceAdapters = defaultAdapters()
+): Promise<UpdatePlatform> {
+  return resolvePlatform(adapters, null);
+}
+
 function baseStatus(platform: UpdatePlatform): UpdateStatus {
   return { platform, available: false, canInstallInApp: false };
 }

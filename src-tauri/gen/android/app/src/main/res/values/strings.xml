@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Memory Pak</string>
     <string name="main_activity_title">Memory Pak</string>
-    <string name="update_ready">An update is ready.</string>
-    <string name="update_restart">Restart</string>
 </resources>

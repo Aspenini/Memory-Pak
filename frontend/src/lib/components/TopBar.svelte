@@ -15,6 +15,7 @@
   export let refreshing: boolean;
   export let ownershipPercent: number;
   export let mobileMenuOpen: boolean;
+  export let showUpdates = true;
 
   const dropdownFade = { duration: 90 };
   const dispatch = createEventDispatcher<{
@@ -88,7 +89,9 @@
 
     {#if mobileMenuOpen}
       <div class="mobile-action-menu" role="menu" transition:fade={dropdownFade}>
-        <button type="button" role="menuitem" on:click={() => dispatch('checkUpdates')}>Updates</button>
+        {#if showUpdates}
+          <button type="button" role="menuitem" on:click={() => dispatch('checkUpdates')}>Updates</button>
+        {/if}
         <button type="button" role="menuitem" on:click={() => dispatch('backup')}>Backup</button>
         <button type="button" role="menuitem" on:click={() => dispatch('restore')}>Restore</button>
       </div>
