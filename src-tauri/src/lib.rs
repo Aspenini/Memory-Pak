@@ -198,7 +198,12 @@ fn runtime_platform() -> &'static str {
         "android"
     }
 
-    #[cfg(not(target_os = "android"))]
+    #[cfg(target_os = "linux")]
+    {
+        "linux"
+    }
+
+    #[cfg(not(any(target_os = "android", target_os = "linux")))]
     {
         "desktop"
     }

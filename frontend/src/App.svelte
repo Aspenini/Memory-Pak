@@ -61,8 +61,7 @@
   let backend: MemoryPakBackend | null = null;
   let updateService: UpdateService | null = null;
   let updateStatus: UpdateStatus | null = null;
-  let updatePlatform: UpdatePlatform =
-    typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent) ? 'android' : 'web';
+  let updatePlatform: UpdatePlatform | null = null;
   let initial: InitialState | null = null;
   let stats: CollectionStats | null = null;
   let rows: RowView[] = [];
@@ -132,7 +131,7 @@
   $: sortLabelText = resolveSortLabel(sortOptions, sortBy);
   $: tabCounts = computeTabCounts(initial);
   $: activeTitle = tabs.find((tab) => tab.id === activeTab)?.label ?? '';
-  $: showUpdateControls = updatePlatform !== 'android';
+  $: showUpdateControls = updatePlatform === 'desktop' || updatePlatform === 'web';
 
   $: groupConfig = buildGroupConfig(activeTab, initial, selectedConsole, selectedCollection);
 
@@ -199,8 +198,9 @@
   }
 
   async function initUpdates(): Promise<void> {
-    updatePlatform = await detectUpdatePlatform();
-    if (updatePlatform !== 'android') {
+    const platform = await detectUpdatePlatform();
+    updatePlatform = platform;
+    if (platform === 'desktop' || platform === 'web') {
       await checkForUpdates(false);
     }
   }

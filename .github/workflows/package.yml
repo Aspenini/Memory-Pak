@@ -43,7 +43,7 @@ jobs:
             extra-args: "--target universal-apple-darwin"
           - platform: linux
             runs-on: ubuntu-22.04
-            bundles: appimage,deb
+            bundles: deb
             extra-args: ""
     steps:
       - uses: actions/checkout@v5
@@ -63,8 +63,6 @@ jobs:
             libappindicator3-dev \
             librsvg2-dev \
             patchelf \
-            libfuse2 \
-            squashfs-tools \
             desktop-file-utils
 
       - uses: dtolnay/rust-toolchain@1.94.0
@@ -89,10 +87,20 @@ jobs:
         run: cargo install tauri-cli --version ${{ env.TAURI_CLI_VERSION }} --locked
 
       - name: Write updater config overlay
+        if: matrix.platform != 'linux'
         run: node scripts/write-tauri-updater-config.mjs target/tauri-updater.conf.json
 
-      - name: Build Tauri bundles
+      - name: Build updater-enabled Tauri bundles
+        if: matrix.platform != 'linux'
         run: cargo tauri build --bundles ${{ matrix.bundles }} --config target/tauri-updater.conf.json ${{ matrix.extra-args }}
+
+      - name: Build Linux bundles
+        if: matrix.platform == 'linux'
+        run: cargo tauri build --bundles ${{ matrix.bundles }}
+
+      - name: Create portable tarball (Linux)
+        if: matrix.platform == 'linux'
+        run: node scripts/create-linux-portable.mjs
 
       - name: Create portable zip (Windows)
         if: matrix.platform == 'windows'
@@ -114,6 +122,7 @@ jobs:
           path: |
             target/**/release/bundle/**
             Memory-Pak-windows-portable.zip
+            Memory-Pak-linux-x86_64-portable.tar.gz
           if-no-files-found: error
 
   release-metadata:

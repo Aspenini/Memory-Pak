@@ -182,4 +182,24 @@ describe('update service', () => {
     });
     expect(invokeCalls).toEqual(['android_check_store_update']);
   });
+
+  it('treats Linux updates as package-manager managed', async () => {
+    const desktopCheck = vi.fn(async () => {
+      throw new Error('desktop updater should not run on Linux');
+    });
+    const service = createUpdateService(undefined, adapters({
+      isTauri: () => true,
+      runtimePlatform: vi.fn(async () => 'linux' as const),
+      desktopCheck
+    }));
+
+    await expect(service.checkForUpdate({ manual: true })).resolves.toMatchObject({
+      platform: 'linux',
+      available: false,
+      checked: true,
+      notes: 'Linux updates are handled by your package manager or manual tarball downloads.'
+    });
+    await service.installUpdate();
+    expect(desktopCheck).not.toHaveBeenCalled();
+  });
 });

@@ -1,6 +1,6 @@
 import { invoke } from '@tauri-apps/api/core';
 
-export type UpdatePlatform = 'desktop' | 'android' | 'web';
+export type UpdatePlatform = 'desktop' | 'linux' | 'android' | 'web';
 
 export interface UpdateStatus {
   platform: UpdatePlatform;
@@ -130,6 +130,17 @@ export function createUpdateService(
           );
         }
 
+        if (platform === 'linux') {
+          return publish(
+            checkedStatus(
+              'linux',
+              manual,
+              'Linux updates are handled by your package manager or manual tarball downloads.'
+            ),
+            manual
+          );
+        }
+
         if (!webUpdate) {
           webUpdate = await adapters.registerWebUpdater(() => {
             webUpdateReady = true;
@@ -205,6 +216,8 @@ export function createUpdateService(
         return;
       }
 
+      if (platform === 'linux') return;
+
       await webUpdate?.update(true);
     },
 
@@ -263,7 +276,9 @@ function defaultAdapters(): UpdateServiceAdapters {
       typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent || ''),
     runtimePlatform: async () => {
       const platform = await invoke<string>('runtime_platform');
-      return platform === 'android' || platform === 'desktop' ? platform : null;
+      return platform === 'android' || platform === 'desktop' || platform === 'linux'
+        ? platform
+        : null;
     },
     desktopUpdaterAvailable: async () => {
       if (typeof window === 'undefined' || !window.__TAURI_INTERNALS__) return false;

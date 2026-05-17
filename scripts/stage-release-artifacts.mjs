@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
+import { writeAurPackage } from './lib/aur-package.mjs';
 
 const args = new Map();
 for (let i = 2; i < process.argv.length; i += 2) {
@@ -23,7 +24,6 @@ const files = walk(input).filter((file) => !file.startsWith(output));
 const platforms = {};
 
 addUpdaterPlatform(platforms, 'windows-x86_64', findFirst(files, isWindowsUpdaterAsset), baseUrl);
-addUpdaterPlatform(platforms, 'linux-x86_64', findFirst(files, isLinuxUpdaterAsset), baseUrl);
 
 const macAsset = findFirst(files, isMacUpdaterAsset);
 addUpdaterPlatform(platforms, 'darwin-x86_64', macAsset, baseUrl);
@@ -49,6 +49,17 @@ writeFileSync(
 );
 
 writeFileSync(join(output, 'checksums.sha256'), checksums(files, output));
+
+const aurTarball = files.find(isLinuxPortableTarballAsset);
+if (!aurTarball) {
+  throw new Error('Linux portable tarball was not found; cannot stage memory-pak-bin AUR files.');
+}
+writeAurPackage({
+  aurDir: join(output, 'aur'),
+  version,
+  sourceUrl: `${baseUrl}/${encodeURIComponent(basename(aurTarball))}`,
+  sourceHash: createHash('sha256').update(readFileSync(aurTarball)).digest('hex')
+});
 
 function walk(dir) {
   const entries = [];
@@ -81,8 +92,9 @@ function isWindowsUpdaterAsset(file) {
   return name.endsWith('.exe') && name.includes('setup') && !name.includes('portable');
 }
 
-function isLinuxUpdaterAsset(file) {
-  return basename(file).toLowerCase().endsWith('.appimage');
+function isLinuxPortableTarballAsset(file) {
+  const name = basename(file).toLowerCase();
+  return name.endsWith('.tar.gz') && name.includes('linux') && name.includes('portable');
 }
 
 function isMacUpdaterAsset(file) {
