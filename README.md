@@ -100,6 +100,14 @@ TAURI_UPDATER_PUBKEY
 
 The generated `latest.json` is intended to be attached to the same GitHub release as the bundles. Linux auto-update targets AppImage installs; `.deb` remains a manual installer. Desktop update checks are available only in signed updater-enabled bundles, not ordinary dev builds. The web app prompts when the PWA service worker sees a newer build. Android updates are handled by the app store outside Memory Pak.
 
+### Linux AppImage Rendering Notes
+
+Release builds set conservative WebKitGTK defaults before startup to improve AppImage compatibility on rolling/Wayland systems such as Arch: DMA-BUF rendering and compositing mode are disabled, and AppImages prefer X11/XWayland unless `GDK_BACKEND` is already set. To test those flags manually on an older build:
+
+```bash
+WEBKIT_DISABLE_DMABUF_RENDERER=1 WEBKIT_DISABLE_COMPOSITING_MODE=1 GDK_BACKEND=x11 ./Memory-Pak*.AppImage
+```
+
 ## Export Format
 
 ```json
