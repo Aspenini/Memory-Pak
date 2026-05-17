@@ -6,7 +6,7 @@
 [![GitHub Release Downloads](https://img.shields.io/github/downloads/Aspenini/Memory-Pak/total?label=release%20downloads)](https://github.com/Aspenini/Memory-Pak/releases)
 [![License](https://img.shields.io/github/license/Aspenini/Memory-Pak)](LICENSE)
 
-A cross-platform game collection tracker built with Rust, Tauri 2, Svelte, and WebAssembly. Memory Pak tracks consoles, games, and toy-to-life collectibles (LEGO Dimensions, Skylanders, and more) across owned, favorite, wishlist, and notes states.
+A cross-platform game collection tracker built with Rust, Tauri 2, and Svelte. Memory Pak tracks consoles, games, and toy-to-life collectibles (LEGO Dimensions, Skylanders, and more) across owned, favorite, wishlist, and notes states.
 
 ## Features
 

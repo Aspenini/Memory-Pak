@@ -269,6 +269,10 @@ body {
     margin: 5rem 0;
 }
 
+.downloads > .description {
+    text-align: center;
+}
+
 .section-title {
     font-family: 'Press Start 2P', monospace;
     font-size: 2rem;
@@ -359,18 +363,6 @@ body {
     border-color: var(--text-accent);
 }
 
-.download-badge.coming-soon {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: transparent;
-}
-
-.download-badge.coming-soon:hover {
-    background: transparent;
-    color: var(--text-primary);
-    border-color: var(--border-color);
-}
-
 .release-channel-note {
     max-width: 42rem;
     margin: 0.75rem auto 1.5rem;
@@ -381,6 +373,23 @@ body {
 
 .release-channel-note a {
     color: var(--text-accent);
+}
+
+.downloads.release-loading a.download-badge[data-release-match] {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.download-badge--missing {
+    cursor: default;
+    opacity: 0.45;
+    color: var(--text-secondary);
+}
+
+.download-badge--missing:hover {
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--text-secondary);
+    border-color: var(--border-color);
 }
 
 .platform-note {
@@ -482,6 +491,21 @@ body {
 
 .github-link:hover .github-icon {
     transform: rotate(360deg) scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .scanlines {
+        animation: none;
+    }
 }
 
 @media (max-width: 768px) {

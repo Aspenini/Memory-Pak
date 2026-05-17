@@ -136,6 +136,9 @@
 
     // Add noise effect overlay
     function addNoiseOverlay() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
         const canvas = document.createElement('canvas');
         canvas.style.position = 'fixed';
         canvas.style.top = '0';
@@ -201,39 +204,58 @@
         }
     });
 
-    // Resolve platform downloads from latest GitHub release assets.
+    // Resolve GitHub release assets: real downloads become links; missing slots show a short label.
     function initReleaseDownloads() {
         const owner = 'Aspenini';
         const repo = 'Memory-Pak';
         const latestReleaseUrl = `https://api.github.com/repos/${owner}/${repo}/releases/latest`;
         const releaseVersionEl = document.getElementById('release-version');
+        const downloadsSection = document.querySelector('.downloads');
+        const ERROR_SLOT =
+            'Could not verify this release — try the GitHub releases page.';
 
-        function markNoRelease(target) {
-            const noReleaseText = target.getAttribute('data-release-empty-label') || 'No release found';
+        if (downloadsSection) {
+            downloadsSection.classList.add('release-loading');
+        }
 
-            if (target.tagName === 'A') {
-                const replacementSpan = document.createElement('span');
-                replacementSpan.className = 'download-badge coming-soon';
-                replacementSpan.setAttribute('data-release-match', target.getAttribute('data-release-match') || '');
-                replacementSpan.setAttribute('data-release-label', target.textContent || 'Download');
-                replacementSpan.textContent = noReleaseText;
-                if (target.parentNode) {
-                    target.parentNode.replaceChild(replacementSpan, target);
-                }
-                return;
+        function updateJsonLdVersion(tagName) {
+            if (!tagName) return;
+            const ldScript = document.querySelector('script[type="application/ld+json"]');
+            if (!ldScript) return;
+            try {
+                const data = JSON.parse(ldScript.textContent);
+                data.softwareVersion = String(tagName).replace(/^v/i, '');
+                ldScript.textContent = JSON.stringify(data);
+            } catch (_e) {
+                /* ignore */
             }
-
-            target.classList.add('coming-soon');
-            target.textContent = noReleaseText;
         }
 
-        function setAllUnavailable() {
-            const currentTargets = document.querySelectorAll('[data-release-match]');
-            currentTargets.forEach(markNoRelease);
+        function markUnavailable(target, overrideMessage) {
+            const message =
+                overrideMessage ||
+                target.textContent.trim() ||
+                target.getAttribute('data-release-empty-label') ||
+                'Download';
+            const span = document.createElement('span');
+            span.className = 'download-badge download-badge--missing';
+            span.textContent = message;
+            if (target.parentNode) {
+                target.parentNode.replaceChild(span, target);
+            }
         }
 
-        // Do not keep stale hardcoded links; only show resolved latest release assets.
-        setAllUnavailable();
+        function markAllReleaseSlotsUnavailable(message) {
+            document.querySelectorAll('a.download-badge[data-release-match]').forEach((el) => {
+                markUnavailable(el, message);
+            });
+        }
+
+        function finishReleaseState() {
+            if (downloadsSection) {
+                downloadsSection.classList.remove('release-loading');
+            }
+        }
 
         fetch(latestReleaseUrl, {
             headers: {
@@ -249,18 +271,24 @@
             .then(release => {
                 if (!release || !Array.isArray(release.assets) || release.assets.length === 0) {
                     if (releaseVersionEl) {
-                        releaseVersionEl.textContent = 'Latest version: no release found';
+                        releaseVersionEl.textContent =
+                            'Latest release: no assets attached yet — see GitHub for files.';
                     }
+                    markAllReleaseSlotsUnavailable(null);
+                    finishReleaseState();
                     return;
                 }
 
                 const assets = release.assets;
+                const tag = release.tag_name || 'latest';
                 if (releaseVersionEl) {
-                    releaseVersionEl.textContent = `Latest version: ${release.tag_name || 'unknown'}`;
+                    releaseVersionEl.textContent = `Latest release: ${tag}`;
                 }
-                const currentTargets = document.querySelectorAll('[data-release-match]');
+                updateJsonLdVersion(tag);
 
-                currentTargets.forEach(target => {
+                const targets = Array.from(document.querySelectorAll('a.download-badge[data-release-match]'));
+
+                targets.forEach(target => {
                     const rawMatch = target.getAttribute('data-release-match');
                     if (!rawMatch) return;
 
@@ -276,34 +304,26 @@
                     });
 
                     if (!matchedAsset || !matchedAsset.browser_download_url) {
-                        markNoRelease(target);
+                        markUnavailable(target);
                         return;
                     }
 
                     if (target.tagName === 'A') {
                         target.href = matchedAsset.browser_download_url;
                         target.setAttribute('download', matchedAsset.name || '');
-                        return;
-                    }
-
-                    const replacementLink = document.createElement('a');
-                    replacementLink.className = 'download-badge';
-                    replacementLink.href = matchedAsset.browser_download_url;
-                    replacementLink.setAttribute('download', matchedAsset.name || '');
-                    replacementLink.textContent = target.getAttribute('data-release-label') || 'Download';
-                    replacementLink.title = `From latest release (${release.tag_name || 'latest'})`;
-                    replacementLink.setAttribute('data-release-match', rawMatch);
-
-                    if (target.parentNode) {
-                        target.parentNode.replaceChild(replacementLink, target);
+                        target.title = `From release ${tag}`;
                     }
                 });
+
+                finishReleaseState();
             })
             .catch(error => {
                 if (releaseVersionEl) {
-                    releaseVersionEl.textContent = 'Latest version: no release found';
+                    releaseVersionEl.textContent =
+                        'Latest release: could not load from GitHub. Use the releases page to download.';
                 }
-                setAllUnavailable();
+                markAllReleaseSlotsUnavailable(ERROR_SLOT);
+                finishReleaseState();
                 console.warn('Unable to load latest release assets.', error);
             });
     }
