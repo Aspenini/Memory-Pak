@@ -88,7 +88,7 @@ bun run ios:init
 
 ## Releases and Updates
 
-Normal CI validates the project only. The manual **Package Artifacts** workflow builds Windows, macOS, and Linux bundles, creates updater signatures for the supported self-updating desktop targets, and uploads workflow artifacts plus `latest.json`, `checksums.sha256`, and AUR staging files. It does not publish a GitHub release or push to AUR; attach and submit those files manually when ready.
+Normal CI validates the project only. The manual **Package Artifacts** workflow builds Windows, macOS, and Linux bundles, creates updater signatures for the supported self-updating desktop targets, and uploads workflow artifacts plus `latest.json` and `checksums.sha256`. It does not publish a GitHub release; attach those files manually when ready.
 
 Desktop self-updates use the Tauri updater and require these repository secrets for the manual package workflow:
 
@@ -98,45 +98,12 @@ TAURI_SIGNING_PRIVATE_KEY_PASSWORD   # optional if your key has no password
 TAURI_UPDATER_PUBKEY
 ```
 
-The generated `latest.json` is intended to be attached to the same GitHub release as the Windows and macOS bundles. Linux does not use Memory Pak's in-app updater: Arch users update through AUR helpers such as `yay` or `paru`, Debian/Ubuntu users install the `.deb`, and everyone else can use the manual `.tar.gz` binary. Desktop update checks are available only in signed updater-enabled Windows/macOS bundles, not ordinary dev builds. The web app prompts when the PWA service worker sees a newer build. Android updates are handled by the app store outside Memory Pak.
-
-### Arch Linux / AUR
-
-Arch users should install Memory Pak through AUR. The package is named `memory-pak-bin` because it uses the prebuilt Linux tarball from the GitHub release. Users update through normal Arch tooling:
-
-```bash
-yay -S memory-pak-bin
-yay -Syu
-```
-
-The manual package workflow generates an AUR staging directory under the `memory-pak-release-metadata` artifact with `PKGBUILD`, `.SRCINFO`, and `memory-pak-bin.install` filled in for the selected release version and tarball checksum. It intentionally does not push to AUR.
-
-You can also stage the AUR checkout locally after the GitHub release is published. The script fetches the latest GitHub release, downloads that release's `latest.json`, reads its `version`, finds `Memory-Pak-linux-x86_64-portable.tar.gz` in the same release, checksums it, writes the AUR files, and runs `git add`:
-
-```bash
-bun run aur:stage -- --aur-dir ../memory-pak-bin
-bun run aur:publish -- --aur-dir ../memory-pak-bin
-```
-
-Use `aur:stage` to generate and stage files without committing or pushing. Use `aur:publish` to commit the staged AUR files and push them. To stage from a specific release instead of the latest release, pass `--tag v0.4.0`.
-
-```bash
-git clone ssh://aur@aur.archlinux.org/memory-pak-bin.git
-cp path/to/release-metadata/aur/* memory-pak-bin/
-cd memory-pak-bin
-makepkg -si
-git add PKGBUILD .SRCINFO memory-pak-bin.install
-git commit -m "Update to 0.3.0"
-git push
-```
-
-The AUR package extracts the release `Memory-Pak-linux-x86_64-portable.tar.gz` artifact, installs `/usr/bin/memory-pak`, adds a desktop entry/icon, and depends on Arch's native `webkit2gtk-4.1`. This avoids bundled WebKit helper processes entirely.
+The generated `latest.json` is intended to be attached to the same GitHub release as the Windows and macOS bundles. Linux does not use Memory Pak's in-app updater: Debian/Ubuntu users install the `.deb`, and everyone else can use the manual `.tar.gz` binary. Desktop update checks are available only in signed updater-enabled Windows/macOS bundles, not ordinary dev builds. The web app prompts when the PWA service worker sees a newer build. Android updates are handled by the app store outside Memory Pak.
 
 ### Linux Packages
 
 AppImage is not a supported Memory Pak release format. Linux release artifacts are:
 
-- `memory-pak-bin` on AUR for Arch Linux
 - `.deb` for Debian/Ubuntu-style systems
 - `Memory-Pak-linux-x86_64-portable.tar.gz` for manual binary installs
 

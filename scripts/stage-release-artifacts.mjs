@@ -1,7 +1,6 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
-import { writeAurPackage } from './lib/aur-package.mjs';
 
 const args = new Map();
 for (let i = 2; i < process.argv.length; i += 2) {
@@ -50,17 +49,6 @@ writeFileSync(
 
 writeFileSync(join(output, 'checksums.sha256'), checksums(files, output));
 
-const aurTarball = files.find(isLinuxPortableTarballAsset);
-if (!aurTarball) {
-  throw new Error('Linux portable tarball was not found; cannot stage memory-pak-bin AUR files.');
-}
-writeAurPackage({
-  aurDir: join(output, 'aur'),
-  version,
-  sourceUrl: `${baseUrl}/${encodeURIComponent(basename(aurTarball))}`,
-  sourceHash: createHash('sha256').update(readFileSync(aurTarball)).digest('hex')
-});
-
 function walk(dir) {
   const entries = [];
   for (const entry of readdirSync(dir)) {
@@ -90,11 +78,6 @@ function addUpdaterPlatform(target, key, asset, baseUrl) {
 function isWindowsUpdaterAsset(file) {
   const name = basename(file).toLowerCase();
   return name.endsWith('.exe') && name.includes('setup') && !name.includes('portable');
-}
-
-function isLinuxPortableTarballAsset(file) {
-  const name = basename(file).toLowerCase();
-  return name.endsWith('.tar.gz') && name.includes('linux') && name.includes('portable');
 }
 
 function isMacUpdaterAsset(file) {

@@ -25,7 +25,7 @@ writeFileSync(
 
 This archive runs the Memory Pak binary directly and uses your system WebKitGTK.
 It is the recommended manual download for Linux users who do not use a distro
-package, and it is also the source artifact for the memory-pak-bin AUR package.
+package.
 
 Arch dependencies:
   sudo pacman -S webkit2gtk-4.1 gtk3 libayatana-appindicator librsvg

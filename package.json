@@ -26,8 +26,6 @@
     "package:win": "cargo tauri build --bundles nsis,msi",
     "package:mac": "cargo tauri build --bundles dmg",
     "package:linux": "cargo tauri build --bundles deb && node scripts/create-linux-portable.mjs",
-    "aur:stage": "bun scripts/publish-aur.mjs",
-    "aur:publish": "bun scripts/publish-aur.mjs --publish",
 
     "android:init": "cargo tauri android init",
     "ios:init": "cargo tauri ios init"
