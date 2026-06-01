@@ -83,7 +83,7 @@
                 "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
                 "name": "Memory Pak",
-                "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. The web build is a rolling release from the latest deploy; desktop installers follow GitHub releases.",
+                "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. The web build and Arch AUR package are rolling releases from the latest deploy; other desktop installers follow GitHub releases.",
                 "url": "https://aspenini.github.io/Memory-Pak/",
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": ["Windows", "macOS", "Linux", "Android"],
@@ -173,9 +173,14 @@
                             Latest release: checking…
                         </p>
                         <p class="description release-channel-note">
-                            The <a href="app/">web app</a> tracks the latest
-                            successful deploy from the default branch.
-                            Installers appear here when they are attached to the
+                            The <a href="app/">web app</a> and
+                            <a
+                                href="https://aur.archlinux.org/packages/memory-pak-git"
+                                >AUR package</a
+                            >
+                            track the latest successful deploy from the default
+                            branch. Installers appear here when they are
+                            attached to the
                             <a
                                 href="https://github.com/Aspenini/Memory-Pak/releases/latest"
                                 >latest GitHub release</a
@@ -277,12 +282,16 @@
                                         download
                                         >Binary (.tar.gz)</a
                                     >
+                                </div>
+                                <div class="rolling-release-option">
                                     <a
                                         href="https://aur.archlinux.org/packages/memory-pak-git"
                                         class="download-badge"
-                                        download
-                                        >AUR (ROLLING RELEASE)</a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Install from AUR</a
                                     >
+                                    <p class="platform-note">Rolling release</p>
                                 </div>
                             </div>
                             <div class="download-card" data-platform="web">
