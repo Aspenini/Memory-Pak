@@ -131,6 +131,7 @@ jobs:
       - name: Install Tauri CLI
         run: cargo install tauri-cli --version ${{ env.TAURI_CLI_VERSION }} --locked
       - run: cargo tauri build --no-bundle --ci
+        working-directory: crates/memory_pak_tauri
 
   android-smoke:
     name: Android smoke
@@ -159,3 +160,4 @@ jobs:
       - name: Install Tauri CLI
         run: cargo install tauri-cli --version ${{ env.TAURI_CLI_VERSION }} --locked
       - run: cargo tauri android build --debug
+        working-directory: crates/memory_pak_tauri

@@ -24,9 +24,9 @@ A cross-platform game collection tracker built with Rust, Tauri 2, and Svelte. M
 Memory-Pak/
 |-- crates/
 |   |-- memory_pak_core/   # shared Rust data model, queries, state reducer, import/export
-|   `-- memory_pak_wasm/   # wasm-bindgen adapter for the browser/PWA target
+|   |-- memory_pak_wasm/   # wasm-bindgen adapter for the browser/PWA target
+|   `-- memory_pak_tauri/  # Tauri 2 desktop/mobile shell and commands
 |-- frontend/              # Svelte 5 + TypeScript + Vite app
-|-- src-tauri/             # Tauri 2 desktop/mobile shell and commands
 |-- database/              # `consoles.json`, `games/*.json`, `collectibles/*.json`
 |-- icons/                 # platform icons reused by Tauri and PWA
 `-- site/                  # GitHub Pages landing page; deploy copies frontend/dist to site/app

@@ -13,11 +13,11 @@
 /site/app
 
 # Tauri generated files (output of tauri-build)
-/src-tauri/gen/schemas
-/src-tauri/gen/android/.gradle
-/src-tauri/gen/android/build
-/src-tauri/gen/android/app/build
-/src-tauri/target
+/crates/memory_pak_tauri/gen/schemas
+/crates/memory_pak_tauri/gen/android/.gradle
+/crates/memory_pak_tauri/gen/android/build
+/crates/memory_pak_tauri/gen/android/app/build
+/crates/memory_pak_tauri/target
 
 # Android / signing artifacts
 .android/

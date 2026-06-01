@@ -92,11 +92,13 @@ jobs:
 
       - name: Build updater-enabled Tauri bundles
         if: matrix.platform != 'linux'
-        run: cargo tauri build --bundles ${{ matrix.bundles }} --config target/tauri-updater.conf.json ${{ matrix.extra-args }}
+        run: cargo tauri build --bundles ${{ matrix.bundles }} --config ../../target/tauri-updater.conf.json ${{ matrix.extra-args }}
+        working-directory: crates/memory_pak_tauri
 
       - name: Build Linux bundles
         if: matrix.platform == 'linux'
         run: cargo tauri build --bundles ${{ matrix.bundles }}
+        working-directory: crates/memory_pak_tauri
 
       - name: Create portable tarball (Linux)
         if: matrix.platform == 'linux'

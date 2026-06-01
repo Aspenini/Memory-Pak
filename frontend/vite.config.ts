@@ -144,7 +144,7 @@ export default defineConfig({
         }
       : undefined,
     watch: {
-      ignored: ['**/src-tauri/**', '**/target/**']
+      ignored: ['**/crates/memory_pak_tauri/**', '**/target/**']
     }
   },
   build: {

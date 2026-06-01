@@ -2,7 +2,7 @@
 members = [
     "crates/memory_pak_core",
     "crates/memory_pak_wasm",
-    "src-tauri",
+    "crates/memory_pak_tauri",
 ]
 resolver = "2"
 
@@ -35,4 +35,3 @@ lto = "thin"
 codegen-units = 1
 panic = "abort"
 strip = "symbols"
-

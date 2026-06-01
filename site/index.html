@@ -1,222 +1,349 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>Memory Pak - Cross-Platform Retro Game Collection Tracker</title>
-    <meta name="title" content="Memory Pak - Cross-Platform Retro Game Collection Tracker">
-    <meta name="description" content="Track your retro gaming collection across desktop, web, and mobile. Manage consoles, games, wishlists, and favorites with Memory Pak - a fast, offline-first tracker built with Tauri, Svelte, and Rust.">
-    <meta name="keywords" content="game collection tracker, retro gaming, console tracker, game library manager, wishlist app, game database, video game organizer, collection manager, gaming catalog, memory pak, rust app, cross-platform game tracker, NES, SNES, N64, PlayStation, Xbox, Nintendo, Sega">
-    <meta name="author" content="Aspenini">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://aspenini.github.io/Memory-Pak/">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aspenini.github.io/Memory-Pak/">
-    <meta property="og:site_name" content="Memory Pak">
-    <meta property="og:title" content="Memory Pak - Cross-Platform Retro Game Collection Tracker">
-    <meta property="og:description" content="Track your retro gaming collection across desktop, web, and mobile. Manage consoles, games, wishlists, and favorites with Memory Pak.">
-    <meta property="og:image" content="https://aspenini.github.io/Memory-Pak/img/icon-512.png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
-    <meta property="og:image:alt" content="Memory Pak - Retro game collection tracker app icon">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter / X Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://aspenini.github.io/Memory-Pak/">
-    <meta name="twitter:title" content="Memory Pak - Cross-Platform Retro Game Collection Tracker">
-    <meta name="twitter:description" content="Track your retro gaming collection across desktop, web, and mobile with Memory Pak.">
-    <meta name="twitter:image" content="https://aspenini.github.io/Memory-Pak/img/icon-512.png">
-    <meta name="twitter:image:alt" content="Memory Pak app icon">
-    <meta name="twitter:creator" content="@Aspenini">
-    
-    <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#00ff00">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Memory Pak">
-    <meta name="application-name" content="Memory Pak">
-    <meta name="msapplication-TileColor" content="#00ff00">
-    <meta name="msapplication-TileImage" content="/img/icon-512.png">
-    
-    <!-- Structured Data / JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Memory Pak",
-        "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. The web build is a rolling release from the latest deploy; desktop installers follow GitHub releases.",
-        "url": "https://aspenini.github.io/Memory-Pak/",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": ["Windows", "macOS", "Linux", "Android"],
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "author": {
-            "@type": "Person",
-            "name": "Aspenini"
-        },
-        "downloadUrl": "https://github.com/Aspenini/Memory-Pak/releases",
-        "image": "https://aspenini.github.io/Memory-Pak/img/icon-512.png",
-        "screenshot": "https://aspenini.github.io/Memory-Pak/img/icon-512.png"
-    }
-    </script>
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicons -->
-    <link rel="icon" href="/img/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/img/icon-512.png">
-    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-    <link rel="mask-icon" href="/img/icon-512.png" color="#00ff00">
-    
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="manifest.json">
-</head>
-<body>
-    <div class="crt-screen">
-        <div class="scanlines"></div>
-        <div class="content">
-            <header class="retro-header">
-                <div class="glitch" data-text="MEMORY PAK">MEMORY PAK</div>
-                <p class="tagline">Track Your Gaming Collection</p>
-            </header>
-
-            <main>
-                <section class="hero">
-                    <div class="pixel-grid"></div>
-                    <div class="hero-content">
-                        <h2>Organize Your Console & Game Collection</h2>
-                        <p class="description">
-                            Memory Pak is a cross-platform app for tracking which consoles and games you own,
-                            have favorited, or want to add to your wishlist. Fast, offline, and portable.
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Primary Meta Tags -->
+        <title>Memory Pak - Cross-Platform Retro Game Collection Tracker</title>
+        <meta
+            name="title"
+            content="Memory Pak - Cross-Platform Retro Game Collection Tracker"
+        />
+        <meta
+            name="description"
+            content="Track your retro gaming collection across desktop, web, and mobile. Manage consoles, games, wishlists, and favorites with Memory Pak - a fast, offline-first tracker built with Tauri, Svelte, and Rust."
+        />
+        <meta
+            name="keywords"
+            content="game collection tracker, retro gaming, console tracker, game library manager, wishlist app, game database, video game organizer, collection manager, gaming catalog, memory pak, rust app, cross-platform game tracker, NES, SNES, N64, PlayStation, Xbox, Nintendo, Sega"
+        />
+        <meta name="author" content="Aspenini" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://aspenini.github.io/Memory-Pak/" />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://aspenini.github.io/Memory-Pak/"
+        />
+        <meta property="og:site_name" content="Memory Pak" />
+        <meta
+            property="og:title"
+            content="Memory Pak - Cross-Platform Retro Game Collection Tracker"
+        />
+        <meta
+            property="og:description"
+            content="Track your retro gaming collection across desktop, web, and mobile. Manage consoles, games, wishlists, and favorites with Memory Pak."
+        />
+        <meta
+            property="og:image"
+            content="https://aspenini.github.io/Memory-Pak/img/icon-512.png"
+        />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta
+            property="og:image:alt"
+            content="Memory Pak - Retro game collection tracker app icon"
+        />
+        <meta property="og:locale" content="en_US" />
+        <!-- Twitter / X Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:url"
+            content="https://aspenini.github.io/Memory-Pak/"
+        />
+        <meta
+            name="twitter:title"
+            content="Memory Pak - Cross-Platform Retro Game Collection Tracker"
+        />
+        <meta
+            name="twitter:description"
+            content="Track your retro gaming collection across desktop, web, and mobile with Memory Pak."
+        />
+        <meta
+            name="twitter:image"
+            content="https://aspenini.github.io/Memory-Pak/img/icon-512.png"
+        />
+        <meta name="twitter:image:alt" content="Memory Pak app icon" />
+        <meta name="twitter:creator" content="@Aspenini" />
+        <!-- Additional Meta Tags -->
+        <meta name="theme-color" content="#00ff00" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-title" content="Memory Pak" />
+        <meta name="application-name" content="Memory Pak" />
+        <meta name="msapplication-TileColor" content="#00ff00" />
+        <meta name="msapplication-TileImage" content="/img/icon-512.png" />
+        <!-- Structured Data / JSON-LD -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Memory Pak",
+                "description": "A cross-platform retro game collection tracker built with Tauri, Svelte, Rust, and WebAssembly. The web build is a rolling release from the latest deploy; desktop installers follow GitHub releases.",
+                "url": "https://aspenini.github.io/Memory-Pak/",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": ["Windows", "macOS", "Linux", "Android"],
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Aspenini"
+                },
+                "downloadUrl": "https://github.com/Aspenini/Memory-Pak/releases",
+                "image": "https://aspenini.github.io/Memory-Pak/img/icon-512.png",
+                "screenshot": "https://aspenini.github.io/Memory-Pak/img/icon-512.png"
+            }
+        </script>
+        <link rel="stylesheet" href="styles.css" />
+        <!-- Favicons -->
+        <link rel="icon" href="/img/favicon.ico" sizes="any" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/img/icon-192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="512x512"
+            href="/img/icon-512.png"
+        />
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/img/icon-512.png" color="#00ff00" />
+        <!-- Web App Manifest -->
+        <link rel="manifest" href="manifest.json" />
+    </head>
+    <body>
+        <div class="crt-screen">
+            <div class="scanlines"></div>
+            <div class="content">
+                <header class="retro-header">
+                    <div class="glitch" data-text="MEMORY PAK">MEMORY PAK</div>
+                    <p class="tagline">Track Your Gaming Collection</p>
+                </header>
+                <main>
+                    <section class="hero">
+                        <div class="pixel-grid"></div>
+                        <div class="hero-content">
+                            <h2>Organize Your Console & Game Collection</h2>
+                            <p class="description">
+                                Memory Pak is a cross-platform app for tracking
+                                which consoles and games you own, have
+                                favorited, or want to add to your wishlist.
+                                Fast, offline, and portable.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="features">
+                        <div class="feature-card">
+                            <div class="card-header">Consoles</div>
+                            <p>
+                                Track your console collection with custom notes
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">Games</div>
+                            <p>Mark games as owned, favorited, or wishlisted</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">Search</div>
+                            <p>Cross-console search and advanced filtering</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">Portable</div>
+                            <p>Shared Rust core with embedded database</p>
+                        </div>
+                    </section>
+                    <section class="downloads">
+                        <h2 class="section-title">Download</h2>
+                        <p
+                            class="description"
+                            id="release-version"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Latest release: checking…
                         </p>
-                    </div>
-                </section>
-
-                <section class="features">
-                    <div class="feature-card">
-                        <div class="card-header">Consoles</div>
-                        <p>Track your console collection with custom notes</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-header">Games</div>
-                        <p>Mark games as owned, favorited, or wishlisted</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-header">Search</div>
-                        <p>Cross-console search and advanced filtering</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-header">Portable</div>
-                        <p>Shared Rust core with embedded database</p>
-                    </div>
-                </section>
-
-                <section class="downloads">
-                    <h2 class="section-title">Download</h2>
-                    <p class="description" id="release-version" role="status" aria-live="polite">Latest release: checking…</p>
-                    <p class="description release-channel-note">
-                        The <a href="app/">web app</a> tracks the latest successful deploy from the default branch.
-                        Installers appear here when they are attached to the <a href="https://github.com/Aspenini/Memory-Pak/releases/latest">latest GitHub release</a>.
-                        AppImage is not supported.
-                    </p>
-                    <div class="download-grid">
-                        <div class="download-card" data-platform="windows">
-                            <img src="img/os-windows-11.png" alt="" class="platform-icon" width="80" height="80">
-                            <span class="platform-name">Windows</span>
-                            <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="setup,.exe"
-                                   download>Setup (.exe)</a>
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match=",.msi"
-                                   download>MSI installer</a>
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="portable,.zip"
-                                   download>Portable (.zip)</a>
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="portable,.exe"
-                                   data-release-hide-if-missing
-                                   download>Portable (.exe)</a>
+                        <p class="description release-channel-note">
+                            The <a href="app/">web app</a> tracks the latest
+                            successful deploy from the default branch.
+                            Installers appear here when they are attached to the
+                            <a
+                                href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                >latest GitHub release</a
+                            >. AppImage is not supported.
+                        </p>
+                        <div class="download-grid">
+                            <div class="download-card" data-platform="windows">
+                                <img
+                                    src="img/os-windows-11.png"
+                                    alt=""
+                                    class="platform-icon"
+                                    width="80"
+                                    height="80"
+                                />
+                                <span class="platform-name">Windows</span>
+                                <div class="download-buttons">
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match="setup,.exe"
+                                        download
+                                        >Setup (.exe)</a
+                                    >
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match=",.msi"
+                                        download
+                                        >MSI installer</a
+                                    >
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match="portable,.zip"
+                                        download
+                                        >Portable (.zip)</a
+                                    >
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match="portable,.exe"
+                                        data-release-hide-if-missing
+                                        download
+                                        >Portable (.exe)</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="download-card" data-platform="macos">
+                                <img
+                                    src="img/os-macos.png"
+                                    alt=""
+                                    class="platform-icon"
+                                    width="80"
+                                    height="80"
+                                />
+                                <span class="platform-name">macOS</span>
+                                <div class="download-buttons">
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match=",.dmg"
+                                        data-release-label="DMG"
+                                        download
+                                        >DMG</a
+                                    >
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match=".app,.zip"
+                                        data-release-label="App archive (.zip)"
+                                        download
+                                        >App (.zip)</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="download-card" data-platform="linux">
+                                <img
+                                    src="img/os-linux-na.png"
+                                    alt=""
+                                    class="platform-icon"
+                                    width="80"
+                                    height="80"
+                                />
+                                <span class="platform-name">Linux</span>
+                                <div class="download-buttons">
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match="memory-pak,.deb"
+                                        data-release-label=".deb (Debian/Ubuntu)"
+                                        download
+                                        >.deb</a
+                                    >
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match="linux,portable,.tar.gz"
+                                        data-release-label="Linux binary (.tar.gz)"
+                                        download
+                                        >Binary (.tar.gz)</a
+                                    >
+                                    <a
+                                        href="https://aur.archlinux.org/packages/memory-pak-git"
+                                        class="download-badge"
+                                        download
+                                        >AUR (ROLLING RELEASE)</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="download-card" data-platform="web">
+                                <img
+                                    src="img/os-web.png"
+                                    alt=""
+                                    class="platform-icon"
+                                    width="80"
+                                    height="80"
+                                />
+                                <span class="platform-name">Web</span>
+                                <a
+                                    href="app/"
+                                    class="download-badge"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Launch web app</a
+                                >
+                                <p class="platform-note">Rolling release</p>
+                            </div>
+                            <div class="download-card" data-platform="android">
+                                <img
+                                    src="img/os-android.png"
+                                    alt=""
+                                    class="platform-icon"
+                                    width="80"
+                                    height="80"
+                                />
+                                <span class="platform-name">Android</span>
+                                <div class="download-buttons">
+                                    <a
+                                        href="https://github.com/Aspenini/Memory-Pak/releases/latest"
+                                        class="download-badge"
+                                        data-release-match="android,.apk"
+                                        data-release-label="APK"
+                                        download
+                                        >APK</a
+                                    >
+                                </div>
                             </div>
                         </div>
-                        <div class="download-card" data-platform="macos">
-                            <img src="img/os-macos.png" alt="" class="platform-icon" width="80" height="80">
-                            <span class="platform-name">macOS</span>
-                            <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match=",.dmg"
-                                   data-release-label="DMG"
-                                   download>DMG</a>
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match=".app,.zip"
-                                   data-release-label="App archive (.zip)"
-                                   download>App (.zip)</a>
-                            </div>
-                        </div>
-                        <div class="download-card" data-platform="linux">
-                            <img src="img/os-linux-na.png" alt="" class="platform-icon" width="80" height="80">
-                            <span class="platform-name">Linux</span>
-                            <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="memory-pak,.deb"
-                                   data-release-label=".deb (Debian/Ubuntu)"
-                                   download>.deb</a>
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="linux,portable,.tar.gz"
-                                   data-release-label="Linux binary (.tar.gz)"
-                                   download>Binary (.tar.gz)</a>
-                            </div>
-                        </div>
-                        <div class="download-card" data-platform="web">
-                            <img src="img/os-web.png" alt="" class="platform-icon" width="80" height="80">
-                            <span class="platform-name">Web</span>
-                            <a href="app/"
-                               class="download-badge"
-                               target="_blank"
-                               rel="noopener noreferrer">Launch web app</a>
-                            <p class="platform-note">Rolling release</p>
-                        </div>
-                        <div class="download-card" data-platform="android">
-                            <img src="img/os-android.png" alt="" class="platform-icon" width="80" height="80">
-                            <span class="platform-name">Android</span>
-                            <div class="download-buttons">
-                                <a href="https://github.com/Aspenini/Memory-Pak/releases/latest"
-                                   class="download-badge"
-                                   data-release-match="android,.apk"
-                                   data-release-label="APK"
-                                   download>APK</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <footer class="retro-footer">
-                    <p>Built with Tauri • Svelte • Rust</p>
-                    <a href="https://github.com/Aspenini/Memory-Pak" target="_blank" rel="noopener noreferrer" class="github-link">
-                        <img src="img/github.png" alt="GitHub" class="github-icon">
-                        <span>View on GitHub</span>
-                    </a>
-                </footer>
-            </main>
+                    </section>
+                    <footer class="retro-footer">
+                        <p>Built with Tauri • Svelte • Rust</p>
+                        <a
+                            href="https://github.com/Aspenini/Memory-Pak"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-link"
+                        >
+                            <img
+                                src="img/github.png"
+                                alt="GitHub"
+                                class="github-icon"
+                            />
+                            <span>View on GitHub</span>
+                        </a>
+                    </footer>
+                </main>
+            </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
