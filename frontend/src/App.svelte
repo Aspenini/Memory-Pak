@@ -46,6 +46,8 @@
   import TopBar from './lib/components/TopBar.svelte';
   import Toolbar from './lib/components/Toolbar.svelte';
   import UpdateBanner from './lib/components/UpdateBanner.svelte';
+  import WindowChrome from './lib/components/WindowChrome.svelte';
+  import { isTauriDesktop } from './lib/isTauriDesktop';
 
   const tabs = [
     { id: 'consoles' as TabId, label: 'Consoles', mobileLabel: 'Consoles', icon: Monitor },
@@ -88,6 +90,7 @@
   let lastQueryKey = '';
   let isMobile = false;
   let isShort = false;
+  let showDesktopChrome = isTauriDesktop();
 
   let pendingNotes: Record<string, string> = {};
 
@@ -144,6 +147,8 @@
   }
 
   onMount(() => {
+    showDesktopChrome = isTauriDesktop();
+
     const mqMobile = window.matchMedia('(max-width: 960px)');
     const mqShort = window.matchMedia('(max-height: 600px)');
     isMobile = mqMobile.matches;
@@ -421,6 +426,7 @@
   }
 </script>
 
+{#snippet appContent()}
 {#if loading}
   <main class="boot" transition:fade>
     <Database size={42} />
@@ -551,4 +557,16 @@
       on:dismiss={(event) => dismissUpdate(event.detail)}
     />
   </div>
+{/if}
+{/snippet}
+
+{#if showDesktopChrome}
+  <div class="desktop-frame">
+    <WindowChrome />
+    <div class="desktop-body">
+      {@render appContent()}
+    </div>
+  </div>
+{:else}
+  {@render appContent()}
 {/if}
