@@ -1,8 +1,8 @@
 [workspace]
 members = [
+    "crates/memory_pak_app",
+    "crates/memory_pak_catalog",
     "crates/memory_pak_core",
-    "crates/memory_pak_wasm",
-    "crates/memory_pak_tauri",
 ]
 resolver = "2"
 
@@ -16,6 +16,7 @@ homepage = "https://aspenini.github.io/Memory-Pak"
 
 [workspace.dependencies]
 chrono = { version = "0.4", default-features = false, features = ["clock", "serde", "wasmbind"] }
+blake3 = "1.8"
 directories = "6.0"
 parking_lot = "0.12"
 postcard = { version = "1.0", default-features = false, features = ["use-std"] }
@@ -26,9 +27,9 @@ thiserror = "2.0"
 unicode-normalization = "0.1"
 wasm-bindgen = "0.2"
 console_error_panic_hook = "0.1"
+slint = { version = "1.17.0", default-features = false }
 
-# Smaller, faster Tauri release bundles. The defaults add ~30-50% binary size
-# and slow down startup; these are the values the Tauri team recommends.
+# Keep the embedded catalog and Slint runtime compact across native and Wasm.
 [profile.release]
 opt-level = "s"
 lto = "thin"

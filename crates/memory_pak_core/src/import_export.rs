@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 use crate::ids::EntryId;
-use crate::model::{EntryState, PersistedState};
+use crate::model::{EntryState, PersistedState, SaveEnvelopeV3, SAVE_SCHEMA_VERSION};
 
 pub const EXPORT_VERSION: &str = "2.0";
 
@@ -64,4 +64,40 @@ pub fn apply_import(state: &mut PersistedState, import: ExportData) {
             },
         );
     }
+}
+
+pub fn decode_persisted_state(json: &str) -> Result<PersistedState, SaveDecodeError> {
+    let value: serde_json::Value = serde_json::from_str(json)?;
+    let mut state = if value.get("schemaVersion").is_some() {
+        let envelope: SaveEnvelopeV3 = serde_json::from_value(value)?;
+        if envelope.schema_version != SAVE_SCHEMA_VERSION {
+            return Err(SaveDecodeError::UnsupportedSchema(envelope.schema_version));
+        }
+        PersistedState::from(envelope)
+    } else {
+        serde_json::from_value(value)?
+    };
+    state.entries.retain(|_, entry| !entry.is_empty());
+    Ok(state)
+}
+
+pub fn encode_persisted_state(state: &PersistedState) -> Result<String, serde_json::Error> {
+    let envelope = SaveEnvelopeV3 {
+        schema_version: SAVE_SCHEMA_VERSION,
+        entries: state
+            .entries
+            .iter()
+            .filter(|(_, entry)| !entry.is_empty())
+            .map(|(id, entry)| (id.clone(), entry.clone()))
+            .collect(),
+    };
+    serde_json::to_string_pretty(&envelope)
+}
+
+#[derive(Debug, thiserror::Error)]
+pub enum SaveDecodeError {
+    #[error("invalid save JSON: {0}")]
+    Json(#[from] serde_json::Error),
+    #[error("unsupported save schema {0}")]
+    UnsupportedSchema(u32),
 }

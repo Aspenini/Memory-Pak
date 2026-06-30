@@ -22,11 +22,16 @@ if (!existsSync(input)) throw new Error(`Input directory does not exist: ${input
 const files = walk(input).filter((file) => !file.startsWith(output));
 const platforms = {};
 
-addUpdaterPlatform(platforms, 'windows-x86_64', findFirst(files, isWindowsUpdaterAsset), baseUrl);
+addUpdaterPlatform(
+  platforms,
+  'windows-x86_64',
+  findFirst(files, isWindowsUpdaterAsset),
+  baseUrl,
+  'nsis'
+);
 
 const macAsset = findFirst(files, isMacUpdaterAsset);
-addUpdaterPlatform(platforms, 'darwin-x86_64', macAsset, baseUrl);
-addUpdaterPlatform(platforms, 'darwin-aarch64', macAsset, baseUrl);
+addUpdaterPlatform(platforms, 'macos-aarch64', macAsset, baseUrl, 'app');
 
 if (Object.keys(platforms).length === 0) {
   throw new Error('No signed updater artifacts were found.');
@@ -67,11 +72,12 @@ function findFirst(files, predicate) {
   return files.find((file) => predicate(file) && existsSync(`${file}.sig`));
 }
 
-function addUpdaterPlatform(target, key, asset, baseUrl) {
+function addUpdaterPlatform(target, key, asset, baseUrl, format) {
   if (!asset) return;
   target[key] = {
     signature: readFileSync(`${asset}.sig`, 'utf8').trim(),
-    url: `${baseUrl}/${encodeURIComponent(basename(asset))}`
+    url: `${baseUrl}/${encodeURIComponent(basename(asset))}`,
+    format
   };
 }
 

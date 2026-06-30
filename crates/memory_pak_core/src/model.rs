@@ -53,14 +53,18 @@ pub struct Collectible {
 #[derive(Debug, Clone, Serialize, Deserialize, Default, PartialEq, Eq)]
 #[serde(rename_all = "camelCase")]
 pub struct EntryState {
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "is_false")]
     pub owned: bool,
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "is_false")]
     pub favorite: bool,
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "is_false")]
     pub wishlist: bool,
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "String::is_empty")]
     pub notes: String,
+}
+
+fn is_false(value: &bool) -> bool {
+    !*value
 }
 
 impl EntryState {
@@ -75,20 +79,74 @@ pub struct PersistedState {
     pub entries: HashMap<EntryId, EntryState>,
 }
 
+pub type EntryOverride = EntryState;
+
+pub const SAVE_SCHEMA_VERSION: u32 = 3;
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "camelCase")]
+pub struct SaveEnvelopeV3 {
+    pub schema_version: u32,
+    #[serde(default)]
+    pub entries: HashMap<EntryId, EntryOverride>,
+}
+
+impl Default for SaveEnvelopeV3 {
+    fn default() -> Self {
+        Self {
+            schema_version: SAVE_SCHEMA_VERSION,
+            entries: HashMap::new(),
+        }
+    }
+}
+
+impl From<PersistedState> for SaveEnvelopeV3 {
+    fn from(value: PersistedState) -> Self {
+        Self {
+            schema_version: SAVE_SCHEMA_VERSION,
+            entries: value.entries,
+        }
+    }
+}
+
+impl From<SaveEnvelopeV3> for PersistedState {
+    fn from(value: SaveEnvelopeV3) -> Self {
+        Self {
+            entries: value.entries,
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct Catalog {
+    pub archive: memory_pak_catalog::CatalogArchive,
+    pub source_digest: [u8; 32],
     pub consoles: Vec<Console>,
     pub games: HashMap<EntryId, Game>,
     pub collections: Vec<Collection>,
     pub collectibles: Vec<Collectible>,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
 #[serde(rename_all = "camelCase")]
 pub enum ItemKind {
     Console,
     Game,
     Collectible,
+}
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
+#[serde(rename_all = "camelCase")]
+pub struct CatalogRef {
+    pub kind: ItemKind,
+    pub ordinal: u32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[serde(rename_all = "camelCase")]
+pub struct QuerySnapshot {
+    pub total: usize,
+    pub items: Vec<CatalogRef>,
 }
 
 impl From<EntryKind> for ItemKind {
@@ -114,6 +172,7 @@ impl From<ItemKind> for EntryKind {
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct ConsoleCounts {
+    pub total: usize,
     pub owned: usize,
     pub favorite: usize,
     pub wishlist: usize,
@@ -160,6 +219,13 @@ pub struct CollectibleView {
     pub variant: String,
     pub year: u8,
     pub state: EntryState,
+}
+
+#[derive(Debug, Clone)]
+pub enum RowView {
+    Console(ConsoleView),
+    Game(GameView),
+    Collectible(CollectibleView),
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

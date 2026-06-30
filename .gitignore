@@ -1,26 +1,18 @@
 # Rust
 /target
 
-# Frontend build output and dependencies
+# Generated web artifacts
 /dist
 /node_modules
-/frontend/dist
-/frontend/node_modules
-/frontend/playwright-report
-/frontend/test-results
-/frontend/generated
-/frontend/src/wasm
+/web/dist
 /site/app
-
-# Tauri generated files (output of tauri-build)
-/crates/memory_pak_tauri/gen/schemas
-/crates/memory_pak_tauri/gen/android/.gradle
-/crates/memory_pak_tauri/gen/android/build
-/crates/memory_pak_tauri/gen/android/app/build
-/crates/memory_pak_tauri/target
 
 # Android / signing artifacts
 .android/
+/platform/android/.gradle/
+/platform/android/build/
+/platform/android/app/build/
+/platform/android/app/src/main/jniLibs/
 *.keystore
 *.jks
 

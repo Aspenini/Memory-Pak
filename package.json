@@ -4,31 +4,24 @@
   "type": "module",
   "packageManager": "bun@1.3.13",
   "scripts": {
-    "setup": "rustup target add wasm32-unknown-unknown && cargo install wasm-pack --version 0.14.0 --locked && cargo install tauri-cli --version 2.11.1 --locked && bun install --cwd frontend --frozen-lockfile",
-    "tauri": "cd crates/memory_pak_tauri && cargo tauri",
-
+    "setup": "rustup target add wasm32-unknown-unknown aarch64-apple-ios aarch64-apple-ios-sim x86_64-apple-ios && cargo install wasm-pack --version 0.14.0 --locked && cargo install cargo-packager --locked",
     "fmt": "cargo fmt --all",
     "fmt:check": "cargo fmt --all -- --check",
     "clippy": "cargo clippy --workspace --all-targets -- -D warnings",
-    "test": "cargo test --workspace",
+    "test": "cargo test --workspace --all-features",
     "check": "cargo check --workspace",
-    "check:wasm": "cargo check -p memory_pak_wasm --target wasm32-unknown-unknown",
-    "check:desktop": "bun run tauri -- build --no-bundle --ci",
-    "check:fast": "bun run fmt:check && bun run clippy && bun run test && bun run check:wasm && bun run --cwd frontend test && bun run --cwd frontend check && bun run --cwd frontend build",
-    "check:ci": "bun run check:fast && bun run --cwd frontend e2e && bun run check:desktop",
-
-    "dev:web": "bun run --cwd frontend dev",
-    "dev:desktop": "bun run tauri -- dev",
-    "dev:android": "bun run tauri -- android dev",
-    "build:web": "bun run --cwd frontend build",
-    "build:desktop": "bun run tauri -- build --no-bundle --ci",
-    "build:android": "bun run tauri -- android build",
-    "package:desktop": "bun run tauri -- build",
-    "package:win": "bun run tauri -- build --bundles nsis,msi",
-    "package:mac": "bun run tauri -- build --bundles dmg",
-    "package:linux": "bun run tauri -- build --bundles deb && node scripts/create-linux-portable.mjs",
-
-    "android:init": "bun run tauri -- android init",
-    "ios:init": "bun run tauri -- ios init"
+    "check:wasm": "cargo check -p memory_pak_app --target wasm32-unknown-unknown",
+    "check:ios": "cargo check -p memory_pak_app --target aarch64-apple-ios-sim",
+    "check:fast": "bun run fmt:check && bun run clippy && bun run test && bun run check:wasm && bun run build:web",
+    "check:ci": "bun run check:fast && cargo check -p memory_pak_app --release",
+    "dev:desktop": "cargo run -p memory_pak_app --bin memory-pak",
+    "build:desktop": "cargo build -p memory_pak_app --release --bin memory-pak",
+    "build:web": "node scripts/build-slint-web.mjs",
+    "build:android": "gradle -p platform/android :app:assembleRelease",
+    "build:ios": "platform/ios/generate.bash && xcodebuild -project platform/ios/MemoryPak.xcodeproj -scheme MemoryPak -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build",
+    "package:desktop": "cd crates/memory_pak_app && cargo packager --release",
+    "package:win": "cd crates/memory_pak_app && cargo packager --release --formats nsis,wix",
+    "package:mac": "cd crates/memory_pak_app && cargo packager --release --formats dmg,app",
+    "package:linux": "cd crates/memory_pak_app && cargo packager --release --formats deb"
   }
 }

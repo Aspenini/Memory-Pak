@@ -1,0 +1,43 @@
+name: MemoryPak
+options:
+  bundleIdPrefix: com.Aspenini
+settings:
+  ENABLE_USER_SCRIPT_SANDBOXING: NO
+targets:
+  MemoryPak:
+    type: application
+    platform: iOS
+    deploymentTarget: "12.0"
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.Aspenini.MemoryPak
+      PRODUCT_NAME: Memory Pak
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      TARGETED_DEVICE_FAMILY: "1,2"
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: Memory Pak
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UIRequiresFullScreen: false
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    sources:
+      - Bootstrap.swift
+    resources:
+      - Generated/Assets.xcassets
+    postCompileScripts:
+      - name: Build Rust executable
+        script: |
+          ./build_for_ios_with_cargo.bash memory-pak
+        outputFiles:
+          - $(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)

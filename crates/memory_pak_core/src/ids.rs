@@ -1,3 +1,4 @@
+use std::borrow::Borrow;
 use std::fmt;
 
 use serde::{Deserialize, Serialize};
@@ -81,6 +82,12 @@ impl From<String> for EntryId {
 
 impl AsRef<str> for EntryId {
     fn as_ref(&self) -> &str {
+        &self.0
+    }
+}
+
+impl Borrow<str> for EntryId {
+    fn borrow(&self) -> &str {
         &self.0
     }
 }

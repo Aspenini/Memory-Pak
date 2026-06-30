@@ -346,7 +346,7 @@
     },
     {
       "name": "Chill",
-      "slug": "chill",
+      "slug": "chill~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Light Cores"
@@ -430,7 +430,7 @@
     },
     {
       "name": "Chill",
-      "slug": "chill",
+      "slug": "chill~3",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 1"
@@ -458,21 +458,21 @@
     },
     {
       "name": "Jet-Vac",
-      "slug": "jet-vac",
+      "slug": "jet-vac~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 1"
     },
     {
       "name": "Pop Fizz",
-      "slug": "pop-fizz",
+      "slug": "pop-fizz~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 1"
     },
     {
       "name": "Shroomboom",
-      "slug": "shroomboom",
+      "slug": "shroomboom~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 1"
@@ -521,14 +521,14 @@
     },
     {
       "name": "Drobot",
-      "slug": "drobot",
+      "slug": "drobot~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 2"
     },
     {
       "name": "Eruptor",
-      "slug": "eruptor",
+      "slug": "eruptor~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 2"
@@ -549,7 +549,7 @@
     },
     {
       "name": "Hex",
-      "slug": "hex",
+      "slug": "hex~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 2"
@@ -570,7 +570,7 @@
     },
     {
       "name": "Prism Break",
-      "slug": "prism-break",
+      "slug": "prism-break~2",
       "game": "Giants",
       "base_color": "Orange",
       "category": "Series 2"
@@ -1375,7 +1375,7 @@
     },
     {
       "name": "Cynder",
-      "slug": "cynder",
+      "slug": "cynder~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Chase Variants"
@@ -1508,21 +1508,21 @@
     },
     {
       "name": "Whirlwind",
-      "slug": "whirlwind",
+      "slug": "whirlwind~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Chase Variants"
     },
     {
       "name": "Wrecking Ball",
-      "slug": "wrecking-ball",
+      "slug": "wrecking-ball~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Chase Variants"
     },
     {
       "name": "Bash",
-      "slug": "bash",
+      "slug": "bash~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
@@ -1543,14 +1543,14 @@
     },
     {
       "name": "Chop Chop",
-      "slug": "chop-chop",
+      "slug": "chop-chop~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Cynder",
-      "slug": "cynder",
+      "slug": "cynder~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
@@ -1564,35 +1564,35 @@
     },
     {
       "name": "Double Trouble",
-      "slug": "double-trouble",
+      "slug": "double-trouble~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Drill Sergeant",
-      "slug": "drill-sergeant",
+      "slug": "drill-sergeant~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Drobot",
-      "slug": "drobot",
+      "slug": "drobot~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Eruptor",
-      "slug": "eruptor",
+      "slug": "eruptor~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Flameslinger",
-      "slug": "flameslinger",
+      "slug": "flameslinger~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
@@ -1606,70 +1606,70 @@
     },
     {
       "name": "Gill Grunt",
-      "slug": "gill-grunt",
+      "slug": "gill-grunt~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Hex",
-      "slug": "hex",
+      "slug": "hex~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Ignitor",
-      "slug": "ignitor",
+      "slug": "ignitor~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Lightning Rod",
-      "slug": "lightning-rod",
+      "slug": "lightning-rod~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Prism Break",
-      "slug": "prism-break",
+      "slug": "prism-break~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Slam Bam",
-      "slug": "slam-bam",
+      "slug": "slam-bam~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Sonic Boom",
-      "slug": "sonic-boom",
+      "slug": "sonic-boom~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Spyro",
-      "slug": "spyro",
+      "slug": "spyro~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Stealth Elf",
-      "slug": "stealth-elf",
+      "slug": "stealth-elf~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Stump Smash",
-      "slug": "stump-smash",
+      "slug": "stump-smash~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
@@ -1683,14 +1683,14 @@
     },
     {
       "name": "Terrafin",
-      "slug": "terrafin",
+      "slug": "terrafin~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Trigger Happy",
-      "slug": "trigger-happy",
+      "slug": "trigger-happy~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
@@ -1704,42 +1704,42 @@
     },
     {
       "name": "Warnado",
-      "slug": "warnado",
+      "slug": "warnado~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Wham-Shell",
-      "slug": "wham-shell",
+      "slug": "wham-shell~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Whirlwind",
-      "slug": "whirlwind",
+      "slug": "whirlwind~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Wrecking Ball",
-      "slug": "wrecking-ball",
+      "slug": "wrecking-ball~3",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Zap",
-      "slug": "zap",
+      "slug": "zap~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
     },
     {
       "name": "Zook",
-      "slug": "zook",
+      "slug": "zook~2",
       "game": "Spyro's Adventure",
       "base_color": "Green",
       "category": "Core Skylanders"
@@ -2446,126 +2446,126 @@
     },
     {
       "name": "Burn-Cycle",
-      "slug": "burn-cycle",
+      "slug": "burn-cycle~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Buzz Wing",
-      "slug": "buzz-wing",
+      "slug": "buzz-wing~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Clown Cruiser",
-      "slug": "clown-cruiser",
+      "slug": "clown-cruiser~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Crypt Crusher",
-      "slug": "crypt-crusher",
+      "slug": "crypt-crusher~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Dive Bomber",
-      "slug": "dive-bomber",
+      "slug": "dive-bomber~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Gold Rusher",
-      "slug": "gold-rusher",
+      "slug": "gold-rusher~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Hot Streak",
-      "slug": "hot-streak",
+      "slug": "hot-streak~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Jet Stream",
-      "slug": "jet-stream",
+      "slug": "jet-stream~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Reef Ripper",
-      "slug": "reef-ripper",
+      "slug": "reef-ripper~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Sea Shadow",
-      "slug": "sea-shadow",
+      "slug": "sea-shadow~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Shark Tank",
-      "slug": "shark-tank",
+      "slug": "shark-tank~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Shield Striker",
-      "slug": "shield-striker",
+      "slug": "shield-striker~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Sky Slicer",
-      "slug": "sky-slicer",
+      "slug": "sky-slicer~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Soda Skimmer",
-      "slug": "soda-skimmer",
+      "slug": "soda-skimmer~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Splatter Splasher",
-      "slug": "splatter-splasher",
+      "slug": "splatter-splasher~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Stealth Stinger",
-      "slug": "stealth-stinger",
+      "slug": "stealth-stinger~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Sun Runner",
-      "slug": "sun-runner",
+      "slug": "sun-runner~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
     },
     {
       "name": "Thump Truck",
-      "slug": "thump-truck",
+      "slug": "thump-truck~2",
       "game": "SuperChargers",
       "base_color": "Engine",
       "category": "Vehicles"
@@ -2698,7 +2698,7 @@
     },
     {
       "name": "Dark Spyro",
-      "slug": "dark-spyro",
+      "slug": "dark-spyro~2",
       "game": "Swap Force",
       "base_color": "Blue",
       "category": "In-Game Variants"
@@ -3461,7 +3461,7 @@
     },
     {
       "name": "Barkley",
-      "slug": "barkley",
+      "slug": "barkley~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
@@ -3489,14 +3489,14 @@
     },
     {
       "name": "Eye Small",
-      "slug": "eye-small",
+      "slug": "eye-small~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
     },
     {
       "name": "Gill Runt",
-      "slug": "gill-runt",
+      "slug": "gill-runt~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
@@ -3510,7 +3510,7 @@
     },
     {
       "name": "Mini Jini",
-      "slug": "mini-jini",
+      "slug": "mini-jini~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
@@ -3538,21 +3538,21 @@
     },
     {
       "name": "Terrabite",
-      "slug": "terrabite",
+      "slug": "terrabite~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
     },
     {
       "name": "Thumpling",
-      "slug": "thumpling",
+      "slug": "thumpling~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
     },
     {
       "name": "Trigger Snappy",
-      "slug": "trigger-snappy",
+      "slug": "trigger-snappy~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"
@@ -3566,7 +3566,7 @@
     },
     {
       "name": "Whisper Elf",
-      "slug": "whisper-elf",
+      "slug": "whisper-elf~2",
       "game": "Trap Team",
       "base_color": "Red",
       "category": "Mini Skylanders"

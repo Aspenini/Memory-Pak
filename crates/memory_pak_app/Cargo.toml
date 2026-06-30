@@ -1,0 +1,67 @@
+[package]
+name = "memory_pak_app"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Memory Pak Slint application"
+build = "build.rs"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "memory-pak"
+path = "src/main.rs"
+
+[dependencies]
+memory_pak_core = { path = "../memory_pak_core" }
+serde.workspace = true
+serde_json.workspace = true
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+slint = { workspace = true, features = ["std", "backend-winit", "renderer-femtovg", "accessibility", "compat-1-2", "unstable-winit-030"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+atomicwrites = "0.4"
+
+[target.'cfg(not(any(target_arch = "wasm32", target_os = "android", target_os = "ios")))'.dependencies]
+directories.workspace = true
+rfd = { version = "0.17", default-features = false, features = ["xdg-portal"] }
+cargo-packager-updater = "0.2.3"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook.workspace = true
+js-sys = "0.3"
+serde-wasm-bindgen.workspace = true
+wasm-bindgen.workspace = true
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["Blob", "Document", "Element", "HtmlAnchorElement", "Url", "Window", "console"] }
+
+[target.'cfg(target_os = "android")'.dependencies]
+jni = "0.21"
+slint = { workspace = true, default-features = false, features = ["std", "backend-android-activity-06", "renderer-femtovg", "compat-1-2"] }
+
+[target.'cfg(target_os = "ios")'.dependencies]
+directories.workspace = true
+slint = { workspace = true, default-features = false, features = ["std", "backend-winit", "renderer-skia", "compat-1-2"] }
+
+[build-dependencies]
+slint-build = "1.17.0"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[package.metadata.packager]
+before-packaging-command = "cargo build --release --bin memory-pak"
+product-name = "Memory Pak"
+identifier = "com.Aspenini.MemoryPak"
+category = "Utility"
+out-dir = "../../dist/desktop"
+icons = [
+    "../../icons/macos/AppIcon.icns",
+    "../../icons/windows/*.ico",
+    "../../icons/linux/*.png",
+]

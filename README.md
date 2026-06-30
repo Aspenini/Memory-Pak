@@ -2,132 +2,107 @@
 
 [![CI](https://github.com/Aspenini/Memory-Pak/actions/workflows/ci.yml/badge.svg)](https://github.com/Aspenini/Memory-Pak/actions/workflows/ci.yml)
 [![Deploy Website](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml/badge.svg)](https://github.com/Aspenini/Memory-Pak/actions/workflows/deploy.yml)
-[![GitHub Release](https://img.shields.io/github/v/release/Aspenini/Memory-Pak?label=release)](https://github.com/Aspenini/Memory-Pak/releases/latest)
-[![GitHub Release Downloads](https://img.shields.io/github/downloads/Aspenini/Memory-Pak/total?label=release%20downloads)](https://github.com/Aspenini/Memory-Pak/releases)
 [![License](https://img.shields.io/github/license/Aspenini/Memory-Pak)](LICENSE)
 
-A cross-platform game collection tracker built with Rust, Tauri 2, and Svelte. Memory Pak tracks consoles, games, and toy-to-life collectibles (LEGO Dimensions, Skylanders, and more) across owned, favorite, wishlist, and notes states.
+Memory Pak is a Rust and Slint game-collection tracker for desktop, web/PWA,
+Android, and iOS. It tracks consoles, games, and toy-to-life collectibles using
+independent owned, favorite, wishlist, and notes state.
 
-## Features
-
-- Desktop and mobile app shells through Tauri 2
-- Static web/PWA build using the same Svelte frontend and Rust core compiled to WASM
-- Embedded catalog precompiled at build time into a single binary blob (`postcard`)
-- Deterministic slug-based entry IDs (`game:nes/super-mario-bros`, `collectible:legodimensions/batman`, etc.)
-- Unified Collectibles tab spanning every toy-to-life line in `database/collectibles/`
-- Cross-console search, sorting, filtering, and virtualized long lists
-- JSON import/export at schema version `2.0`
-
-## Project Structure
+## Architecture
 
 ```text
-Memory-Pak/
-|-- crates/
-|   |-- memory_pak_core/   # shared Rust data model, queries, state reducer, import/export
-|   |-- memory_pak_wasm/   # wasm-bindgen adapter for the browser/PWA target
-|   `-- memory_pak_tauri/  # Tauri 2 desktop/mobile shell and commands
-|-- frontend/              # Svelte 5 + TypeScript + Vite app
-|-- database/              # `consoles.json`, `games/*.json`, `collectibles/*.json`
-|-- icons/                 # platform icons reused by Tauri and PWA
-`-- site/                  # GitHub Pages landing page; deploy copies frontend/dist to site/app
+crates/
+  memory_pak_catalog/  JSON validation and deterministic indexed catalog compiler
+  memory_pak_core/     indexed queries, state merging, statistics, v2 backup I/O
+  memory_pak_app/      Slint UI, lazy model, controllers, and platform services
+database/              editable catalog source; never included in runtime packages
+platform/android/      NativeActivity/Gradle shell and Storage Access Framework bridge
+platform/ios/          Xcodegen project for the Rust Slint executable
+web/                   minimal canvas bootstrap, manifest, and service worker
 ```
+
+`memory_pak_core/build.rs` compiles the source JSON into a versioned
+`catalog.bin`. The binary has a magic header, schema and source digests, a
+deduplicated string table, dense records, n-gram search postings, facets, and
+precomputed sort orders. Runtime artifacts embed only this immutable binary.
+
+User data is a sparse v3 envelope. Entries contain only `owned`, `favorite`,
+`wishlist`, and `notes`; default fields and empty entries are omitted. Unknown
+stable IDs are retained during migration but excluded from visible statistics.
+The deterministic v2 backup format remains the import/export format.
 
 ## Requirements
 
-- Rust 1.94.0 (pinned via `rust-toolchain.toml`)
-- Bun 1.3.13
-- `wasm-pack` 0.14.0
-- Tauri CLI 2.11.1
-- Tauri platform prerequisites for desktop/mobile builds (Xcode CLT on macOS, WebView2 on Windows, `webkit2gtk` etc. on Linux)
+- Rust 1.94
+- `wasm-pack` 0.14 for web builds
+- `cargo-packager` for desktop packages
+- Android SDK/NDK, Gradle, `cargo-ndk`, and Android Rust targets for Android
+- Xcode and Xcodegen for iOS
 
-Install the tooling (`wasm-pack`, `tauri-cli`, the WASM target, and frontend deps) in one shot:
+Install the common tools with:
 
-```bash
+```sh
 bun run setup
 ```
 
-## Development
+## Development and validation
 
-Root scripts are grouped by task:
-
-```bash
-bun run dev:web            # Svelte/Vite PWA development server
-bun run dev:desktop        # Tauri desktop app
-bun run dev:android        # Tauri Android app
-bun run build:web          # production PWA build
-bun run build:desktop      # desktop integration build without installers
-bun run build:android      # Android package build
-bun run package:desktop    # desktop installer/package build
-bun run package:win        # Windows NSIS/MSI bundles
-bun run package:mac        # macOS DMG bundle
-bun run package:linux      # Linux .deb bundle + portable .tar.gz
-bun run check:fast         # fmt + clippy + Rust tests + WASM + frontend checks/build
-bun run check:ci           # check:fast + Playwright + desktop smoke build
+```sh
+bun run dev:desktop
+bun run build:web
+bun run build:desktop
+bun run check:fast
 ```
 
-Icons under `icons/web/` are the canonical PWA icon source. Vite serves them under `/icons/...` in dev and emits them to `dist/icons/...` at build time, so there is no separate copy to keep in sync.
+Platform builds:
 
-Generated WASM bindings are written to `frontend/generated/wasm/` and ignored by git. Frontend check/build/dev scripts generate them before TypeScript or Vite runs.
-
-Frontend-only scripts live in `frontend/package.json`; run them directly with `bun run --cwd frontend <script>` when needed.
-
-Tauri mobile entrypoints are scaffolded through the standard Tauri CLI:
-
-```bash
-bun run android:init
-bun run dev:android
+```sh
 bun run build:android
-
-bun run ios:init
+bun run build:ios
+bun run package:mac       # package:win and package:linux are also available
 ```
 
-## User Data Storage
+The Android shell retains `com.Aspenini.MemoryPak`. Slint 1.17 requires Android
+API 26, so this is higher than the previous API 24 target. The iOS deployment
+target remains iOS 12 with the same bundle identifier.
 
-- **Desktop / mobile**: a single `state.json` under Tauri's app data directory, written atomically via a temp file + rename. Older desktop data under the previous `ProjectDirs` path is migrated on first load.
-- **Web / PWA**: a single IndexedDB record in the `memory-pak` database, written debounced to coalesce rapid toggles.
+## Storage and migration
 
-## Releases and Updates
+- Desktop saves use the platform application-data directory and atomic
+  temporary-file replacement. The previous Memory Pak `ProjectDirs` locations
+  are checked automatically.
+- Android saves use internal application storage; backup and restore use the
+  Storage Access Framework.
+- iOS saves use Application Support.
+- Web reuses the `memory-pak` IndexedDB database, `state` store, and `persisted`
+  key. The PWA precaches the complete Slint/Wasm application and catalog.
 
-Normal CI validates the project only. The manual **Package Artifacts** workflow builds Windows, macOS, and Linux bundles, creates updater signatures for the supported self-updating desktop targets, and uploads workflow artifacts plus `latest.json` and `checksums.sha256`. It does not publish a GitHub release; attach those files manually when ready.
+Any successfully loaded unversioned save is immediately rewritten as v3.
+Malformed saves are not overwritten.
 
-Desktop self-updates use the Tauri updater and require these repository secrets for the manual package workflow:
+## Stable IDs
+
+Wire IDs remain unchanged:
 
 ```text
-TAURI_SIGNING_PRIVATE_KEY
-TAURI_SIGNING_PRIVATE_KEY_PASSWORD   # optional if your key has no password
-TAURI_UPDATER_PUBKEY
+console:nes
+game:nes/super-mario-bros
+collectible:skylanders/trigger-happy~2
 ```
 
-The generated `latest.json` is intended to be attached to the same GitHub release as the Windows and macOS bundles. Linux does not use Memory Pak's in-app updater: Debian/Ubuntu users install the `.deb`, and everyone else can use the manual `.tar.gz` binary. Desktop update checks are available only in signed updater-enabled Windows/macOS bundles, not ordinary dev builds. The web app prompts when the PWA service worker sees a newer build. Android updates are handled by the app store outside Memory Pak.
+The catalog compiler rejects duplicate IDs. Existing Skylanders duplicates have
+explicit `~2` and `~3` source slugs so prior saves continue to resolve.
 
-### Linux Packages
+## Signed updates
 
-AppImage is not a supported Memory Pak release format. Linux release artifacts are:
+Windows and macOS packages use `cargo-packager-updater`. Set the public key at
+compile time and the private signing key while packaging:
 
-- `.deb` for Debian/Ubuntu-style systems
-- `Memory-Pak-linux-x86_64-portable.tar.gz` for manual binary installs
-
-## Export Format
-
-```json
-{
-  "version": "2.0",
-  "exportedAt": "2024-01-01T00:00:00Z",
-  "entries": [
-    {
-      "id": "console:nes",
-      "owned": true,
-      "favorite": false,
-      "wishlist": false,
-      "notes": "My original NES"
-    },
-    {
-      "id": "game:nes/super-mario-bros",
-      "owned": true,
-      "favorite": true,
-      "wishlist": false,
-      "notes": ""
-    }
-  ]
-}
+```text
+MEMORY_PAK_UPDATER_PUBKEY
+CARGO_PACKAGER_SIGN_PRIVATE_KEY
+CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD
 ```
+
+Linux remains package/manual-update only. Android and iOS updates are
+store-managed. The service worker presents an update prompt for installed PWAs.

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#05060a" />
+    <meta
+      name="description"
+      content="Memory Pak is an offline-first game collection tracker."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/favicon.ico" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <title>Memory Pak</title>
+    <style>
+      html,
+      body,
+      canvas {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #05060a;
+      }
+      canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+      }
+      #update-prompt {
+        position: fixed;
+        z-index: 10;
+        right: max(12px, env(safe-area-inset-right));
+        bottom: max(12px, env(safe-area-inset-bottom));
+        display: none;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 12px;
+        border: 1px solid #8fb4ff;
+        border-radius: 5px;
+        color: #e8ebf2;
+        background: #0a0c12f2;
+        font: 12px monospace;
+      }
+      #update-prompt button {
+        border: 1px solid #8fb4ff;
+        border-radius: 3px;
+        padding: 7px 10px;
+        color: white;
+        background: #8fb4ff22;
+        font: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="update-prompt">
+      <span>A new Memory Pak build is ready.</span>
+      <button type="button">UPDATE</button>
+    </div>
+    <script type="module">
+      import init from "./pkg/memory_pak.js";
+      await init();
+      if ("serviceWorker" in navigator) {
+        const registration = await navigator.serviceWorker.register("./sw.js");
+        const prompt = document.querySelector("#update-prompt");
+        const showUpdate = (worker) => {
+          prompt.style.display = "flex";
+          prompt.querySelector("button").onclick = () => {
+            worker.postMessage({ type: "SKIP_WAITING" });
+          };
+        };
+        if (registration.waiting) showUpdate(registration.waiting);
+        registration.addEventListener("updatefound", () => {
+          const worker = registration.installing;
+          worker?.addEventListener("statechange", () => {
+            if (worker.state === "installed" && navigator.serviceWorker.controller) {
+              showUpdate(worker);
+            }
+          });
+        });
+        let reloading = false;
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          if (!reloading) {
+            reloading = true;
+            location.reload();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

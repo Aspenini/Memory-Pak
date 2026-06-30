@@ -1,0 +1,595 @@
+import {
+    Button,
+    ComboBox,
+    LineEdit,
+    ListView,
+    ProgressIndicator,
+    TextEdit,
+    VerticalBox,
+    HorizontalBox
+} from "std-widgets.slint";
+
+export struct UiRow {
+    id: string,
+    title: string,
+    subtitle: string,
+    mobile-subtitle: string,
+    meta: string,
+    mobile-meta: string,
+    note: string,
+    kind: string,
+    owned: bool,
+    favorite: bool,
+    wishlist: bool,
+}
+
+export struct UiStats {
+    owned: int,
+    favorite: int,
+    wishlist: int,
+    total: int,
+}
+
+component StatusButton inherits Rectangle {
+    in property <string> label;
+    in property <string> symbol;
+    in property <bool> active;
+    in property <brush> active-color;
+    callback clicked;
+    height: 34px;
+    min-width: 76px;
+    border-width: 1px;
+    border-color: active ? active-color : #50576a88;
+    border-radius: 4px;
+    background: active ? active-color.with-alpha(0.13) : #05060ad9;
+
+    HorizontalLayout {
+        padding-left: 9px;
+        padding-right: 9px;
+        spacing: 6px;
+        alignment: center;
+        Text {
+            text: root.symbol;
+            color: root.active ? root.active-color : #a5adbd;
+            font-size: 15px;
+        }
+        Text {
+            text: root.label;
+            color: root.active ? root.active-color : #a5adbd;
+            font-size: 11px;
+            font-weight: 700;
+        }
+    }
+    TouchArea { clicked => { root.clicked(); } }
+}
+
+component DesktopRow inherits Rectangle {
+    in property <UiRow> data;
+    callback toggle(string, int);
+    callback notes(string, string);
+    height: 178px;
+    border-width: 1px;
+    border-color: data.wishlist ? #c084fc88 : data.favorite ? #f2c86699 : data.owned ? #7dd3fc99 : #50576a55;
+    border-radius: 6px;
+    background: #0a0c12f0;
+
+    VerticalLayout {
+        padding: 14px;
+        spacing: 9px;
+        HorizontalLayout {
+            spacing: 12px;
+            VerticalLayout {
+                spacing: 3px;
+                Text {
+                    text: data.title;
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 700;
+                    overflow: elide;
+                }
+                Text {
+                    text: data.subtitle;
+                    color: #a5adbd;
+                    font-size: 12px;
+                    overflow: elide;
+                }
+                Text {
+                    text: data.meta;
+                    color: #8fb4ff;
+                    font-size: 11px;
+                    overflow: elide;
+                }
+            }
+            HorizontalLayout {
+                spacing: 6px;
+                StatusButton {
+                    label: "OWNED";
+                    symbol: "✓";
+                    active: data.owned;
+                    active-color: #7dd3fc;
+                    clicked => { root.toggle(data.id, 0); }
+                }
+                StatusButton {
+                    label: "FAVORITE";
+                    symbol: "☆";
+                    active: data.favorite;
+                    active-color: #f2c866;
+                    clicked => { root.toggle(data.id, 1); }
+                }
+                StatusButton {
+                    label: "WISHLIST";
+                    symbol: "♡";
+                    active: data.wishlist;
+                    active-color: #c084fc;
+                    clicked => { root.toggle(data.id, 2); }
+                }
+            }
+        }
+        TextEdit {
+            text: data.note;
+            placeholder-text: "NOTES";
+            edited => { root.notes(data.id, self.text); }
+        }
+    }
+}
+
+component MobileRow inherits Rectangle {
+    in property <UiRow> data;
+    in property <bool> short;
+    callback open(UiRow);
+    height: short ? 88px : 104px;
+    border-width: 1px;
+    border-color: data.wishlist ? #c084fc88 : data.favorite ? #f2c86699 : data.owned ? #7dd3fc99 : #50576a55;
+    border-radius: 6px;
+    background: #0a0c12ee;
+
+    VerticalLayout {
+        padding: 12px;
+        spacing: 4px;
+        HorizontalLayout {
+            Text {
+                text: data.title;
+                color: white;
+                font-size: 15px;
+                font-weight: 700;
+                overflow: elide;
+            }
+            Text {
+                text: (data.owned ? "✓ " : "⌄ ") + (data.favorite ? "☆ " : "") + (data.wishlist ? "♡" : "");
+                color: data.favorite ? #f2c866 : data.wishlist ? #c084fc : data.owned ? #7dd3fc : #747d90;
+                horizontal-alignment: right;
+            }
+        }
+        Text { text: data.mobile-subtitle; color: #a5adbd; font-size: 12px; overflow: elide; }
+        Text { text: data.mobile-meta; color: #8fb4ff; font-size: 11px; overflow: elide; }
+        Text {
+            visible: !root.short && data.note != "";
+            text: "Note: " + data.note;
+            color: #e8ebf2;
+            font-size: 10px;
+            overflow: elide;
+        }
+    }
+    TouchArea { clicked => { root.open(data); } }
+}
+
+component NavButton inherits Rectangle {
+    in property <string> label;
+    in property <string> icon;
+    in property <int> count;
+    in property <bool> active;
+    callback clicked;
+    height: 50px;
+    border-width: 1px;
+    border-color: active ? #8fb4ffaa : #50576a66;
+    border-radius: 5px;
+    background: active ? #8fb4ff14 : #0a0c1288;
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 12px;
+        spacing: 10px;
+        alignment: center;
+        Text { text: root.icon; color: active ? #8fb4ff : #a5adbd; font-size: 18px; }
+        Text { text: root.label; color: active ? white : #d2d7e2; font-size: 13px; }
+        Text {
+            text: root.count;
+            color: active ? #f2c866 : #747d90;
+            font-size: 11px;
+            horizontal-alignment: right;
+        }
+    }
+    TouchArea { clicked => { root.clicked(); } }
+}
+
+component BottomNavButton inherits Rectangle {
+    in property <string> label;
+    in property <string> icon;
+    in property <bool> active;
+    callback clicked;
+    height: 56px;
+    border-width: 1px;
+    border-color: active ? #8fb4ffaa : transparent;
+    border-radius: 5px;
+    background: active ? #8fb4ff14 : transparent;
+    VerticalLayout {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        spacing: 2px;
+        alignment: center;
+        Text {
+            text: root.icon;
+            color: active ? #8fb4ff : #a5adbd;
+            font-size: 17px;
+            horizontal-alignment: center;
+        }
+        Text {
+            text: root.label;
+            color: active ? white : #d2d7e2;
+            font-size: 10px;
+            horizontal-alignment: center;
+            overflow: elide;
+        }
+    }
+    TouchArea { clicked => { root.clicked(); } }
+}
+
+component FilterButton inherits Rectangle {
+    in property <string> label;
+    in property <bool> active;
+    callback clicked;
+    height: 38px;
+    border-width: active ? 1px : 0px;
+    border-color: #f2c86699;
+    border-radius: 4px;
+    background: active ? #f2c8662b : transparent;
+    Text {
+        text: root.label;
+        color: active ? #f2c866 : #a5adbd;
+        font-size: 11px;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+    TouchArea { clicked => { root.clicked(); } }
+}
+
+export component AppWindow inherits Window {
+    title: "Memory Pak";
+    preferred-width: 1200px;
+    preferred-height: 800px;
+    min-width: 360px;
+    min-height: root.native-desktop ? 600px : 360px;
+    background: #05060a;
+    no-frame: root.native-desktop;
+    resize-border-width: root.native-desktop ? 5px : 0px;
+    default-font-family: "monospace";
+
+    in property <bool> native-desktop: false;
+    in property <[UiRow]> rows;
+    in property <UiStats> stats;
+    in property <int> console-count;
+    in property <int> game-count;
+    in property <int> collectible-count;
+    in property <int> shown-count;
+    in property <[string]> sort-options;
+    in property <[string]> group-options;
+    in property <string> error-message;
+    in-out property <string> update-message;
+    in-out property <bool> update-ready: false;
+    in-out property <int> active-tab: 0;
+    in-out property <int> active-filter: 0;
+    in-out property <int> sort-index: 0;
+    in-out property <int> group-index: 0;
+    in-out property <string> search-text;
+    in-out property <bool> detail-open: false;
+    in-out property <UiRow> detail-data;
+
+    in-out property <bool> compact: false;
+    in-out property <bool> short-screen: false;
+    property <string> active-title: active-tab == 0 ? "Consoles" : active-tab == 1 ? "Games" : "Collectibles";
+
+    callback tab-selected(int);
+    callback search-changed(string);
+    callback filter-selected(int);
+    callback sort-selected(int);
+    callback group-selected(int);
+    callback toggle-status(string, int);
+    callback save-notes(string, string);
+    callback backup;
+    callback restore;
+    callback check-updates;
+    callback install-update;
+    callback window-drag;
+    callback window-minimize;
+    callback window-maximize;
+    callback window-close;
+
+    VerticalLayout {
+        spacing: 0px;
+        if root.native-desktop && !root.compact: Rectangle {
+            height: 36px;
+            background: #05060af7;
+            border-width: 1px;
+            border-color: #50576a66;
+            HorizontalLayout {
+                padding-left: 12px;
+                spacing: 8px;
+                Text { text: "[MP]"; color: #f2c866; vertical-alignment: center; }
+                Text { text: "MEMORY PAK"; color: white; font-size: 11px; vertical-alignment: center; }
+                Rectangle { TouchArea { pointer-event(event) => { if event.button == PointerEventButton.left && event.kind == PointerEventKind.down { root.window-drag(); } } } }
+                Button { text: "—"; width: 42px; clicked => { root.window-minimize(); } }
+                Button { text: "□"; width: 42px; clicked => { root.window-maximize(); } }
+                Button { text: "×"; width: 42px; clicked => { root.window-close(); } }
+            }
+        }
+
+        HorizontalLayout {
+            spacing: 0px;
+            if !root.compact: Rectangle {
+                width: 276px;
+                background: #05060af2;
+                border-width: 1px;
+                border-color: #50576a66;
+                VerticalLayout {
+                    padding: 16px;
+                    spacing: 10px;
+                    HorizontalLayout {
+                        height: 58px;
+                        spacing: 10px;
+                        Text { text: "[MP]"; color: #f2c866; font-size: 18px; vertical-alignment: center; }
+                        Text { text: "MEMORY PAK"; color: white; font-size: 15px; font-weight: 700; vertical-alignment: center; }
+                    }
+                    NavButton { label: "CONSOLES"; icon: "[]"; count: root.console-count; active: root.active-tab == 0; clicked => { root.tab-selected(0); } }
+                    NavButton { label: "GAMES"; icon: "+"; count: root.game-count; active: root.active-tab == 1; clicked => { root.tab-selected(1); } }
+                    NavButton { label: "COLLECTIBLES"; icon: "<>"; count: root.collectible-count; active: root.active-tab == 2; clicked => { root.tab-selected(2); } }
+                    Rectangle { }
+                    VerticalLayout {
+                        height: 158px;
+                        spacing: 7px;
+                        Button { text: "R  UPDATES"; clicked => { root.check-updates(); } }
+                        Button { text: "v  BACKUP"; clicked => { root.backup(); } }
+                        Button { text: "^  RESTORE"; clicked => { root.restore(); } }
+                    }
+                    Text { text: "v0.3"; color: #747d90; font-size: 10px; }
+                }
+            }
+
+            VerticalLayout {
+                padding: root.compact ? 12px : 16px;
+                spacing: 12px;
+
+                Rectangle {
+                    height: root.compact ? (root.short-screen ? 48px : 58px) : 90px;
+                    border-width: root.compact ? 0px : 1px;
+                    border-color: #50576a88;
+                    border-radius: 6px;
+                    background: root.compact ? transparent : #0a0c12dd;
+                    HorizontalLayout {
+                        padding: root.compact ? 0px : 14px;
+                        VerticalLayout {
+                            spacing: 4px;
+                            Text {
+                                text: root.active-title;
+                                color: white;
+                                font-size: root.compact ? 19px : 24px;
+                                font-weight: 700;
+                            }
+                            Text {
+                                text: root.shown-count + " shown  ·  " + root.stats.owned + " owned  ·  " + root.stats.favorite + " favorite";
+                                color: #a5adbd;
+                                font-size: 11px;
+                            }
+                            Rectangle {
+                                height: 5px;
+                                border-width: 1px;
+                                border-color: #50576a66;
+                                background: #020308;
+                                Rectangle {
+                                    width: root.stats.total > 0 ? parent.width * root.stats.owned / root.stats.total : 0px;
+                                    background: #7dd3fc;
+                                }
+                            }
+                        }
+                        if !root.compact: HorizontalLayout {
+                            spacing: 8px;
+                            Text { text: "✓ " + root.stats.owned + " OWNED"; color: #7dd3fc; vertical-alignment: center; }
+                            Text { text: "☆ " + root.stats.favorite + " FAVORITE"; color: #f2c866; vertical-alignment: center; }
+                            Text { text: "♡ " + root.stats.wishlist + " WISHLIST"; color: #c084fc; vertical-alignment: center; }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: root.compact
+                        ? (root.short-screen
+                            ? (root.active-tab == 0 ? 112px : 150px)
+                            : (root.active-tab == 0 ? 142px : 190px))
+                        : 126px;
+                    border-width: root.compact ? 0px : 1px;
+                    border-color: #50576a88;
+                    border-radius: 6px;
+                    background: root.compact ? transparent : #0a0c12dd;
+                    VerticalLayout {
+                        padding: root.compact ? 0px : 12px;
+                        spacing: 8px;
+                        HorizontalLayout {
+                            spacing: 9px;
+                            LineEdit {
+                                text <=> root.search-text;
+                                placeholder-text: "SEARCH COLLECTION";
+                                edited => { root.search-changed(self.text); }
+                            }
+                            if !root.compact: ComboBox {
+                                width: 200px;
+                                model: root.sort-options;
+                                current-index <=> root.sort-index;
+                                selected(value) => { root.sort-selected(self.current-index); }
+                            }
+                            if !root.compact && root.active-tab != 0: ComboBox {
+                                width: 210px;
+                                model: root.group-options;
+                                current-index <=> root.group-index;
+                                selected(value) => { root.group-selected(self.current-index); }
+                            }
+                        }
+                        HorizontalLayout {
+                            spacing: 3px;
+                            FilterButton { label: "All"; active: root.active-filter == 0; clicked => { root.filter-selected(0); } }
+                            FilterButton { label: "Owned"; active: root.active-filter == 1; clicked => { root.filter-selected(1); } }
+                            FilterButton { label: root.compact ? "Fav" : "Favorites"; active: root.active-filter == 2; clicked => { root.filter-selected(2); } }
+                            FilterButton { label: root.compact ? "Wish" : "Wishlist"; active: root.active-filter == 3; clicked => { root.filter-selected(3); } }
+                            FilterButton { label: root.compact ? "Missing" : "Not owned"; active: root.active-filter == 4; clicked => { root.filter-selected(4); } }
+                        }
+                        if root.compact: HorizontalLayout {
+                            spacing: 7px;
+                            ComboBox {
+                                model: root.sort-options;
+                                current-index <=> root.sort-index;
+                                selected(value) => { root.sort-selected(self.current-index); }
+                            }
+                            if root.active-tab != 0: ComboBox {
+                                model: root.group-options;
+                                current-index <=> root.group-index;
+                                selected(value) => { root.group-selected(self.current-index); }
+                            }
+                        }
+                    }
+                }
+
+                if root.error-message != "": Rectangle {
+                    height: 46px;
+                    border-width: 1px;
+                    border-color: #ff6f91;
+                    background: #ff6f911f;
+                    Text {
+                        text: root.error-message;
+                        color: #ff9db4;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+
+                if root.update-message != "": Rectangle {
+                    height: 46px;
+                    border-width: 1px;
+                    border-color: #8fb4ff;
+                    background: #8fb4ff1f;
+                    HorizontalLayout {
+                        padding-left: 12px;
+                        padding-right: 7px;
+                        Text {
+                            text: root.update-message;
+                            color: #b8cdff;
+                            vertical-alignment: center;
+                            overflow: elide;
+                        }
+                        if root.update-ready: Button {
+                            text: "INSTALL";
+                            width: 92px;
+                            clicked => { root.install-update(); }
+                        }
+                    }
+                }
+
+                if root.shown-count == 0: Rectangle {
+                    height: 120px;
+                    border-width: 1px;
+                    border-color: #50576a88;
+                    border-radius: 6px;
+                    background: #0a0c12dd;
+                    VerticalLayout {
+                        alignment: center;
+                        spacing: 6px;
+                        Text {
+                            text: "NO MATCHING ENTRIES";
+                            color: #e8ebf2;
+                            font-size: 14px;
+                            horizontal-alignment: center;
+                        }
+                        Text {
+                            text: "Change the search, filter, or group.";
+                            color: #747d90;
+                            font-size: 11px;
+                            horizontal-alignment: center;
+                        }
+                    }
+                }
+
+                ListView {
+                    for data in root.rows: VerticalLayout {
+                        padding-bottom: 8px;
+                        if root.compact: MobileRow {
+                            data: data;
+                            short: root.short-screen;
+                            open(value) => {
+                                root.detail-data = value;
+                                root.detail-open = true;
+                            }
+                        }
+                        if !root.compact: DesktopRow {
+                            data: data;
+                            toggle(id, field) => { root.toggle-status(id, field); }
+                            notes(id, value) => { root.save-notes(id, value); }
+                        }
+                    }
+                }
+            }
+        }
+
+        if root.compact: Rectangle {
+            height: root.short-screen ? 60px : 68px;
+            border-width: 1px;
+            border-color: #50576a88;
+            background: #05060af7;
+            HorizontalLayout {
+                padding: 5px;
+                spacing: 7px;
+                BottomNavButton { label: "Consoles"; icon: "[]"; active: root.active-tab == 0; clicked => { root.tab-selected(0); } }
+                BottomNavButton { label: "Games"; icon: "+"; active: root.active-tab == 1; clicked => { root.tab-selected(1); } }
+                BottomNavButton { label: "Collectibles"; icon: "<>"; active: root.active-tab == 2; clicked => { root.tab-selected(2); } }
+            }
+        }
+    }
+
+    if root.detail-open: Rectangle {
+        background: #00000099;
+        TouchArea { clicked => { root.detail-open = false; } }
+        Rectangle {
+            x: 0px;
+            y: parent.height - min(520px, parent.height * 0.78);
+            width: parent.width;
+            height: min(520px, parent.height * 0.78);
+            background: #0b0d13;
+            border-width: 1px;
+            border-color: #747d90;
+            border-radius: 15px;
+            VerticalLayout {
+                padding: 16px;
+                spacing: 12px;
+                HorizontalLayout {
+                    VerticalLayout {
+                        Text { text: root.detail-data.title; color: white; font-size: 19px; font-weight: 700; }
+                        Text { text: root.detail-data.subtitle; color: #a5adbd; font-size: 12px; }
+                    }
+                    Button { text: "×"; width: 42px; clicked => { root.detail-open = false; } }
+                }
+                HorizontalLayout {
+                    spacing: 6px;
+                    StatusButton { label: "OWNED"; symbol: "✓"; active: root.detail-data.owned; active-color: #7dd3fc; clicked => { root.toggle-status(root.detail-data.id, 0); } }
+                    StatusButton { label: "FAVORITE"; symbol: "☆"; active: root.detail-data.favorite; active-color: #f2c866; clicked => { root.toggle-status(root.detail-data.id, 1); } }
+                    StatusButton { label: "WISHLIST"; symbol: "♡"; active: root.detail-data.wishlist; active-color: #c084fc; clicked => { root.toggle-status(root.detail-data.id, 2); } }
+                }
+                Text { text: "STATS"; color: #a5adbd; font-size: 11px; font-weight: 700; }
+                Text { text: root.detail-data.meta; color: #8fb4ff; font-size: 12px; }
+                Text { text: "NOTES"; color: #a5adbd; font-size: 11px; font-weight: 700; }
+                notes-editor := TextEdit { text: root.detail-data.note; placeholder-text: "No notes"; }
+                Button {
+                    text: "SAVE";
+                    clicked => {
+                        root.save-notes(root.detail-data.id, notes-editor.text);
+                        root.detail-open = false;
+                    }
+                }
+            }
+        }
+    }
+}
